@@ -1,4 +1,5 @@
 import { Options } from "./Options";
+import { Orientation } from "./Orientation";
 
 export class SliderModel {
     private _min: number = 0;
@@ -9,39 +10,66 @@ export class SliderModel {
     private _value: number = 0;
     private _values: number[] = [0, 100];
     private _range: boolean = false;
-    private _orientation: string = 'horizontal';
+    private _orientation: Orientation = Orientation.Horizontal;
     private _showLables: boolean = false;
 
     constructor(props: Options) {
-        this._min = props.min ? props.min : this._min;
-        this._max = props.max ? props.max : this._max;
+        let min: number = props.min ? props.min : this._min;
+        let max: number = props.max ? props.max : this._max;
+        this.minMax = [min, max];
+        this.value = props.value ? props.value : this._value;
         this._step = props.step ? props.step : this._step;
-        this._value = props.value ? props.value : this._value;
         this._values = props.values ? props.values : this._values;
         this._showLables = props.showLabels ? props.showLabels : this._showLables;
         this._orientation = props.orientation ? props.orientation : this._orientation;
         this._range = props.range ? props.range : this._range;
 
-        this.init();
     }
 
-    private init(): void {
-        if (this._min > this._max) {
-            let tmpMax: number = this._max;
-            this._max = this._min;
-            this._min = tmpMax;
+    
+
+    get minMax(): number[] {
+        return [this._min, this._max];
+    }
+
+    set minMax(value: number[]) {
+        if (value[0] < value[1]) {
+            this._min = value[0];
+            this._max = value[1];
+        } else {
+            throw new Error('Min should be less then Max.');
         }
+    }
 
-        if (this._value > this._max || this._value < this._min) {
-            this._value = this._min;
+    get position(): number {
+        return this._position;
+    }
+
+    get positions(): number[] {
+        return this._positions;
+    }
+
+    get value(): number {
+        return this._value;
+    }
+
+    set value(value: number) {
+        if (this._min >= value && this._max >= value) {
+            this._value = value;
+        } else {
+            throw new Error('New value should be between min and max.');
         }
     }
 
-    get min(): number {
-        return this._min;
+    get step(): number {
+        return this._step;
     }
 
-    get max(): number {
-        return this._max;
+    set step(value: number) {
+        if (value <= this._max) {
+            this._step = value;
+        } else {
+            throw new Error('Step should be between min and max.');
+        }
     }
 }
