@@ -32,13 +32,38 @@ describe('Tests for SliderModel class', function() {
             max: 200,
         });
 
-        it('if step more max, to throw Error', function () {
+        it('if step more then max, to throw Error', function () {
             expect(() => model.step = 201).to.throw();
         });
 
         it('is correct #set step', function () {
             model.step = 2;
             expect(model.step).to.equal(2);
+        });
+    });
+
+
+    describe('#get/set position', function() {
+        let model: SliderModel = new SliderModel({
+            step: 1,
+            min: 100,
+            max: 500,
+            value: 101,
+        });
+
+        it('if set position less then 0, then it will become equal to 0', function() {
+            model.position = -1;
+            expect(model.position).to.equal(0);
+        });
+
+        it('if set position more then 1, then it will become equal to 1', function() {
+            model.position = 2;
+            expect(model.position).to.equal(1);
+        });
+
+        it('set position shoud be set correct value', function() {
+            model.position = .5;
+            expect(model.value).to.equal(300);
         });
     });
 });
