@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register test/*",
+    "test": "mocha -r ts-node/register test/**/*.spec.ts",
     "serv": "webpack-dev-server"
   },
   "author": "Vladimir",
