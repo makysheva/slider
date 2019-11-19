@@ -151,6 +151,34 @@ export class SliderModel {
         }
     }
 
+    /**
+     * 
+     */
+    get orientation(): Orientation {
+        return this._orientation;
+    }
+
+    /**
+     * 
+     */
+    set orientation(orientation: Orientation) {
+        this._orientation = orientation;
+    }
+
+    /**
+     * 
+     */
+    get labels(): boolean {
+        return this._showLables;
+    }
+
+    /**
+     * 
+     */
+    set labels(labels: boolean) {
+        this._showLables = labels;
+    }
+
     private checkRange() {
         if (!this._range) {
             throw new Error('This is single marker slider.');
