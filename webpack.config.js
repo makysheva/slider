@@ -1,5 +1,6 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
     entry: './src/main.ts',
@@ -33,7 +34,11 @@ module.exports = {
     plugins: [
         new htmlWebpackPlugin({
             template: 'src/example/index.pug'
-        })
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
+        }),
     ],
 
     devServer: {
