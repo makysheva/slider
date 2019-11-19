@@ -1,37 +1,54 @@
 import { Options } from "./Options";
 import { Orientation } from "./Orientation";
+import { MarkerModel } from "./MarkerModel";
 
 export class SliderModel {
     private _min: number = 0;
     private _max: number = 100;
     private _step: number = 1;
-    private _position: number = 0;
-    private _positions: number[] = [0, 1];
-    private _value: number = 0;
-    private _values: number[] = [0, 100];
+    private _singleMarker: MarkerModel;
     private _range: boolean = false;
     private _orientation: Orientation = Orientation.Horizontal;
     private _showLables: boolean = false;
+    private _rangeMarkers: MarkerModel[];
 
+    /**
+     * 
+     * @param props 
+     */
     constructor(props: Options) {
         let min: number = props.min ? props.min : this._min;
         let max: number = props.max ? props.max : this._max;
         this.minMax = [min, max];
-        this.value = props.value ? props.value : this.minMax[0];
-        this._step = props.step ? props.step : this._step;
-        this._values = props.values ? props.values : this._values;
-        this._showLables = props.showLabels ? props.showLabels : this._showLables;
-        this._orientation = props.orientation ? props.orientation : this._orientation;
         this._range = props.range ? props.range : this._range;
 
+        if (this._range) {
+            this._rangeMarkers = [
+                new MarkerModel(this, 0),
+                new MarkerModel(this, 100)
+            ];
+        } else {
+            let value: number = props.value ? props.value : 0;
+            this._singleMarker = new MarkerModel(this, value);
+        }
+        
+        
+        this._step = props.step ? props.step : this._step;
+        this._showLables = props.showLabels ? props.showLabels : this._showLables;
+        this._orientation = props.orientation ? props.orientation : this._orientation;
     }
 
     
-
+    /**
+     * 
+     */
     get minMax(): number[] {
         return [this._min, this._max];
     }
 
+    /**
+     * 
+     */
     set minMax(value: number[]) {
         if (value[0] < value[1]) {
             this._min = value[0];
@@ -41,26 +58,33 @@ export class SliderModel {
         }
     }
 
-    get positions(): number[] {
-        return this._positions;
-    }
-
+    /**
+     * 
+     */
     get value(): number {
-        return this._value;
+        return this._singleMarker.value;
     }
 
+    /**
+     * 
+     */
     set value(value: number) {
-        if (this._min <= value && this._max >= value) {
-            this._value = value;
-        } else {
-            throw new Error('New value should be between min and max.');
+        if (this._range) {
+            throw new Error('Range slider have multiple values.');
         }
+        this._singleMarker.value = value;
     }
 
+    /**
+     * 
+     */
     get step(): number {
         return this._step;
     }
 
+    /**
+     * 
+     */
     set step(value: number) {
         if (value <= this._max) {
             this._step = value;
@@ -69,21 +93,41 @@ export class SliderModel {
         }
     }
 
+    /**
+     * 
+     */
     get position(): number {
-        return this._position;
+        return this._singleMarker.position;
     }
 
+    /**
+     * 
+     */
     set position(value: number) {
-        if (value < 0) {
-            value = 0;
+        this._singleMarker.position = value;
+    }
+
+    /**
+     * 
+     */
+    get positions(): number[] {
+        return [this._rangeMarkers[0].position, this._rangeMarkers[1].position];
+    }
+
+    /**
+     * 
+     */
+    set positions(pos: number[]) {
+        if (!this._range) {
+            throw new Error('This is single marker slider.');
         }
 
-        if (value > 1) {
-            value = 1;
+        if (pos[0]) {
+            this._rangeMarkers[0].position = pos[0];
         }
-        
-        this.value = (value * (this._max - this._min)) + this._min;
-        let stepPos: number = Math.round((this.value - this._min) / this._step);
-        this._position = stepPos * this._step / (this._max - this._min);
+
+        if (pos[1]) {
+            this._rangeMarkers[1].position = pos[1];
+        }
     }
 }

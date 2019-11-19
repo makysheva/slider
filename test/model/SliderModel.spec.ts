@@ -18,10 +18,14 @@ describe('Tests for SliderModel class', function() {
     });
 
     describe('#set value', function() {
-        let model: SliderModel = new SliderModel({});
-
-        it('if set value more or less then min/max, to throw Error', function () {
+            it('if set value more or less then min/max, to throw Error', function () {
+            let model: SliderModel = new SliderModel({});
             expect(() => model.value = 300).to.throw();
+        });
+
+        it('If range is true, #setValue function must be throw an Error.', function() {
+            let model: SliderModel = new SliderModel({range: true});
+            expect(() => model.value = 0).to.throw('Range slider have multiple values.');
         });
     });
 
@@ -51,19 +55,31 @@ describe('Tests for SliderModel class', function() {
             value: 101,
         });
 
-        it('if set position less then 0, then it will become equal to 0', function() {
-            model.position = -1;
-            expect(model.position).to.equal(0);
+        it('if set position less then 0, then it will throw Error', function() {
+            expect(() => model.position = -1).to.throw();
         });
 
-        it('if set position more then 1, then it will become equal to 1', function() {
-            model.position = 2;
-            expect(model.position).to.equal(1);
+        it('if set position more then 1, then it will throw Error', function() {
+            expect(() => model.position = 2).to.throw();
         });
 
         it('set position shoud be set correct value', function() {
             model.position = .5;
             expect(model.value).to.equal(300);
+        });
+    });
+
+
+    describe('#get/set multiple positions for range slider', function() {
+        it('if slider is single marker, then throw Error', function() {
+            let model: SliderModel = new SliderModel({range: false});
+            expect(() => model.positions = []).to.throw('This is single marker slider.');
+        });
+
+        it('range slider must correct set positions', function() {
+            let model: SliderModel = new SliderModel({ range: true });
+            model.positions = [0, 1];
+            expect(model.positions).to.eql([0, 1]);
         });
     });
 });
