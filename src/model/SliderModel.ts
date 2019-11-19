@@ -78,6 +78,28 @@ export class SliderModel {
     /**
      * 
      */
+    get values(): number[] {
+        return [this._rangeMarkers[0].value, this._rangeMarkers[1].value];
+    }
+
+    /**
+     * 
+     */
+    set values(val: number[]) {
+        this.checkRange();
+
+        if (val[0]) {
+            this._rangeMarkers[0].value = val[0];
+        }
+        
+        if (val[1]) {
+            this._rangeMarkers[1].value = val[1];
+        }
+    }
+
+    /**
+     * 
+     */
     get step(): number {
         return this._step;
     }
@@ -118,9 +140,7 @@ export class SliderModel {
      * 
      */
     set positions(pos: number[]) {
-        if (!this._range) {
-            throw new Error('This is single marker slider.');
-        }
+        this.checkRange();
 
         if (pos[0]) {
             this._rangeMarkers[0].position = pos[0];
@@ -128,6 +148,12 @@ export class SliderModel {
 
         if (pos[1]) {
             this._rangeMarkers[1].position = pos[1];
+        }
+    }
+
+    private checkRange() {
+        if (!this._range) {
+            throw new Error('This is single marker slider.');
         }
     }
 }

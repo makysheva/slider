@@ -82,4 +82,17 @@ describe('Tests for SliderModel class', function() {
             expect(model.positions).to.eql([0, 1]);
         });
     });
+
+    describe('#get/set multiple values for range slider', function () {
+        it('if slider is single marker, then throw Error', function () {
+            let model: SliderModel = new SliderModel({ range: false });
+            expect(() => model.values = []).to.throw('This is single marker slider.');
+        });
+
+        it('range slider must correct set values', function () {
+            let model: SliderModel = new SliderModel({ range: true });
+            model.values = [5, 10];
+            expect(model.values).to.eql([5, 10]);
+        });
+    });
 });
