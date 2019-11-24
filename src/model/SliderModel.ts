@@ -21,6 +21,9 @@ export class SliderModel {
         let max: number = props.max ? props.max : this._max;
         this.minMax = [min, max];
         this._range = props.range ? props.range : this._range;
+        this._step = props.step ? props.step : this._step;
+        this._showLables = props.showLabels ? props.showLabels : this._showLables;
+        this._orientation = props.orientation ? props.orientation : this._orientation;
 
         if (this._range) {
             this._rangeMarkers = [
@@ -28,14 +31,9 @@ export class SliderModel {
                 new MarkerModel(this, 100)
             ];
         } else {
-            let value: number = props.value ? props.value : 0;
+            let value: number = props.value ? props.value : min;
             this._singleMarker = new MarkerModel(this, value);
         }
-        
-        
-        this._step = props.step ? props.step : this._step;
-        this._showLables = props.showLabels ? props.showLabels : this._showLables;
-        this._orientation = props.orientation ? props.orientation : this._orientation;
     }
 
     

@@ -37,24 +37,24 @@ export class MarkerModel {
         let max: number = this._slider.minMax[1];
         let step: number = this._slider.step;
 
-        this._value = this.calculateValue(pos, min, max);
-        let roundedPosition: number = this.roundPositionByStep(this._value, min, step);
-        this._position = this.calculatePosition(roundedPosition, step, min, max);
-    }
-
-    private calculateValue(pos: number, min: number, max: number): number {
-        return (pos * (max - min)) + min;
-    }
-
-    private roundPositionByStep(pos: number, min: number, step: number): number {
-        return Math.round((pos - min) / step);
-    }
-
-    private calculatePosition(pos: number, step: number, min: number, max: number): number {
-        return pos * step / (max - min);
+        let val: number = (max - min) * pos + min;
+        this._value = this.round(val, step, step);
+        this.setPositionByValue(this._value);
     }
 
     private setPositionByValue(val: number): void {
-        this._position = val / (this._slider.minMax[0] + this._slider.minMax[1]);
+        let newPos: number = (val - this._slider.minMax[0]) / (this._slider.minMax[1] - this._slider.minMax[0]);
+        if (newPos < 0) {
+            this._position = 0;
+        } else if (newPos > 1) {
+            this._position = 1;
+        } else {
+            this._position = newPos;
+        }
+
     } 
+
+    round(n: number, increment: number, offset: number): number {
+        return Math.round((n - offset) / increment) * increment + offset;
+    }
 }

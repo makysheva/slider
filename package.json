@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.spec.ts",
-    "serv": "webpack-dev-server"
+    "serv": "webpack-dev-server",
+    "build": "webpack --mode development"
   },
   "author": "Vladimir",
   "license": "MIT",
@@ -31,6 +32,7 @@
     "webpack-dev-server": "^3.9.0"
   },
   "dependencies": {
+    "@types/jquery": "^3.3.31",
     "jquery": "^3.4.1"
   }
 }
