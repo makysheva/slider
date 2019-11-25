@@ -6,6 +6,7 @@
 
     &__marker {
         position: absolute;
+        z-index: 5;
         width: 20px;
         height: 20px;
         //border-radius: 50%;
@@ -14,15 +15,24 @@
     }
 
     &__fill {
+        position: absolute;
+        top: 0;
         background-color: purple;
         height: 100%;
-        width: 100%;
+        //width: 100%;
+
+        &--vertical {
+            width: 100%;
+            height: auto;
+            bottom: 0;
+        }
     }
 
     &__label {
         position: absolute;
         border-radius: 50%;
         top: -30px;
+        left: -4px;
         width: 28px;
         height: 28px;
         background-color: blueviolet;
@@ -33,7 +43,7 @@
 
         &--vertical {
             top: 0;
-            right: 30px;
+            left: 30px;
         }
     }
 

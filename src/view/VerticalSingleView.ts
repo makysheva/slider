@@ -14,7 +14,7 @@ export class VerticalSingleView extends SingleView {
     }
 
     protected setFill(position: number): void {
-        (this._fill as HTMLElement).style.height = position + 'px';
+        this._fill.update(0, position, Orientation.Horizontal);
     }
 
     public update(position: number, value: number): void {
@@ -31,8 +31,15 @@ export class VerticalSingleView extends SingleView {
         }
         (this._marker as HTMLElement).style.top = newPosition.toString() + 'px';
         this.setFill(newPosition);
+        this.setLabelPosition(newPosition);
+        this._label.setValue(value);
     }
 
-    
+    private setLabelPosition(position: number) {
+        let markerPivot: number = this._marker.getBoundingClientRect().height / 2;
+        let labelPivot: number = this._label.getHeight() / 2;
+        let pos: number = position + markerPivot - labelPivot;
+        this._label.setPositionY(pos);
+    }
 
 }

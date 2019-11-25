@@ -4,6 +4,7 @@ import { HorizontalSingleView } from "../view/HorizontalSingleView";
 import { Orientation } from "../model/Orientation";
 import { SingleView } from "../view/SingleView";
 import { VerticalSingleView } from "../view/VerticalSingleView";
+import { Slider } from "../view/slider/Slider";
 
 export class SlideController {
     private _model: SliderModel;
@@ -15,11 +16,18 @@ export class SlideController {
         props.max = 10;
         props.step = 1;
         this._model = new SliderModel(props);
+        /*
         this.makeView(parent);
-        this.updatePosition();
+        
         this._view.showLabel();
+        this.updatePosition();
 
         window.addEventListener('resize', this.onResize.bind(this));
+        */
+
+        let view: Slider = new Slider(parent, props.orientation ? props.orientation : Orientation.Horizontal);
+        //view.setVertical();
+        view.update(Orientation.Horizontal, .1);
     }
 
     destroy() {
@@ -38,6 +46,7 @@ export class SlideController {
     move(position: number) {
         this._model.position = position;
         this.updatePosition();
+        
         // emmit onChange event
     }
 

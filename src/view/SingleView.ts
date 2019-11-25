@@ -1,13 +1,14 @@
 import { SlideController } from "../controller/SlideController";
 import { LabelView } from "./label/LabelView";
 import { Orientation } from "../model/Orientation";
+import { FillBar } from "./fill_bar/FillBar";
 
 export abstract class SingleView {
     protected _parent: HTMLElement;
     protected _controller: SlideController;
     protected _slider: HTMLElement;
     protected _marker: Element;
-    protected _fill: Element;
+    protected _fill: FillBar;
     protected _label: LabelView;
     protected _moveHandler: any;
 
@@ -22,11 +23,6 @@ export abstract class SingleView {
         this._marker = document.createElement('div');
         this._marker.classList.add('slider__marker');
         this._slider.appendChild(this._marker);
-
-        this._fill = document.createElement('div');
-        this._fill.classList.add('slider__fill');
-        this._slider.appendChild(this._fill);
-
         this._label = new LabelView(this._slider, orientation);
 
         this._marker.addEventListener('mousedown', this.onMouseDown.bind(this));
@@ -67,8 +63,6 @@ export abstract class SingleView {
     }
 
     protected abstract calculatePosition(event: any): number;
-
-    protected abstract setFill(position: number): void;
 
     protected onMouseUp(event: any) {
         document.removeEventListener('mousemove', this._moveHandler);

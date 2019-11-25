@@ -1,5 +1,6 @@
 import { SingleView } from "./SingleView";
 import { SlideController } from "../controller/SlideController";
+import { Orientation } from "../model/Orientation";
 
 export class HorizontalSingleView extends SingleView {
 
@@ -8,7 +9,7 @@ export class HorizontalSingleView extends SingleView {
     }
 
     protected setFill(position: number): void {
-        (this._fill as HTMLElement).style.width = position + 'px';
+        this._fill.update(0, this._slider.getBoundingClientRect().width - position, Orientation.Horizontal);
     }
 
     public update(position: number, value: number): void {
@@ -28,7 +29,7 @@ export class HorizontalSingleView extends SingleView {
         let markerPivot: number = this._marker.getBoundingClientRect().width / 2;
         let labelPivot: number = this._label.getWidth() / 2;
         let pos: number = position + markerPivot - labelPivot;
-        this._label.setPosition(pos);
+        this._label.setPositionX(pos);
     }
 
     
