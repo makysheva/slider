@@ -1,21 +1,20 @@
 import { SliderModel } from "../model/SliderModel";
 import { Options } from "../model/Options";
-import { HorizontalSingleView } from "../view/HorizontalSingleView";
-import { Orientation } from "../model/Orientation";
-import { SingleView } from "../view/SingleView";
-import { VerticalSingleView } from "../view/VerticalSingleView";
-import { Slider } from "../view/slider/Slider";
+import { Controller } from "./Controller";
 
 export class SlideController {
     private _model: SliderModel;
-    private _view: SingleView;
 
     constructor(parent:HTMLElement, props: Options) {
         //props.orientation = Orientation.Vertical;
-        props.min = 2;
-        props.max = 10;
-        props.step = 1;
+        props.min = 0;
+        props.max = 100;
+        props.step = 10;
+        props.range = true;
+        //props.orientation = Orientation.Vertical;
         this._model = new SliderModel(props);
+        let contr: Controller = new Controller(parent, this._model);
+        //contr.changeOrientation(Orientation.Vertical);
         /*
         this.makeView(parent);
         
@@ -25,11 +24,11 @@ export class SlideController {
         window.addEventListener('resize', this.onResize.bind(this));
         */
 
-        let view: Slider = new Slider(parent, props.orientation ? props.orientation : Orientation.Horizontal);
+        //let view: Slider = new Slider(parent, props.orientation ? props.orientation : Orientation.Horizontal, this);
         //view.setVertical();
-        view.update(Orientation.Horizontal, .1);
+        //view.update(Orientation.Horizontal, .1);
     }
-
+/*
     destroy() {
         this._view.destroy();
     }
@@ -73,5 +72,5 @@ export class SlideController {
                 this._view = new VerticalSingleView(parent, this, Orientation.Vertical);
             break;
         }
-    }
+    }*/
 }

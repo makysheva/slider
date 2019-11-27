@@ -28,6 +28,7 @@ export class FillBar {
         }
     }
 
+
     setHorizontal() {
         this._bar.classList.remove(FillBar.FILL_VERTICAL_CLASS);
     }

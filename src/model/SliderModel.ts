@@ -10,7 +10,7 @@ export class SliderModel {
     private _range: boolean = false;
     private _orientation: Orientation = Orientation.Horizontal;
     private _showLables: boolean = false;
-    private _rangeMarkers: MarkerModel[];
+    private _markers: MarkerModel[];
 
     /**
      * 
@@ -26,13 +26,14 @@ export class SliderModel {
         this._orientation = props.orientation ? props.orientation : this._orientation;
 
         if (this._range) {
-            this._rangeMarkers = [
-                new MarkerModel(this, 0),
-                new MarkerModel(this, 100)
+            this._markers = [
+                new MarkerModel(this, min),
+                new MarkerModel(this, max)
             ];
         } else {
             let value: number = props.value ? props.value : min;
-            this._singleMarker = new MarkerModel(this, value);
+            this._singleMarker = new MarkerModel(this, value); ////////!!!
+            this._markers = [new MarkerModel(this, value)];
         }
     }
 
@@ -63,6 +64,10 @@ export class SliderModel {
         return this._singleMarker.value;
     }
 
+    get range(): boolean {
+        return this._range;
+    }
+
     /**
      * 
      */
@@ -77,7 +82,7 @@ export class SliderModel {
      * 
      */
     get values(): number[] {
-        return [this._rangeMarkers[0].value, this._rangeMarkers[1].value];
+        return [this._markers[0].value, this._markers[1].value];
     }
 
     /**
@@ -87,11 +92,11 @@ export class SliderModel {
         this.checkRange();
 
         if (val[0]) {
-            this._rangeMarkers[0].value = val[0];
+            this._markers[0].value = val[0];
         }
         
         if (val[1]) {
-            this._rangeMarkers[1].value = val[1];
+            this._markers[1].value = val[1];
         }
     }
 
@@ -131,7 +136,7 @@ export class SliderModel {
      * 
      */
     get positions(): number[] {
-        return [this._rangeMarkers[0].position, this._rangeMarkers[1].position];
+        return [this._markers[0].position, this._markers[1].position];
     }
 
     /**
@@ -141,11 +146,11 @@ export class SliderModel {
         this.checkRange();
 
         if (pos[0]) {
-            this._rangeMarkers[0].position = pos[0];
+            this._markers[0].position = pos[0];
         }
 
         if (pos[1]) {
-            this._rangeMarkers[1].position = pos[1];
+            this._markers[1].position = pos[1];
         }
     }
 
@@ -180,6 +185,30 @@ export class SliderModel {
     private checkRange() {
         if (!this._range) {
             throw new Error('This is single marker slider.');
+        }
+    }
+
+
+    ////////////
+    getValue(id: number = 0): number {
+        return this._markers[id].value;
+    }
+
+    setValue(value: number, id: number = 0) {
+        this._markers[id].value = value;
+    }
+
+    getPosition(id: number = 0): number {
+        return this._markers[id].position;
+    }
+
+    setPosition(position: number, id: number = 0) {
+        let oldPos: number = this._markers[id].position;
+
+        this._markers[id].position = position;
+        
+        if (this._range && this._markers[0].value >= this._markers[1].value) {
+            this._markers[id].position = oldPos;
         }
     }
 }
