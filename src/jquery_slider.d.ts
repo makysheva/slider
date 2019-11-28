@@ -1,3 +1,3 @@
 interface JQuery {
-    slider(props: any): void;
+    slider(props: any): any;
 }

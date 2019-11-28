@@ -30,10 +30,14 @@ export class FillBar {
 
 
     setHorizontal() {
+        this._bar.style.top = 'auto';
+        this._bar.style.bottom = 'auto';
         this._bar.classList.remove(FillBar.FILL_VERTICAL_CLASS);
     }
 
     setVertical() {
+        this._bar.style.left = 'auto';
+        this._bar.style.right = 'auto';
         this._bar.classList.add(FillBar.FILL_VERTICAL_CLASS);
     }
 }

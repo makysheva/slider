@@ -11,8 +11,7 @@ export class Slider {
 
     protected _parent: HTMLElement;
     protected _container: HTMLElement;
-    private _marker: Marker;
-    private _rangeMarkers: Marker[];
+    private _markers: Marker[];
     private _fillBar: FillBar;
     private _orientation: Orientation;
 
@@ -33,11 +32,11 @@ export class Slider {
         
         this._fillBar = new FillBar(this._container, orientation);
 
-        this._rangeMarkers = [];
-        this._rangeMarkers.push(new Marker(this._container, this, 0));
+        this._markers = [];
+        this._markers.push(new Marker(this._container, this, 0));
 
         if (isRange) {
-            this._rangeMarkers.push(new Marker(this._container, this, 1));
+            this._markers.push(new Marker(this._container, this, 1));
         }
         
     }
@@ -50,13 +49,16 @@ export class Slider {
         }
         
     }
- 
-    showLabel() {
-        this._marker.showLabel();
-    }
 
-    hideLabel() {
-        this._marker.hideLabel();
+
+    setLabelVisibility(value: boolean) {
+        this._markers.forEach((marker: Marker) => {
+            if (value) {
+                marker.showLabel();
+            } else {
+                marker.hideLabel();
+            }
+        });
     }
 
     changeOrientation(orientation: Orientation) {
@@ -100,8 +102,8 @@ export class Slider {
     private setHorizontal() {
         this._orientation = Orientation.Horizontal;
         this._container.classList.remove(Slider.SLIDER_VERTICAL_CLASS);
-        for (let i = 0; i < this._rangeMarkers.length; i++) {
-            this._rangeMarkers[i].setHorizontal();
+        for (let i = 0; i < this._markers.length; i++) {
+            this._markers[i].setHorizontal();
         }
         
         this._fillBar.setHorizontal();
@@ -110,21 +112,21 @@ export class Slider {
     private setVertical() {
         this._orientation = Orientation.Vertical;
         this._container.classList.add(Slider.SLIDER_VERTICAL_CLASS);
-        for (let i = 0; i < this._rangeMarkers.length; i++) {
-            this._rangeMarkers[i].setVertical();
+        for (let i = 0; i < this._markers.length; i++) {
+            this._markers[i].setVertical();
         }
         this._fillBar.setVertical();
     }
 
     private updateHorizontalPosition(position: number, orientation: Orientation, value: number, id: number) {
-        let sliderLength: number = this._container.getBoundingClientRect().width - this._rangeMarkers[id].getWidht();
+        let sliderLength: number = this._container.getBoundingClientRect().width - this._markers[id].getWidht();
         position = position * sliderLength;
-        this._rangeMarkers[id].setPositionX(position);
-        this._rangeMarkers[id].setValue(value);
+        this._markers[id].setPositionX(position);
+        this._markers[id].setValue(value);
         
-        if (this._rangeMarkers.length > 1) {
-            let left: number = this._rangeMarkers[0].getCenterByX();
-            let right: number = this._rangeMarkers[1].getCenterByX() - this._container.getBoundingClientRect().left;
+        if (this._markers.length > 1) {
+            let left: number = this._markers[0].getCenterByX();
+            let right: number = this._markers[1].getCenterByX() - this._container.getBoundingClientRect().left;
             this._fillBar.update(left - this._container.getBoundingClientRect().left, this._container.getBoundingClientRect().width - right, orientation);
         } else {
             this._fillBar.update(0, this._container.getBoundingClientRect().width - position, orientation);
@@ -132,13 +134,14 @@ export class Slider {
     }
 
     private updateVerticalPosition(position: number, orientation: Orientation, value: number, id: number) {
-        let sliderLength: number = this._container.getBoundingClientRect().height - this._rangeMarkers[id].getHeight();
+        //let offset: number = document.body.getBoundingClientRect().top;
+        let sliderLength: number = this._container.getBoundingClientRect().height - this._markers[id].getHeight();
         position = sliderLength - position * sliderLength;
-        this._rangeMarkers[id].setPositionY(position);
-        this._rangeMarkers[id].setValue(value);
+        this._markers[id].setPositionY(position);
+        this._markers[id].setValue(value);
         
-        if (this._rangeMarkers.length > 1) {
-            let bottom: number = this._rangeMarkers[0].getCenterByY();
+        if (this._markers.length > 1) {
+            let bottom: number = this._markers[0].getCenterByY();
             this._fillBar.update( this._container.getBoundingClientRect().bottom - bottom, position , orientation);
         } else {
             this._fillBar.update(0, position, orientation);

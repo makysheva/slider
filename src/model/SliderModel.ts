@@ -1,12 +1,15 @@
 import { Options } from "./Options";
 import { Orientation } from "./Orientation";
 import { MarkerModel } from "./MarkerModel";
+import { Observer } from "../observer/Observer";
+import { ModelEvents } from "./ModelEvents";
 
 export class SliderModel {
+    private _observers: Observer = new Observer();
+
     private _min: number = 0;
     private _max: number = 100;
     private _step: number = 1;
-    private _singleMarker: MarkerModel;
     private _range: boolean = false;
     private _orientation: Orientation = Orientation.Horizontal;
     private _showLables: boolean = false;
@@ -32,7 +35,6 @@ export class SliderModel {
             ];
         } else {
             let value: number = props.value ? props.value : min;
-            this._singleMarker = new MarkerModel(this, value); ////////!!!
             this._markers = [new MarkerModel(this, value)];
         }
     }
@@ -61,7 +63,7 @@ export class SliderModel {
      * 
      */
     get value(): number {
-        return this._singleMarker.value;
+        return this._markers[0].value;
     }
 
     get range(): boolean {
@@ -75,7 +77,7 @@ export class SliderModel {
         if (this._range) {
             throw new Error('Range slider have multiple values.');
         }
-        this._singleMarker.value = value;
+        this.setValue(value, 0);
     }
 
     /**
@@ -122,14 +124,14 @@ export class SliderModel {
      * 
      */
     get position(): number {
-        return this._singleMarker.position;
+        return this._markers[0].position;
     }
 
     /**
      * 
      */
     set position(value: number) {
-        this._singleMarker.position = value;
+        this.setPosition(value, 0);
     }
 
     /**
@@ -166,6 +168,7 @@ export class SliderModel {
      */
     set orientation(orientation: Orientation) {
         this._orientation = orientation;
+        this._observers.emmit(ModelEvents.changeOrientation, this);
     }
 
     /**
@@ -180,22 +183,17 @@ export class SliderModel {
      */
     set labels(labels: boolean) {
         this._showLables = labels;
-    }
-
-    private checkRange() {
-        if (!this._range) {
-            throw new Error('This is single marker slider.');
-        }
+        this._observers.emmit(ModelEvents.changeLabelVisibility, this);
     }
 
 
-    ////////////
     getValue(id: number = 0): number {
         return this._markers[id].value;
     }
 
     setValue(value: number, id: number = 0) {
         this._markers[id].value = value;
+        this._observers.emmit(ModelEvents.changeValue, this);
     }
 
     getPosition(id: number = 0): number {
@@ -209,6 +207,18 @@ export class SliderModel {
         
         if (this._range && this._markers[0].value >= this._markers[1].value) {
             this._markers[id].position = oldPos;
+        }
+        
+        this._observers.emmit(ModelEvents.changeValue, this);
+    }
+
+    addEventListener(type: ModelEvents, fn: Function) {
+        this._observers.add(type, fn);
+    }
+
+    private checkRange() {
+        if (!this._range) {
+            throw new Error('This is single marker slider.');
         }
     }
 }

@@ -80,7 +80,8 @@ export class Marker {
         }
 
         if (this._slider.getOrientation() == Orientation.Vertical) {
-            pos = 1 - ((event.pageY - this._slider.getY()) / this._slider.getSliderLength());
+            let offset: number = document.body.getBoundingClientRect().top;
+            pos = 1 - ((event.pageY - this._slider.getY() + offset) / this._slider.getSliderLength());
         }
 
         pos = (pos > 1) ? 1 : pos;
@@ -95,10 +96,12 @@ export class Marker {
     }
 
     setHorizontal() {
+        this._marker.style.top = 'auto';
         this._label.setHorizontal();
     }
 
     setVertical() {
+        this._marker.style.left = 'auto';
         this._label.setVertical();
     }
 }

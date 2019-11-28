@@ -1,8 +1,9 @@
 import './scss/slider.scss';
-import { SlideController } from './controller/SlideController';
+import { SliderFacade } from './controller/SliderFacade';
 
 $(function() {
     $.fn.slider = function(props) {
-        let controller: SlideController = new SlideController(this.get(0), props);
+        let controller: SliderFacade = new SliderFacade(this.get(0), props);
+        return controller;
     };
 });
