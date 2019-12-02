@@ -4,14 +4,16 @@
     position: relative;
     background-color: pink;
 
+    &--vertical {
+        height: 100%;
+        width: 20px;
+    }
+
     &__marker {
         position: absolute;
-        z-index: 5;
         width: 20px;
         height: 20px;
-        //border-radius: 50%;
         background-color: red;
-        //opacity: .5;
     }
 
     &__fill {
@@ -19,7 +21,6 @@
         top: 0;
         background-color: purple;
         height: 100%;
-        //width: 100%;
 
         &--vertical {
             width: 100%;
@@ -47,22 +48,8 @@
         }
     }
 
-    &--vertical {
-        height: 100%;
-        width: 20px;
-    }
+    
 }
 
-.slider-example {
-    width: 400px;
-    height: 400px;
-    margin: 0 auto;
-    padding-top: 30px;
-}
 
-.slider-example2 {
-    width: 400px;
-    height: 400px;
-    margin: 30px auto;
-}
 

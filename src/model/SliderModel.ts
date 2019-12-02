@@ -81,14 +81,14 @@ export class SliderModel {
     }
 
     /**
-     * 
+     * delete
      */
     get values(): number[] {
         return [this._markers[0].value, this._markers[1].value];
     }
 
     /**
-     * 
+     * delete
      */
     set values(val: number[]) {
         this.checkRange();

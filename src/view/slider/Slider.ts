@@ -134,7 +134,6 @@ export class Slider {
     }
 
     private updateVerticalPosition(position: number, orientation: Orientation, value: number, id: number) {
-        //let offset: number = document.body.getBoundingClientRect().top;
         let sliderLength: number = this._container.getBoundingClientRect().height - this._markers[id].getHeight();
         position = sliderLength - position * sliderLength;
         this._markers[id].setPositionY(position);

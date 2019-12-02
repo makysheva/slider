@@ -23,7 +23,10 @@ export class LabelView {
     }
 
     hide() {
-        this._parent.removeChild(this._label);
+        if (this._parent.hasChildNodes()) {
+            this._parent.removeChild(this._label);
+        }
+        
     }
 
     setValue(value: number) {

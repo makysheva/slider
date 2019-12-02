@@ -16,6 +16,8 @@ export class Controller {
         this._view = new Slider(parent, this._model.orientation, this, this._model.range);
         this.updateView();
 
+        this._view.setLabelVisibility(this._model.labels);
+
         window.addEventListener('resize', this.onResize.bind(this));
     }
 

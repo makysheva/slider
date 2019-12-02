@@ -2,6 +2,7 @@ import { SliderModel } from "../model/SliderModel";
 import { Options } from "../model/Options";
 import { Controller } from "./Controller";
 import { Orientation } from "../model/Orientation";
+import { ModelEvents } from "../model/ModelEvents";
 
 export class SliderFacade {
     private _model: SliderModel;
@@ -18,6 +19,14 @@ export class SliderFacade {
 
     set value(value: number) {
         this._model.value = value;
+    }
+
+    setValue(value: number, id: number) {
+        this._model.setValue(value, id);
+    }
+
+    getValue(id: number): number {
+        return this._model.getValue(id);
     }
 
     get step(): number {
@@ -42,6 +51,10 @@ export class SliderFacade {
 
     set orientation(orientation: Orientation) {
         this._model.orientation = orientation;
+    }
+
+    addEventListener(type: ModelEvents, fn: Function) {
+        this._model.addEventListener(type, fn);
     }
 
 }
