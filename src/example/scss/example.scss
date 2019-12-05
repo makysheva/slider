@@ -29,7 +29,7 @@
     border-radius: 6px;
     padding: 20px;
     display: flex;
-    min-height: 200px;
+    height: 250px;
 
     &__panel {
         min-width: 200px;
@@ -43,6 +43,7 @@
     }
 
     &__element {
+        display: block;
         margin: 6px 0;
         width: 90%;
     }

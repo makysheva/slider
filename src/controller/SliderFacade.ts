@@ -53,6 +53,10 @@ export class SliderFacade {
         this._model.orientation = orientation;
     }
 
+    get range(): boolean {
+        return this._model.range;
+    }
+
     addEventListener(type: ModelEvents, fn: Function) {
         this._model.addEventListener(type, fn);
     }

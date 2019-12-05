@@ -63,6 +63,16 @@ export class Marker {
         this._label.setValue(value);
     }
 
+    setHorizontal() {
+        this._marker.style.top = 'auto';
+        this._label.setHorizontal();
+    }
+
+    setVertical() {
+        this._marker.style.left = 'auto';
+        this._label.setVertical();
+    }
+
     protected onMouseDown(event: any) {
         event.preventDefault();
 
@@ -95,13 +105,4 @@ export class Marker {
         this._moveHandler = null;
     }
 
-    setHorizontal() {
-        this._marker.style.top = 'auto';
-        this._label.setHorizontal();
-    }
-
-    setVertical() {
-        this._marker.style.left = 'auto';
-        this._label.setVertical();
-    }
 }
