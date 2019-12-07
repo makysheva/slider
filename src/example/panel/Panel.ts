@@ -10,6 +10,7 @@ export class Panel {
     private _container: JQuery;
     private _textFieldLow: JQuery;
     private _textFieldHight: JQuery;
+    private _textFieldStep: JQuery;
     private _selectOrientation: JQuery;
     private _checkboxLabels: JQuery;
     private _isRange: boolean;
@@ -22,25 +23,34 @@ export class Panel {
         $(parent).append(this._container);
         this._container.append(panel);
         this._container.append(slider);
-        this._textFieldLow = $('<input type="number" class="example__element">');
+        this._textFieldLow = $('<input type="number">');
         panel.append(this._textFieldLow);
+        this.wrapLabel(this._textFieldLow, 'Low');
 
         if (this._isRange) {
-            this._textFieldHight = $('<input type="number" class="example__element">');
+            this._textFieldHight = $('<input type="number">');
             panel.append(this._textFieldHight);
+            this.wrapLabel(this._textFieldHight, 'Hight');
             this._textFieldHight.on('input', this.onChangeHightValue.bind(this));
         }
 
-        this._selectOrientation = $('<select class="example__element">'+
+        this._textFieldStep = $('<input type="number">');
+        panel.append(this._textFieldStep);
+        this.wrapLabel(this._textFieldStep, 'Step');
+        this._textFieldStep.on('input', this.onChangeStep.bind(this));
+
+        this._selectOrientation = $('<select>'+
             '<option value="horizontal">Horizontal</option>'+
             '<option value="vertical">Vertical</option>'+
             '</select>'
         );
+        
         panel.append(this._selectOrientation);
+        this.wrapLabel(this._selectOrientation, 'Orientation');
 
         this._checkboxLabels = $('<input type="checkbox">');
         panel.append(this._checkboxLabels);
-        this._checkboxLabels.wrap('<label class="example__element">Show labels</label>');
+        this.wrapLabel(this._checkboxLabels, 'Show labels');
 
         this._slider = new SliderFacade(slider.get(0), props);
 
@@ -55,6 +65,7 @@ export class Panel {
         this.updateLabelsCheckbox();
         this.updateValues();
         this.updateOrientation();
+        this.updateStep();
     }
 
     private updateValues() {
@@ -62,6 +73,10 @@ export class Panel {
         if (this._slider.range) {
             this._textFieldHight.val(this._slider.getValue(1));
         }
+    }
+
+    private updateStep() {
+        this._textFieldStep.val(this._slider.step);
     }
 
     private onChangeLowValue() {
@@ -74,6 +89,10 @@ export class Panel {
 
     private onChangeHightValue() {
         this._slider.setValue(<number>this._textFieldHight.val(), 1);
+    }
+
+    private onChangeStep() {
+        this._slider.step = +<number>this._textFieldStep.val();
     }
 
     private onChangeOrientation() {
@@ -93,11 +112,14 @@ export class Panel {
             this._selectOrientation.val('horizontal');
         } else {
             this._selectOrientation.val('vertical');
-            
         }
     }
 
     private onCheckboxChange() {
         this._slider.labels = this._checkboxLabels.prop('checked');
+    }
+
+    private wrapLabel(element: JQuery, text: string): JQuery {
+        return element.wrap('<label class="example__element">' + text + '</label>')
     }
 }

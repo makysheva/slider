@@ -25,14 +25,24 @@ export class Marker {
         document.addEventListener('mouseup', this.onMouseUp.bind(this));
     }
 
-    
-
     getWidht(): number {
         return this._marker.getBoundingClientRect().width;
     }
 
     getHeight(): number {
         return this._marker.getBoundingClientRect().height;
+    }
+
+    getLeft(): number {
+        return this._marker.getBoundingClientRect().left;
+    }
+
+    getRight(): number {
+        return this._marker.getBoundingClientRect().right;
+    }
+
+    getBottom(): number {
+        return this._marker.getBoundingClientRect().bottom;
     }
 
     setPositionX(x: number) {
@@ -43,13 +53,13 @@ export class Marker {
         this._marker.style.top = y + 'px';
     }
 
-    getCenterByX(): number {
+    /*getCenterByX(): number {
         return this._marker.getBoundingClientRect().left + this._marker.getBoundingClientRect().width / 2;
     }
 
     getCenterByY(): number {
         return this._marker.getBoundingClientRect().top + this._marker.getBoundingClientRect().height / 2;
-    }
+    }*/
 
     showLabel() {
         this._label.show();

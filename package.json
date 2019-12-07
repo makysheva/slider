@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r ts-node/register test/**/*.spec.ts",
+    "test": "mocha --require setup.js -r ts-node/register test/**/*.spec.ts",
     "serv": "webpack-dev-server",
     "build": "webpack --mode development"
   },
@@ -17,6 +17,7 @@
     "chai": "^4.2.0",
     "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
+    "jsdom": "^15.2.1",
     "mocha": "^6.2.2",
     "node-sass": "^4.13.0",
     "pug": "^2.0.4",

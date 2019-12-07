@@ -125,8 +125,8 @@ export class Slider {
         this._markers[id].setValue(value);
         
         if (this._markers.length > 1) {
-            let left: number = this._markers[0].getCenterByX();
-            let right: number = this._markers[1].getCenterByX() - this._container.getBoundingClientRect().left;
+            let left: number = this._markers[0].getLeft();
+            let right: number = this._markers[1].getRight() - this._container.getBoundingClientRect().left;
             this._fillBar.update(left - this._container.getBoundingClientRect().left, this._container.getBoundingClientRect().width - right, orientation);
         } else {
             this._fillBar.update(0, this._container.getBoundingClientRect().width - position, orientation);
@@ -140,7 +140,7 @@ export class Slider {
         this._markers[id].setValue(value);
         
         if (this._markers.length > 1) {
-            let bottom: number = this._markers[0].getCenterByY();
+            let bottom: number = this._markers[0].getBottom();
             this._fillBar.update( this._container.getBoundingClientRect().bottom - bottom, position , orientation);
         } else {
             this._fillBar.update(0, position, orientation);

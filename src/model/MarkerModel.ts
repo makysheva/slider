@@ -36,7 +36,7 @@ export class MarkerModel {
         let min: number = this._slider.minMax[0];
         let max: number = this._slider.minMax[1];
         let step: number = this._slider.step;
-
+        
         let val: number = (max - min) * pos + min;
         this._value = this.round(val, step, step);
         this.setPositionByValue(this._value);

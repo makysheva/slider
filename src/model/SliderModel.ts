@@ -81,14 +81,14 @@ export class SliderModel {
     }
 
     /**
-     * delete
+     * 
      */
     get values(): number[] {
         return [this._markers[0].value, this._markers[1].value];
     }
 
     /**
-     * delete
+     * 
      */
     set values(val: number[]) {
         this.checkRange();
@@ -113,7 +113,7 @@ export class SliderModel {
      * 
      */
     set step(value: number) {
-        if (value <= this._max) {
+        if ( value < (this._max - this._min) ) {
             this._step = value;
         } else {
             throw new Error('Step should be between min and max.');
