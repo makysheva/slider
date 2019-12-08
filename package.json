@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require setup.js -r ts-node/register test/**/*.spec.ts",
+    "test": "mocha -r setup.js -r ts-node/register --recursive --extension ts --reporter dot",
     "serv": "webpack-dev-server",
     "build": "webpack --mode development",
     "deploy": "gh-pages -d dist"

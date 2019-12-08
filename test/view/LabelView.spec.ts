@@ -12,7 +12,7 @@ describe('jsom test', function() {
     it('#setValue method should set value to label', () => {
         label.show();
         label.setValue(23);
-        expect(dom.querySelector('.slider__label').textContent).to.equal('23');
+        expect('23').to.equal(dom.querySelector('.slider__label').textContent);
     });
 
     it('#show method should add label to container', () => {
