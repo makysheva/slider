@@ -27,8 +27,6 @@ export class Controller {
 
     changeOrientation(orientation: Orientation) {
         this._model.orientation = orientation;
-        this._view.changeOrientation(orientation);
-        this.updateView();
     }
 
     private updateView() {
