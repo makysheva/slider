@@ -6,7 +6,8 @@
         "sourceMap": true,
         "strict": true,
         "target": "es2015",
-        "strictPropertyInitialization": false
+        "strictPropertyInitialization": false,
+        "esModuleInterop": true,
     },
     "include": [
         "src"
