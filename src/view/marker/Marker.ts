@@ -53,14 +53,6 @@ export class Marker {
         this._marker.style.top = y + 'px';
     }
 
-    /*getCenterByX(): number {
-        return this._marker.getBoundingClientRect().left + this._marker.getBoundingClientRect().width / 2;
-    }
-
-    getCenterByY(): number {
-        return this._marker.getBoundingClientRect().top + this._marker.getBoundingClientRect().height / 2;
-    }*/
-
     showLabel() {
         this._label.show();
     }
