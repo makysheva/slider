@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r setup.js -r ts-node/register --recursive --extension ts --reporter dot -w",
+    "test": "mocha -r setup.js -r ts-node/register --recursive --extension ts --reporter dot ",
+    "coverage": "nyc npm run test",
     "serv": "webpack-dev-server",
     "build": "webpack --mode development",
     "deploy": "gh-pages -d dist"
@@ -15,6 +16,7 @@
     "@types/chai": "^4.2.4",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.11.1",
+    "@types/sinon": "^7.5.1",
     "chai": "^4.2.0",
     "css-loader": "^3.2.0",
     "gh-pages": "^2.1.1",
@@ -22,6 +24,7 @@
     "jsdom": "^15.2.1",
     "mocha": "^6.2.2",
     "node-sass": "^4.13.0",
+    "nyc": "^14.1.1",
     "pug": "^2.0.4",
     "pug-loader": "^2.4.0",
     "sass-loader": "^8.0.0",
