@@ -14,31 +14,17 @@ export class Slider {
     private _markers: Marker[];
     private _fillBar: FillBar;
     private _orientation: Orientation;
+    private _isRange: boolean;
 
     constructor(parent: HTMLElement, orientation: Orientation, controller: Controller, isRange: boolean = false) {
         this._parent = parent;
         this._controller = controller;
         this._orientation = orientation;
+        this._isRange = isRange;
 
-        this._container = document.createElement('div');
-        this._container.classList.add(Slider.SLIDER_CLASS);
-
-        if (orientation == Orientation.Vertical) {
-            this._container.classList.add(Slider.SLIDER_VERTICAL_CLASS);
-        }
-
-        this._parent.appendChild(this._container);
-
-        
-        this._fillBar = new FillBar(this._container, orientation);
-
-        this._markers = [];
-        this._markers.push(new Marker(this._container, this, 0));
-
-        if (isRange) {
-            this._markers.push(new Marker(this._container, this, 1));
-        }
-        
+        this.createContainer();
+        this.createFillBar();
+        this.createMarkers();
     }
 
     update(orientation: Orientation, position: number, value: number, id: number) {
@@ -47,9 +33,7 @@ export class Slider {
         } else {
             this.updateVerticalPosition(position, orientation, value, id);
         }
-        
     }
-
 
     setLabelVisibility(value: boolean) {
         this._markers.forEach((marker: Marker) => {
@@ -71,11 +55,7 @@ export class Slider {
         }
     }
 
-    getOrientation(): Orientation {
-        return this._orientation;
-    }
-
-    getSliderLength() :number {
+    private getSliderLength() :number {
         if (this._orientation == Orientation.Horizontal) {
             return this._container.getBoundingClientRect().width;
         }
@@ -87,16 +67,30 @@ export class Slider {
         return 0;
     }
 
-    getX(): number {
+    private getX(): number {
         return this._container.getBoundingClientRect().left;
     }
 
-    getY(): number {
+    private getY(): number {
         return this._container.getBoundingClientRect().top;
     }
 
-    moveMarker(position: number, id: number) {
-        this._controller.move(position, id);
+    private moveMarker(id: number, pageX: number, pageY: number) {
+        let pos: number = 0;
+
+        if (this._orientation == Orientation.Horizontal) {
+            pos = (pageX - this.getX()) / this.getSliderLength();
+        }
+
+        if (this._orientation == Orientation.Vertical) {
+            let offset: number = document.body.getBoundingClientRect().top;
+            pos = 1 - ((pageY - this.getY() + offset) / this.getSliderLength());
+        }
+
+        pos = (pos > 1) ? 1 : pos;
+        pos = (pos < 0) ? 0 : pos;
+
+        this._controller.move(pos, id);
     }
 
     private setHorizontal() {
@@ -115,6 +109,7 @@ export class Slider {
         for (let i = 0; i < this._markers.length; i++) {
             this._markers[i].setVertical();
         }
+        
         this._fillBar.setVertical();
     }
 
@@ -146,6 +141,30 @@ export class Slider {
             this._fillBar.update(0, position, orientation);
         }
         
+    }
+
+    private createContainer() {
+        this._container = document.createElement('div');
+        this._container.classList.add(Slider.SLIDER_CLASS);
+
+        if (this._orientation == Orientation.Vertical) {
+            this._container.classList.add(Slider.SLIDER_VERTICAL_CLASS);
+        }
+
+        this._parent.appendChild(this._container);
+    }
+
+    private createFillBar() {
+        this._fillBar = new FillBar(this._container, this._orientation);
+    }
+
+    private createMarkers() {
+        this._markers = [];
+        this._markers.push(new Marker(this._container, this.moveMarker.bind(this), 0, this._orientation));
+
+        if (this._isRange) {
+            this._markers.push(new Marker(this._container, this.moveMarker.bind(this), 1, this._orientation));
+        }
     }
 
 }

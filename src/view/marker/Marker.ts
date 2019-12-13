@@ -9,16 +9,19 @@ export class Marker {
     private _moveHandler: any;
     private _slider: Slider;
     private _id: number;
+    private _orientation: Orientation;
+    private _moveCallback: (id: number, posX: number, posY: number) => void;
 
-    constructor(parent: HTMLElement, slider: Slider, id: number) {
+    constructor(parent: HTMLElement, moveCallback: (id: number, posX: number, posY: number) => void, id: number, orientation: Orientation) {
         this._parent = parent;
-        this._slider = slider;
+        this._moveCallback = moveCallback;
         this._id = id;
+        this._orientation = orientation;
 
         this._marker = document.createElement('div');
         this._marker.classList.add('slider__marker');
         this._parent.appendChild(this._marker);
-        this._label = new LabelView(this._marker, this._slider.getOrientation());
+        this._label = new LabelView(this._marker, this._orientation);
         this._label.show();
 
         this._marker.addEventListener('mousedown', this.onMouseDown.bind(this));
@@ -85,21 +88,7 @@ export class Marker {
     }
 
     private onMove(event: any) {
-        let pos: number = 0;
-
-        if (this._slider.getOrientation() == Orientation.Horizontal) {
-            pos = (event.pageX - this._slider.getX()) / this._slider.getSliderLength();
-        }
-
-        if (this._slider.getOrientation() == Orientation.Vertical) {
-            let offset: number = document.body.getBoundingClientRect().top;
-            pos = 1 - ((event.pageY - this._slider.getY() + offset) / this._slider.getSliderLength());
-        }
-
-        pos = (pos > 1) ? 1 : pos;
-        pos = (pos < 0) ? 0 : pos;
-
-        this._slider.moveMarker(pos, this._id);
+        this._moveCallback(this._id, event.pageX, event.pageY);
     }
 
     private onMouseUp(event: any) {
