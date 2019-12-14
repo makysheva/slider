@@ -15,10 +15,6 @@ export class SliderModel {
     private _showLables: boolean = false;
     private _markers: MarkerModel[];
 
-    /**
-     * 
-     * @param props 
-     */
     constructor(props: Options) {
         let min: number = props.min ? props.min : this._min;
         let max: number = props.max ? props.max : this._max;
@@ -39,17 +35,10 @@ export class SliderModel {
         }
     }
 
-    
-    /**
-     * 
-     */
     get minMax(): number[] {
         return [this._min, this._max];
     }
 
-    /**
-     * 
-     */
     set minMax(value: number[]) {
         if (value[0] < value[1]) {
             this._min = value[0];
@@ -59,9 +48,6 @@ export class SliderModel {
         }
     }
 
-    /**
-     * 
-     */
     get value(): number {
         return this._markers[0].value;
     }
@@ -70,9 +56,6 @@ export class SliderModel {
         return this._range;
     }
 
-    /**
-     * 
-     */
     set value(value: number) {
         if (this._range) {
             throw new Error('Range slider have multiple values.');
@@ -80,16 +63,10 @@ export class SliderModel {
         this.setValue(value, 0);
     }
 
-    /**
-     * 
-     */
     get values(): number[] {
         return [this._markers[0].value, this._markers[1].value];
     }
 
-    /**
-     * 
-     */
     set values(val: number[]) {
         this.checkRange();
 
@@ -102,16 +79,10 @@ export class SliderModel {
         }
     }
 
-    /**
-     * 
-     */
     get step(): number {
         return this._step;
     }
 
-    /**
-     * 
-     */
     set step(value: number) {
         if ( value < (this._max - this._min) ) {
             this._step = value;
@@ -120,30 +91,18 @@ export class SliderModel {
         }
     }
 
-    /**
-     * 
-     */
     get position(): number {
         return this._markers[0].position;
     }
 
-    /**
-     * 
-     */
     set position(value: number) {
         this.setPosition(value, 0);
     }
 
-    /**
-     * 
-     */
     get positions(): number[] {
         return [this._markers[0].position, this._markers[1].position];
     }
 
-    /**
-     * 
-     */
     set positions(pos: number[]) {
         this.checkRange();
 
@@ -156,36 +115,23 @@ export class SliderModel {
         }
     }
 
-    /**
-     * 
-     */
     get orientation(): Orientation {
         return this._orientation;
     }
 
-    /**
-     * 
-     */
     set orientation(orientation: Orientation) {
         this._orientation = orientation;
         this._observers.emmit(ModelEvents.changeOrientation, this);
     }
 
-    /**
-     * 
-     */
     get labels(): boolean {
         return this._showLables;
     }
 
-    /**
-     * 
-     */
     set labels(labels: boolean) {
         this._showLables = labels;
         this._observers.emmit(ModelEvents.changeLabelVisibility, this);
     }
-
 
     getValue(id: number = 0): number {
         return this._markers[id].value;
