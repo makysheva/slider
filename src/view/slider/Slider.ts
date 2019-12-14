@@ -124,7 +124,8 @@ export class Slider {
             let right: number = this._markers[1].getRight() - this._container.getBoundingClientRect().left;
             this._fillBar.update(left - this._container.getBoundingClientRect().left, this._container.getBoundingClientRect().width - right, orientation);
         } else {
-            this._fillBar.update(0, this._container.getBoundingClientRect().width - position, orientation);
+            let offset: number = this._markers[0].getWidht() / 2;
+            this._fillBar.update(0, this._container.getBoundingClientRect().width - position - offset, orientation);
         }
     }
 
