@@ -3,7 +3,7 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-    entry: ['./src/main.ts', './src/example/example.ts'],
+    entry: ['./src/main.ts', './example/example.ts'],
 
     module: {
         rules: [
@@ -33,7 +33,7 @@ module.exports = {
 
     plugins: [
         new htmlWebpackPlugin({
-            template: 'src/example/index.pug',
+            template: 'example/index.pug',
             filename: 'example/index.html'
         }),
         new webpack.ProvidePlugin({

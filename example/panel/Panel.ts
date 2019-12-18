@@ -1,9 +1,7 @@
-import { Options } from "../../model/Options";
-import { SliderFacade } from "../../controller/SliderFacade";
-import { ModelEvents } from "../../model/ModelEvents";
-import { ModuleDeclaration } from "babel-types";
-import { SliderModel } from "../../model/SliderModel";
-import { Orientation } from "../../model/Orientation";
+import { Options } from "../../src/model/Options";
+import { SliderFacade } from "../../src/controller/SliderFacade";
+import { ModelEvents } from "../../src/model/ModelEvents";
+import { Orientation } from "../../src/model/Orientation";
 
 export class Panel {
     private _slider: SliderFacade;

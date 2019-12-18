@@ -1,13 +1,11 @@
 import { LabelView } from "../label/LabelView";
 import { Orientation } from "../../model/Orientation";
-import { Slider } from "../slider/Slider";
 
 export class Marker {
     private _parent: HTMLElement;
     private _marker: HTMLElement;
     private _label: LabelView;
     private _moveHandler: any;
-    private _slider: Slider;
     private _id: number;
     private _orientation: Orientation;
     private _moveCallback: (id: number, posX: number, posY: number) => void;
