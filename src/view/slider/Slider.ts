@@ -1,9 +1,9 @@
-import { Marker } from "../marker/Marker";
-import { FillBar } from "../fill_bar/FillBar";
 import { Orientation } from "../../model/Orientation";
 import { Controller } from "../../controller/Controller";
+import { Marker } from "../marker/Marker";
+import { FillBar } from "../fill_bar/FillBar";
 
-export class Slider {
+class Slider {
     private static readonly SLIDER_CLASS: string = 'slider';
     private static readonly  SLIDER_VERTICAL_CLASS: string = 'slider--vertical';
 
@@ -169,3 +169,5 @@ export class Slider {
     }
 
 }
+
+export { Slider };

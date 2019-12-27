@@ -1,5 +1,6 @@
 import 'mocha';
-import { expect, assert } from 'chai';
+import { expect } from 'chai';
+
 import { SliderModel } from '../../src/model/SliderModel';
 
 describe('Tests for SliderModel class', function() {

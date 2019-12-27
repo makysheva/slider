@@ -1,6 +1,6 @@
 import { Orientation } from "../../model/Orientation";
 
-export class FillBar {
+class FillBar {
     private static readonly FILL_CLASS: string = 'slider__fill';
     private static readonly FILL_VERTICAL_CLASS: string = 'slider__fill--vertical';
 
@@ -41,3 +41,5 @@ export class FillBar {
         this._bar.classList.add(FillBar.FILL_VERTICAL_CLASS);
     }
 }
+
+export { FillBar };

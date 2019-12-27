@@ -1,6 +1,6 @@
-import './scss/example.scss';
 import { Orientation } from "../src/model/Orientation";
 import { Panel } from './panel/Panel';
+import './scss/example.scss';
 
 $(function() {
     new Panel(document.body, { orientation: Orientation.Horizontal, showLabels: true, range: false, step: 1 });

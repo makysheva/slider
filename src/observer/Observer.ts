@@ -1,6 +1,6 @@
 import { Event } from "./Event";
 
-export class Observer {
+class Observer {
     private _events: Event[] = [];
 
     add(type: string, fn: Function): Observer {
@@ -38,3 +38,5 @@ export class Observer {
         return null;
     }
 }
+
+export { Observer };

@@ -1,5 +1,6 @@
 import 'mocha';
-import { expect, assert } from 'chai';
+import { expect } from 'chai';
+
 import { FillBar } from '../../src/view/fill_bar/FillBar';
 import { Orientation } from '../../src/model/Orientation';
 

@@ -1,6 +1,6 @@
 import { SliderModel } from "./SliderModel";
 
-export class MarkerModel {
+class MarkerModel {
     private _slider: SliderModel;
     private _value: number = 0;
     private _position: number = 0;
@@ -58,3 +58,5 @@ export class MarkerModel {
         return Math.round((n - offset) / increment) * increment + offset;
     }
 }
+
+export { MarkerModel };

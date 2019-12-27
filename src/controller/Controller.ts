@@ -3,7 +3,7 @@ import { Orientation } from "../model/Orientation";
 import { SliderModel } from "../model/SliderModel";
 import { ModelEvents } from "../model/ModelEvents";
 
-export class Controller {
+class Controller {
     private _view: Slider;
     private _model: SliderModel;
 
@@ -53,3 +53,5 @@ export class Controller {
         this.updateView();
     }
 }
+
+export { Controller };

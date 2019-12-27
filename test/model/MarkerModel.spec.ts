@@ -1,5 +1,6 @@
 import 'mocha';
-import { expect, assert } from 'chai';
+import { expect } from 'chai';
+
 import { MarkerModel } from '../../src/model/MarkerModel';
 import { SliderModel } from '../../src/model/SliderModel';
 

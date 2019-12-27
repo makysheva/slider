@@ -1,4 +1,4 @@
-export class Event {
+class Event {
     private _type: string;
     private _subscribers: Function[] = [];
 
@@ -24,3 +24,5 @@ export class Event {
         return this._type;
     }
 }
+
+export { Event };

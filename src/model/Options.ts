@@ -1,6 +1,6 @@
 import { Orientation } from "./Orientation";
 
-export interface Options {
+interface Options {
     min?: number;
     max?: number;
     step?: number;
@@ -10,3 +10,5 @@ export interface Options {
     showLabels?: boolean;
     range?: boolean;
 }
+
+export { Options };

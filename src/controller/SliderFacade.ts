@@ -1,10 +1,10 @@
 import { SliderModel } from "../model/SliderModel";
-import { Options } from "../model/Options";
-import { Controller } from "./Controller";
 import { Orientation } from "../model/Orientation";
 import { ModelEvents } from "../model/ModelEvents";
+import { Options } from "../model/Options";
+import { Controller } from "./Controller";
 
-export class SliderFacade {
+class SliderFacade {
     private _model: SliderModel;
     private _controller: Controller;
 
@@ -62,3 +62,5 @@ export class SliderFacade {
     }
 
 }
+
+export { SliderFacade };

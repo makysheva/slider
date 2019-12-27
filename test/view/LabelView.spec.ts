@@ -1,8 +1,10 @@
 import 'mocha';
 import { expect, assert } from 'chai';
 const { JSDOM } = require('jsdom');
+
 import { LabelView } from '../../src/view/label/LabelView';
 import { Orientation } from '../../src/model/Orientation';
+
 
 describe('jsom test', function() {
 

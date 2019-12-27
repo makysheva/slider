@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect, assert } from 'chai';
-import sinon, { SinonSpy } from 'sinon';
+
 import { Slider } from '../../src/view/slider/Slider';
 import { Orientation } from '../../src/model/Orientation';
 import { Controller } from '../../src/controller/Controller';

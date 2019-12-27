@@ -1,6 +1,6 @@
 import { Orientation } from "../../model/Orientation";
 
-export class LabelView {
+class LabelView {
     private static readonly LABEL_CLASS = 'slider__label';
     private static readonly LABEL_VERTICAL_CLASS = 'slider__label--vertical';
 
@@ -57,3 +57,5 @@ export class LabelView {
         this._label.classList.add(LabelView.LABEL_VERTICAL_CLASS);
     }
 }
+
+export { LabelView };

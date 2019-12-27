@@ -1,7 +1,7 @@
 import { LabelView } from "../label/LabelView";
 import { Orientation } from "../../model/Orientation";
 
-export class Marker {
+class Marker {
     private _parent: HTMLElement;
     private _marker: HTMLElement;
     private _label: LabelView;
@@ -95,3 +95,5 @@ export class Marker {
     }
 
 }
+
+export { Marker };

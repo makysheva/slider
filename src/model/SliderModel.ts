@@ -1,10 +1,10 @@
+import { Observer } from "../observer/Observer";
 import { Options } from "./Options";
 import { Orientation } from "./Orientation";
 import { MarkerModel } from "./MarkerModel";
-import { Observer } from "../observer/Observer";
 import { ModelEvents } from "./ModelEvents";
 
-export class SliderModel {
+class SliderModel {
     private _observers: Observer = new Observer();
 
     private _min: number = 0;
@@ -168,3 +168,5 @@ export class SliderModel {
         }
     }
 }
+
+export { SliderModel };
