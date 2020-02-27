@@ -25,6 +25,31 @@ class Slider {
     this.createContainer();
     this.createFillBar();
     this.createMarkers();
+
+    this._container.addEventListener('click', (e) => {
+      // let firstDistance = 0;
+      // let secondDistance = 0;
+      // if (this._orientation == Orientation.Horizontal) {
+      //   firstDistance = Math.abs(this._markers[0].getLeft() - e.pageX);
+
+      //   if (this._isRange) {
+      //     secondDistance = Math.abs(this._markers[1].getLeft() - e.pageX);
+      //     this.moveMarker(0, e.pageX, e.pageY);
+      //   }
+      //   else if (firstDistance < secondDistance) {
+      //     this.moveMarker(0, e.pageX, e.pageY);
+      //   } else {
+      //     this.moveMarker(1, e.pageX, e.pageY);
+      //   }
+      // } else {
+      //   const bodyTop = document.body.getBoundingClientRect().top;
+      //   console.log('body: ' + window.scrollY);
+      //   firstDistance = Math.abs(this._markers[0].getBottom());
+      //   secondDistance = Math.abs(this._markers[1].getBottom() - e.pageY);
+      //   console.log(`first: ${firstDistance}, sec: ${secondDistance}`);
+      // }
+      
+    });
   }
 
   update(orientation: Orientation, position: number, value: number, id: number) {
@@ -75,16 +100,16 @@ class Slider {
     return this._container.getBoundingClientRect().top;
   }
 
-  private moveMarker(id: number, pageX: number, pageY: number) {
+  private moveMarker(id: number, clientX: number, clientY: number) {
     let pos: number = 0;
 
     if (this._orientation == Orientation.Horizontal) {
-      pos = (pageX - this.getX()) / this.getSliderLength();
+      pos = (clientX - this.getX()) / this.getSliderLength();
     }
 
     if (this._orientation == Orientation.Vertical) {
-      let offset: number = document.body.getBoundingClientRect().top;
-      pos = 1 - ((pageY - this.getY() + offset) / this.getSliderLength());
+      const offsetPos = clientY - this.getY();
+      pos = 1 - (offsetPos / this.getSliderLength());
     }
 
     pos = (pos > 1) ? 1 : pos;
@@ -114,7 +139,7 @@ class Slider {
   }
 
   private updateHorizontalPosition(position: number, orientation: Orientation, value: number, id: number) {
-    let sliderLength: number = this._container.getBoundingClientRect().width - this._markers[id].getWidht();
+    let sliderLength: number = this._container.getBoundingClientRect().width;
     position = position * sliderLength;
     this._markers[id].setPositionX(position);
     this._markers[id].setValue(value);
@@ -124,24 +149,26 @@ class Slider {
       let right: number = this._markers[1].getRight() - this._container.getBoundingClientRect().left;
       this._fillBar.update(left - this._container.getBoundingClientRect().left, this._container.getBoundingClientRect().width - right, orientation);
     } else {
-      let offset: number = this._markers[0].getWidht() / 2;
+      let offset: number = this._markers[0].getWidth() / 2;
       this._fillBar.update(0, this._container.getBoundingClientRect().width - position - offset, orientation);
     }
   }
 
   private updateVerticalPosition(position: number, orientation: Orientation, value: number, id: number) {
-    let sliderLength: number = this._container.getBoundingClientRect().height - this._markers[id].getHeight();
-    position = sliderLength - position * sliderLength;
+    let sliderLength: number = this._container.getBoundingClientRect().height;
+    position = position * sliderLength;
     this._markers[id].setPositionY(position);
     this._markers[id].setValue(value);
 
     if (this._markers.length > 1) {
-      let bottom: number = this._markers[0].getBottom();
-      this._fillBar.update(this._container.getBoundingClientRect().bottom - bottom, position, orientation);
+      const markerHalfHeight = this._markers[1].getHeight() / 2;
+      const bottom: number = this._markers[0].getPositionY() + markerHalfHeight;
+      const top: number = this._container.getBoundingClientRect().height - this._markers[1].getPositionY() - markerHalfHeight;
+      this._fillBar.update(bottom, top, orientation);
     } else {
-      this._fillBar.update(0, position, orientation);
+      const top = this._container.getBoundingClientRect().height - position;
+      this._fillBar.update(0, top, orientation);
     }
-
   }
 
   private createContainer() {

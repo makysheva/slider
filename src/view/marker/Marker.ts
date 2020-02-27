@@ -9,6 +9,7 @@ class Marker {
   private _id: number;
   private _orientation: Orientation;
   private _moveCallback: (id: number, posX: number, posY: number) => void;
+  private _positionY: number;
 
   constructor(parent: HTMLElement, moveCallback: (id: number, posX: number, posY: number) => void, id: number, orientation: Orientation) {
     this._parent = parent;
@@ -26,7 +27,7 @@ class Marker {
     document.addEventListener('mouseup', this.onMouseUp.bind(this));
   }
 
-  getWidht(): number {
+  getWidth(): number {
     return this._marker.getBoundingClientRect().width;
   }
 
@@ -47,11 +48,19 @@ class Marker {
   }
 
   setPositionX(x: number) {
-    this._marker.style.left = x + 'px';
+    const halfSize = this._marker.getBoundingClientRect().width / 2;
+    const position = x - halfSize;
+    this._marker.style.left = position + 'px';
+  }
+
+  getPositionY(): number {
+    return this._positionY;
   }
 
   setPositionY(y: number) {
-    this._marker.style.top = y + 'px';
+    const halfSize = this._marker.getBoundingClientRect().height / 2;
+    this._positionY = y - halfSize;
+    this._marker.style.bottom = this._positionY + 'px';
   }
 
   showLabel() {
@@ -86,7 +95,7 @@ class Marker {
   }
 
   private onMove(event: any) {
-    this._moveCallback(this._id, event.pageX, event.pageY);
+    this._moveCallback(this._id, event.clientX, event.clientY);
   }
 
   private onMouseUp(event: any) {

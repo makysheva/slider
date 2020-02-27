@@ -23,8 +23,8 @@ class FillBar {
       this._bar.style.left = low + 'px';
       this._bar.style.right = hight + 'px';
     } else {
-      this._bar.style.top = hight + 'px';
       this._bar.style.bottom = low + 'px';
+      this._bar.style.top = hight + 'px';
     }
   }
 
