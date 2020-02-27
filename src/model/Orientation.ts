@@ -1,6 +1,6 @@
 enum Orientation {
-    Horizontal = 'horizontal',
-    Vertical = 'vertical',
+  Horizontal = 'horizontal',
+  Vertical = 'vertical',
 }
 
 export { Orientation };
