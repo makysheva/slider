@@ -25,6 +25,10 @@ class Controller {
     this._model.setPosition(position, id);
   }
 
+  moveByTrackClick(position: number) {
+    this._model.nearestMarkerPosition = position;
+  }
+
   changeOrientation(orientation: Orientation) {
     this._model.orientation = orientation;
   }

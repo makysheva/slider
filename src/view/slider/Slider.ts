@@ -26,30 +26,7 @@ class Slider {
     this.createFillBar();
     this.createMarkers();
 
-    this._container.addEventListener('click', (e) => {
-      // let firstDistance = 0;
-      // let secondDistance = 0;
-      // if (this._orientation == Orientation.Horizontal) {
-      //   firstDistance = Math.abs(this._markers[0].getLeft() - e.pageX);
-
-      //   if (this._isRange) {
-      //     secondDistance = Math.abs(this._markers[1].getLeft() - e.pageX);
-      //     this.moveMarker(0, e.pageX, e.pageY);
-      //   }
-      //   else if (firstDistance < secondDistance) {
-      //     this.moveMarker(0, e.pageX, e.pageY);
-      //   } else {
-      //     this.moveMarker(1, e.pageX, e.pageY);
-      //   }
-      // } else {
-      //   const bodyTop = document.body.getBoundingClientRect().top;
-      //   console.log('body: ' + window.scrollY);
-      //   firstDistance = Math.abs(this._markers[0].getBottom());
-      //   secondDistance = Math.abs(this._markers[1].getBottom() - e.pageY);
-      //   console.log(`first: ${firstDistance}, sec: ${secondDistance}`);
-      // }
-      
-    });
+    this._container.addEventListener('click', this.onClickTrack.bind(this));
   }
 
   update(orientation: Orientation, position: number, value: number, id: number) {
@@ -116,6 +93,18 @@ class Slider {
     pos = (pos < 0) ? 0 : pos;
 
     this._controller.move(pos, id);
+  }
+
+  onClickTrack(e: MouseEvent) {
+    if (this._orientation == Orientation.Horizontal) {
+      const mousePos = e.clientX - this._container.getBoundingClientRect().left;
+      const pos = mousePos / this._container.getBoundingClientRect().width;
+      this._controller.moveByTrackClick(pos);
+    } else {
+      const mousePos = Math.abs(e.clientY - this._container.getBoundingClientRect().bottom);
+      const pos = mousePos / this._container.getBoundingClientRect().height;
+      this._controller.moveByTrackClick(pos);
+    }
   }
 
   private setHorizontal() {
