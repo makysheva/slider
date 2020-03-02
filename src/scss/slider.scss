@@ -2,7 +2,7 @@
   width: 100%;
   height: 10px;
   position: relative;
-  background-color: pink;
+  border: 1px solid rgb(161, 108, 148);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -18,15 +18,15 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: red;
-    border-radius: 50%;
+    background-color: rgb(212, 41, 78);
+    border-radius: 6px;
     cursor: pointer;
   }
 
   &__fill {
     position: absolute;
     top: 0;
-    background-color: purple;
+    background-color: rgb(197, 155, 197);
     height: 100%;
     border-radius: 10px;
 
@@ -39,11 +39,10 @@
 
   &__label {
     position: absolute;
-    border-radius: 50%;
-    top: -30px;
+    border-radius: 6px;
+    top: -34px;
     left: -4px;
-    width: 28px;
-    height: 28px;
+    padding: 0 8px;
     background-color: blueviolet;
     color: white;
     font-size: 1em;
