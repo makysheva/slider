@@ -12,7 +12,7 @@ class SliderModel {
   private _step: number = 1;
   private _range: boolean = false;
   private _orientation: Orientation = Orientation.Horizontal;
-  private _showLabels: boolean = false;
+  private _isVisibleLabels: boolean = false;
   private _markers: MarkerModel[];
 
   constructor(props: Options) {
@@ -21,7 +21,7 @@ class SliderModel {
     this.minMax = [min, max];
     this._range = props.range ? props.range : this._range;
     this._step = props.step ? props.step : this._step;
-    this._showLabels = props.showLabels ? props.showLabels : this._showLabels;
+    this._isVisibleLabels = props.showLabels ? props.showLabels : this._isVisibleLabels;
     this._orientation = props.orientation ? props.orientation : this._orientation;
 
     if (this._range) {
@@ -132,7 +132,7 @@ class SliderModel {
         const maxPos = secondMarkerPos - firstMarkerPos;
         const relativePos = pos - firstMarkerPos;
         const middle = maxPos / 2;
-        
+
         if (relativePos <= middle) {
           this.setPosition(pos, 0);
         } else {
@@ -154,11 +154,11 @@ class SliderModel {
   }
 
   get labels(): boolean {
-    return this._showLabels;
+    return this._isVisibleLabels;
   }
 
   set labels(labels: boolean) {
-    this._showLabels = labels;
+    this._isVisibleLabels = labels;
     this._observers.emmit(ModelEvents.changeLabelVisibility, this);
   }
 

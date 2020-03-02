@@ -27,6 +27,11 @@ class Marker {
     document.addEventListener('mouseup', this.onMouseUp.bind(this));
   }
 
+  getPositionX(): number {
+    const rect: DOMRect = this._marker.getBoundingClientRect();
+    return rect.right - (rect.width / 2);
+  }
+
   getWidth(): number {
     return this._marker.getBoundingClientRect().width;
   }
