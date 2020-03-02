@@ -4,6 +4,7 @@ import { SliderModel } from "../model/SliderModel";
 import { ModelEvents } from "../model/ModelEvents";
 import HorizontalSlider from "../view/slider/HorizontalSlider";
 import VerticalSlider from "../view/slider/VerticalSlider";
+import SliderData from "../view/slider/SliderData";
 
 class Controller {
   private _parent: HTMLElement;
@@ -63,10 +64,21 @@ class Controller {
 
   private updateView() {
     this._view.setLabelVisibility(this._model.labels);
-    this._view.update(this._model.orientation, this._model.getPosition(0), this._model.getValue(0), 0);
+    let data: SliderData = {
+      position: this._model.getPosition(0),
+      value: this._model.getValue(0),
+      min: this._model.minMax[0],
+      max: this._model.minMax[1],
+      orientation: this._model.orientation,
+      markerId: 0,
+    };
+    this._view.update(data);
 
     if (this._model.range) {
-      this._view.update(this._model.orientation, this._model.getPosition(1), this._model.getValue(1), 1);
+      data.position = this._model.getPosition(1);
+      data.value = this._model.getValue(1);
+      data.markerId = 1;
+      this._view.update(data);
     }
   }
 

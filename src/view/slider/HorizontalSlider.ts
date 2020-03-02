@@ -3,6 +3,8 @@ import { Marker } from "../marker/Marker";
 import { Orientation } from "../../model/Orientation";
 import { FillBar } from "../fill_bar/FillBar";
 import Slider from "./Slider";
+import MinMax from "../label/MinMax";
+import SliderData from "./SliderData";
 
 class HorizontalSlider extends Slider {
   constructor(parent: HTMLElement, controller: Controller) {
@@ -16,11 +18,11 @@ class HorizontalSlider extends Slider {
     this._track.addEventListener('click', this.onClickTrack.bind(this));
   }
 
-  update(orientation: any, position: number, value: number, markerId: number) {
+  update(data: SliderData) {
     let sliderLength: number = this._track.getBoundingClientRect().width;
-    position = position * sliderLength;
-    this._markers[markerId].setPositionX(position);
-    this._markers[markerId].setValue(value);
+    let pos: number = data.position * sliderLength;
+    this._markers[data.markerId].setPositionX(pos);
+    this._markers[data.markerId].setValue(data.value);
 
     let low: number = 0;
     let hight: number = 0;
@@ -33,7 +35,8 @@ class HorizontalSlider extends Slider {
       hight = trackRect.width - (this._markers[0].getPositionX() - trackRect.left);
     }
 
-    this._fillBar.update(low, hight, orientation);
+    this._fillBar.update(low, hight, data.orientation);
+    this._minMax.update(data.min, data.max);
   }
 
   addMarker(id: number) {
@@ -59,6 +62,10 @@ class HorizontalSlider extends Slider {
 
   protected createFillBar() {
     this._fillBar = new FillBar(this._track, Orientation.Horizontal);
+  }
+
+  protected createMinMax() {
+    this._minMax = new MinMax(this._track, Orientation.Horizontal);
   }
 }
 

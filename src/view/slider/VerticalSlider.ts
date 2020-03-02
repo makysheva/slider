@@ -3,6 +3,8 @@ import { Marker } from "../marker/Marker";
 import { FillBar } from "../fill_bar/FillBar";
 import { Orientation } from "../../model/Orientation";
 import Slider from "./Slider";
+import MinMax from "../label/MinMax";
+import SliderData from "./SliderData";
 
 class VerticalSlider extends Slider {
   constructor(parent: HTMLElement, controller: Controller) {
@@ -21,21 +23,23 @@ class VerticalSlider extends Slider {
     this._track.remove();
   }
 
-  update(orientation: any, position: number, value: number, markerId: number) {
+  update(data: SliderData) {
     let sliderLength: number = this._track.getBoundingClientRect().height;
-    position = position * sliderLength;
-    this._markers[markerId].setPositionY(position);
-    this._markers[markerId].setValue(value);
+    let pos: number = data.position * sliderLength;
+    this._markers[data.markerId].setPositionY(pos);
+    this._markers[data.markerId].setValue(data.value);
 
     if (this._markers.length > 1) {
       const markerHalfHeight = this._markers[1].getHeight() / 2;
       const bottom: number = this._markers[0].getPositionY() + markerHalfHeight;
       const top: number = this._track.getBoundingClientRect().height - this._markers[1].getPositionY() - markerHalfHeight;
-      this._fillBar.update(bottom, top, orientation);
+      this._fillBar.update(bottom, top, data.orientation);
     } else {
-      const top = this._track.getBoundingClientRect().height - position;
-      this._fillBar.update(0, top, orientation);
+      const top = this._track.getBoundingClientRect().height - pos;
+      this._fillBar.update(0, top, data.orientation);
     }
+
+    this._minMax.update(data.min, data.max);
   }
 
   addMarker(id: number) {
@@ -62,6 +66,10 @@ class VerticalSlider extends Slider {
 
   protected createFillBar() {
     this._fillBar = new FillBar(this._track, Orientation.Vertical);
+  }
+
+  protected createMinMax() {
+    this._minMax = new MinMax(this._track, Orientation.Vertical);
   }
 }
 

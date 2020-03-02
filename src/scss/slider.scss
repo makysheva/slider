@@ -54,4 +54,28 @@
       left: 30px;
     }
   }
+
+  &__min-max {
+    position: absolute;
+
+    &_top {
+      top: 0;
+      right: 20px;
+    }
+
+    &_bottom {
+      bottom: 0;
+      right: 20px;
+    }
+
+    &_left {
+      left: 0;
+      top: 20px;
+    }
+
+    &_right {
+      right: 0;
+      top: 20px;
+    }
+  }
 }

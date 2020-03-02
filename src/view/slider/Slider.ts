@@ -2,6 +2,8 @@ import { Orientation } from "../../model/Orientation";
 import { Controller } from "../../controller/Controller";
 import { Marker } from "../marker/Marker";
 import { FillBar } from "../fill_bar/FillBar";
+import MinMax from "../label/MinMax";
+import SliderData from "./SliderData";
 
 abstract class Slider {
   protected static readonly MAX_MARKERS: number = 2;
@@ -12,6 +14,7 @@ abstract class Slider {
   protected _track: HTMLElement;
   protected _markers: Marker[] = [];
   protected _fillBar: FillBar;
+  protected _minMax: MinMax;
 
   constructor(parent: HTMLElement, controller: Controller) {
     this._parent = parent;
@@ -21,6 +24,7 @@ abstract class Slider {
   createSlider() {
     this.createTrack();
     this.createFillBar();
+    this.createMinMax();
   }
 
   destroy() {
@@ -37,12 +41,13 @@ abstract class Slider {
     });
   }
 
-  abstract update(orientation: any, position: number, value: number, markerId: number): void;
+  abstract update(data: SliderData): void;
   abstract addMarker(id: number): void;
   protected abstract createTrack(): void;
   protected abstract onClickTrack(e: MouseEvent): void;
   protected abstract onMoveMarker(id: number, clientX: number, clientY: number): void;
   protected abstract createFillBar(): void;
+  protected abstract createMinMax(): void;
 }
 
 export default Slider;
