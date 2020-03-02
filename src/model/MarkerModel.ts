@@ -16,7 +16,7 @@ class MarkerModel {
   }
 
   set value(val: number) {
-    if (val < this._slider.minMax[0] || val > this._slider.minMax[1]) {
+    if (val < this._slider.min || val > this._slider.max) {
       throw new Error('Value must be between the min and max.');
     }
 
@@ -33,8 +33,8 @@ class MarkerModel {
       throw new Error('Position must be between 0 and 1.');
     }
 
-    let min: number = this._slider.minMax[0];
-    let max: number = this._slider.minMax[1];
+    let min: number = this._slider.min;
+    let max: number = this._slider.max;
     let step: number = this._slider.step;
 
     let val: number = (max - min) * pos + min;
@@ -42,8 +42,12 @@ class MarkerModel {
     this.setPositionByValue(this._value);
   }
 
+  recalculate() {
+    this.position = this._position;
+  }
+
   private setPositionByValue(val: number): void {
-    let newPos: number = (val - this._slider.minMax[0]) / (this._slider.minMax[1] - this._slider.minMax[0]);
+    let newPos: number = (val - this._slider.min) / (this._slider.max - this._slider.min);
     if (newPos < 0) {
       this._position = 0;
     } else if (newPos > 1) {

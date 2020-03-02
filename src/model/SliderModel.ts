@@ -16,9 +16,8 @@ class SliderModel {
   private _markers: MarkerModel[];
 
   constructor(props: Options) {
-    let min: number = props.min ? props.min : this._min;
-    let max: number = props.max ? props.max : this._max;
-    this.minMax = [min, max];
+    this._min = props.min ? props.min : this._min;
+    this._max = props.max ? props.max : this._max;
     this._range = props.range ? props.range : this._range;
     this._step = props.step ? props.step : this._step;
     this._isVisibleLabels = props.showLabels ? props.showLabels : this._isVisibleLabels;
@@ -26,25 +25,36 @@ class SliderModel {
 
     if (this._range) {
       this._markers = [
-        new MarkerModel(this, min),
-        new MarkerModel(this, max)
+        new MarkerModel(this, this._min),
+        new MarkerModel(this, this._max)
       ];
     } else {
-      let value: number = props.value ? props.value : min;
+      let value: number = props.value ? props.value : this._min;
       this._markers = [new MarkerModel(this, value)];
     }
   }
 
-  get minMax(): number[] {
-    return [this._min, this._max];
+  get min(): number {
+    return this._min;
   }
 
-  set minMax(value: number[]) {
-    if (value[0] < value[1]) {
-      this._min = value[0];
-      this._max = value[1];
-    } else {
-      throw new Error('Min should be less then Max.');
+  set min(value: number) {
+    if (value < this._max) {
+      this._min = value;
+      this.calculateMarkers();
+      this._observers.emmit(ModelEvents.changeValue, this);
+    }
+  }
+
+  get max(): number {
+    return this._max;
+  }
+
+  set max(value: number) {
+    if (value > this._min) {
+      this._max = value;
+      this.calculateMarkers();
+      this._observers.emmit(ModelEvents.changeValue, this);
     }
   }
 
@@ -195,6 +205,10 @@ class SliderModel {
     if (!this._range) {
       throw new Error('This is single marker slider.');
     }
+  }
+
+  private calculateMarkers() {
+    this._markers.forEach((marker) => marker.recalculate());
   }
 }
 

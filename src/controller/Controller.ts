@@ -67,8 +67,8 @@ class Controller {
     let data: SliderData = {
       position: this._model.getPosition(0),
       value: this._model.getValue(0),
-      min: this._model.minMax[0],
-      max: this._model.minMax[1],
+      min: this._model.min,
+      max: this._model.max,
       orientation: this._model.orientation,
       markerId: 0,
     };

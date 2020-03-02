@@ -9,6 +9,8 @@ export class Panel {
   private _textFieldLow: JQuery;
   private _textFieldHight: JQuery;
   private _textFieldStep: JQuery;
+  private _textFieldMin: JQuery;
+  private _textFieldMax: JQuery;
   private _selectOrientation: JQuery;
   private _checkboxLabels: JQuery;
   private _isRange: boolean;
@@ -31,6 +33,14 @@ export class Panel {
       this.wrapLabel(this._textFieldHight, 'Hight');
       this._textFieldHight.on('input', this.onChangeHightValue.bind(this));
     }
+
+    this._textFieldMin = $('<input type="number">');
+    panel.append(this._textFieldMin);
+    this.wrapLabel(this._textFieldMin, 'Min');
+
+    this._textFieldMax = $('<input type="number">');
+    panel.append(this._textFieldMax);
+    this.wrapLabel(this._textFieldMax, 'Max');
 
     this._textFieldStep = $('<input type="number">');
     panel.append(this._textFieldStep);
@@ -55,6 +65,8 @@ export class Panel {
     this._textFieldLow.on('input', this.onChangeLowValue.bind(this));
     this._checkboxLabels.on('change', this.onCheckboxChange.bind(this));
     this._selectOrientation.on('change', this.onChangeOrientation.bind(this));
+    this._textFieldMin.on('input', this.onChangeMinValue.bind(this));
+    this._textFieldMax.on('input', this.onChangeMaxValue.bind(this));
 
     this._slider.addEventListener(ModelEvents.changeValue, this.updateValues.bind(this));
     this._slider.addEventListener(ModelEvents.changeLabelVisibility, this.updateLabelsCheckbox.bind(this));
@@ -64,6 +76,7 @@ export class Panel {
     this.updateValues();
     this.updateOrientation();
     this.updateStep();
+    this.updateMinMax();
   }
 
   private updateValues() {
@@ -75,6 +88,11 @@ export class Panel {
 
   private updateStep() {
     this._textFieldStep.val(this._slider.step);
+  }
+
+  private updateMinMax() {
+    this._textFieldMin.val(this._slider.min);
+    this._textFieldMax.val(this._slider.max);
   }
 
   private onChangeLowValue() {
@@ -99,6 +117,14 @@ export class Panel {
     } else {
       this._slider.orientation = Orientation.Vertical;
     }
+  }
+
+  private onChangeMinValue() {
+    this._slider.min = +<number>this._textFieldMin.val();
+  }
+
+  private onChangeMaxValue() {
+    this._slider.max = +<number>this._textFieldMax.val();
   }
 
   private updateLabelsCheckbox() {

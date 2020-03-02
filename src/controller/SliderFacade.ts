@@ -53,6 +53,22 @@ class SliderFacade {
     this._model.orientation = orientation;
   }
 
+  set min(value: number) {
+    this._model.min = value;
+  }
+
+  get min(): number {
+    return this._model.min;
+  }
+
+  set max(value: number) {
+    this._model.max = value;
+  }
+
+  get max(): number {
+    return this._model.max;
+  }
+
   get range(): boolean {
     return this._model.range;
   }
