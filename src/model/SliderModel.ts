@@ -66,6 +66,20 @@ class SliderModel {
     return this._range;
   }
 
+  set range(value: boolean) {
+    if(!this._range && value) {
+      const marker: MarkerModel = new MarkerModel(this, this._max);
+      this._markers.push(marker);
+    } else if(this._range && !value) {
+      this._markers.pop();
+    } else {
+      return;
+    }
+
+    this._range = value;
+    this._observers.emmit(ModelEvents.changeRange, this._range);
+  }
+
   set value(value: number) {
     if (this._range) {
       throw new Error('Range slider have multiple values.');
@@ -177,7 +191,16 @@ class SliderModel {
   }
 
   setValue(value: number, id: number = 0) {
-    this._markers[id].value = value;
+    let newValue: number = value;
+    if (this.range) {
+      if (id == 0 && value > this._markers[1].value) {
+        newValue = this._markers[1].value; 
+      }
+      if (id == 1 && value < this._markers[0].value) {
+        newValue = this._markers[0].value;
+      }
+    }
+    this._markers[id].value = newValue;
     this._observers.emmit(ModelEvents.changeValue, this);
   }
 

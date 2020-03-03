@@ -25,6 +25,7 @@ class Controller {
     this._model.addEventListener(ModelEvents.changeValue, this.onChangeValue.bind(this));
     this._model.addEventListener(ModelEvents.changeOrientation, this.onChangeOrientation.bind(this));
     this._model.addEventListener(ModelEvents.changeLabelVisibility, this.onChangeLabelVisibility.bind(this));
+    this._model.addEventListener(ModelEvents.changeRange, this.onChangeRange.bind(this));
   }
 
   createView() {
@@ -95,6 +96,12 @@ class Controller {
   }
 
   private onChangeOrientation() {
+    this.destroyView();
+    this.createView();
+    this.updateView();
+  }
+
+  private onChangeRange(isRange: boolean) {
     this.destroyView();
     this.createView();
     this.updateView();

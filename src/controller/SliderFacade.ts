@@ -69,6 +69,10 @@ class SliderFacade {
     return this._model.max;
   }
 
+  set range(value: boolean) {
+    this._model.range = value;
+  }
+
   get range(): boolean {
     return this._model.range;
   }

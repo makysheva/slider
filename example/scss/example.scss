@@ -12,22 +12,24 @@
   border-radius: 6px;
   padding: 20px;
   display: flex;
-  height: 250px;
+  min-height: 250px;
+  justify-content: space-around;
 
   &__panel {
-    min-width: 200px;
+    width: 300px;
   }
 
   &__slider {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 400px;
+    height: 400px;
   }
 
   &__element {
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin: 6px 0;
-    width: 90%;
   }
 }

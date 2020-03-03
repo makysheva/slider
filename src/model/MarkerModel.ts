@@ -16,12 +16,10 @@ class MarkerModel {
   }
 
   set value(val: number) {
-    if (val < this._slider.min || val > this._slider.max) {
-      throw new Error('Value must be between the min and max.');
+    if (val >= this._slider.min && val <= this._slider.max) {
+      this._value = val;
+      this.setPositionByValue(this._value);
     }
-
-    this._value = val;
-    this.setPositionByValue(this._value);
   }
 
   get position(): number {
