@@ -5,9 +5,29 @@ Demos: [смотреть](https://vovnet.github.io/slider/example/)
 JQuery плагин слайдер.
 
 ### *Содержание*
+- [Установка](#установка)
 - [Использование](#использование)
 - [Тесты](#тесты)
 - [UML диаграмма](https://github.com/vovnet/slider/blob/master/example/img/slider.png)
+
+### Установка
+Установка проекта:
+```bash
+git clone git@github.com:vovnet/slider.git
+npm install
+```
+Запуск локального сервера:
+```dotnetcli
+npm run serv
+```
+Сборка проекта:
+```bash
+npm run build
+```
+Деплой на github pages:
+```bash
+npm run deploy
+```
 
 ### Использование
 Создаем слайдер:
