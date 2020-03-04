@@ -4,11 +4,15 @@ import { SliderModel } from "../../src/model/SliderModel";
 
 class ValueControl {
   private _parent: HTMLElement;
+
   private _facade: SliderFacade;
 
   private _minInput: HTMLInputElement;
+
   private _maxInput: HTMLInputElement;
+
   private _rangeInput: HTMLInputElement;
+
   private _maxContainer: HTMLElement;
 
   constructor(parent: HTMLElement, facade: SliderFacade) {
@@ -25,7 +29,7 @@ class ValueControl {
 
     this._parent.appendChild(this.wrapByLabel(this._rangeInput, 'Range'));
     this._parent.appendChild(this.wrapByLabel(this._minInput, 'Low value'));
-    
+
     this._maxContainer = this.wrapByLabel(this._maxInput, 'Hight value');
 
     this._facade.addEventListener(ModelEvents.changeValue, this.onChangeValue.bind(this));

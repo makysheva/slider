@@ -4,7 +4,8 @@
     "es6": true
   },
   "extends": [
-    "airbnb-base"
+    "airbnb-base",
+    "plugin:jest/recommended"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -16,7 +17,8 @@
     "sourceType": "module"
   },
   "plugins": [
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "jest"
   ],
   "rules": {
     "no-underscore-dangle": [
@@ -26,6 +28,11 @@
       }
     ],
     "import/no-unresolved": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
   }
 }
