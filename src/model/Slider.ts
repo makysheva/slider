@@ -104,7 +104,8 @@ class Slider {
   public setPosition(position: number, pointer: number = 0) {
     position = (position < 0) ? 0 : position;
     position = (position > 1) ? 1 : position;
-    this.values[pointer] = (this.min + this.max) * position;
+    const value: number = (this.min + this.max) * position;
+    this.setValue(value, pointer);
   }
 
   public getPosition(pointer: number = 0): number {
