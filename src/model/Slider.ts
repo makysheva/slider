@@ -75,18 +75,18 @@ class Slider {
   }
 
   public setStep(step: number) {
-    const half: number = (this.max + this.min) / 2;
-    if (step <= half && step > 0) {
+    if (step <= this.max && step > 0) {
       this.step = step;
-    }
 
-    if (this.values[0] % this.step !== 0) {
-      this.values[0] = Math.round(this.values[0] / this.step) * this.step;
-      // this.setValueByStep(this.values[0], 0);
-    }
+      if (this.values[0] % this.step !== 0) {
+        // this.values[0] = Math.round(this.values[0] / this.step) * this.step;
+        this.setValueByStep(this.values[0], 0);
+      }
 
-    if (this.isRange && this.values[1] % this.step !== 0) {
-      this.values[1] = Math.round(this.values[1] / this.step) * this.step;
+      if (this.isRange && this.values[1] % this.step !== 0) {
+        // this.values[1] = Math.round(this.values[1] / this.step) * this.step;
+        this.setValueByStep(this.values[1], 1);
+      }
     }
   }
 

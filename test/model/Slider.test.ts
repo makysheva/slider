@@ -111,17 +111,11 @@ describe('Slider model.', () => {
       expect(slider.getStep()).toBe(step);
     });
 
-    test('step should not be greater then half range', () => {
-      let step: number = 51;
-      const defaultStep: number = 1;
+    test('step should not be greater max', () => {
+      let step: number = 101;
       slider.setStep(step);
-      expect(slider.getStep()).toBe(defaultStep);
-      step = 50;
-      slider.setStep(step);
-      expect(slider.getStep()).toBe(step);
-      slider.setMin(20);
-      slider.setMax(70);
-      step = 45;
+      expect(slider.getStep()).toBe(1);
+      step = 100;
       slider.setStep(step);
       expect(slider.getStep()).toBe(step);
     });
