@@ -211,5 +211,16 @@ describe('Slider model.', () => {
       slider.setPosition(2);
       expect(slider.getValue()).toBe(100);
     });
+
+    test('getPosition should return relative value of single slider', () => {
+      slider.setValue(50);
+      expect(slider.getPosition()).toBe(0.5);
+    });
+
+    test('getPosition should return relative value of range slider', () => {
+      slider.setRange(true);
+      slider.setValue(40, 1);
+      expect(slider.getPosition(1)).toBe(0.4);
+    });
   });
 });

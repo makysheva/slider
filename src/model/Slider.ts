@@ -109,7 +109,7 @@ class Slider {
   }
 
   public getPosition(pointer: number = 0): number {
-    return -1;
+    return this.values[pointer] / (this.min + this.max);
   }
 
   private setRangedValues(pointer: number, value: number) {
