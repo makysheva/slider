@@ -1,28 +1,29 @@
 class Event {
-  private _type: string;
-  private _subscribers: Function[] = [];
+  private type: string;
+
+  private subscribers: Function[] = [];
 
   constructor(type: string) {
-    this._type = type;
+    this.type = type;
   }
 
   add(fn: Function) {
-    if (!this._subscribers.includes(fn)) {
-      this._subscribers.push(fn);
+    if (!this.subscribers.includes(fn)) {
+      this.subscribers.push(fn);
     }
   }
 
   remove(fn: Function) {
-    this._subscribers = this._subscribers.filter((value) => value != fn);
+    this.subscribers = this.subscribers.filter((value) => value !== fn);
   }
 
-  emmit(data: Object) {
-    this._subscribers.forEach((value) => value(this._type, data));
+  emit(data: Object) {
+    this.subscribers.forEach((value) => value(this.type, data));
   }
 
-  get type(): string {
-    return this._type;
+  getType(): string {
+    return this.type;
   }
 }
 
-export { Event };
+export default Event;

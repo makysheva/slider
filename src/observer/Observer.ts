@@ -1,7 +1,7 @@
-import { Event } from "./Event";
+import Event from './Event';
 
 class Observer {
-  private _events: Event[] = [];
+  private events: Event[] = [];
 
   add(type: string, fn: Function): Observer {
     let event: Event = this.getEvent(type) || null!;
@@ -11,32 +11,32 @@ class Observer {
     } else {
       event = new Event(type);
       event.add(fn);
-      this._events.push(event);
+      this.events.push(event);
     }
 
     return this;
   }
 
   remove(type: string, fn: Function) {
-    let event: Event = this.getEvent(type) || new Event('');
-    if (event.type != '') {
+    const event: Event = this.getEvent(type) || new Event('');
+    if (event.getType() !== '') {
       event.remove(fn);
     }
   }
 
-  emmit(type: string, data: Object) {
-    let event: Event = this.getEvent(type) || new Event('');
-    event.emmit(data);
+  emit(type: string, data: Object) {
+    const event: Event = this.getEvent(type) || new Event('');
+    event.emit(data);
   }
 
   private getEvent(type: string): Event | null {
-    for (let i: number = 0; i < this._events.length; i++) {
-      if (this._events[i].type == type) {
-        return this._events[i];
+    for (let i: number = 0; i < this.events.length; i++) {
+      if (this.events[i].getType() === type) {
+        return this.events[i];
       }
     }
     return null;
   }
 }
 
-export { Observer };
+export default Observer;
