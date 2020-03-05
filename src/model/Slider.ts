@@ -1,4 +1,5 @@
 import Orientation from '../types/Orientation';
+import Observer from '../observer/Observer';
 
 class Slider {
   private min: number = 0;
@@ -15,6 +16,8 @@ class Slider {
 
   private isVisibleTooltips: boolean = true;
 
+  private observer: Observer = new Observer();
+
   public setMin(min: number) {
     if (min < this.max) {
       this.min = min;
@@ -27,6 +30,8 @@ class Slider {
         this.values[1] = this.min + this.step;
       }
     }
+
+    this.emitChangeEvent();
   }
 
   public getMin(): number {
@@ -50,6 +55,8 @@ class Slider {
         }
       }
     }
+
+    this.emitChangeEvent();
   }
 
   public getMax(): number {
@@ -58,6 +65,7 @@ class Slider {
 
   public setRange(isRange: boolean) {
     this.isRange = isRange;
+    this.emitChangeEvent();
   }
 
   public getRange(): boolean {
@@ -65,9 +73,8 @@ class Slider {
   }
 
   public setOrientation(orientation: Orientation) {
-    if (this.orientation !== orientation) {
-      this.orientation = orientation;
-    }
+    this.orientation = orientation;
+    this.emitChangeEvent();
   }
 
   public getOrientation(): Orientation {
@@ -79,13 +86,15 @@ class Slider {
       this.step = step;
 
       if (this.values[0] % this.step !== 0) {
-        this.setValueByStep(this.values[0], 0);
+        this.values[0] = this.getValueByStep(this.values[0]);
       }
 
       if (this.isRange && this.values[1] % this.step !== 0) {
-        this.setValueByStep(this.values[1], 1);
+        this.values[1] = this.getValueByStep(this.values[1]);
       }
     }
+
+    this.emitChangeEvent();
   }
 
   public getStep(): number {
@@ -93,17 +102,9 @@ class Slider {
   }
 
   public setValue(value: number, pointer: number = 0) {
-    if (!this.isRange && pointer === 1) {
-      return;
-    }
+    this.setNewValue(value, pointer);
 
-    if (value >= this.min && value <= this.max) {
-      if (this.isRange) {
-        this.setRangedValues(pointer, value);
-      } else {
-        this.setValueByStep(value, pointer);
-      }
-    }
+    this.emitChangeEvent();
   }
 
   public getValue(pointer: number = 0): number {
@@ -111,10 +112,8 @@ class Slider {
   }
 
   public setPointPosition(position: number, pointer: number = 0) {
-    position = (position < 0) ? 0 : position;
-    position = (position > 1) ? 1 : position;
-    const value: number = (this.min + this.max) * position;
-    this.setValue(value, pointer);
+    this.setNewPointPosition(position, pointer);
+    this.emitChangeEvent();
   }
 
   public getPointPosition(pointer: number = 0): number {
@@ -127,53 +126,89 @@ class Slider {
       const hightPosition: number = this.getPointPosition(1);
 
       if (position <= lowPosition) {
-        this.setPointPosition(position, 0);
+        this.setNewPointPosition(position, 0);
       }
 
       if (position >= hightPosition) {
-        this.setPointPosition(position, 1);
+        this.setNewPointPosition(position, 1);
       }
 
       if (position > lowPosition && position < hightPosition) {
         const lowDistToMiddle: number = position - lowPosition;
         const hightDistToMiddle: number = hightPosition - position;
         if (lowDistToMiddle <= hightDistToMiddle) {
-          this.setPointPosition(position);
+          this.setNewPointPosition(position, 0);
         } else {
-          this.setPointPosition(position, 1);
+          this.setNewPointPosition(position, 1);
         }
       }
     } else {
-      this.setPointPosition(position);
+      this.setNewPointPosition(position, 0);
     }
+
+    this.emitChangeEvent();
   }
 
   public setTooltipVisibility(isVisible: boolean) {
     this.isVisibleTooltips = isVisible;
+    this.emitChangeEvent();
   }
 
   public getTooltipVisibility(): boolean {
     return this.isVisibleTooltips;
   }
 
-  private setRangedValues(pointer: number, value: number) {
-    if (pointer === 0 && this.getRoundedValueByStep(value) < this.values[1]) {
-      this.setValueByStep(value, pointer);
-    } else if (pointer === 1 && value > this.values[0]) {
-      this.setValueByStep(value, pointer);
+  public addListener(event: string, fn: Function) {
+    this.observer.add(event, fn);
+  }
+
+  public removeListener(event: string, fn: Function) {
+    this.observer.remove(event, fn);
+  }
+
+  private setNewValue(value: number, pointer: number) {
+    if (!this.isRange && pointer === 1) {
+      return;
+    }
+
+    if (value >= this.min && value <= this.max) {
+      if (this.isRange) {
+        if (pointer === 0 && this.getRoundedValueByStep(value) < this.values[1]) {
+          this.values[pointer] = this.getValueByStep(value);
+        } else if (pointer === 1 && value > this.values[0]) {
+          this.values[pointer] = this.getValueByStep(value);
+        }
+      } else {
+        this.values[pointer] = this.getValueByStep(value);
+      }
     }
   }
 
-  private setValueByStep(value: number, pointer: number) {
+  private setNewPointPosition(position: number, pointer: number) {
+    let newPosition = (position < 0) ? 0 : position;
+    newPosition = (position > 1) ? 1 : position;
+    const value: number = (this.min + this.max) * newPosition;
+    this.setNewValue(value, pointer);
+  }
+
+  private getValueByStep(value: number) {
+    let resultValue = 0;
+
     if (value === this.max) {
-      this.values[pointer] = this.max;
+      resultValue = this.max;
     } else {
-      this.values[pointer] = this.getRoundedValueByStep(value);
+      resultValue = this.getRoundedValueByStep(value);
     }
+
+    return resultValue;
   }
 
   private getRoundedValueByStep(value: number): number {
     return Math.round(value / this.step) * this.step;
+  }
+
+  private emitChangeEvent() {
+    this.observer.emit('change', this);
   }
 }
 

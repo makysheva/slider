@@ -75,6 +75,14 @@ describe('Slider model.', () => {
       slider.setMax(max);
       expect(slider.getValue()).toBe(max - slider.getStep());
     });
+
+    test('should emit change event', () => {
+      const changeCallback: jest.Mock = jest.fn();
+      slider.addListener('change', changeCallback);
+      slider.setMin(10);
+      slider.setMax(70);
+      expect(changeCallback.mock.calls.length).toBe(2);
+    });
   });
 
   describe('Get/set range methods', () => {
@@ -87,6 +95,13 @@ describe('Slider model.', () => {
       slider.setRange(isRange);
       expect(slider.getRange()).toBe(true);
     });
+
+    test('should emit change event', () => {
+      const changeCallback: jest.Mock = jest.fn();
+      slider.addListener('change', changeCallback);
+      slider.setRange(true);
+      expect(changeCallback.mock.calls.length).toBe(1);
+    });
   });
 
   describe('Get/set orientation methods', () => {
@@ -97,6 +112,14 @@ describe('Slider model.', () => {
     test('set should be right', () => {
       slider.setOrientation(Orientation.Vertical);
       expect(slider.getOrientation()).toBe(Orientation.Vertical);
+    });
+
+    test('should emit change event', () => {
+      const changeCallback: jest.Mock = jest.fn();
+      slider.addListener('change', changeCallback);
+      slider.setOrientation(Orientation.Vertical);
+      slider.setOrientation(Orientation.Horizontal);
+      expect(changeCallback.mock.calls.length).toBe(2);
     });
   });
 
@@ -143,6 +166,15 @@ describe('Slider model.', () => {
       slider.setValue(13, 1);
       slider.setStep(step);
       expect(slider.getValue(1)).toBe(12);
+    });
+
+    test('should emit change event', () => {
+      const changeCallback: jest.Mock = jest.fn();
+      slider.addListener('change', changeCallback);
+      slider.setStep(2);
+      slider.setStep(200);
+      slider.setStep(-1);
+      expect(changeCallback.mock.calls.length).toBe(3);
     });
   });
 
@@ -249,6 +281,15 @@ describe('Slider model.', () => {
       slider.setValue(51);
       expect(slider.getValue()).toBe(0);
     });
+
+    test('should emit change event', () => {
+      const changeCallback: jest.Mock = jest.fn();
+      slider.addListener('change', changeCallback);
+      slider.setRange(true);
+      slider.setValue(5);
+      slider.setValue(20, 1);
+      expect(changeCallback.mock.calls.length).toBe(3);
+    });
   });
 
   describe('Get/set pointer position', () => {
@@ -279,6 +320,15 @@ describe('Slider model.', () => {
       slider.setValue(40, 1);
       expect(slider.getPointPosition(1)).toBe(0.4);
     });
+
+    test('should emit change event', () => {
+      const changeCallback: jest.Mock = jest.fn();
+      slider.addListener('change', changeCallback);
+      slider.setRange(true);
+      slider.setPointPosition(0.3);
+      slider.setPointPosition(0.6, 1);
+      expect(changeCallback.mock.calls.length).toBe(3);
+    });
   });
 
   describe('Get/set tooltips visibility', () => {
@@ -289,6 +339,13 @@ describe('Slider model.', () => {
     test('should set tooltips visibility to false', () => {
       slider.setTooltipVisibility(false);
       expect(slider.getTooltipVisibility()).toBe(false);
+    });
+
+    test('should emit change event', () => {
+      const changeCallback: jest.Mock = jest.fn();
+      slider.addListener('change', changeCallback);
+      slider.setTooltipVisibility(true);
+      expect(changeCallback.mock.calls.length).toBe(1);
     });
   });
 
@@ -331,6 +388,19 @@ describe('Slider model.', () => {
       slider.setPosition(position);
       expect(slider.getPointPosition(1)).toBe(position);
       expect(slider.getPointPosition()).toBe(0);
+    });
+
+    test('should emit change event', () => {
+      const changeCallback: jest.Mock = jest.fn();
+      slider.addListener('change', changeCallback);
+      slider.setRange(true);
+      slider.setPosition(0.2);
+      slider.setPosition(0.8);
+      slider.setPosition(0.5);
+      slider.setPosition(1);
+      slider.setPosition(0);
+      slider.setPosition(1.5);
+      expect(changeCallback.mock.calls.length).toBe(7);
     });
   });
 });
