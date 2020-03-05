@@ -222,6 +222,23 @@ describe('Slider model.', () => {
       slider.setValue(18, 1);
       expect(slider.getValue(1)).toBe(21);
     });
+
+    test('setValue should correct value by step in max case of single slider', () => {
+      const max: number = 103;
+      slider.setStep(5);
+      slider.setMax(max);
+      slider.setValue(max);
+      expect(slider.getValue()).toBe(max);
+    });
+
+    test('setValue should correct hight value by step in max case of range slider', () => {
+      const max: number = 103;
+      slider.setRange(true);
+      slider.setStep(10);
+      slider.setMax(max);
+      slider.setValue(max, 1);
+      expect(slider.getValue(1)).toBe(max);
+    });
   });
 
   describe('Get/set slider position', () => {

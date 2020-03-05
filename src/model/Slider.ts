@@ -132,7 +132,11 @@ class Slider {
   }
 
   private setValueByStep(value: number, pointer: number) {
-    this.values[pointer] = Math.round(value / this.step) * this.step;
+    if (value === this.max) {
+      this.values[pointer] = this.max;
+    } else {
+      this.values[pointer] = Math.round(value / this.step) * this.step;
+    }
   }
 }
 
