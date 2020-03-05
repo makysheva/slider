@@ -135,6 +135,21 @@ describe('Slider model.', () => {
       slider.setStep(step);
       expect(slider.getStep()).toBe(defaultStep);
     });
+
+    test('setStep should set right current value of single slider', () => {
+      const step: number = 5;
+      slider.setValue(43);
+      slider.setStep(step);
+      expect(slider.getValue()).toBe(45);
+    });
+
+    test('setStep should set right current value of range slider', () => {
+      const step: number = 4;
+      slider.setRange(true);
+      slider.setValue(13, 1);
+      slider.setStep(step);
+      expect(slider.getValue(1)).toBe(12);
+    });
   });
 
   describe('Get/set value', () => {

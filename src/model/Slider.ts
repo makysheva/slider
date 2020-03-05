@@ -77,6 +77,14 @@ class Slider {
     if (step <= half && step > 0) {
       this.step = step;
     }
+
+    if (this.values[0] % this.step !== 0) {
+      this.values[0] = Math.round(this.values[0] / this.step) * this.step;
+    }
+
+    if (this.isRange && this.values[1] % this.step !== 0) {
+      this.values[1] = Math.round(this.values[1] / this.step) * this.step;
+    }
   }
 
   public getStep(): number {
