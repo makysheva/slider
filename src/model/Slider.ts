@@ -13,6 +13,8 @@ class Slider {
 
   private values: number[] = [0, 100];
 
+  private isVisibleTooltips: boolean = true;
+
   public setMin(min: number) {
     if (min < this.max) {
       this.min = min;
@@ -119,6 +121,14 @@ class Slider {
 
   public getPosition(pointer: number = 0): number {
     return this.values[pointer] / (this.min + this.max);
+  }
+
+  public setTooltipVisibility(isVisible: boolean) {
+    this.isVisibleTooltips = isVisible;
+  }
+
+  public getTooltipVisibility(): boolean {
+    return this.isVisibleTooltips;
   }
 
   private setRangedValues(pointer: number, value: number) {

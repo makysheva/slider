@@ -270,4 +270,15 @@ describe('Slider model.', () => {
       expect(slider.getPosition(1)).toBe(0.4);
     });
   });
+
+  describe('Get/set tooltips visibility', () => {
+    test('should set tooltips visibility to true by default', () => {
+      expect(slider.getTooltipVisibility()).toBe(true);
+    });
+
+    test('should set tooltips visibility to false', () => {
+      slider.setTooltipVisibility(false);
+      expect(slider.getTooltipVisibility()).toBe(false);
+    });
+  });
 });
