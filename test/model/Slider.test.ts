@@ -207,6 +207,21 @@ describe('Slider model.', () => {
       slider.setValue(hight, 1);
       expect(slider.getValue(1)).toBe(100);
     });
+
+    test('setValue should correct value by step in single slider', () => {
+      const step: number = 5;
+      slider.setStep(step);
+      slider.setValue(6);
+      expect(slider.getValue()).toBe(step);
+    });
+
+    test('setValue should be correct value by step in range slider', () => {
+      const step: number = 7;
+      slider.setRange(true);
+      slider.setStep(step);
+      slider.setValue(18, 1);
+      expect(slider.getValue(1)).toBe(21);
+    });
   });
 
   describe('Get/set slider position', () => {

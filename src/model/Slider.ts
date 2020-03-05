@@ -80,6 +80,7 @@ class Slider {
 
     if (this.values[0] % this.step !== 0) {
       this.values[0] = Math.round(this.values[0] / this.step) * this.step;
+      // this.setValueByStep(this.values[0], 0);
     }
 
     if (this.isRange && this.values[1] % this.step !== 0) {
@@ -100,7 +101,7 @@ class Slider {
       if (this.isRange) {
         this.setRangedValues(pointer, value);
       } else {
-        this.values[pointer] = value;
+        this.setValueByStep(value, pointer);
       }
     }
   }
@@ -122,10 +123,16 @@ class Slider {
 
   private setRangedValues(pointer: number, value: number) {
     if (pointer === 0 && value < this.values[1]) {
-      this.values[pointer] = value;
+      // this.values[pointer] = value;
+      this.setValueByStep(value, pointer);
     } else if (pointer === 1 && value > this.values[0]) {
-      this.values[pointer] = value;
+      // this.values[pointer] = value;
+      this.setValueByStep(value, pointer);
     }
+  }
+
+  private setValueByStep(value: number, pointer: number) {
+    this.values[pointer] = Math.round(value / this.step) * this.step;
   }
 }
 
