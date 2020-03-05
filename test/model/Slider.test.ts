@@ -233,35 +233,51 @@ describe('Slider model.', () => {
       slider.setValue(max, 1);
       expect(slider.getValue(1)).toBe(max);
     });
+
+    test('if step == max, the value should be correct in single slider', () => {
+      const step: number = 100;
+      slider.setStep(step);
+      slider.setValue(51);
+      expect(slider.getValue()).toBe(step);
+      slider.setValue(49);
+      expect(slider.getValue()).toBe(0);
+    });
+
+    test('if step == max in range slider, then values must be correct', () => {
+      slider.setRange(true);
+      slider.setStep(100);
+      slider.setValue(51);
+      expect(slider.getValue()).toBe(0);
+    });
   });
 
-  describe('Get/set slider position', () => {
+  describe('Get/set pointer position', () => {
     test('setPosition should set valid value', () => {
       const position: number = 0.5;
-      slider.setPosition(position);
+      slider.setPointPosition(position);
       expect(slider.getValue()).toBe(50);
       slider.setMin(20);
       slider.setMax(70);
-      slider.setPosition(position);
+      slider.setPointPosition(position);
       expect(slider.getValue()).toBe(45);
     });
 
     test('setPosition should be between 0-1', () => {
-      slider.setPosition(-1);
+      slider.setPointPosition(-1);
       expect(slider.getValue()).toBe(0);
-      slider.setPosition(2);
+      slider.setPointPosition(2);
       expect(slider.getValue()).toBe(100);
     });
 
     test('getPosition should return relative value of single slider', () => {
       slider.setValue(50);
-      expect(slider.getPosition()).toBe(0.5);
+      expect(slider.getPointPosition()).toBe(0.5);
     });
 
     test('getPosition should return relative value of range slider', () => {
       slider.setRange(true);
       slider.setValue(40, 1);
-      expect(slider.getPosition(1)).toBe(0.4);
+      expect(slider.getPointPosition(1)).toBe(0.4);
     });
   });
 
@@ -273,6 +289,48 @@ describe('Slider model.', () => {
     test('should set tooltips visibility to false', () => {
       slider.setTooltipVisibility(false);
       expect(slider.getTooltipVisibility()).toBe(false);
+    });
+  });
+
+  describe('SetPosition method', () => {
+    test('should set correct position to point in single slider', () => {
+      const position: number = 0.5;
+      slider.setPosition(position);
+      expect(slider.getPointPosition()).toBe(position);
+    });
+
+    test('should set position to low pointer if position less then current low pointer position of range slider', () => {
+      const position: number = 0.2;
+      slider.setRange(true);
+      slider.setValue(50);
+      slider.setPosition(position);
+      expect(slider.getPointPosition()).toBe(position);
+      expect(slider.getPointPosition(1)).toBe(1);
+    });
+
+    test('should set hight pointer position if passed position greater then hight pointer of range slider', () => {
+      const position: number = 0.9;
+      slider.setRange(true);
+      slider.setValue(50, 1);
+      slider.setPosition(position);
+      expect(slider.getPointPosition(1)).toBe(position);
+      expect(slider.getPointPosition()).toBe(0);
+    });
+
+    test('if passed position between low and hight pointers, position should set to nearest (low)', () => {
+      const position: number = 0.49;
+      slider.setRange(true);
+      slider.setPosition(position);
+      expect(slider.getPointPosition()).toBe(position);
+      expect(slider.getPointPosition(1)).toBe(1);
+    });
+
+    test('if passed position between low and hight pointers, position should set to nearest (hight)', () => {
+      const position: number = 0.51;
+      slider.setRange(true);
+      slider.setPosition(position);
+      expect(slider.getPointPosition(1)).toBe(position);
+      expect(slider.getPointPosition()).toBe(0);
     });
   });
 });

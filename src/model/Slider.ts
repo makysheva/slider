@@ -79,12 +79,10 @@ class Slider {
       this.step = step;
 
       if (this.values[0] % this.step !== 0) {
-        // this.values[0] = Math.round(this.values[0] / this.step) * this.step;
         this.setValueByStep(this.values[0], 0);
       }
 
       if (this.isRange && this.values[1] % this.step !== 0) {
-        // this.values[1] = Math.round(this.values[1] / this.step) * this.step;
         this.setValueByStep(this.values[1], 1);
       }
     }
@@ -112,15 +110,42 @@ class Slider {
     return this.values[pointer];
   }
 
-  public setPosition(position: number, pointer: number = 0) {
+  public setPointPosition(position: number, pointer: number = 0) {
     position = (position < 0) ? 0 : position;
     position = (position > 1) ? 1 : position;
     const value: number = (this.min + this.max) * position;
     this.setValue(value, pointer);
   }
 
-  public getPosition(pointer: number = 0): number {
+  public getPointPosition(pointer: number = 0): number {
     return this.values[pointer] / (this.min + this.max);
+  }
+
+  public setPosition(position: number) {
+    if (this.isRange) {
+      const lowPosition: number = this.getPointPosition();
+      const hightPosition: number = this.getPointPosition(1);
+
+      if (position <= lowPosition) {
+        this.setPointPosition(position, 0);
+      }
+
+      if (position >= hightPosition) {
+        this.setPointPosition(position, 1);
+      }
+
+      if (position > lowPosition && position < hightPosition) {
+        const lowDistToMiddle: number = position - lowPosition;
+        const hightDistToMiddle: number = hightPosition - position;
+        if (lowDistToMiddle <= hightDistToMiddle) {
+          this.setPointPosition(position);
+        } else {
+          this.setPointPosition(position, 1);
+        }
+      }
+    } else {
+      this.setPointPosition(position);
+    }
   }
 
   public setTooltipVisibility(isVisible: boolean) {
@@ -132,11 +157,9 @@ class Slider {
   }
 
   private setRangedValues(pointer: number, value: number) {
-    if (pointer === 0 && value < this.values[1]) {
-      // this.values[pointer] = value;
+    if (pointer === 0 && this.getRoundedValueByStep(value) < this.values[1]) {
       this.setValueByStep(value, pointer);
     } else if (pointer === 1 && value > this.values[0]) {
-      // this.values[pointer] = value;
       this.setValueByStep(value, pointer);
     }
   }
@@ -145,8 +168,12 @@ class Slider {
     if (value === this.max) {
       this.values[pointer] = this.max;
     } else {
-      this.values[pointer] = Math.round(value / this.step) * this.step;
+      this.values[pointer] = this.getRoundedValueByStep(value);
     }
+  }
+
+  private getRoundedValueByStep(value: number): number {
+    return Math.round(value / this.step) * this.step;
   }
 }
 
