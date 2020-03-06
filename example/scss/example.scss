@@ -1,35 +1,5 @@
-.panel {
-  height: 100%;
-  width: 70%;
-  margin-right: 10px;
-  background-color: rgb(213, 213, 241);
-}
-
 .example {
-  width: 80%;
-  margin: 10px auto;
-  background-color: rgb(243, 237, 230);
-  border-radius: 6px;
-  padding: 20px;
-  display: flex;
-  min-height: 250px;
-  justify-content: space-around;
-
-  &__panel {
-    width: 300px;
-  }
-
   &__slider {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    height: 400px;
-  }
-
-  &__element {
-    display: flex;
-    flex-direction: column;
-    margin: 6px 0;
+    height: 200px;
   }
 }

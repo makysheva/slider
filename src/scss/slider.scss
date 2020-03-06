@@ -1,0 +1,18 @@
+.slider {
+  box-sizing: border-box;
+  height: 100%;
+
+  &__track {
+    background-color: red;
+    
+    &_horizontal {
+      height: 6px;
+      width: 100%;
+    }
+
+    &_vertical {
+      width: 6px;
+      height: 100%;
+    }
+  }
+}
