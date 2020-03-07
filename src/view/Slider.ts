@@ -5,6 +5,7 @@ import Fill from './Fill';
 import Pointer from './Pointer';
 import Controller from '../controller/Controller';
 import SliderData from '../types/SliderData';
+import TipManager from './tips/TipManager';
 
 class Slider {
   private controller: Controller;
@@ -18,6 +19,10 @@ class Slider {
   private pointers: Map<string, Pointer> = new Map<string, Pointer>();
 
   private orientation: Orientation;
+
+  private tipManager: TipManager;
+
+  private data: SliderData;
 
   constructor(container: HTMLElement, controller: Controller) {
     this.orientation = Orientation.Vertical;
@@ -33,6 +38,8 @@ class Slider {
     this.createPointer('low');
 
     this.container.addEventListener('click', this.onClick.bind(this));
+
+    this.tipManager = new TipManager(this.container);
   }
 
   private onClick(event: MouseEvent) {
@@ -45,7 +52,6 @@ class Slider {
 
   private onDrag(key: string, pos: number) {
     const position: number = this.track.getRelativePosition(pos, pos);
-    console.log(`pos: ${position}`);
     const id: number = (key === 'low') ? 0 : 1;
     this.controller.setPointPosition(position, id);
   }
@@ -55,30 +61,11 @@ class Slider {
   }
 
   public update(data: SliderData) {
-    this.track.update(data.orientation);
-
-    let lowPos: number;
-    let hightPos: number;
-
-    if (data.isRange) {
-      lowPos = (data.lowPointer.position) * 100;
-      hightPos = (1 - data.hightPointer.position) * 100;
-      this.createPointer('hight');
-      const pointer: Pointer | undefined = this.pointers.get('hight');
-      if (pointer) {
-        pointer.update(this.track.getAbsolutePosition(data.hightPointer.position), data.orientation);
-      }
-    } else {
-      lowPos = 0;
-      hightPos = (1 - data.lowPointer.position) * 100;
-      this.destroyPointer('hight');
-    }
-
-    this.fill.update(lowPos, hightPos, data.orientation);
-    const pointer: Pointer | undefined = this.pointers.get('low');
-    if (pointer) {
-      pointer.update(this.track.getAbsolutePosition(data.lowPointer.position), data.orientation);
-    }
+    this.data = data;
+    this.track.update(this.data.orientation);
+    this.updateFill();
+    this.updatePointers();
+    this.updateTip();
   }
 
   private createPointer(key: string) {
@@ -90,6 +77,62 @@ class Slider {
     this.pointers.set(key, pointer);
     pointer.update(0, this.orientation);
     pointer.setDragListener(this.onDrag.bind(this));
+  }
+
+  private updatePointers() {
+    let pointer: Pointer | undefined = this.pointers.get('low');
+    if (pointer) {
+      const pointerPosition: number = this.track.getAbsolutePosition(this.data.lowPointer.position);
+      pointer.update(pointerPosition, this.data.orientation);
+    }
+
+    if (this.data.isRange) {
+      this.createPointer('hight');
+      pointer = this.pointers.get('hight');
+      if (pointer) {
+        const pointerPosition: number = this.track.getAbsolutePosition(this.data.hightPointer.position);
+        pointer.update(pointerPosition, this.data.orientation);
+      }
+    } else {
+      this.destroyPointer('hight');
+    }
+  }
+
+  private updateFill() {
+    let lowPos: number;
+    let hightPos: number;
+
+    if (this.data.isRange) {
+      lowPos = this.data.lowPointer.position * 100;
+      hightPos = (1 - this.data.hightPointer.position) * 100;
+    } else {
+      lowPos = 0;
+      hightPos = (1 - this.data.lowPointer.position) * 100;
+    }
+
+    this.fill.update(lowPos, hightPos, this.data.orientation);
+  }
+
+  private updateTip() {
+    let lowPosition: number = 0;
+    let hightPosition: number = 0;
+
+    let pointer: Pointer | undefined = this.pointers.get('low');
+    if (pointer) {
+      lowPosition = this.track.getAbsolutePosition(this.data.lowPointer.position);
+    }
+
+    pointer = this.pointers.get('hight');
+    if (pointer) {
+      hightPosition = this.track.getAbsolutePosition(this.data.hightPointer.position);
+    }
+
+    this.tipManager.update(
+      { value: this.data.lowPointer.value, position: lowPosition },
+      { value: this.data.hightPointer.value, position: hightPosition },
+      this.data.orientation,
+      this.data.isRange,
+    );
   }
 
   private destroyPointer(key: string) {

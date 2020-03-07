@@ -55,4 +55,20 @@
       left: -6px;
     }
   }
+
+  &__tip {
+    position: absolute;
+    padding: 4px 10px;
+    background-color: greenyellow;
+    border-radius: 8px;
+    cursor: default;
+
+    &_horizontal {
+      top: -40px;
+    }
+
+    &_vertical {
+
+    }
+  }
 }

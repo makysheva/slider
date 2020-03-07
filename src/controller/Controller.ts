@@ -13,7 +13,7 @@ class Controller {
     // this.model.setOrientation(Orientation.Vertical);
     // this.model.setValue(67);
     this.model.setRange(true);
-    this.model.setMin(40);
+    this.model.setMin(-40);
     this.model.setMax(1000);
     // this.model.setMax(1000);
     this.view = new View(container, this);
