@@ -117,7 +117,8 @@ class Slider {
   }
 
   public getPointPosition(pointer: number = 0): number {
-    return this.values[pointer] / (this.min + this.max);
+    // return this.values[pointer] / (this.min + this.max);
+    return (this.values[pointer] - this.min) / (this.max - this.min);
   }
 
   public setPosition(position: number) {
@@ -173,10 +174,10 @@ class Slider {
 
     if (value >= this.min && value <= this.max) {
       if (this.isRange) {
-        if (pointer === 0 && this.getRoundedValueByStep(value) < this.values[1]) {
-          this.values[pointer] = this.getValueByStep(value);
-        } else if (pointer === 1 && value > this.values[0]) {
-          this.values[pointer] = this.getValueByStep(value);
+        if (pointer === 0) {
+          this.setValueToLowPointer(value);
+        } else if (pointer === 1) {
+          this.setValueToHightPointer(value);
         }
       } else {
         this.values[pointer] = this.getValueByStep(value);
@@ -184,10 +185,28 @@ class Slider {
     }
   }
 
+  private setValueToLowPointer(value: number) {
+    if (this.getRoundedValueByStep(value) < this.values[1]) {
+      this.values[0] = this.getValueByStep(value);
+    } else {
+      this.values[0] = this.values[1] - this.step;
+    }
+  }
+
+  private setValueToHightPointer(value: number) {
+    if (this.getRoundedValueByStep(value) > this.values[0]) {
+      this.values[1] = this.getValueByStep(value);
+    } else {
+      this.values[1] = this.values[0] + this.step;
+    }
+  }
+
   private setNewPointPosition(position: number, pointer: number) {
     let newPosition = (position < 0) ? 0 : position;
     newPosition = (position > 1) ? 1 : position;
-    const value: number = (this.min + this.max) * newPosition;
+    let value: number = (this.max - this.min) * newPosition + this.min;
+    if (value < this.min) value = this.min;
+    if (value > this.max) value = this.max;
     this.setNewValue(value, pointer);
   }
 

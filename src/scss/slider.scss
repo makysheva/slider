@@ -1,10 +1,15 @@
 .slider {
+  position: relative;
   box-sizing: border-box;
   height: 100%;
 
   &__track {
     background-color: red;
-    
+
+    &:hover {
+      cursor: pointer;
+    }
+
     &_horizontal {
       height: 6px;
       width: 100%;
@@ -13,6 +18,41 @@
     &_vertical {
       width: 6px;
       height: 100%;
+    }
+  }
+
+  &__fill {
+    background-color: green;
+    position: absolute;
+    top: 0;
+
+    &_horizontal {
+      height: 6px;
+    }
+
+    &_vertical {
+      width: 6px;
+    }
+  }
+
+  &__pointer {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: blue;
+    opacity: 0.5;
+    border-radius: 100%;
+
+    &:hover {
+      background-color: black;
+    }
+
+    &_horizontal {
+      top: -6px;
+    }
+
+    &_vertical {
+      left: -6px;
     }
   }
 }

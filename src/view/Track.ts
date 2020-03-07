@@ -1,56 +1,69 @@
 import Orientation from '../types/Orientation';
+import OrientationManager from './OrientationManager';
 
 class Track {
   private parent: HTMLElement;
 
   private trackElement: HTMLElement;
 
-  private orientation: Orientation;
+  private orientationManager: OrientationManager;
 
-  private clickFn: Function | null;
 
-  public static create(parent: HTMLElement, orientation: Orientation): Track {
-    const track: Track = new Track();
-    track.parent = parent;
-    track.orientation = orientation;
+  constructor(parent: HTMLElement) {
+    this.parent = parent;
 
-    track.trackElement = document.createElement('div');
-    track.parent.appendChild(track.trackElement);
-    track.trackElement.classList.add('slider__track');
-
-    if (track.orientation === Orientation.Horizontal) {
-      track.trackElement.classList.add('slider__track_horizontal');
-    } else {
-      track.trackElement.classList.add('slider__track_vertical');
-    }
-
-    track.trackElement.addEventListener('click', track.onClick.bind(track));
-
-    return track;
+    this.createTrackElement();
+    this.initOrientationManager();
   }
 
-  public addClickListener(fn: (position: number) => void) {
-    this.clickFn = fn;
+  public update(orientation: Orientation) {
+    this.updateOrientation(orientation);
   }
 
-  public destroy() {
-    this.clickFn = null;
-    this.parent.removeChild(this.trackElement);
+  public getElement(): HTMLElement {
+    return this.trackElement;
   }
 
-  private onClick(e: MouseEvent) {
+  public getRelativePosition(clientX: number, clientY: number): number {
     const rect: DOMRect = this.trackElement.getBoundingClientRect();
     let position: number;
 
-    if (this.orientation === Orientation.Horizontal) {
-      position = (e.clientX - rect.left) / rect.width;
+    if (this.orientationManager.getCurrentOrientation() === Orientation.Horizontal) {
+      position = (clientX - rect.left) / rect.width;
     } else {
-      position = 1 - ((e.clientY - rect.top) / rect.height);
+      position = 1 - ((clientY - rect.top) / rect.height);
     }
 
-    if (this.clickFn) {
-      this.clickFn.call(null, position);
+    return position;
+  }
+
+  public getAbsolutePosition(relativePosition: number): number {
+    const rect: DOMRect = this.trackElement.getBoundingClientRect();
+    let position: number;
+
+    if (this.orientationManager.getCurrentOrientation() === Orientation.Horizontal) {
+      position = rect.width * relativePosition;
+    } else {
+      position = rect.height - (rect.height * relativePosition);
     }
+
+    return position;
+  }
+
+  private initOrientationManager() {
+    this.orientationManager = new OrientationManager(this.trackElement);
+    this.orientationManager.addOrientationClass(Orientation.Horizontal, 'slider__track_horizontal');
+    this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__track_vertical');
+  }
+
+  private createTrackElement() {
+    this.trackElement = document.createElement('div');
+    this.parent.appendChild(this.trackElement);
+    this.trackElement.classList.add('slider__track');
+  }
+
+  private updateOrientation(orientation: Orientation) {
+    this.orientationManager.setCurrentOrientation(orientation);
   }
 }
 
