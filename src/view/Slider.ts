@@ -6,6 +6,7 @@ import Pointer from './Pointer';
 import Controller from '../controller/Controller';
 import SliderData from '../types/SliderData';
 import TipManager from './tips/TipManager';
+import TipData from './tips/TipData';
 
 class Slider {
   private controller: Controller;
@@ -127,12 +128,14 @@ class Slider {
       hightPosition = this.track.getAbsolutePosition(this.data.hightPointer.position);
     }
 
-    this.tipManager.update(
+    const tipData: TipData = new TipData(
       { value: this.data.lowPointer.value, position: lowPosition },
       { value: this.data.hightPointer.value, position: hightPosition },
       this.data.orientation,
       this.data.isRange,
     );
+
+    this.tipManager.update(tipData);
   }
 
   private destroyPointer(key: string) {
