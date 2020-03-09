@@ -12,6 +12,10 @@ class SliderData {
 
   public isVisibleTooltip: boolean;
 
+  public min: number;
+
+  public max: number;
+
 
   constructor(model: Slider) {
     this.orientation = model.getOrientation();
@@ -25,6 +29,8 @@ class SliderData {
     };
     this.isRange = model.getRange();
     this.isVisibleTooltip = model.getTooltipVisibility();
+    this.min = model.getMin();
+    this.max = model.getMax();
   }
 }
 

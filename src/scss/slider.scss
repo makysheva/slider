@@ -2,6 +2,9 @@
   position: relative;
   box-sizing: border-box;
   height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9rem;
+  display: flex;
 
   &__track {
     background-color: red;
@@ -40,7 +43,6 @@
     width: 18px;
     height: 18px;
     background-color: blue;
-    opacity: 0.5;
     border-radius: 100%;
 
     &:hover {
@@ -71,5 +73,29 @@
     &_vertical {
       left: 20px;
     }
+  }
+
+  &__min-max {
+    display: flex;
+    justify-content: space-between;
+
+    &_horizontal {
+      flex-direction: row;
+      position: absolute;
+      width: 100%;
+      top: 20px;
+    }
+
+    &_vertical {
+      flex-direction: column-reverse;
+      position: absolute;
+      left: -40px;
+      height: 100%;
+      text-align: right;
+    }
+  }
+
+  &__range {
+    cursor: pointer;
   }
 }

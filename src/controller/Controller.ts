@@ -10,7 +10,7 @@ class Controller {
 
   constructor(container: HTMLElement) {
     this.model = new Model();
-    this.model.setOrientation(Orientation.Vertical);
+    // this.model.setOrientation(Orientation.Vertical);
     // this.model.setValue(67);
     this.model.setRange(true);
     this.model.setMin(0);

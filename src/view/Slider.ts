@@ -7,6 +7,7 @@ import Controller from '../controller/Controller';
 import SliderData from '../types/SliderData';
 import TipManager from './tips/TipManager';
 import TipData from './tips/TipData';
+import MinMax from './minmax/MinMax';
 
 class Slider {
   private controller: Controller;
@@ -25,11 +26,13 @@ class Slider {
 
   private data: SliderData;
 
+  private minMax: MinMax;
+
   constructor(container: HTMLElement, controller: Controller) {
     this.orientation = Orientation.Vertical;
     this.controller = controller;
-
     this.container = container;
+
     this.track = new Track(this.container);
     this.track.update(this.orientation);
 
@@ -41,6 +44,8 @@ class Slider {
     this.container.addEventListener('click', this.onClick.bind(this));
 
     this.tipManager = new TipManager(this.container);
+
+    this.minMax = new MinMax(this.container, this.controller);
   }
 
   private onClick(event: MouseEvent) {
@@ -67,6 +72,7 @@ class Slider {
     this.updateFill();
     this.updatePointers();
     this.updateTip();
+    this.minMax.update(this.data.min.toString(), this.data.max.toString(), this.data.orientation);
   }
 
   private createPointer(key: string) {
