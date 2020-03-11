@@ -14,6 +14,8 @@ class Slider {
 
   private container: HTMLElement;
 
+  private sliderElement: HTMLElement;
+
   private track: Track;
 
   private fill: Fill;
@@ -33,7 +35,11 @@ class Slider {
     this.controller = controller;
     this.container = container;
 
-    this.track = new Track(this.container);
+    this.sliderElement = document.createElement('div');
+    this.sliderElement.classList.add('slider');
+    this.container.appendChild(this.sliderElement);
+
+    this.track = new Track(this.sliderElement);
     this.track.update(this.orientation);
 
     this.fill = new Fill(this.track.getElement());
@@ -41,11 +47,11 @@ class Slider {
 
     this.createPointer('low');
 
-    this.container.addEventListener('click', this.onClick.bind(this));
+    this.sliderElement.addEventListener('click', this.onClick.bind(this));
 
-    this.tipManager = new TipManager(this.container);
+    this.tipManager = new TipManager(this.sliderElement);
 
-    this.minMax = new MinMax(this.container, this.controller);
+    this.minMax = new MinMax(this.sliderElement, this.controller);
   }
 
   private onClick(event: MouseEvent) {
@@ -139,6 +145,7 @@ class Slider {
       { value: this.data.hightPointer.value, position: hightPosition },
       this.data.orientation,
       this.data.isRange,
+      this.data.isVisibleTooltip,
     );
 
     this.tipManager.update(tipData);

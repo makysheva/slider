@@ -1,7 +1,7 @@
 import './scss/example.scss';
-import Slider from '../src/view/Slider';
-import Controller from '../src/controller/Controller';
+import './scss/panel.scss';
+import Panel from './panel/Panel';
 
 document.querySelectorAll('.js-slider').forEach((element) => {
-  new Controller(<HTMLElement>element);
+  new Panel(<HTMLElement>element);
 });

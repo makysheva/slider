@@ -1,8 +1,8 @@
 .example {
-  
+  max-width: 1200px;
+  margin: 0 auto;
 
-  &__slider {
-    margin: 50px;
-    height: 200px;
+  &__panel {
+    margin-bottom: 10px;
   }
 }

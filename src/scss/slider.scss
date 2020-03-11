@@ -7,7 +7,9 @@
   display: flex;
 
   &__track {
-    background-color: red;
+    background-color: rgb(250, 248, 248);
+    border: 1px solid gray;
+    border-radius: 4px;
 
     &:hover {
       cursor: pointer;
@@ -25,12 +27,14 @@
   }
 
   &__fill {
-    background-color: green;
+    background-color: rgb(118, 113, 119);
     position: absolute;
     top: 0;
+    border-radius: 4px;
 
     &_horizontal {
       height: 6px;
+      top: 1px;
     }
 
     &_vertical {
@@ -42,7 +46,7 @@
     position: absolute;
     width: 18px;
     height: 18px;
-    background-color: blue;
+    background-color: rgb(38, 38, 44);
     border-radius: 100%;
 
     &:hover {
@@ -50,18 +54,19 @@
     }
 
     &_horizontal {
-      top: -6px;
+      top: -5px;
     }
 
     &_vertical {
-      left: -6px;
+      left: -5px;
     }
   }
 
   &__tip {
     position: absolute;
     padding: 4px 10px;
-    background-color: greenyellow;
+    background-color: rgb(28, 32, 15);
+    color: white;
     border-radius: 8px;
     white-space: nowrap;
     cursor: default;

@@ -8,18 +8,14 @@ class Controller {
 
   private view: View;
 
-  constructor(container: HTMLElement) {
-    this.model = new Model();
-    // this.model.setOrientation(Orientation.Vertical);
-    // this.model.setValue(67);
-    this.model.setRange(true);
-    this.model.setMin(0);
-    this.model.setMax(400);
-    // this.model.setMax(1000);
+  constructor(container: HTMLElement, model: Model) {
+    this.model = model;
     this.view = new View(container, this);
     this.updateView();
 
     this.model.addListener('change', this.onChangeModel.bind(this));
+
+    window.addEventListener('resize', this.onResize.bind(this));
   }
 
   public setPosition(pos: number) {
@@ -35,10 +31,13 @@ class Controller {
   }
 
   private updateView() {
-    // console.log('new pos: ' + this.model.getPointPosition());
     const data: SliderData = new SliderData(this.model);
-    // console.log(data);
     this.view.update(data);
+  }
+
+  private onResize() {
+    console.log('ressss')
+    this.updateView();
   }
 }
 

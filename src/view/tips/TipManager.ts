@@ -9,10 +9,6 @@ class TipManager {
 
   private data: TipData;
 
-  private collision: { low: number, hight: number };
-
-  private isCollision: boolean;
-
 
   constructor(parent: HTMLElement) {
     this.parent = parent;
@@ -25,56 +21,42 @@ class TipManager {
   public update(data: TipData) {
     this.data = data;
 
+    if (!this.data.isVisible) {
+      this.hideTip('hight');
+      this.hideTip('united');
+      this.hideTip('low');
+      return;
+    }
+
     if (this.data.isRange) {
       this.updateRangeTips();
     } else {
-      this.isCollision = false;
       this.updateLow();
+      this.hideTip('hight');
+      this.hideTip('united');
     }
   }
 
   private updateRangeTips() {
-    if (this.isCollision && this.checkCollision()) {
-      this.showUnitedTip();
-    } else {
-      const hightTip: Tip | undefined = this.tips.get('hight');
-      const lowTip: Tip | undefined = this.tips.get('low');
-      if (hightTip && lowTip) {
-        if (lowTip.checkCollision(hightTip)) {
-          this.isCollision = true;
-          this.collision = { low: this.data.low.position, hight: this.data.hight.position };
-          lowTip.destroy();
-          hightTip.destroy();
-          this.showUnitedTip();
-        } else {
-          this.isCollision = false;
-          this.hideUnitedTip();
-          this.updateLow();
-          this.updateHight();
-        }
+    this.preRender();
+    const hightTip: Tip | undefined = this.tips.get('hight');
+    const lowTip: Tip | undefined = this.tips.get('low');
+    if (hightTip && lowTip) {
+      if (lowTip.checkCollision(hightTip)) {
+        lowTip.destroy();
+        hightTip.destroy();
+        this.showUnitedTip();
+      } else {
+        this.hideTip('united');
+        this.updateLow();
+        this.updateHight();
       }
     }
   }
 
-  private checkCollision(): boolean {
-    if (this.isOutOfRange()) {
-      return false;
-    }
-    return true;
-  }
-
-  private isOutOfRange(): boolean {
-    let result: boolean = false;
-
-    if (this.data.orientation === Orientation.Horizontal) {
-      result = this.collision.low > this.data.low.position
-        || this.collision.hight < this.data.hight.position;
-    } else {
-      result = this.data.low.position > this.collision.low
-      || this.data.hight.position < this.collision.hight;
-    }
-
-    return result;
+  private preRender() {
+    this.updateLow();
+    this.updateHight();
   }
 
   private showUnitedTip() {
@@ -90,10 +72,10 @@ class TipManager {
     }
   }
 
-  private hideUnitedTip() {
-    const unitedTip: Tip | undefined = this.tips.get('united');
-    if (unitedTip) {
-      unitedTip.destroy();
+  private hideTip(key: string) {
+    const tip: Tip | undefined = this.tips.get(key);
+    if (tip) {
+      tip.destroy();
     }
   }
 
