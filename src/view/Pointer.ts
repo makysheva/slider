@@ -1,6 +1,5 @@
 import Orientation from '../types/Orientation';
 import OrientationManager from './OrientationManager';
-import Tip from './tips/Tip';
 
 class Pointer {
   private parent: HTMLElement;

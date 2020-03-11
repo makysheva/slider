@@ -1,5 +1,4 @@
 import Tip from './Tip';
-import Orientation from '../../types/Orientation';
 import TipData from './TipData';
 
 class TipManager {

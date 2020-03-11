@@ -1,6 +1,5 @@
 import Model from '../model/Slider';
 import View from '../view/Slider';
-import Orientation from '../types/Orientation';
 import SliderData from '../types/SliderData';
 
 class Controller {
@@ -36,7 +35,6 @@ class Controller {
   }
 
   private onResize() {
-    console.log('ressss')
     this.updateView();
   }
 }
