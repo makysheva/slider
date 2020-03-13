@@ -94,7 +94,29 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__webpack_require__(/*! ./scss/example.scss */ \"./example/scss/example.scss\");\r\n__webpack_require__(/*! ./scss/panel.scss */ \"./example/scss/panel.scss\");\r\nconst Panel_1 = __importDefault(__webpack_require__(/*! ./panel/Panel */ \"./example/panel/Panel.ts\"));\r\ndocument.querySelectorAll('.js-slider').forEach((element) => {\r\n    new Panel_1.default(element);\r\n});\r\n\n\n//# sourceURL=webpack:///./example/example.ts?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__webpack_require__(/*! ./scss/example.scss */ \"./example/scss/example.scss\");\r\n__webpack_require__(/*! ./scss/panel.scss */ \"./example/scss/panel.scss\");\r\nconst Panel_1 = __importDefault(__webpack_require__(/*! ./panel/Panel */ \"./example/panel/Panel.ts\"));\r\n__webpack_require__(/*! ./favicons/favicons */ \"./example/favicons/favicons.js\");\r\ndocument.querySelectorAll('.js-slider').forEach((element) => {\r\n    new Panel_1.default(element);\r\n});\r\n\n\n//# sourceURL=webpack:///./example/example.ts?");
+
+/***/ }),
+
+/***/ "./example/favicons sync recursive ./!./!./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./ \\.(svg|png|ico|xml|json)$":
+/*!****************************************************************************************************************************!*\
+  !*** ./example/favicons sync !./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext] \.(svg|png|ico|xml|json)$ ***!
+  \****************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var map = {\n\t\"./android-chrome-192x192.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/android-chrome-192x192.png\",\n\t\"./android-chrome-256x256.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/android-chrome-256x256.png\",\n\t\"./apple-touch-icon.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/apple-touch-icon.png\",\n\t\"./browserconfig.xml\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/browserconfig.xml\",\n\t\"./favicon-16x16.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon-16x16.png\",\n\t\"./favicon-32x32.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon-32x32.png\",\n\t\"./favicon.ico\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon.ico\",\n\t\"./mstile-150x150.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/mstile-150x150.png\",\n\t\"./safari-pinned-tab.svg\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/safari-pinned-tab.svg\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./example/favicons sync recursive ./!./!./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./ \\\\.(svg|png|ico|xml|json)$\";\n\n//# sourceURL=webpack:///./node_modules/file-loader/dist/cjs.js?./example/favicons_sync_");
+
+/***/ }),
+
+/***/ "./example/favicons/favicons.js":
+/*!**************************************!*\
+  !*** ./example/favicons/favicons.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const faviconContext = __webpack_require__(\"./example/favicons sync recursive ./!./!./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./ \\\\.(svg|png|ico|xml|json)$\");\n\nfaviconContext.keys().forEach(faviconContext);\n\n\n//# sourceURL=webpack:///./example/favicons/favicons.js?");
 
 /***/ }),
 
@@ -174,6 +196,114 @@ eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-
 
 "use strict";
 eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n  Author Tobias Koppers @sokra\n*/\n// css base code, injected by the css-loader\n// eslint-disable-next-line func-names\nmodule.exports = function (useSourceMap) {\n  var list = []; // return the list of modules as css string\n\n  list.toString = function toString() {\n    return this.map(function (item) {\n      var content = cssWithMappingToString(item, useSourceMap);\n\n      if (item[2]) {\n        return \"@media \".concat(item[2], \"{\").concat(content, \"}\");\n      }\n\n      return content;\n    }).join('');\n  }; // import a list of modules into the list\n  // eslint-disable-next-line func-names\n\n\n  list.i = function (modules, mediaQuery) {\n    if (typeof modules === 'string') {\n      // eslint-disable-next-line no-param-reassign\n      modules = [[null, modules, '']];\n    }\n\n    var alreadyImportedModules = {};\n\n    for (var i = 0; i < this.length; i++) {\n      // eslint-disable-next-line prefer-destructuring\n      var id = this[i][0];\n\n      if (id != null) {\n        alreadyImportedModules[id] = true;\n      }\n    }\n\n    for (var _i = 0; _i < modules.length; _i++) {\n      var item = modules[_i]; // skip already imported module\n      // this implementation is not 100% perfect for weird media query combinations\n      // when a module is imported multiple times with different media queries.\n      // I hope this will never occur (Hey this way we have smaller bundles)\n\n      if (item[0] == null || !alreadyImportedModules[item[0]]) {\n        if (mediaQuery && !item[2]) {\n          item[2] = mediaQuery;\n        } else if (mediaQuery) {\n          item[2] = \"(\".concat(item[2], \") and (\").concat(mediaQuery, \")\");\n        }\n\n        list.push(item);\n      }\n    }\n  };\n\n  return list;\n};\n\nfunction cssWithMappingToString(item, useSourceMap) {\n  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring\n\n  var cssMapping = item[3];\n\n  if (!cssMapping) {\n    return content;\n  }\n\n  if (useSourceMap && typeof btoa === 'function') {\n    var sourceMapping = toComment(cssMapping);\n    var sourceURLs = cssMapping.sources.map(function (source) {\n      return \"/*# sourceURL=\".concat(cssMapping.sourceRoot).concat(source, \" */\");\n    });\n    return [content].concat(sourceURLs).concat([sourceMapping]).join('\\n');\n  }\n\n  return [content].join('\\n');\n} // Adapted from convert-source-map (MIT)\n\n\nfunction toComment(sourceMap) {\n  // eslint-disable-next-line no-undef\n  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));\n  var data = \"sourceMappingURL=data:application/json;charset=utf-8;base64,\".concat(base64);\n  return \"/*# \".concat(data, \" */\");\n}\n\n//# sourceURL=webpack:///./node_modules/css-loader/dist/runtime/api.js?");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/android-chrome-192x192.png":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/android-chrome-192x192.png ***!
+  \***********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/android-chrome-192x192.png\");\n\n//# sourceURL=webpack:///./example/favicons/android-chrome-192x192.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/android-chrome-256x256.png":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/android-chrome-256x256.png ***!
+  \***********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/android-chrome-256x256.png\");\n\n//# sourceURL=webpack:///./example/favicons/android-chrome-256x256.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/apple-touch-icon.png":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/apple-touch-icon.png ***!
+  \*****************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/apple-touch-icon.png\");\n\n//# sourceURL=webpack:///./example/favicons/apple-touch-icon.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/browserconfig.xml":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/browserconfig.xml ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/browserconfig.xml\");\n\n//# sourceURL=webpack:///./example/favicons/browserconfig.xml?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon-16x16.png":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon-16x16.png ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/favicon-16x16.png\");\n\n//# sourceURL=webpack:///./example/favicons/favicon-16x16.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon-32x32.png":
+/*!**************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon-32x32.png ***!
+  \**************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/favicon-32x32.png\");\n\n//# sourceURL=webpack:///./example/favicons/favicon-32x32.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon.ico":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon.ico ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/favicon.ico\");\n\n//# sourceURL=webpack:///./example/favicons/favicon.ico?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/mstile-150x150.png":
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/mstile-150x150.png ***!
+  \***************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/mstile-150x150.png\");\n\n//# sourceURL=webpack:///./example/favicons/mstile-150x150.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/safari-pinned-tab.svg":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/safari-pinned-tab.svg ***!
+  \******************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/safari-pinned-tab.svg\");\n\n//# sourceURL=webpack:///./example/favicons/safari-pinned-tab.svg?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
 
 /***/ }),
 
