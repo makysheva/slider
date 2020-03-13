@@ -11,9 +11,13 @@
     "target": "es2015",
     "strictPropertyInitialization": false,
     "esModuleInterop": true,
+    "skipLibCheck": true,
   },
   "include": [
     "src",
-    "example"
+    "example",
+  ],
+  "exclude": [
+    "node_modules",
   ]
 }
