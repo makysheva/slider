@@ -85,26 +85,24 @@
   }
 
   &__min-max {
-    display: flex;
-    justify-content: space-between;
-
-    &_horizontal {
-      flex-direction: row;
-      position: absolute;
-      width: 100%;
-      top: 20px;
-    }
-
-    &_vertical {
-      flex-direction: column-reverse;
-      position: absolute;
-      left: -40px;
-      height: 100%;
-      text-align: right;
-    }
+    position: absolute;
   }
 
   &__range {
+    position: absolute;
     cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: grey;
+    color: white;
+    font-size: 0.7rem;
+
+    &_horizontal {
+      top: 14px;
+    }
+
+    &_vertical {
+      right: 10px;
+    }
   }
 }

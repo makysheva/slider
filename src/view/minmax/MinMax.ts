@@ -1,7 +1,6 @@
 import Controller from '../../controller/Controller';
 import Field from './Field';
 import Orientation from '../../types/Orientation';
-import OrientationManager from '../OrientationManager';
 
 class MinMax {
   private parent: HTMLElement;
@@ -13,9 +12,6 @@ class MinMax {
   private min: Field;
 
   private max: Field;
-
-  private orientationManager: OrientationManager;
-
 
   constructor(parent: HTMLElement, controller: Controller) {
     this.parent = parent;
@@ -29,16 +25,11 @@ class MinMax {
     this.min.addClickListener(this.onClick.bind(this));
     this.max = new Field(this.minMaxElement, 'max');
     this.max.addClickListener(this.onClick.bind(this));
-
-    this.orientationManager = new OrientationManager(this.minMaxElement);
-    this.orientationManager.addOrientationClass(Orientation.Horizontal, 'slider__min-max_horizontal');
-    this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__min-max_vertical');
   }
 
-  public update(min: string, max: string, orientation: Orientation) {
-    this.orientationManager.setCurrentOrientation(orientation);
-    this.min.update(min);
-    this.max.update(max);
+  public update(min: string, max: string, orientation: Orientation, minPos: number, maxPos: number) {
+    this.min.update(min, minPos, orientation);
+    this.max.update(max, maxPos, orientation);
   }
 
   private onClick(key: string) {

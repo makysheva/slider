@@ -6,13 +6,13 @@ import MinMax from './minmax/MinMax';
 import Orientation from '../types/Orientation';
 import Pointer from './Pointer';
 import SliderData from '../types/SliderData';
-import Track from './Track';
 import TipData from "./tips/TipData";
 import TipManager from './tips/TipManager';
+import Track from './Track';
 
 class Slider {
   private static isTrack(element: HTMLElement) {
-    return element.classList.contains("slider__fill") || element.classList.contains('slider__track');
+    return element.classList.contains('slider__fill') || element.classList.contains('slider__track');
   }
 
   private controller: Controller;
@@ -65,7 +65,9 @@ class Slider {
     this.updateFill();
     this.updatePointers();
     this.updateTip();
-    this.minMax.update(this.data.min.toString(), this.data.max.toString(), this.data.orientation);
+    const minPos = this.track.getAbsolutePosition(0);
+    const maxPos = this.track.getAbsolutePosition(1);
+    this.minMax.update(this.data.min.toString(), this.data.max.toString(), this.data.orientation, minPos, maxPos);
   }
 
   private onClick(event: MouseEvent) {
