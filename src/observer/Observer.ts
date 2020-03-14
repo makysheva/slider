@@ -3,7 +3,7 @@ import Event from './Event';
 class Observer {
   private events: Event[] = [];
 
-  add(type: string, fn: Function): Observer {
+  public add(type: string, fn: Function): Observer {
     let event: Event = this.getEvent(type) || null!;
 
     if (event) {
@@ -17,14 +17,14 @@ class Observer {
     return this;
   }
 
-  remove(type: string, fn: Function) {
+  public remove(type: string, fn: Function) {
     const event: Event = this.getEvent(type) || new Event('');
     if (event.getType() !== '') {
       event.remove(fn);
     }
   }
 
-  emit(type: string, data: Object) {
+  public emit(type: string, data: object) {
     const event: Event = this.getEvent(type) || new Event('');
     event.emit(data);
   }

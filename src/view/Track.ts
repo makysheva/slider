@@ -8,7 +8,6 @@ class Track {
 
   private orientationManager: OrientationManager;
 
-
   constructor(parent: HTMLElement) {
     this.parent = parent;
 

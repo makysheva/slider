@@ -1,30 +1,29 @@
-import Model from './model/Slider';
 import Controller from './controller/Controller';
+import Model from './model/Slider';
+import { IProps } from './types/IProps';
 import Orientation from './types/Orientation';
-import { Props } from './types/Props';
 
 class Slider {
   private model: Model;
 
   private controller: Controller;
 
-  private changeCallback: Function;
+  private changeCallback: () => void;
 
-
-  constructor(container: HTMLElement, props: Props = {}) {
+  constructor(container: HTMLElement, props: IProps = {}) {
     this.model = new Model();
     this.controller = new Controller(container, this.model);
 
     this.model.addListener('change', this.onChangeModel.bind(this));
 
-    if (props.min) this.model.setMin(props.min);
-    if (props.max) this.model.setMax(props.max);
-    if (props.isRange) this.model.setRange(props.isRange);
-    if (props.isTips) this.model.setTooltipVisibility(props.isTips);
-    if (props.orientation) this.model.setOrientation(props.orientation);
-    if (props.step) this.model.setStep(props.step);
-    if (props.low) this.model.setValue(props.low);
-    if (props.hight) this.model.setValue(props.hight, 1);
+    if (props.min) { this.model.setMin(props.min); }
+    if (props.max) { this.model.setMax(props.max); }
+    if (props.isRange) { this.model.setRange(props.isRange); }
+    if (props.isTips) { this.model.setTooltipVisibility(props.isTips); }
+    if (props.orientation) { this.model.setOrientation(props.orientation); }
+    if (props.step) { this.model.setStep(props.step); }
+    if (props.low) { this.model.setValue(props.low); }
+    if (props.hight) { this.model.setValue(props.hight, 1); }
   }
 
   public setMin(min: number) {
@@ -83,7 +82,7 @@ class Slider {
     return this.model.getOrientation();
   }
 
-  public addChangeListener(fn: Function) {
+  public addChangeListener(fn: () => void) {
     this.changeCallback = fn;
   }
 

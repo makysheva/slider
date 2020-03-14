@@ -1,5 +1,5 @@
-import OrientationManager from '../OrientationManager';
 import Orientation from '../../types/Orientation';
+import OrientationManager from '../OrientationManager';
 
 class Tip {
   private parent: HTMLElement;
@@ -7,7 +7,6 @@ class Tip {
   private tipElement: HTMLElement;
 
   private orientationManager: OrientationManager;
-
 
   constructor(parent: HTMLElement) {
     this.parent = parent;
@@ -20,7 +19,7 @@ class Tip {
     this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__tip_vertical');
   }
 
-  update(value: string, position: number, orientation: Orientation) {
+  public update(value: string, position: number, orientation: Orientation) {
     this.orientationManager.setCurrentOrientation(orientation);
     this.tipElement.innerHTML = value;
     this.setPosition(position);

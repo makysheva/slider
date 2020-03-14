@@ -8,7 +8,6 @@ class TipManager {
 
   private data: TipData;
 
-
   constructor(parent: HTMLElement) {
     this.parent = parent;
 

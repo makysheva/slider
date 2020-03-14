@@ -1,15 +1,20 @@
-import Track from './Track';
-import Orientation from '../types/Orientation';
 import '../scss/slider.scss';
-import Fill from './Fill';
-import Pointer from './Pointer';
+
 import Controller from '../controller/Controller';
-import SliderData from '../types/SliderData';
-import TipManager from './tips/TipManager';
-import TipData from './tips/TipData';
+import Fill from './Fill';
 import MinMax from './minmax/MinMax';
+import Orientation from '../types/Orientation';
+import Pointer from './Pointer';
+import SliderData from '../types/SliderData';
+import Track from './Track';
+import TipData from "./tips/TipData";
+import TipManager from './tips/TipManager';
 
 class Slider {
+  private static isTrack(element: HTMLElement) {
+    return element.classList.contains("slider__fill") || element.classList.contains('slider__track');
+  }
+
   private controller: Controller;
 
   private container: HTMLElement;
@@ -54,6 +59,15 @@ class Slider {
     this.minMax = new MinMax(this.sliderElement, this.controller);
   }
 
+  public update(data: SliderData) {
+    this.data = data;
+    this.track.update(this.data.orientation);
+    this.updateFill();
+    this.updatePointers();
+    this.updateTip();
+    this.minMax.update(this.data.min.toString(), this.data.max.toString(), this.data.orientation);
+  }
+
   private onClick(event: MouseEvent) {
     const target: HTMLElement = (event.target as HTMLElement);
     if (Slider.isTrack(target)) {
@@ -66,19 +80,6 @@ class Slider {
     const position: number = this.track.getRelativePosition(pos, pos);
     const id: number = (key === 'low') ? 0 : 1;
     this.controller.setPointPosition(position, id);
-  }
-
-  private static isTrack(element: HTMLElement) {
-    return element.classList.contains('slider__fill') || element.classList.contains('slider__track');
-  }
-
-  public update(data: SliderData) {
-    this.data = data;
-    this.track.update(this.data.orientation);
-    this.updateFill();
-    this.updatePointers();
-    this.updateTip();
-    this.minMax.update(this.data.min.toString(), this.data.max.toString(), this.data.orientation);
   }
 
   private createPointer(key: string) {
@@ -103,7 +104,7 @@ class Slider {
       this.createPointer('hight');
       pointer = this.pointers.get('hight');
       if (pointer) {
-        const pointerPosition: number = this.track.getAbsolutePosition(this.data.hightPointer.position);
+        const pointerPosition = this.track.getAbsolutePosition(this.data.hightPointer.position);
         pointer.update(pointerPosition, this.data.orientation);
       }
     } else {

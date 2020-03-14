@@ -5,11 +5,13 @@
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
   display: flex;
+  user-select: none;
 
   &__track {
     background-color: rgb(250, 248, 248);
     border: 1px solid gray;
     border-radius: 4px;
+    box-sizing: border-box;
 
     &:hover {
       cursor: pointer;
@@ -33,12 +35,12 @@
     border-radius: 4px;
 
     &_horizontal {
-      height: 6px;
+      height: 4px;
       top: 1px;
     }
 
     &_vertical {
-      width: 6px;
+      width: 4px;
     }
   }
 
@@ -48,17 +50,19 @@
     height: 18px;
     background-color: rgb(38, 38, 44);
     border-radius: 100%;
+    border: 2px solid white;
+    box-sizing: border-box;
 
     &:hover {
       background-color: black;
     }
 
     &_horizontal {
-      top: -5px;
+      top: -6px;
     }
 
     &_vertical {
-      left: -5px;
+      left: -6px;
     }
   }
 
@@ -69,7 +73,7 @@
     color: white;
     border-radius: 8px;
     white-space: nowrap;
-    cursor: default;
+    cursor: pointer;
 
     &_horizontal {
       top: -40px;

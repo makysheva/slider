@@ -1,5 +1,5 @@
-import Orientation from './Orientation';
 import Slider from '../model/Slider';
+import Orientation from './Orientation';
 
 class SliderData {
   public orientation: Orientation;
@@ -15,7 +15,6 @@ class SliderData {
   public min: number;
 
   public max: number;
-
 
   constructor(model: Slider) {
     this.orientation = model.getOrientation();

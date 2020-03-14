@@ -1,5 +1,5 @@
-import Orientation from '../types/Orientation';
 import Observer from '../observer/Observer';
+import Orientation from '../types/Orientation';
 
 class Slider {
   private min: number = 0;
@@ -134,11 +134,11 @@ class Slider {
     return this.isVisibleTooltips;
   }
 
-  public addListener(event: string, fn: Function) {
+  public addListener(event: string, fn: (data: Slider) => void) {
     this.observer.add(event, fn);
   }
 
-  public removeListener(event: string, fn: Function) {
+  public removeListener(event: string, fn: (data: Slider) => void) {
     this.observer.remove(event, fn);
   }
 

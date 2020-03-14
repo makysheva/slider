@@ -6,7 +6,11 @@
   "jsRules": {},
   "rules": {
     "semicolon": false,
-    "trailing-comma": false
+    "trailing-comma": false,
+    "quotemark": [
+      true,
+      "single"
+    ]
   },
   "rulesDirectory": []
 }

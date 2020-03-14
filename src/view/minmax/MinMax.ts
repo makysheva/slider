@@ -1,5 +1,5 @@
-import Field from './Field';
 import Controller from '../../controller/Controller';
+import Field from './Field';
 import Orientation from '../../types/Orientation';
 import OrientationManager from '../OrientationManager';
 

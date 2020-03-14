@@ -1,6 +1,6 @@
 import Orientation from './Orientation';
 
-export interface Props {
+export interface IProps {
   min?: number;
   max?: number;
   low?: number;

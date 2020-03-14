@@ -7,21 +7,21 @@ class Event {
     this.type = type;
   }
 
-  add(fn: Function) {
+  public add(fn: Function) {
     if (!this.subscribers.includes(fn)) {
       this.subscribers.push(fn);
     }
   }
 
-  remove(fn: Function) {
+  public remove(fn: Function) {
     this.subscribers = this.subscribers.filter((value) => value !== fn);
   }
 
-  emit(data: Object) {
+  public emit(data: object) {
     this.subscribers.forEach((value) => value(this.type, data));
   }
 
-  getType(): string {
+  public getType(): string {
     return this.type;
   }
 }

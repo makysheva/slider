@@ -1,6 +1,3 @@
-import OrientationManager from '../OrientationManager';
-import Orientation from '../../types/Orientation';
-
 class Field {
   private parent: HTMLElement;
 
@@ -9,7 +6,6 @@ class Field {
   private key: string;
 
   private clickHandler: (key: string) => void;
-
 
   constructor(parent: HTMLElement, key: string) {
     this.parent = parent;

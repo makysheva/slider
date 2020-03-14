@@ -8,7 +8,6 @@ class Fill {
 
   private orientationManager: OrientationManager;
 
-
   constructor(parent: HTMLElement) {
     this.parent = parent;
 
@@ -45,10 +44,6 @@ class Fill {
 
   private updateOrientation(orientation: Orientation) {
     this.orientationManager.setCurrentOrientation(orientation);
-    // if (this.orientation !== orientation) {
-    //   this.orientation = orientation;
-    //   this.orientationManager.switchOrientation(this.fillElement, this.orientation);
-    // }
   }
 }
 
