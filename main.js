@@ -86,104 +86,36 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./example/example.ts":
-/*!****************************!*\
-  !*** ./example/example.ts ***!
-  \****************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/example/scss/example.scss":
+/*!********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/example/scss/example.scss ***!
+  \********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__webpack_require__(/*! ./scss/example.scss */ \"./example/scss/example.scss\");\r\n__webpack_require__(/*! ./scss/panel.scss */ \"./example/scss/panel.scss\");\r\nconst Panel_1 = __importDefault(__webpack_require__(/*! ./panel/Panel */ \"./example/panel/Panel.ts\"));\r\n__webpack_require__(/*! ./favicons/favicons */ \"./example/favicons/favicons.js\");\r\ndocument.querySelectorAll('.js-slider').forEach((element) => {\r\n    new Panel_1.default(element);\r\n});\r\n\n\n//# sourceURL=webpack:///./example/example.ts?");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".example {\\n  max-width: 1200px;\\n  margin: 0 auto; }\\n  .example__panel {\\n    margin-bottom: 10px; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/example/scss/example.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
-/***/ "./example/favicons sync recursive ./!./!./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./ \\.(svg|png|ico|xml|json)$":
-/*!****************************************************************************************************************************!*\
-  !*** ./example/favicons sync !./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext] \.(svg|png|ico|xml|json)$ ***!
-  \****************************************************************************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/example/scss/panel.scss":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/example/scss/panel.scss ***!
+  \******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var map = {\n\t\"./android-chrome-192x192.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/android-chrome-192x192.png\",\n\t\"./android-chrome-256x256.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/android-chrome-256x256.png\",\n\t\"./apple-touch-icon.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/apple-touch-icon.png\",\n\t\"./browserconfig.xml\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/browserconfig.xml\",\n\t\"./favicon-16x16.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon-16x16.png\",\n\t\"./favicon-32x32.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon-32x32.png\",\n\t\"./favicon.ico\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon.ico\",\n\t\"./mstile-150x150.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/mstile-150x150.png\",\n\t\"./safari-pinned-tab.svg\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/safari-pinned-tab.svg\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./example/favicons sync recursive ./!./!./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./ \\\\.(svg|png|ico|xml|json)$\";\n\n//# sourceURL=webpack:///./node_modules/file-loader/dist/cjs.js?./example/favicons_sync_");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".panel {\\n  display: flex;\\n  font-family: Arial, Helvetica, sans-serif;\\n  font-size: 0.9rem;\\n  width: 100%;\\n  margin-bottom: 10px; }\\n  .panel__inputs {\\n    display: flex;\\n    flex-direction: column;\\n    min-width: 160px;\\n    text-align: right;\\n    background-color: #eeeded;\\n    border-radius: 6px; }\\n  .panel__slider {\\n    padding: 60px 0 20px 60px;\\n    width: 100%;\\n    height: 360px;\\n    margin-right: 40px; }\\n  .panel__label {\\n    margin: 10px; }\\n  .panel__input {\\n    border-radius: 6px;\\n    border: 1px solid gray;\\n    padding: 4px;\\n    width: 60px;\\n    line-height: 1.2rem;\\n    margin-left: 10px; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/example/scss/panel.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
-/***/ "./example/favicons/favicons.js":
-/*!**************************************!*\
-  !*** ./example/favicons/favicons.js ***!
-  \**************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/plugin/scss/slider.scss":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/plugin/scss/slider.scss ***!
+  \******************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const faviconContext = __webpack_require__(\"./example/favicons sync recursive ./!./!./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./ \\\\.(svg|png|ico|xml|json)$\");\n\nfaviconContext.keys().forEach(faviconContext);\n\n\n//# sourceURL=webpack:///./example/favicons/favicons.js?");
-
-/***/ }),
-
-/***/ "./example/panel/Panel.ts":
-/*!********************************!*\
-  !*** ./example/panel/Panel.ts ***!
-  \********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Slider_1 = __importDefault(__webpack_require__(/*! ../../src/Slider */ \"./src/Slider.ts\"));\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../../src/types/Orientation */ \"./src/types/Orientation.ts\"));\r\nclass Panel {\r\n    constructor(parent) {\r\n        this.parent = parent;\r\n        const mainElement = document.createElement('div');\r\n        mainElement.classList.add('panel');\r\n        parent.appendChild(mainElement);\r\n        this.panelElement = document.createElement('div');\r\n        this.panelElement.classList.add('panel__inputs');\r\n        mainElement.appendChild(this.panelElement);\r\n        const sliderContainer = document.createElement('div');\r\n        sliderContainer.classList.add('panel__slider');\r\n        mainElement.appendChild(sliderContainer);\r\n        this.min = this.createInput('Min');\r\n        this.min.addEventListener('change', this.onChangeMin.bind(this));\r\n        this.max = this.createInput('Max');\r\n        this.max.addEventListener('change', this.onChangeMax.bind(this));\r\n        this.step = this.createInput('Step');\r\n        this.step.addEventListener('change', this.onChangeStep.bind(this));\r\n        this.low = this.createInput('Low');\r\n        this.low.addEventListener('change', this.onChangeLow.bind(this));\r\n        this.hight = this.createInput('Hight');\r\n        this.hight.addEventListener('change', this.onChangeHight.bind(this));\r\n        this.range = this.createInput('Range', 'checkbox');\r\n        this.range.addEventListener('change', this.onChangeRange.bind(this));\r\n        this.vertical = this.createInput('Vertical', 'checkbox');\r\n        this.vertical.addEventListener('change', this.onChangeVertical.bind(this));\r\n        this.tips = this.createInput('Tips', 'checkbox');\r\n        this.tips.addEventListener('change', this.onChangeTips.bind(this));\r\n        this.slider = new Slider_1.default(sliderContainer);\r\n        this.slider.addChangeListener(this.update.bind(this));\r\n        this.update();\r\n    }\r\n    update() {\r\n        this.min.value = this.slider.getMin().toString();\r\n        this.max.value = this.slider.getMax().toString();\r\n        this.low.value = this.slider.getValue().toString();\r\n        this.hight.value = this.slider.getValue(1).toString();\r\n        this.range.checked = this.slider.getRange();\r\n        this.tips.checked = this.slider.getTipVisibility();\r\n        this.vertical.checked = this.slider.getOrientation() === Orientation_1.default.Vertical ? true : false;\r\n        this.step.value = this.slider.getStep().toString();\r\n        this.low.setAttribute('step', this.step.value);\r\n        this.hight.setAttribute('step', this.step.value);\r\n    }\r\n    createInput(label, type = 'number') {\r\n        const labelElement = document.createElement('label');\r\n        labelElement.textContent = label;\r\n        labelElement.classList.add('panel__label');\r\n        this.panelElement.appendChild(labelElement);\r\n        const input = document.createElement('input');\r\n        input.classList.add('panel__input');\r\n        input.setAttribute('type', type);\r\n        labelElement.appendChild(input);\r\n        return input;\r\n    }\r\n    onChangeMin() {\r\n        this.slider.setMin(+this.min.value);\r\n    }\r\n    onChangeMax() {\r\n        this.slider.setMax(+this.max.value);\r\n    }\r\n    onChangeLow() {\r\n        this.slider.setValue(+this.low.value, 0);\r\n    }\r\n    onChangeHight() {\r\n        this.slider.setValue(+this.hight.value, 1);\r\n    }\r\n    onChangeRange() {\r\n        this.slider.setRange(this.range.checked);\r\n    }\r\n    onChangeStep() {\r\n        this.slider.setStep(+this.step.value);\r\n    }\r\n    onChangeVertical() {\r\n        const orientation = this.vertical.checked ? Orientation_1.default.Vertical : Orientation_1.default.Horizontal;\r\n        this.slider.setOrientation(orientation);\r\n    }\r\n    onChangeTips() {\r\n        this.slider.setTipVisibility(this.tips.checked);\r\n    }\r\n}\r\nexports.default = Panel;\r\n\n\n//# sourceURL=webpack:///./example/panel/Panel.ts?");
-
-/***/ }),
-
-/***/ "./example/scss/example.scss":
-/*!***********************************!*\
-  !*** ./example/scss/example.scss ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./example.scss */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./example/scss/example.scss\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./example/scss/example.scss?");
-
-/***/ }),
-
-/***/ "./example/scss/panel.scss":
-/*!*********************************!*\
-  !*** ./example/scss/panel.scss ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./panel.scss */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./example/scss/panel.scss\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./example/scss/panel.scss?");
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./example/scss/example.scss":
-/*!****************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./example/scss/example.scss ***!
-  \****************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".example {\\n  max-width: 1200px;\\n  margin: 0 auto; }\\n  .example__panel {\\n    margin-bottom: 10px; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./example/scss/example.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./example/scss/panel.scss":
-/*!**************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./example/scss/panel.scss ***!
-  \**************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".panel {\\n  display: flex;\\n  font-family: Arial, Helvetica, sans-serif;\\n  font-size: 0.9rem;\\n  width: 100%; }\\n  .panel__inputs {\\n    display: flex;\\n    flex-direction: column;\\n    min-width: 160px;\\n    text-align: right;\\n    background-color: #eeeded;\\n    border-radius: 6px; }\\n  .panel__slider {\\n    padding: 60px 0 20px 60px;\\n    width: 100%;\\n    height: 360px;\\n    margin-right: 40px; }\\n  .panel__label {\\n    margin: 10px; }\\n  .panel__input {\\n    border-radius: 6px;\\n    border: 1px solid gray;\\n    padding: 4px;\\n    width: 60px;\\n    line-height: 1.2rem;\\n    margin-left: 10px; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./example/scss/panel.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/slider.scss":
-/*!***********************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/slider.scss ***!
-  \***********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".slider {\\n  position: relative;\\n  box-sizing: border-box;\\n  height: 100%;\\n  font-family: Arial, Helvetica, sans-serif;\\n  font-size: 0.9rem;\\n  display: flex; }\\n  .slider__track {\\n    background-color: #faf8f8;\\n    border: 1px solid gray;\\n    border-radius: 4px; }\\n    .slider__track:hover {\\n      cursor: pointer; }\\n    .slider__track_horizontal {\\n      height: 6px;\\n      width: 100%; }\\n    .slider__track_vertical {\\n      width: 6px;\\n      height: 100%; }\\n  .slider__fill {\\n    background-color: #767177;\\n    position: absolute;\\n    top: 0;\\n    border-radius: 4px; }\\n    .slider__fill_horizontal {\\n      height: 6px;\\n      top: 1px; }\\n    .slider__fill_vertical {\\n      width: 6px; }\\n  .slider__pointer {\\n    position: absolute;\\n    width: 18px;\\n    height: 18px;\\n    background-color: #26262c;\\n    border-radius: 100%; }\\n    .slider__pointer:hover {\\n      background-color: black; }\\n    .slider__pointer_horizontal {\\n      top: -5px; }\\n    .slider__pointer_vertical {\\n      left: -5px; }\\n  .slider__tip {\\n    position: absolute;\\n    padding: 4px 10px;\\n    background-color: #1c200f;\\n    color: white;\\n    border-radius: 8px;\\n    white-space: nowrap;\\n    cursor: default; }\\n    .slider__tip_horizontal {\\n      top: -40px; }\\n    .slider__tip_vertical {\\n      left: 20px; }\\n  .slider__min-max {\\n    display: flex;\\n    justify-content: space-between; }\\n    .slider__min-max_horizontal {\\n      flex-direction: row;\\n      position: absolute;\\n      width: 100%;\\n      top: 20px; }\\n    .slider__min-max_vertical {\\n      flex-direction: column-reverse;\\n      position: absolute;\\n      left: -40px;\\n      height: 100%;\\n      text-align: right; }\\n  .slider__range {\\n    cursor: pointer; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/scss/slider.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\")(false);\n// Module\nexports.push([module.i, \".slider {\\n  position: relative;\\n  box-sizing: border-box;\\n  height: 100%;\\n  font-family: Arial, Helvetica, sans-serif;\\n  font-size: 0.9rem;\\n  display: flex;\\n  user-select: none; }\\n  .slider__track {\\n    background-color: #faf8f8;\\n    border: 1px solid gray;\\n    border-radius: 4px;\\n    box-sizing: border-box; }\\n    .slider__track:hover {\\n      cursor: pointer; }\\n    .slider__track_horizontal {\\n      height: 6px;\\n      width: 100%; }\\n    .slider__track_vertical {\\n      width: 6px;\\n      height: 100%; }\\n  .slider__fill {\\n    background-color: #767177;\\n    position: absolute;\\n    top: 0;\\n    border-radius: 4px; }\\n    .slider__fill_horizontal {\\n      height: 4px;\\n      top: 1px; }\\n    .slider__fill_vertical {\\n      width: 4px; }\\n  .slider__pointer {\\n    position: absolute;\\n    width: 18px;\\n    height: 18px;\\n    background-color: #26262c;\\n    border-radius: 100%;\\n    border: 2px solid white;\\n    box-sizing: border-box; }\\n    .slider__pointer:hover {\\n      background-color: black; }\\n    .slider__pointer_horizontal {\\n      top: -6px; }\\n    .slider__pointer_vertical {\\n      left: -6px; }\\n  .slider__tip {\\n    position: absolute;\\n    padding: 4px 10px;\\n    background-color: #1c200f;\\n    color: white;\\n    border-radius: 8px;\\n    white-space: nowrap;\\n    cursor: pointer; }\\n    .slider__tip_horizontal {\\n      top: -40px; }\\n    .slider__tip_vertical {\\n      left: 20px; }\\n  .slider__min-max {\\n    position: absolute; }\\n  .slider__range {\\n    position: absolute;\\n    cursor: pointer;\\n    padding: 4px;\\n    border-radius: 4px;\\n    background-color: grey;\\n    color: white;\\n    font-size: 0.7rem; }\\n    .slider__range_horizontal {\\n      top: 14px; }\\n    .slider__range_vertical {\\n      right: 10px; }\\n\", \"\"]);\n\n\n//# sourceURL=webpack:///./src/plugin/scss/slider.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -199,111 +131,111 @@ eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n
 
 /***/ }),
 
-/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/android-chrome-192x192.png":
-/*!***********************************************************************************************************************!*\
-  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/android-chrome-192x192.png ***!
-  \***********************************************************************************************************************/
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/android-chrome-192x192.png":
+/*!***************************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/android-chrome-192x192.png ***!
+  \***************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/android-chrome-192x192.png\");\n\n//# sourceURL=webpack:///./example/favicons/android-chrome-192x192.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/android-chrome-192x192.png\");\n\n//# sourceURL=webpack:///./src/example/favicons/android-chrome-192x192.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
 
 /***/ }),
 
-/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/android-chrome-256x256.png":
-/*!***********************************************************************************************************************!*\
-  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/android-chrome-256x256.png ***!
-  \***********************************************************************************************************************/
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/android-chrome-256x256.png":
+/*!***************************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/android-chrome-256x256.png ***!
+  \***************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/android-chrome-256x256.png\");\n\n//# sourceURL=webpack:///./example/favicons/android-chrome-256x256.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/android-chrome-256x256.png\");\n\n//# sourceURL=webpack:///./src/example/favicons/android-chrome-256x256.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
 
 /***/ }),
 
-/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/apple-touch-icon.png":
-/*!*****************************************************************************************************************!*\
-  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/apple-touch-icon.png ***!
-  \*****************************************************************************************************************/
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/apple-touch-icon.png":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/apple-touch-icon.png ***!
+  \*********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/apple-touch-icon.png\");\n\n//# sourceURL=webpack:///./example/favicons/apple-touch-icon.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/apple-touch-icon.png\");\n\n//# sourceURL=webpack:///./src/example/favicons/apple-touch-icon.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
 
 /***/ }),
 
-/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/browserconfig.xml":
-/*!**************************************************************************************************************!*\
-  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/browserconfig.xml ***!
-  \**************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/browserconfig.xml\");\n\n//# sourceURL=webpack:///./example/favicons/browserconfig.xml?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
-
-/***/ }),
-
-/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon-16x16.png":
-/*!**************************************************************************************************************!*\
-  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon-16x16.png ***!
-  \**************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/favicon-16x16.png\");\n\n//# sourceURL=webpack:///./example/favicons/favicon-16x16.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
-
-/***/ }),
-
-/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon-32x32.png":
-/*!**************************************************************************************************************!*\
-  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon-32x32.png ***!
-  \**************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/favicon-32x32.png\");\n\n//# sourceURL=webpack:///./example/favicons/favicon-32x32.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
-
-/***/ }),
-
-/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon.ico":
-/*!********************************************************************************************************!*\
-  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/favicon.ico ***!
-  \********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/favicon.ico\");\n\n//# sourceURL=webpack:///./example/favicons/favicon.ico?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
-
-/***/ }),
-
-/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/mstile-150x150.png":
-/*!***************************************************************************************************************!*\
-  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/mstile-150x150.png ***!
-  \***************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/mstile-150x150.png\");\n\n//# sourceURL=webpack:///./example/favicons/mstile-150x150.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
-
-/***/ }),
-
-/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/safari-pinned-tab.svg":
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/browserconfig.xml":
 /*!******************************************************************************************************************!*\
-  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./example/favicons/safari-pinned-tab.svg ***!
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/browserconfig.xml ***!
   \******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/safari-pinned-tab.svg\");\n\n//# sourceURL=webpack:///./example/favicons/safari-pinned-tab.svg?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/browserconfig.xml\");\n\n//# sourceURL=webpack:///./src/example/favicons/browserconfig.xml?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/favicon-16x16.png":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/favicon-16x16.png ***!
+  \******************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/favicon-16x16.png\");\n\n//# sourceURL=webpack:///./src/example/favicons/favicon-16x16.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/favicon-32x32.png":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/favicon-32x32.png ***!
+  \******************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/favicon-32x32.png\");\n\n//# sourceURL=webpack:///./src/example/favicons/favicon-32x32.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/favicon.ico":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/favicon.ico ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/favicon.ico\");\n\n//# sourceURL=webpack:///./src/example/favicons/favicon.ico?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/mstile-150x150.png":
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/mstile-150x150.png ***!
+  \*******************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/mstile-150x150.png\");\n\n//# sourceURL=webpack:///./src/example/favicons/mstile-150x150.png?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
+
+/***/ }),
+
+/***/ "./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/safari-pinned-tab.svg":
+/*!**********************************************************************************************************************!*\
+  !*** ./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/safari-pinned-tab.svg ***!
+  \**********************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"favicons/safari-pinned-tab.svg\");\n\n//# sourceURL=webpack:///./src/example/favicons/safari-pinned-tab.svg?./node_modules/file-loader/dist/cjs.js?name=favicons/%5Bname%5D.%5Bext%5D");
 
 /***/ }),
 
@@ -330,241 +262,321 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 
 /***/ }),
 
-/***/ "./src/Slider.ts":
-/*!***********************!*\
-  !*** ./src/Slider.ts ***!
-  \***********************/
+/***/ "./src/example/example.ts":
+/*!********************************!*\
+  !*** ./src/example/example.ts ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Slider_1 = __importDefault(__webpack_require__(/*! ./model/Slider */ \"./src/model/Slider.ts\"));\r\nconst Controller_1 = __importDefault(__webpack_require__(/*! ./controller/Controller */ \"./src/controller/Controller.ts\"));\r\nclass Slider {\r\n    constructor(container, props = {}) {\r\n        this.model = new Slider_1.default();\r\n        this.controller = new Controller_1.default(container, this.model);\r\n        this.model.addListener('change', this.onChangeModel.bind(this));\r\n        if (props.min)\r\n            this.model.setMin(props.min);\r\n        if (props.max)\r\n            this.model.setMax(props.max);\r\n        if (props.isRange)\r\n            this.model.setRange(props.isRange);\r\n        if (props.isTips)\r\n            this.model.setTooltipVisibility(props.isTips);\r\n        if (props.orientation)\r\n            this.model.setOrientation(props.orientation);\r\n        if (props.step)\r\n            this.model.setStep(props.step);\r\n        if (props.low)\r\n            this.model.setValue(props.low);\r\n        if (props.hight)\r\n            this.model.setValue(props.hight, 1);\r\n    }\r\n    setMin(min) {\r\n        this.model.setMin(min);\r\n    }\r\n    getMin() {\r\n        return this.model.getMin();\r\n    }\r\n    setMax(max) {\r\n        this.model.setMax(max);\r\n    }\r\n    getMax() {\r\n        return this.model.getMax();\r\n    }\r\n    getValue(id = 0) {\r\n        return this.model.getValue(id);\r\n    }\r\n    setValue(value, id = 0) {\r\n        this.model.setValue(value, id);\r\n    }\r\n    setRange(isRange) {\r\n        this.model.setRange(isRange);\r\n    }\r\n    getRange() {\r\n        return this.model.getRange();\r\n    }\r\n    setStep(step) {\r\n        this.model.setStep(step);\r\n    }\r\n    getStep() {\r\n        return this.model.getStep();\r\n    }\r\n    setTipVisibility(isVisible) {\r\n        this.model.setTooltipVisibility(isVisible);\r\n    }\r\n    getTipVisibility() {\r\n        return this.model.getTooltipVisibility();\r\n    }\r\n    setOrientation(orientation) {\r\n        this.model.setOrientation(orientation);\r\n    }\r\n    getOrientation() {\r\n        return this.model.getOrientation();\r\n    }\r\n    addChangeListener(fn) {\r\n        this.changeCallback = fn;\r\n    }\r\n    onChangeModel() {\r\n        this.changeCallback.call(this);\r\n    }\r\n}\r\nexports.default = Slider;\r\n\n\n//# sourceURL=webpack:///./src/Slider.ts?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__webpack_require__(/*! ./favicons/favicons */ \"./src/example/favicons/favicons.js\");\r\n__webpack_require__(/*! ./scss/example.scss */ \"./src/example/scss/example.scss\");\r\n__webpack_require__(/*! ./scss/panel.scss */ \"./src/example/scss/panel.scss\");\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../plugin/types/Orientation */ \"./src/plugin/types/Orientation.ts\"));\r\nconst Panel_1 = __importDefault(__webpack_require__(/*! ./panel/Panel */ \"./src/example/panel/Panel.ts\"));\r\nconst container = document.querySelector('.example');\r\nif (container) {\r\n    new Panel_1.default(container);\r\n    new Panel_1.default(container, { min: 20, max: 300, isRange: true });\r\n    new Panel_1.default(container, { orientation: Orientation_1.default.Vertical });\r\n}\r\n\n\n//# sourceURL=webpack:///./src/example/example.ts?");
 
 /***/ }),
 
-/***/ "./src/controller/Controller.ts":
-/*!**************************************!*\
-  !*** ./src/controller/Controller.ts ***!
-  \**************************************/
+/***/ "./src/example/favicons sync recursive ./!./!./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./ \\.(svg|png|ico|xml|json)$":
+/*!********************************************************************************************************************************!*\
+  !*** ./src/example/favicons sync !./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext] \.(svg|png|ico|xml|json)$ ***!
+  \********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var map = {\n\t\"./android-chrome-192x192.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/android-chrome-192x192.png\",\n\t\"./android-chrome-256x256.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/android-chrome-256x256.png\",\n\t\"./apple-touch-icon.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/apple-touch-icon.png\",\n\t\"./browserconfig.xml\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/browserconfig.xml\",\n\t\"./favicon-16x16.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/favicon-16x16.png\",\n\t\"./favicon-32x32.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/favicon-32x32.png\",\n\t\"./favicon.ico\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/favicon.ico\",\n\t\"./mstile-150x150.png\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/mstile-150x150.png\",\n\t\"./safari-pinned-tab.svg\": \"./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./src/example/favicons/safari-pinned-tab.svg\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/example/favicons sync recursive ./!./!./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./ \\\\.(svg|png|ico|xml|json)$\";\n\n//# sourceURL=webpack:///./node_modules/file-loader/dist/cjs.js?./src/example/favicons_sync_");
+
+/***/ }),
+
+/***/ "./src/example/favicons/favicons.js":
+/*!******************************************!*\
+  !*** ./src/example/favicons/favicons.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const faviconContext = __webpack_require__(\"./src/example/favicons sync recursive ./!./!./node_modules/file-loader/dist/cjs.js?name=favicons/[name].[ext]!./ \\\\.(svg|png|ico|xml|json)$\");\r\n\r\nfaviconContext.keys().forEach(faviconContext);\r\n\n\n//# sourceURL=webpack:///./src/example/favicons/favicons.js?");
+
+/***/ }),
+
+/***/ "./src/example/panel/Panel.ts":
+/*!************************************!*\
+  !*** ./src/example/panel/Panel.ts ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Slider_1 = __importDefault(__webpack_require__(/*! ../view/Slider */ \"./src/view/Slider.ts\"));\r\nconst SliderData_1 = __importDefault(__webpack_require__(/*! ../types/SliderData */ \"./src/types/SliderData.ts\"));\r\nclass Controller {\r\n    constructor(container, model) {\r\n        this.model = model;\r\n        this.view = new Slider_1.default(container, this);\r\n        this.updateView();\r\n        this.model.addListener('change', this.onChangeModel.bind(this));\r\n        window.addEventListener('resize', this.onResize.bind(this));\r\n    }\r\n    setPosition(pos) {\r\n        this.model.setPosition(pos);\r\n    }\r\n    setPointPosition(pos, pointer) {\r\n        this.model.setPointPosition(pos, pointer);\r\n    }\r\n    onChangeModel() {\r\n        this.updateView();\r\n    }\r\n    updateView() {\r\n        const data = new SliderData_1.default(this.model);\r\n        this.view.update(data);\r\n    }\r\n    onResize() {\r\n        this.updateView();\r\n    }\r\n}\r\nexports.default = Controller;\r\n\n\n//# sourceURL=webpack:///./src/controller/Controller.ts?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Slider_1 = __importDefault(__webpack_require__(/*! ../../plugin/Slider */ \"./src/plugin/Slider.ts\"));\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../../plugin/types/Orientation */ \"./src/plugin/types/Orientation.ts\"));\r\nclass Panel {\r\n    constructor(parent, props) {\r\n        this.parent = parent;\r\n        const mainElement = document.createElement('div');\r\n        mainElement.classList.add('panel');\r\n        parent.appendChild(mainElement);\r\n        this.panelElement = document.createElement('div');\r\n        this.panelElement.classList.add('panel__inputs');\r\n        mainElement.appendChild(this.panelElement);\r\n        const sliderContainer = document.createElement('div');\r\n        sliderContainer.classList.add('panel__slider');\r\n        mainElement.appendChild(sliderContainer);\r\n        this.min = this.createInput('Min');\r\n        this.min.addEventListener('change', this.onChangeMin.bind(this));\r\n        this.max = this.createInput('Max');\r\n        this.max.addEventListener('change', this.onChangeMax.bind(this));\r\n        this.step = this.createInput('Step');\r\n        this.step.addEventListener('change', this.onChangeStep.bind(this));\r\n        this.low = this.createInput('Low');\r\n        this.low.addEventListener('change', this.onChangeLow.bind(this));\r\n        this.hight = this.createInput('Hight');\r\n        this.hight.addEventListener('change', this.onChangeHight.bind(this));\r\n        this.range = this.createInput('Range', 'checkbox');\r\n        this.range.addEventListener('change', this.onChangeRange.bind(this));\r\n        this.vertical = this.createInput('Vertical', 'checkbox');\r\n        this.vertical.addEventListener('change', this.onChangeVertical.bind(this));\r\n        this.tips = this.createInput('Tips', 'checkbox');\r\n        this.tips.addEventListener('change', this.onChangeTips.bind(this));\r\n        this.slider = new Slider_1.default(sliderContainer, props);\r\n        this.slider.addChangeListener(this.update.bind(this));\r\n        this.update();\r\n    }\r\n    update() {\r\n        this.min.value = this.slider.getMin().toString();\r\n        this.max.value = this.slider.getMax().toString();\r\n        this.low.value = this.slider.getValue().toString();\r\n        this.hight.value = this.slider.getValue(1).toString();\r\n        this.range.checked = this.slider.getRange();\r\n        this.tips.checked = this.slider.getTipVisibility();\r\n        this.vertical.checked = this.slider.getOrientation() === Orientation_1.default.Vertical;\r\n        this.step.value = this.slider.getStep().toString();\r\n        this.low.setAttribute('step', this.step.value);\r\n        this.hight.setAttribute('step', this.step.value);\r\n    }\r\n    createInput(label, type = 'number') {\r\n        const labelElement = document.createElement('label');\r\n        labelElement.textContent = label;\r\n        labelElement.classList.add('panel__label');\r\n        this.panelElement.appendChild(labelElement);\r\n        const input = document.createElement('input');\r\n        input.classList.add('panel__input');\r\n        input.setAttribute('type', type);\r\n        labelElement.appendChild(input);\r\n        return input;\r\n    }\r\n    onChangeMin() {\r\n        this.slider.setMin(+this.min.value);\r\n    }\r\n    onChangeMax() {\r\n        this.slider.setMax(+this.max.value);\r\n    }\r\n    onChangeLow() {\r\n        this.slider.setValue(+this.low.value, 0);\r\n    }\r\n    onChangeHight() {\r\n        this.slider.setValue(+this.hight.value, 1);\r\n    }\r\n    onChangeRange() {\r\n        this.slider.setRange(this.range.checked);\r\n    }\r\n    onChangeStep() {\r\n        this.slider.setStep(+this.step.value);\r\n    }\r\n    onChangeVertical() {\r\n        const orientation = this.vertical.checked ? Orientation_1.default.Vertical : Orientation_1.default.Horizontal;\r\n        this.slider.setOrientation(orientation);\r\n    }\r\n    onChangeTips() {\r\n        this.slider.setTipVisibility(this.tips.checked);\r\n    }\r\n}\r\nexports.default = Panel;\r\n\n\n//# sourceURL=webpack:///./src/example/panel/Panel.ts?");
 
 /***/ }),
 
-/***/ "./src/main.ts":
-/*!*********************!*\
-  !*** ./src/main.ts ***!
-  \*********************/
+/***/ "./src/example/scss/example.scss":
+/*!***************************************!*\
+  !*** ./src/example/scss/example.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./example.scss */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/example/scss/example.scss\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/example/scss/example.scss?");
+
+/***/ }),
+
+/***/ "./src/example/scss/panel.scss":
+/*!*************************************!*\
+  !*** ./src/example/scss/panel.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./panel.scss */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/example/scss/panel.scss\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/example/scss/panel.scss?");
+
+/***/ }),
+
+/***/ "./src/index.ts":
+/*!**********************!*\
+  !*** ./src/index.ts ***!
+  \**********************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("/* WEBPACK VAR INJECTION */(function($) {\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Slider_1 = __importDefault(__webpack_require__(/*! ./Slider */ \"./src/Slider.ts\"));\r\n$(function () {\r\n    $.fn.slider = function (props) {\r\n        const controller = new Slider_1.default(this.get(0), props);\r\n        return controller;\r\n    };\r\n});\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/main.ts?");
+eval("/* WEBPACK VAR INJECTION */(function($) {\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Slider_1 = __importDefault(__webpack_require__(/*! ./plugin/Slider */ \"./src/plugin/Slider.ts\"));\r\n$(function () {\r\n    $.fn.slider = function (props) {\r\n        const controller = new Slider_1.default(this.get(0), props);\r\n        return controller;\r\n    };\r\n});\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/index.ts?");
 
 /***/ }),
 
-/***/ "./src/model/Slider.ts":
-/*!*****************************!*\
-  !*** ./src/model/Slider.ts ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../types/Orientation */ \"./src/types/Orientation.ts\"));\r\nconst Observer_1 = __importDefault(__webpack_require__(/*! ../observer/Observer */ \"./src/observer/Observer.ts\"));\r\nclass Slider {\r\n    constructor() {\r\n        this.min = 0;\r\n        this.max = 100;\r\n        this.isRange = false;\r\n        this.orientation = Orientation_1.default.Horizontal;\r\n        this.step = 1;\r\n        this.values = [0, 100];\r\n        this.isVisibleTooltips = true;\r\n        this.observer = new Observer_1.default();\r\n    }\r\n    setMin(min) {\r\n        if (min < this.max) {\r\n            this.min = min;\r\n            this.recalculateValue();\r\n        }\r\n        this.emitChangeEvent();\r\n    }\r\n    getMin() {\r\n        return this.min;\r\n    }\r\n    setMax(max) {\r\n        if (max > this.min) {\r\n            this.max = max;\r\n            this.recalculateValue();\r\n        }\r\n        this.emitChangeEvent();\r\n    }\r\n    getMax() {\r\n        return this.max;\r\n    }\r\n    setRange(isRange) {\r\n        if (!this.isRange && isRange) {\r\n            this.values[1] = this.max;\r\n            if (this.values[0] === this.max) {\r\n                this.values[0] = this.max - this.step;\r\n            }\r\n        }\r\n        this.isRange = isRange;\r\n        this.emitChangeEvent();\r\n    }\r\n    getRange() {\r\n        return this.isRange;\r\n    }\r\n    setOrientation(orientation) {\r\n        this.orientation = orientation;\r\n        this.emitChangeEvent();\r\n    }\r\n    getOrientation() {\r\n        return this.orientation;\r\n    }\r\n    setStep(step) {\r\n        if (this.isValidStep(step)) {\r\n            this.step = step;\r\n            this.recalculateValue();\r\n        }\r\n        this.emitChangeEvent();\r\n    }\r\n    getStep() {\r\n        return this.step;\r\n    }\r\n    setValue(value, pointer = 0) {\r\n        this.setNewValue(value, pointer);\r\n        this.emitChangeEvent();\r\n    }\r\n    getValue(pointer = 0) {\r\n        return this.values[pointer];\r\n    }\r\n    setPointPosition(position, pointer = 0) {\r\n        const value = position >= 1 ? this.max : this.getValueByPosition(position);\r\n        this.setNewValue(value, pointer);\r\n        this.emitChangeEvent();\r\n    }\r\n    getPointPosition(pointer = 0) {\r\n        return (this.values[pointer] - this.min) / (this.max - this.min);\r\n    }\r\n    setPosition(position) {\r\n        if (position >= 1) {\r\n            const pointer = this.isRange ? 1 : 0;\r\n            this.values[pointer] = this.max;\r\n            this.emitChangeEvent();\r\n            return;\r\n        }\r\n        if (this.isRange) {\r\n            const value = this.getValueByPosition(position);\r\n            if (value < this.values[0]) {\r\n                this.setNewValue(value, 0);\r\n            }\r\n            else if (value > this.values[1]) {\r\n                this.setNewValue(value, 1);\r\n            }\r\n            else {\r\n                const pointer = this.closestPointer(value);\r\n                this.setNewValue(value, pointer);\r\n            }\r\n        }\r\n        else {\r\n            this.setPointPosition(position, 0);\r\n        }\r\n        this.emitChangeEvent();\r\n    }\r\n    setTooltipVisibility(isVisible) {\r\n        this.isVisibleTooltips = isVisible;\r\n        this.emitChangeEvent();\r\n    }\r\n    getTooltipVisibility() {\r\n        return this.isVisibleTooltips;\r\n    }\r\n    addListener(event, fn) {\r\n        this.observer.add(event, fn);\r\n    }\r\n    removeListener(event, fn) {\r\n        this.observer.remove(event, fn);\r\n    }\r\n    recalculateValue() {\r\n        this.setValue(this.values[0], 0);\r\n        if (this.isRange) {\r\n            this.setValue(this.values[1], 1);\r\n        }\r\n    }\r\n    getValueByPosition(position) {\r\n        return Math.round((this.max - this.min) * position + this.min);\r\n    }\r\n    roundByStep(value) {\r\n        return Math.round((value - this.min) / this.step) * this.step + this.min;\r\n    }\r\n    emitChangeEvent() {\r\n        this.observer.emit('change', this);\r\n    }\r\n    isValidStep(step) {\r\n        return (this.max - this.min) >= step && step > 0;\r\n    }\r\n    setNewValue(value, pointer) {\r\n        const constraint = this.getConstraint(pointer);\r\n        let roundedValue = this.roundByStep(value);\r\n        roundedValue = roundedValue < constraint.min ? constraint.min : roundedValue;\r\n        roundedValue = roundedValue > constraint.max ? constraint.max : roundedValue;\r\n        this.values[pointer] = roundedValue;\r\n    }\r\n    getConstraint(pointer) {\r\n        const constraint = { min: this.min, max: this.max };\r\n        if (pointer === 0) {\r\n            constraint.min = this.min;\r\n            constraint.max = this.isRange ? this.values[1] - this.step : this.max;\r\n        }\r\n        else {\r\n            constraint.max = this.max;\r\n            constraint.min = this.isRange ? this.values[0] + this.step : this.min;\r\n        }\r\n        return constraint;\r\n    }\r\n    closestPointer(value) {\r\n        const distanceToLow = value - this.values[0];\r\n        const distanceToHight = this.values[1] - value;\r\n        if (distanceToLow <= distanceToHight) {\r\n            return 0;\r\n        }\r\n        return 1;\r\n    }\r\n}\r\nexports.default = Slider;\r\n\n\n//# sourceURL=webpack:///./src/model/Slider.ts?");
-
-/***/ }),
-
-/***/ "./src/observer/Event.ts":
-/*!*******************************!*\
-  !*** ./src/observer/Event.ts ***!
-  \*******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass Event {\r\n    constructor(type) {\r\n        this.subscribers = [];\r\n        this.type = type;\r\n    }\r\n    add(fn) {\r\n        if (!this.subscribers.includes(fn)) {\r\n            this.subscribers.push(fn);\r\n        }\r\n    }\r\n    remove(fn) {\r\n        this.subscribers = this.subscribers.filter((value) => value !== fn);\r\n    }\r\n    emit(data) {\r\n        this.subscribers.forEach((value) => value(this.type, data));\r\n    }\r\n    getType() {\r\n        return this.type;\r\n    }\r\n}\r\nexports.default = Event;\r\n\n\n//# sourceURL=webpack:///./src/observer/Event.ts?");
-
-/***/ }),
-
-/***/ "./src/observer/Observer.ts":
-/*!**********************************!*\
-  !*** ./src/observer/Observer.ts ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Event_1 = __importDefault(__webpack_require__(/*! ./Event */ \"./src/observer/Event.ts\"));\r\nclass Observer {\r\n    constructor() {\r\n        this.events = [];\r\n    }\r\n    add(type, fn) {\r\n        let event = this.getEvent(type) || null;\r\n        if (event) {\r\n            event.add(fn);\r\n        }\r\n        else {\r\n            event = new Event_1.default(type);\r\n            event.add(fn);\r\n            this.events.push(event);\r\n        }\r\n        return this;\r\n    }\r\n    remove(type, fn) {\r\n        const event = this.getEvent(type) || new Event_1.default('');\r\n        if (event.getType() !== '') {\r\n            event.remove(fn);\r\n        }\r\n    }\r\n    emit(type, data) {\r\n        const event = this.getEvent(type) || new Event_1.default('');\r\n        event.emit(data);\r\n    }\r\n    getEvent(type) {\r\n        for (let i = 0; i < this.events.length; i++) {\r\n            if (this.events[i].getType() === type) {\r\n                return this.events[i];\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n}\r\nexports.default = Observer;\r\n\n\n//# sourceURL=webpack:///./src/observer/Observer.ts?");
-
-/***/ }),
-
-/***/ "./src/scss/slider.scss":
+/***/ "./src/plugin/Slider.ts":
 /*!******************************!*\
-  !*** ./src/scss/slider.scss ***!
+  !*** ./src/plugin/Slider.ts ***!
   \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!../../node_modules/sass-loader/dist/cjs.js!./slider.scss */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/scss/slider.scss\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/scss/slider.scss?");
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Controller_1 = __importDefault(__webpack_require__(/*! ./controller/Controller */ \"./src/plugin/controller/Controller.ts\"));\r\nconst Slider_1 = __importDefault(__webpack_require__(/*! ./model/Slider */ \"./src/plugin/model/Slider.ts\"));\r\nclass Slider {\r\n    constructor(container, props = {}) {\r\n        this.model = new Slider_1.default();\r\n        this.controller = new Controller_1.default(container, this.model);\r\n        this.model.addListener('change', this.onChangeModel.bind(this));\r\n        if (props.min) {\r\n            this.model.setMin(props.min);\r\n        }\r\n        if (props.max) {\r\n            this.model.setMax(props.max);\r\n        }\r\n        if (props.isRange) {\r\n            this.model.setRange(props.isRange);\r\n        }\r\n        if (props.isTips) {\r\n            this.model.setTooltipVisibility(props.isTips);\r\n        }\r\n        if (props.orientation) {\r\n            this.model.setOrientation(props.orientation);\r\n        }\r\n        if (props.step) {\r\n            this.model.setStep(props.step);\r\n        }\r\n        if (props.low) {\r\n            this.model.setValue(props.low);\r\n        }\r\n        if (props.hight) {\r\n            this.model.setValue(props.hight, 1);\r\n        }\r\n    }\r\n    setMin(min) {\r\n        this.model.setMin(min);\r\n    }\r\n    getMin() {\r\n        return this.model.getMin();\r\n    }\r\n    setMax(max) {\r\n        this.model.setMax(max);\r\n    }\r\n    getMax() {\r\n        return this.model.getMax();\r\n    }\r\n    getValue(id = 0) {\r\n        return this.model.getValue(id);\r\n    }\r\n    setValue(value, id = 0) {\r\n        this.model.setValue(value, id);\r\n    }\r\n    setRange(isRange) {\r\n        this.model.setRange(isRange);\r\n    }\r\n    getRange() {\r\n        return this.model.getRange();\r\n    }\r\n    setStep(step) {\r\n        this.model.setStep(step);\r\n    }\r\n    getStep() {\r\n        return this.model.getStep();\r\n    }\r\n    setTipVisibility(isVisible) {\r\n        this.model.setTooltipVisibility(isVisible);\r\n    }\r\n    getTipVisibility() {\r\n        return this.model.getTooltipVisibility();\r\n    }\r\n    setOrientation(orientation) {\r\n        this.model.setOrientation(orientation);\r\n    }\r\n    getOrientation() {\r\n        return this.model.getOrientation();\r\n    }\r\n    addChangeListener(fn) {\r\n        this.changeCallback = fn;\r\n    }\r\n    onChangeModel() {\r\n        if (this.changeCallback) {\r\n            this.changeCallback.call(this);\r\n        }\r\n    }\r\n}\r\nexports.default = Slider;\r\n\n\n//# sourceURL=webpack:///./src/plugin/Slider.ts?");
 
 /***/ }),
 
-/***/ "./src/types/Orientation.ts":
-/*!**********************************!*\
-  !*** ./src/types/Orientation.ts ***!
-  \**********************************/
+/***/ "./src/plugin/controller/Controller.ts":
+/*!*********************************************!*\
+  !*** ./src/plugin/controller/Controller.ts ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Orientation;\r\n(function (Orientation) {\r\n    Orientation[\"Horizontal\"] = \"horizontal\";\r\n    Orientation[\"Vertical\"] = \"vertical\";\r\n})(Orientation || (Orientation = {}));\r\nexports.default = Orientation;\r\n\n\n//# sourceURL=webpack:///./src/types/Orientation.ts?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst SliderData_1 = __importDefault(__webpack_require__(/*! ../types/SliderData */ \"./src/plugin/types/SliderData.ts\"));\r\nconst Slider_1 = __importDefault(__webpack_require__(/*! ../view/Slider */ \"./src/plugin/view/Slider.ts\"));\r\nclass Controller {\r\n    constructor(container, model) {\r\n        this.model = model;\r\n        this.view = new Slider_1.default(container, this);\r\n        this.updateView();\r\n        this.model.addListener('change', this.onChangeModel.bind(this));\r\n        window.addEventListener('resize', this.onResize.bind(this));\r\n    }\r\n    setPosition(pos) {\r\n        this.model.setPosition(pos);\r\n    }\r\n    setPointPosition(pos, pointer) {\r\n        this.model.setPointPosition(pos, pointer);\r\n    }\r\n    onChangeModel() {\r\n        this.updateView();\r\n    }\r\n    updateView() {\r\n        const data = new SliderData_1.default(this.model);\r\n        this.view.update(data);\r\n    }\r\n    onResize() {\r\n        this.updateView();\r\n    }\r\n}\r\nexports.default = Controller;\r\n\n\n//# sourceURL=webpack:///./src/plugin/controller/Controller.ts?");
 
 /***/ }),
 
-/***/ "./src/types/SliderData.ts":
+/***/ "./src/plugin/drag/Drag.ts":
 /*!*********************************!*\
-  !*** ./src/types/SliderData.ts ***!
+  !*** ./src/plugin/drag/Drag.ts ***!
   \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass SliderData {\r\n    constructor(model) {\r\n        this.orientation = model.getOrientation();\r\n        this.lowPointer = {\r\n            position: model.getPointPosition(),\r\n            value: model.getValue(),\r\n        };\r\n        this.hightPointer = {\r\n            position: model.getPointPosition(1),\r\n            value: model.getValue(1),\r\n        };\r\n        this.isRange = model.getRange();\r\n        this.isVisibleTooltip = model.getTooltipVisibility();\r\n        this.min = model.getMin();\r\n        this.max = model.getMax();\r\n    }\r\n}\r\nexports.default = SliderData;\r\n\n\n//# sourceURL=webpack:///./src/types/SliderData.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass Drag {\r\n    constructor(element, key) {\r\n        this.isMouseDown = false;\r\n        this.element = element;\r\n        this.key = key;\r\n        this.element.addEventListener('mousedown', this.onMouseDown.bind(this));\r\n        document.addEventListener('mouseup', this.onMouseUp.bind(this));\r\n        document.addEventListener('mousemove', this.onMouseMove.bind(this));\r\n        document.addEventListener('dragend', this.onMouseUp.bind(this));\r\n    }\r\n    setDragListener(onDragFn) {\r\n        this.onDragFn = onDragFn;\r\n    }\r\n    onMouseDown() {\r\n        this.isMouseDown = true;\r\n    }\r\n    onMouseUp() {\r\n        this.isMouseDown = false;\r\n    }\r\n    onMouseMove(e) {\r\n        if (this.isMouseDown && this.onDragFn) {\r\n            this.onDragFn.call(this, this.key, e.clientX, e.clientY);\r\n        }\r\n    }\r\n}\r\nexports.default = Drag;\r\n\n\n//# sourceURL=webpack:///./src/plugin/drag/Drag.ts?");
 
 /***/ }),
 
-/***/ "./src/view/Fill.ts":
-/*!**************************!*\
-  !*** ./src/view/Fill.ts ***!
-  \**************************/
+/***/ "./src/plugin/model/Slider.ts":
+/*!************************************!*\
+  !*** ./src/plugin/model/Slider.ts ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../types/Orientation */ \"./src/types/Orientation.ts\"));\r\nconst OrientationManager_1 = __importDefault(__webpack_require__(/*! ./OrientationManager */ \"./src/view/OrientationManager.ts\"));\r\nclass Fill {\r\n    constructor(parent) {\r\n        this.parent = parent;\r\n        this.createFillElement();\r\n        this.initOrientationManager();\r\n    }\r\n    update(low, hight, orientation) {\r\n        this.updateOrientation(orientation);\r\n        this.setPosition(low, hight);\r\n    }\r\n    initOrientationManager() {\r\n        this.orientationManager = new OrientationManager_1.default(this.fillElement);\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Horizontal, 'slider__fill_horizontal');\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Vertical, 'slider__fill_vertical');\r\n    }\r\n    setPosition(low, hight) {\r\n        if (this.orientationManager.getCurrentOrientation() === Orientation_1.default.Horizontal) {\r\n            this.fillElement.style.left = `${low}%`;\r\n            this.fillElement.style.right = `${hight}%`;\r\n        }\r\n        else {\r\n            this.fillElement.style.bottom = `${low}%`;\r\n            this.fillElement.style.top = `${hight}%`;\r\n        }\r\n    }\r\n    createFillElement() {\r\n        this.fillElement = document.createElement('div');\r\n        this.fillElement.classList.add('slider__fill');\r\n        this.parent.appendChild(this.fillElement);\r\n    }\r\n    updateOrientation(orientation) {\r\n        this.orientationManager.setCurrentOrientation(orientation);\r\n        // if (this.orientation !== orientation) {\r\n        //   this.orientation = orientation;\r\n        //   this.orientationManager.switchOrientation(this.fillElement, this.orientation);\r\n        // }\r\n    }\r\n}\r\nexports.default = Fill;\r\n\n\n//# sourceURL=webpack:///./src/view/Fill.ts?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Observer_1 = __importDefault(__webpack_require__(/*! ../observer/Observer */ \"./src/plugin/observer/Observer.ts\"));\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../types/Orientation */ \"./src/plugin/types/Orientation.ts\"));\r\nclass Slider {\r\n    constructor() {\r\n        this.min = 0;\r\n        this.max = 100;\r\n        this.isRange = false;\r\n        this.orientation = Orientation_1.default.Horizontal;\r\n        this.step = 1;\r\n        this.values = [0, 100];\r\n        this.isVisibleTooltips = true;\r\n        this.observer = new Observer_1.default();\r\n    }\r\n    setMin(min) {\r\n        if (min < this.max) {\r\n            this.min = min;\r\n            this.recalculateValue();\r\n        }\r\n        this.emitChangeEvent();\r\n    }\r\n    getMin() {\r\n        return this.min;\r\n    }\r\n    setMax(max) {\r\n        if (max > this.min) {\r\n            this.max = max;\r\n            this.recalculateValue();\r\n        }\r\n        this.emitChangeEvent();\r\n    }\r\n    getMax() {\r\n        return this.max;\r\n    }\r\n    setRange(isRange) {\r\n        if (!this.isRange && isRange) {\r\n            this.values[1] = this.max;\r\n            if (this.values[0] === this.max) {\r\n                this.values[0] = this.max - this.step;\r\n            }\r\n        }\r\n        this.isRange = isRange;\r\n        this.emitChangeEvent();\r\n    }\r\n    getRange() {\r\n        return this.isRange;\r\n    }\r\n    setOrientation(orientation) {\r\n        this.orientation = orientation;\r\n        this.emitChangeEvent();\r\n    }\r\n    getOrientation() {\r\n        return this.orientation;\r\n    }\r\n    setStep(step) {\r\n        if (this.isValidStep(step)) {\r\n            this.step = step;\r\n            this.recalculateValue();\r\n        }\r\n        this.emitChangeEvent();\r\n    }\r\n    getStep() {\r\n        return this.step;\r\n    }\r\n    setValue(value, pointer = 0) {\r\n        this.setNewValue(value, pointer);\r\n        this.emitChangeEvent();\r\n    }\r\n    getValue(pointer = 0) {\r\n        return this.values[pointer];\r\n    }\r\n    setPointPosition(position, pointer = 0) {\r\n        const value = position >= 1 ? this.max : this.getValueByPosition(position);\r\n        this.setNewValue(value, pointer);\r\n        this.emitChangeEvent();\r\n    }\r\n    getPointPosition(pointer = 0) {\r\n        return (this.values[pointer] - this.min) / (this.max - this.min);\r\n    }\r\n    setPosition(position) {\r\n        if (position >= 1) {\r\n            const pointer = this.isRange ? 1 : 0;\r\n            this.values[pointer] = this.max;\r\n            this.emitChangeEvent();\r\n            return;\r\n        }\r\n        if (this.isRange) {\r\n            const value = this.getValueByPosition(position);\r\n            if (value < this.values[0]) {\r\n                this.setNewValue(value, 0);\r\n            }\r\n            else if (value > this.values[1]) {\r\n                this.setNewValue(value, 1);\r\n            }\r\n            else {\r\n                const pointer = this.closestPointer(value);\r\n                this.setNewValue(value, pointer);\r\n            }\r\n        }\r\n        else {\r\n            this.setPointPosition(position, 0);\r\n        }\r\n        this.emitChangeEvent();\r\n    }\r\n    setTooltipVisibility(isVisible) {\r\n        this.isVisibleTooltips = isVisible;\r\n        this.emitChangeEvent();\r\n    }\r\n    getTooltipVisibility() {\r\n        return this.isVisibleTooltips;\r\n    }\r\n    addListener(event, fn) {\r\n        this.observer.add(event, fn);\r\n    }\r\n    removeListener(event, fn) {\r\n        this.observer.remove(event, fn);\r\n    }\r\n    recalculateValue() {\r\n        if (this.isRange) {\r\n            const hight = this.values[1] <= this.min ? this.min + this.step : this.values[1];\r\n            this.setValue(hight, 1);\r\n        }\r\n        this.setValue(this.values[0], 0);\r\n    }\r\n    getValueByPosition(position) {\r\n        return Math.round((this.max - this.min) * position + this.min);\r\n    }\r\n    roundByStep(value) {\r\n        return Math.round((value - this.min) / this.step) * this.step + this.min;\r\n    }\r\n    emitChangeEvent() {\r\n        this.observer.emit('change', this);\r\n    }\r\n    isValidStep(step) {\r\n        return (this.max - this.min) >= step && step > 0;\r\n    }\r\n    setNewValue(value, pointer) {\r\n        const constraint = this.getConstraint(pointer);\r\n        let roundedValue = this.roundByStep(value);\r\n        roundedValue = roundedValue < constraint.min ? constraint.min : roundedValue;\r\n        roundedValue = roundedValue > constraint.max ? constraint.max : roundedValue;\r\n        this.values[pointer] = roundedValue;\r\n    }\r\n    getConstraint(pointer) {\r\n        const constraint = { min: this.min, max: this.max };\r\n        if (pointer === 0) {\r\n            constraint.min = this.min;\r\n            constraint.max = this.isRange ? this.values[1] - this.step : this.max;\r\n        }\r\n        else {\r\n            constraint.max = this.max;\r\n            constraint.min = this.isRange ? this.values[0] + this.step : this.min;\r\n        }\r\n        return constraint;\r\n    }\r\n    closestPointer(value) {\r\n        const distanceToLow = value - this.values[0];\r\n        const distanceToHight = this.values[1] - value;\r\n        if (distanceToLow <= distanceToHight) {\r\n            return 0;\r\n        }\r\n        return 1;\r\n    }\r\n}\r\nexports.default = Slider;\r\n\n\n//# sourceURL=webpack:///./src/plugin/model/Slider.ts?");
 
 /***/ }),
 
-/***/ "./src/view/OrientationManager.ts":
+/***/ "./src/plugin/observer/Event.ts":
+/*!**************************************!*\
+  !*** ./src/plugin/observer/Event.ts ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass Event {\r\n    constructor(type) {\r\n        this.subscribers = [];\r\n        this.type = type;\r\n    }\r\n    add(fn) {\r\n        if (!this.subscribers.includes(fn)) {\r\n            this.subscribers.push(fn);\r\n            return true;\r\n        }\r\n        return false;\r\n    }\r\n    remove(fn) {\r\n        this.subscribers = this.subscribers.filter((value) => value !== fn);\r\n    }\r\n    emit(data) {\r\n        this.subscribers.forEach((value) => value(this.type, data));\r\n    }\r\n    getType() {\r\n        return this.type;\r\n    }\r\n}\r\nexports.default = Event;\r\n\n\n//# sourceURL=webpack:///./src/plugin/observer/Event.ts?");
+
+/***/ }),
+
+/***/ "./src/plugin/observer/Observer.ts":
+/*!*****************************************!*\
+  !*** ./src/plugin/observer/Observer.ts ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Event_1 = __importDefault(__webpack_require__(/*! ./Event */ \"./src/plugin/observer/Event.ts\"));\r\nclass Observer {\r\n    constructor() {\r\n        this.events = [];\r\n    }\r\n    // tslint:disable-next-line:ban-types\r\n    add(type, fn) {\r\n        let event = this.getEvent(type) || null;\r\n        if (event) {\r\n            event.add(fn);\r\n        }\r\n        else {\r\n            event = new Event_1.default(type);\r\n            event.add(fn);\r\n            this.events.push(event);\r\n        }\r\n        return this;\r\n    }\r\n    // tslint:disable-next-line:ban-types\r\n    remove(type, fn) {\r\n        const event = this.getEvent(type) || new Event_1.default('');\r\n        if (event.getType() !== '') {\r\n            event.remove(fn);\r\n        }\r\n    }\r\n    emit(type, data) {\r\n        const event = this.getEvent(type) || new Event_1.default('');\r\n        event.emit(data);\r\n    }\r\n    getEvent(type) {\r\n        for (const event of this.events) {\r\n            if (event.getType() === type) {\r\n                return event;\r\n            }\r\n        }\r\n        return null;\r\n    }\r\n}\r\nexports.default = Observer;\r\n\n\n//# sourceURL=webpack:///./src/plugin/observer/Observer.ts?");
+
+/***/ }),
+
+/***/ "./src/plugin/scss/slider.scss":
+/*!*************************************!*\
+  !*** ./src/plugin/scss/slider.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./slider.scss */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/plugin/scss/slider.scss\");\n\nif (typeof content === 'string') {\n  content = [[module.i, content, '']];\n}\n\nvar options = {}\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\")(content, options);\n\nif (content.locals) {\n  module.exports = content.locals;\n}\n\n\n//# sourceURL=webpack:///./src/plugin/scss/slider.scss?");
+
+/***/ }),
+
+/***/ "./src/plugin/types/Orientation.ts":
+/*!*****************************************!*\
+  !*** ./src/plugin/types/Orientation.ts ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Orientation;\r\n(function (Orientation) {\r\n    Orientation[\"Horizontal\"] = \"horizontal\";\r\n    Orientation[\"Vertical\"] = \"vertical\";\r\n})(Orientation || (Orientation = {}));\r\nexports.default = Orientation;\r\n\n\n//# sourceURL=webpack:///./src/plugin/types/Orientation.ts?");
+
+/***/ }),
+
+/***/ "./src/plugin/types/SliderData.ts":
 /*!****************************************!*\
-  !*** ./src/view/OrientationManager.ts ***!
+  !*** ./src/plugin/types/SliderData.ts ***!
   \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass OrientationManager {\r\n    constructor(element) {\r\n        this.element = element;\r\n        this.classes = new Map();\r\n    }\r\n    addOrientationClass(orientation, className) {\r\n        this.classes.set(orientation, className);\r\n    }\r\n    getOrientationClass(orientation) {\r\n        return this.classes.get(orientation);\r\n    }\r\n    setCurrentOrientation(orientation) {\r\n        if (this.currentOrientation !== orientation) {\r\n            this.currentOrientation = orientation;\r\n            this.removeOrientation();\r\n            this.setOrientation(this.currentOrientation);\r\n        }\r\n    }\r\n    getCurrentOrientation() {\r\n        return this.currentOrientation;\r\n    }\r\n    resetPosition() {\r\n        this.element.style.top = '';\r\n        this.element.style.bottom = '';\r\n        this.element.style.left = '';\r\n        this.element.style.right = '';\r\n    }\r\n    removeOrientation() {\r\n        this.classes.forEach((className) => {\r\n            if (this.element.classList.contains(className)) {\r\n                this.element.classList.remove(className);\r\n            }\r\n        });\r\n        this.resetPosition();\r\n    }\r\n    setOrientation(orientation) {\r\n        const newClass = this.classes.get(orientation);\r\n        if (newClass) {\r\n            this.element.classList.add(newClass);\r\n        }\r\n    }\r\n}\r\nexports.default = OrientationManager;\r\n\n\n//# sourceURL=webpack:///./src/view/OrientationManager.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass SliderData {\r\n    constructor(model) {\r\n        this.orientation = model.getOrientation();\r\n        this.lowPointer = {\r\n            position: model.getPointPosition(),\r\n            value: model.getValue(),\r\n        };\r\n        this.hightPointer = {\r\n            position: model.getPointPosition(1),\r\n            value: model.getValue(1),\r\n        };\r\n        this.isRange = model.getRange();\r\n        this.isVisibleTooltip = model.getTooltipVisibility();\r\n        this.min = model.getMin();\r\n        this.max = model.getMax();\r\n    }\r\n}\r\nexports.default = SliderData;\r\n\n\n//# sourceURL=webpack:///./src/plugin/types/SliderData.ts?");
 
 /***/ }),
 
-/***/ "./src/view/Pointer.ts":
-/*!*****************************!*\
-  !*** ./src/view/Pointer.ts ***!
-  \*****************************/
+/***/ "./src/plugin/view/Fill.ts":
+/*!*********************************!*\
+  !*** ./src/plugin/view/Fill.ts ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../types/Orientation */ \"./src/types/Orientation.ts\"));\r\nconst OrientationManager_1 = __importDefault(__webpack_require__(/*! ./OrientationManager */ \"./src/view/OrientationManager.ts\"));\r\nclass Pointer {\r\n    constructor(parent, key) {\r\n        this.isMouseDown = false;\r\n        this.parent = parent;\r\n        this.key = key;\r\n        this.pointerElement = document.createElement('div');\r\n        this.pointerElement.classList.add('slider__pointer');\r\n        this.parent.appendChild(this.pointerElement);\r\n        this.pointerElement.addEventListener('mousedown', this.onMouseDown.bind(this));\r\n        document.addEventListener('mouseup', this.onMouseUp.bind(this));\r\n        document.addEventListener('mousemove', this.onMouseMove.bind(this));\r\n        this.initOrientationManager();\r\n    }\r\n    update(position, orientation) {\r\n        this.orientationManager.setCurrentOrientation(orientation);\r\n        const newPosition = `${position - this.getHalf()}px`;\r\n        if (orientation === Orientation_1.default.Horizontal) {\r\n            this.pointerElement.style.left = newPosition;\r\n        }\r\n        else {\r\n            this.pointerElement.style.top = newPosition;\r\n        }\r\n    }\r\n    setDragListener(fn) {\r\n        this.onDragFn = fn;\r\n    }\r\n    destroy() {\r\n        this.parent.removeChild(this.pointerElement);\r\n    }\r\n    getHalf() {\r\n        return this.pointerElement.getBoundingClientRect().width / 2;\r\n    }\r\n    initOrientationManager() {\r\n        this.orientationManager = new OrientationManager_1.default(this.pointerElement);\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Horizontal, 'slider__pointer_horizontal');\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Vertical, 'slider__pointer_vertical');\r\n    }\r\n    onMouseDown() {\r\n        this.isMouseDown = true;\r\n    }\r\n    onMouseUp() {\r\n        this.isMouseDown = false;\r\n    }\r\n    onMouseMove(e) {\r\n        if (this.isMouseDown) {\r\n            if (this.orientationManager.getCurrentOrientation() === Orientation_1.default.Horizontal) {\r\n                this.onDragFn.call(this, this.key, e.clientX);\r\n            }\r\n            else {\r\n                this.onDragFn.call(this, this.key, e.clientY);\r\n            }\r\n        }\r\n    }\r\n}\r\nexports.default = Pointer;\r\n\n\n//# sourceURL=webpack:///./src/view/Pointer.ts?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../types/Orientation */ \"./src/plugin/types/Orientation.ts\"));\r\nconst OrientationManager_1 = __importDefault(__webpack_require__(/*! ./OrientationManager */ \"./src/plugin/view/OrientationManager.ts\"));\r\nclass Fill {\r\n    constructor(parent) {\r\n        this.parent = parent;\r\n        this.createFillElement();\r\n        this.initOrientationManager();\r\n    }\r\n    update(low, hight, orientation) {\r\n        this.updateOrientation(orientation);\r\n        this.setPosition(low, hight);\r\n    }\r\n    initOrientationManager() {\r\n        this.orientationManager = new OrientationManager_1.default(this.fillElement);\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Horizontal, 'slider__fill_horizontal');\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Vertical, 'slider__fill_vertical');\r\n    }\r\n    setPosition(low, hight) {\r\n        if (this.orientationManager.getCurrentOrientation() === Orientation_1.default.Horizontal) {\r\n            this.fillElement.style.left = `${low}%`;\r\n            this.fillElement.style.right = `${hight}%`;\r\n        }\r\n        else {\r\n            this.fillElement.style.bottom = `${low}%`;\r\n            this.fillElement.style.top = `${hight}%`;\r\n        }\r\n    }\r\n    createFillElement() {\r\n        this.fillElement = document.createElement('div');\r\n        this.fillElement.classList.add('slider__fill');\r\n        this.parent.appendChild(this.fillElement);\r\n    }\r\n    updateOrientation(orientation) {\r\n        this.orientationManager.setCurrentOrientation(orientation);\r\n    }\r\n}\r\nexports.default = Fill;\r\n\n\n//# sourceURL=webpack:///./src/plugin/view/Fill.ts?");
 
 /***/ }),
 
-/***/ "./src/view/Slider.ts":
-/*!****************************!*\
-  !*** ./src/view/Slider.ts ***!
-  \****************************/
+/***/ "./src/plugin/view/OrientationManager.ts":
+/*!***********************************************!*\
+  !*** ./src/plugin/view/OrientationManager.ts ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Track_1 = __importDefault(__webpack_require__(/*! ./Track */ \"./src/view/Track.ts\"));\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../types/Orientation */ \"./src/types/Orientation.ts\"));\r\n__webpack_require__(/*! ../scss/slider.scss */ \"./src/scss/slider.scss\");\r\nconst Fill_1 = __importDefault(__webpack_require__(/*! ./Fill */ \"./src/view/Fill.ts\"));\r\nconst Pointer_1 = __importDefault(__webpack_require__(/*! ./Pointer */ \"./src/view/Pointer.ts\"));\r\nconst TipManager_1 = __importDefault(__webpack_require__(/*! ./tips/TipManager */ \"./src/view/tips/TipManager.ts\"));\r\nconst TipData_1 = __importDefault(__webpack_require__(/*! ./tips/TipData */ \"./src/view/tips/TipData.ts\"));\r\nconst MinMax_1 = __importDefault(__webpack_require__(/*! ./minmax/MinMax */ \"./src/view/minmax/MinMax.ts\"));\r\nclass Slider {\r\n    constructor(container, controller) {\r\n        this.pointers = new Map();\r\n        this.orientation = Orientation_1.default.Vertical;\r\n        this.controller = controller;\r\n        this.container = container;\r\n        this.sliderElement = document.createElement('div');\r\n        this.sliderElement.classList.add('slider');\r\n        this.container.appendChild(this.sliderElement);\r\n        this.track = new Track_1.default(this.sliderElement);\r\n        this.track.update(this.orientation);\r\n        this.fill = new Fill_1.default(this.track.getElement());\r\n        this.fill.update(0, 0, this.orientation);\r\n        this.createPointer('low');\r\n        this.sliderElement.addEventListener('click', this.onClick.bind(this));\r\n        this.tipManager = new TipManager_1.default(this.sliderElement);\r\n        this.minMax = new MinMax_1.default(this.sliderElement, this.controller);\r\n    }\r\n    onClick(event) {\r\n        const target = event.target;\r\n        if (Slider.isTrack(target)) {\r\n            const position = this.track.getRelativePosition(event.clientX, event.clientY);\r\n            this.controller.setPosition(position);\r\n        }\r\n    }\r\n    onDrag(key, pos) {\r\n        const position = this.track.getRelativePosition(pos, pos);\r\n        const id = (key === 'low') ? 0 : 1;\r\n        this.controller.setPointPosition(position, id);\r\n    }\r\n    static isTrack(element) {\r\n        return element.classList.contains('slider__fill') || element.classList.contains('slider__track');\r\n    }\r\n    update(data) {\r\n        this.data = data;\r\n        this.track.update(this.data.orientation);\r\n        this.updateFill();\r\n        this.updatePointers();\r\n        this.updateTip();\r\n        this.minMax.update(this.data.min.toString(), this.data.max.toString(), this.data.orientation);\r\n    }\r\n    createPointer(key) {\r\n        if (this.pointers.has(key)) {\r\n            return;\r\n        }\r\n        const pointer = new Pointer_1.default(this.track.getElement(), key);\r\n        this.pointers.set(key, pointer);\r\n        pointer.update(0, this.orientation);\r\n        pointer.setDragListener(this.onDrag.bind(this));\r\n    }\r\n    updatePointers() {\r\n        let pointer = this.pointers.get('low');\r\n        if (pointer) {\r\n            const pointerPosition = this.track.getAbsolutePosition(this.data.lowPointer.position);\r\n            pointer.update(pointerPosition, this.data.orientation);\r\n        }\r\n        if (this.data.isRange) {\r\n            this.createPointer('hight');\r\n            pointer = this.pointers.get('hight');\r\n            if (pointer) {\r\n                const pointerPosition = this.track.getAbsolutePosition(this.data.hightPointer.position);\r\n                pointer.update(pointerPosition, this.data.orientation);\r\n            }\r\n        }\r\n        else {\r\n            this.destroyPointer('hight');\r\n        }\r\n    }\r\n    updateFill() {\r\n        let lowPos;\r\n        let hightPos;\r\n        if (this.data.isRange) {\r\n            lowPos = this.data.lowPointer.position * 100;\r\n            hightPos = (1 - this.data.hightPointer.position) * 100;\r\n        }\r\n        else {\r\n            lowPos = 0;\r\n            hightPos = (1 - this.data.lowPointer.position) * 100;\r\n        }\r\n        this.fill.update(lowPos, hightPos, this.data.orientation);\r\n    }\r\n    updateTip() {\r\n        let lowPosition = 0;\r\n        let hightPosition = 0;\r\n        let pointer = this.pointers.get('low');\r\n        if (pointer) {\r\n            lowPosition = this.track.getAbsolutePosition(this.data.lowPointer.position);\r\n        }\r\n        pointer = this.pointers.get('hight');\r\n        if (pointer) {\r\n            hightPosition = this.track.getAbsolutePosition(this.data.hightPointer.position);\r\n        }\r\n        const tipData = new TipData_1.default({ value: this.data.lowPointer.value, position: lowPosition }, { value: this.data.hightPointer.value, position: hightPosition }, this.data.orientation, this.data.isRange, this.data.isVisibleTooltip);\r\n        this.tipManager.update(tipData);\r\n    }\r\n    destroyPointer(key) {\r\n        if (this.pointers.has(key)) {\r\n            const pointer = this.pointers.get(key);\r\n            if (pointer) {\r\n                pointer.destroy();\r\n            }\r\n            this.pointers.delete(key);\r\n        }\r\n    }\r\n}\r\nexports.default = Slider;\r\n\n\n//# sourceURL=webpack:///./src/view/Slider.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass OrientationManager {\r\n    constructor(element) {\r\n        this.element = element;\r\n        this.classes = new Map();\r\n    }\r\n    addOrientationClass(orientation, className) {\r\n        this.classes.set(orientation, className);\r\n    }\r\n    getOrientationClass(orientation) {\r\n        return this.classes.get(orientation);\r\n    }\r\n    setCurrentOrientation(orientation) {\r\n        if (this.currentOrientation !== orientation) {\r\n            this.currentOrientation = orientation;\r\n            this.removeOrientation();\r\n            this.setOrientation(this.currentOrientation);\r\n        }\r\n    }\r\n    getCurrentOrientation() {\r\n        return this.currentOrientation;\r\n    }\r\n    resetPosition() {\r\n        this.element.style.top = '';\r\n        this.element.style.bottom = '';\r\n        this.element.style.left = '';\r\n        this.element.style.right = '';\r\n    }\r\n    removeOrientation() {\r\n        this.classes.forEach((className) => {\r\n            if (this.element.classList.contains(className)) {\r\n                this.element.classList.remove(className);\r\n            }\r\n        });\r\n        this.resetPosition();\r\n    }\r\n    setOrientation(orientation) {\r\n        const newClass = this.classes.get(orientation);\r\n        if (newClass) {\r\n            this.element.classList.add(newClass);\r\n        }\r\n    }\r\n}\r\nexports.default = OrientationManager;\r\n\n\n//# sourceURL=webpack:///./src/plugin/view/OrientationManager.ts?");
 
 /***/ }),
 
-/***/ "./src/view/Track.ts":
-/*!***************************!*\
-  !*** ./src/view/Track.ts ***!
-  \***************************/
+/***/ "./src/plugin/view/Pointer.ts":
+/*!************************************!*\
+  !*** ./src/plugin/view/Pointer.ts ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../types/Orientation */ \"./src/types/Orientation.ts\"));\r\nconst OrientationManager_1 = __importDefault(__webpack_require__(/*! ./OrientationManager */ \"./src/view/OrientationManager.ts\"));\r\nclass Track {\r\n    constructor(parent) {\r\n        this.parent = parent;\r\n        this.createTrackElement();\r\n        this.initOrientationManager();\r\n    }\r\n    update(orientation) {\r\n        this.updateOrientation(orientation);\r\n    }\r\n    getElement() {\r\n        return this.trackElement;\r\n    }\r\n    getRelativePosition(clientX, clientY) {\r\n        const rect = this.trackElement.getBoundingClientRect();\r\n        let position;\r\n        if (this.orientationManager.getCurrentOrientation() === Orientation_1.default.Horizontal) {\r\n            position = (clientX - rect.left) / rect.width;\r\n        }\r\n        else {\r\n            position = 1 - ((clientY - rect.top) / rect.height);\r\n        }\r\n        return position;\r\n    }\r\n    getAbsolutePosition(relativePosition) {\r\n        const rect = this.trackElement.getBoundingClientRect();\r\n        let position;\r\n        if (this.orientationManager.getCurrentOrientation() === Orientation_1.default.Horizontal) {\r\n            position = rect.width * relativePosition;\r\n        }\r\n        else {\r\n            position = rect.height - (rect.height * relativePosition);\r\n        }\r\n        return position;\r\n    }\r\n    initOrientationManager() {\r\n        this.orientationManager = new OrientationManager_1.default(this.trackElement);\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Horizontal, 'slider__track_horizontal');\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Vertical, 'slider__track_vertical');\r\n    }\r\n    createTrackElement() {\r\n        this.trackElement = document.createElement('div');\r\n        this.parent.appendChild(this.trackElement);\r\n        this.trackElement.classList.add('slider__track');\r\n    }\r\n    updateOrientation(orientation) {\r\n        this.orientationManager.setCurrentOrientation(orientation);\r\n    }\r\n}\r\nexports.default = Track;\r\n\n\n//# sourceURL=webpack:///./src/view/Track.ts?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../types/Orientation */ \"./src/plugin/types/Orientation.ts\"));\r\nconst OrientationManager_1 = __importDefault(__webpack_require__(/*! ./OrientationManager */ \"./src/plugin/view/OrientationManager.ts\"));\r\nconst Drag_1 = __importDefault(__webpack_require__(/*! ../drag/Drag */ \"./src/plugin/drag/Drag.ts\"));\r\nclass Pointer {\r\n    constructor(parent, key) {\r\n        this.isMouseDown = false;\r\n        this.parent = parent;\r\n        this.key = key;\r\n        this.pointerElement = document.createElement('div');\r\n        this.pointerElement.classList.add('slider__pointer');\r\n        this.parent.appendChild(this.pointerElement);\r\n        this.drag = new Drag_1.default(this.pointerElement, key);\r\n        this.initOrientationManager();\r\n    }\r\n    update(position, orientation) {\r\n        this.orientationManager.setCurrentOrientation(orientation);\r\n        const newPosition = `${position - this.getHalf()}px`;\r\n        if (orientation === Orientation_1.default.Horizontal) {\r\n            this.pointerElement.style.left = newPosition;\r\n        }\r\n        else {\r\n            this.pointerElement.style.top = newPosition;\r\n        }\r\n    }\r\n    setDragListener(fn) {\r\n        this.drag.setDragListener(fn);\r\n    }\r\n    destroy() {\r\n        this.parent.removeChild(this.pointerElement);\r\n    }\r\n    getHalf() {\r\n        return this.pointerElement.getBoundingClientRect().width / 2;\r\n    }\r\n    initOrientationManager() {\r\n        this.orientationManager = new OrientationManager_1.default(this.pointerElement);\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Horizontal, 'slider__pointer_horizontal');\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Vertical, 'slider__pointer_vertical');\r\n    }\r\n}\r\nexports.default = Pointer;\r\n\n\n//# sourceURL=webpack:///./src/plugin/view/Pointer.ts?");
 
 /***/ }),
 
-/***/ "./src/view/minmax/Field.ts":
-/*!**********************************!*\
-  !*** ./src/view/minmax/Field.ts ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass Field {\r\n    constructor(parent, key) {\r\n        this.parent = parent;\r\n        this.key = key;\r\n        this.fieldElement = document.createElement('div');\r\n        this.fieldElement.classList.add('slider__range');\r\n        this.parent.appendChild(this.fieldElement);\r\n        this.fieldElement.addEventListener('click', this.onClick.bind(this));\r\n    }\r\n    update(value) {\r\n        this.fieldElement.innerHTML = value;\r\n    }\r\n    addClickListener(clickHandler) {\r\n        this.clickHandler = clickHandler;\r\n    }\r\n    onClick() {\r\n        this.clickHandler.call(this, this.key);\r\n    }\r\n}\r\nexports.default = Field;\r\n\n\n//# sourceURL=webpack:///./src/view/minmax/Field.ts?");
-
-/***/ }),
-
-/***/ "./src/view/minmax/MinMax.ts":
+/***/ "./src/plugin/view/Slider.ts":
 /*!***********************************!*\
-  !*** ./src/view/minmax/MinMax.ts ***!
+  !*** ./src/plugin/view/Slider.ts ***!
   \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Field_1 = __importDefault(__webpack_require__(/*! ./Field */ \"./src/view/minmax/Field.ts\"));\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../../types/Orientation */ \"./src/types/Orientation.ts\"));\r\nconst OrientationManager_1 = __importDefault(__webpack_require__(/*! ../OrientationManager */ \"./src/view/OrientationManager.ts\"));\r\nclass MinMax {\r\n    constructor(parent, controller) {\r\n        this.parent = parent;\r\n        this.controller = controller;\r\n        this.minMaxElement = document.createElement('div');\r\n        this.minMaxElement.classList.add('slider__min-max');\r\n        this.parent.appendChild(this.minMaxElement);\r\n        this.min = new Field_1.default(this.minMaxElement, 'min');\r\n        this.min.addClickListener(this.onClick.bind(this));\r\n        this.max = new Field_1.default(this.minMaxElement, 'max');\r\n        this.max.addClickListener(this.onClick.bind(this));\r\n        this.orientationManager = new OrientationManager_1.default(this.minMaxElement);\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Horizontal, 'slider__min-max_horizontal');\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Vertical, 'slider__min-max_vertical');\r\n    }\r\n    update(min, max, orientation) {\r\n        this.orientationManager.setCurrentOrientation(orientation);\r\n        this.min.update(min);\r\n        this.max.update(max);\r\n    }\r\n    onClick(key) {\r\n        if (key === 'min') {\r\n            this.controller.setPosition(0);\r\n        }\r\n        else {\r\n            this.controller.setPosition(1);\r\n        }\r\n    }\r\n}\r\nexports.default = MinMax;\r\n\n\n//# sourceURL=webpack:///./src/view/minmax/MinMax.ts?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n__webpack_require__(/*! ../scss/slider.scss */ \"./src/plugin/scss/slider.scss\");\r\nconst Fill_1 = __importDefault(__webpack_require__(/*! ./Fill */ \"./src/plugin/view/Fill.ts\"));\r\nconst MinMax_1 = __importDefault(__webpack_require__(/*! ./minmax/MinMax */ \"./src/plugin/view/minmax/MinMax.ts\"));\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../types/Orientation */ \"./src/plugin/types/Orientation.ts\"));\r\nconst Pointer_1 = __importDefault(__webpack_require__(/*! ./Pointer */ \"./src/plugin/view/Pointer.ts\"));\r\nconst TipData_1 = __importDefault(__webpack_require__(/*! ./tips/TipData */ \"./src/plugin/view/tips/TipData.ts\"));\r\nconst TipManager_1 = __importDefault(__webpack_require__(/*! ./tips/TipManager */ \"./src/plugin/view/tips/TipManager.ts\"));\r\nconst Track_1 = __importDefault(__webpack_require__(/*! ./Track */ \"./src/plugin/view/Track.ts\"));\r\nclass Slider {\r\n    constructor(container, controller) {\r\n        this.pointers = new Map();\r\n        this.orientation = Orientation_1.default.Vertical;\r\n        this.controller = controller;\r\n        this.container = container;\r\n        this.sliderElement = document.createElement('div');\r\n        this.sliderElement.classList.add('slider');\r\n        this.container.appendChild(this.sliderElement);\r\n        this.track = new Track_1.default(this.sliderElement);\r\n        this.track.update(this.orientation);\r\n        this.fill = new Fill_1.default(this.track.getElement());\r\n        this.fill.update(0, 0, this.orientation);\r\n        this.createPointer('low');\r\n        this.sliderElement.addEventListener('click', this.onClick.bind(this));\r\n        this.tipManager = new TipManager_1.default(this.sliderElement);\r\n        this.tipManager.setDragListener(this.onDrag.bind(this));\r\n        this.minMax = new MinMax_1.default(this.sliderElement, this.controller);\r\n    }\r\n    static isTrack(element) {\r\n        return element.classList.contains('slider__fill') || element.classList.contains('slider__track');\r\n    }\r\n    update(data) {\r\n        this.data = data;\r\n        this.track.update(this.data.orientation);\r\n        this.updateFill();\r\n        this.updatePointers();\r\n        this.updateTip();\r\n        const minPos = this.track.getAbsolutePosition(0);\r\n        const maxPos = this.track.getAbsolutePosition(1);\r\n        this.minMax.update(this.data.min.toString(), this.data.max.toString(), this.data.orientation, minPos, maxPos);\r\n    }\r\n    onClick(event) {\r\n        const target = event.target;\r\n        if (Slider.isTrack(target)) {\r\n            const position = this.track.getRelativePosition(event.clientX, event.clientY);\r\n            this.controller.setPosition(position);\r\n        }\r\n    }\r\n    onDrag(key, x, y) {\r\n        const position = this.track.getRelativePosition(x, y);\r\n        const id = (key === 'low') ? 0 : 1;\r\n        this.controller.setPointPosition(position, id);\r\n    }\r\n    createPointer(key) {\r\n        if (this.pointers.has(key)) {\r\n            return;\r\n        }\r\n        const pointer = new Pointer_1.default(this.track.getElement(), key);\r\n        this.pointers.set(key, pointer);\r\n        pointer.update(0, this.orientation);\r\n        pointer.setDragListener(this.onDrag.bind(this));\r\n    }\r\n    updatePointers() {\r\n        let pointer = this.pointers.get('low');\r\n        if (pointer) {\r\n            const pointerPosition = this.track.getAbsolutePosition(this.data.lowPointer.position);\r\n            pointer.update(pointerPosition, this.data.orientation);\r\n        }\r\n        if (this.data.isRange) {\r\n            this.createPointer('hight');\r\n            pointer = this.pointers.get('hight');\r\n            if (pointer) {\r\n                const pointerPosition = this.track.getAbsolutePosition(this.data.hightPointer.position);\r\n                pointer.update(pointerPosition, this.data.orientation);\r\n            }\r\n        }\r\n        else {\r\n            this.destroyPointer('hight');\r\n        }\r\n    }\r\n    updateFill() {\r\n        let lowPos;\r\n        let hightPos;\r\n        if (this.data.isRange) {\r\n            lowPos = this.data.lowPointer.position * 100;\r\n            hightPos = (1 - this.data.hightPointer.position) * 100;\r\n        }\r\n        else {\r\n            lowPos = 0;\r\n            hightPos = (1 - this.data.lowPointer.position) * 100;\r\n        }\r\n        this.fill.update(lowPos, hightPos, this.data.orientation);\r\n    }\r\n    updateTip() {\r\n        let lowPosition = 0;\r\n        let hightPosition = 0;\r\n        let pointer = this.pointers.get('low');\r\n        if (pointer) {\r\n            lowPosition = this.track.getAbsolutePosition(this.data.lowPointer.position);\r\n        }\r\n        pointer = this.pointers.get('hight');\r\n        if (pointer) {\r\n            hightPosition = this.track.getAbsolutePosition(this.data.hightPointer.position);\r\n        }\r\n        const tipData = new TipData_1.default({ value: this.data.lowPointer.value, position: lowPosition }, { value: this.data.hightPointer.value, position: hightPosition }, this.data.orientation, this.data.isRange, this.data.isVisibleTooltip);\r\n        this.tipManager.update(tipData);\r\n    }\r\n    destroyPointer(key) {\r\n        if (this.pointers.has(key)) {\r\n            const pointer = this.pointers.get(key);\r\n            if (pointer) {\r\n                pointer.destroy();\r\n            }\r\n            this.pointers.delete(key);\r\n        }\r\n    }\r\n}\r\nexports.default = Slider;\r\n\n\n//# sourceURL=webpack:///./src/plugin/view/Slider.ts?");
 
 /***/ }),
 
-/***/ "./src/view/tips/Tip.ts":
-/*!******************************!*\
-  !*** ./src/view/tips/Tip.ts ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst OrientationManager_1 = __importDefault(__webpack_require__(/*! ../OrientationManager */ \"./src/view/OrientationManager.ts\"));\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../../types/Orientation */ \"./src/types/Orientation.ts\"));\r\nclass Tip {\r\n    constructor(parent) {\r\n        this.parent = parent;\r\n        this.tipElement = document.createElement('div');\r\n        this.tipElement.classList.add('slider__tip');\r\n        this.orientationManager = new OrientationManager_1.default(this.tipElement);\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Horizontal, 'slider__tip_horizontal');\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Vertical, 'slider__tip_vertical');\r\n    }\r\n    update(value, position, orientation) {\r\n        this.orientationManager.setCurrentOrientation(orientation);\r\n        this.tipElement.innerHTML = value;\r\n        this.setPosition(position);\r\n    }\r\n    create() {\r\n        if (!this.parent.contains(this.tipElement)) {\r\n            this.parent.appendChild(this.tipElement);\r\n        }\r\n    }\r\n    destroy() {\r\n        if (this.parent.contains(this.tipElement)) {\r\n            this.parent.removeChild(this.tipElement);\r\n        }\r\n    }\r\n    checkCollision(tip) {\r\n        const rect = tip.getClientRect();\r\n        const self = this.getClientRect();\r\n        if (self.x < rect.x + rect.width\r\n            && self.x + self.width > rect.x\r\n            && self.y < rect.y + rect.height\r\n            && self.y + self.height > rect.y) {\r\n            return true;\r\n        }\r\n        return false;\r\n    }\r\n    getClientRect() {\r\n        return this.tipElement.getBoundingClientRect();\r\n    }\r\n    setPosition(position) {\r\n        const rect = this.tipElement.getBoundingClientRect();\r\n        let newPosition = 0;\r\n        if (this.orientationManager.getCurrentOrientation() === Orientation_1.default.Horizontal) {\r\n            newPosition = position - rect.width / 2;\r\n            this.tipElement.style.left = `${newPosition}px`;\r\n        }\r\n        else {\r\n            newPosition = position - rect.height / 2;\r\n            this.tipElement.style.top = `${newPosition}px`;\r\n        }\r\n    }\r\n}\r\nexports.default = Tip;\r\n\n\n//# sourceURL=webpack:///./src/view/tips/Tip.ts?");
-
-/***/ }),
-
-/***/ "./src/view/tips/TipData.ts":
+/***/ "./src/plugin/view/Track.ts":
 /*!**********************************!*\
-  !*** ./src/view/tips/TipData.ts ***!
+  !*** ./src/plugin/view/Track.ts ***!
   \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass TipData {\r\n    constructor(low, hight, orientation, isRange, isVisible) {\r\n        this.isRange = isRange;\r\n        this.orientation = orientation;\r\n        this.low = { value: low.value, position: low.position };\r\n        this.hight = { value: hight.value, position: hight.position };\r\n        this.isVisible = isVisible;\r\n    }\r\n}\r\nexports.default = TipData;\r\n\n\n//# sourceURL=webpack:///./src/view/tips/TipData.ts?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../types/Orientation */ \"./src/plugin/types/Orientation.ts\"));\r\nconst OrientationManager_1 = __importDefault(__webpack_require__(/*! ./OrientationManager */ \"./src/plugin/view/OrientationManager.ts\"));\r\nclass Track {\r\n    constructor(parent) {\r\n        this.parent = parent;\r\n        this.createTrackElement();\r\n        this.initOrientationManager();\r\n    }\r\n    update(orientation) {\r\n        this.updateOrientation(orientation);\r\n    }\r\n    getElement() {\r\n        return this.trackElement;\r\n    }\r\n    getRelativePosition(clientX, clientY) {\r\n        const rect = this.trackElement.getBoundingClientRect();\r\n        let position;\r\n        if (this.orientationManager.getCurrentOrientation() === Orientation_1.default.Horizontal) {\r\n            position = (clientX - rect.left) / rect.width;\r\n        }\r\n        else {\r\n            position = 1 - ((clientY - rect.top) / rect.height);\r\n        }\r\n        return position;\r\n    }\r\n    getAbsolutePosition(relativePosition) {\r\n        const rect = this.trackElement.getBoundingClientRect();\r\n        let position;\r\n        if (this.orientationManager.getCurrentOrientation() === Orientation_1.default.Horizontal) {\r\n            position = rect.width * relativePosition;\r\n        }\r\n        else {\r\n            position = rect.height - (rect.height * relativePosition);\r\n        }\r\n        return position;\r\n    }\r\n    initOrientationManager() {\r\n        this.orientationManager = new OrientationManager_1.default(this.trackElement);\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Horizontal, 'slider__track_horizontal');\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Vertical, 'slider__track_vertical');\r\n    }\r\n    createTrackElement() {\r\n        this.trackElement = document.createElement('div');\r\n        this.parent.appendChild(this.trackElement);\r\n        this.trackElement.classList.add('slider__track');\r\n    }\r\n    updateOrientation(orientation) {\r\n        this.orientationManager.setCurrentOrientation(orientation);\r\n    }\r\n}\r\nexports.default = Track;\r\n\n\n//# sourceURL=webpack:///./src/plugin/view/Track.ts?");
 
 /***/ }),
 
-/***/ "./src/view/tips/TipManager.ts":
+/***/ "./src/plugin/view/minmax/Field.ts":
+/*!*****************************************!*\
+  !*** ./src/plugin/view/minmax/Field.ts ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../../types/Orientation */ \"./src/plugin/types/Orientation.ts\"));\r\nconst OrientationManager_1 = __importDefault(__webpack_require__(/*! ../OrientationManager */ \"./src/plugin/view/OrientationManager.ts\"));\r\nclass Field {\r\n    constructor(parent, key) {\r\n        this.parent = parent;\r\n        this.key = key;\r\n        this.fieldElement = document.createElement('div');\r\n        this.fieldElement.classList.add('slider__range');\r\n        this.parent.appendChild(this.fieldElement);\r\n        this.orientationManager = new OrientationManager_1.default(this.fieldElement);\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Horizontal, 'slider__range_horizontal');\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Vertical, 'slider__range_vertical');\r\n        this.fieldElement.addEventListener('click', this.onClick.bind(this));\r\n    }\r\n    update(value, position, orientation) {\r\n        this.orientationManager.setCurrentOrientation(orientation);\r\n        this.fieldElement.innerHTML = value;\r\n        const rect = this.fieldElement.getBoundingClientRect();\r\n        let pos = 0;\r\n        if (orientation === Orientation_1.default.Horizontal) {\r\n            pos = position - rect.width / 2;\r\n            this.fieldElement.style.left = `${pos}px`;\r\n        }\r\n        else {\r\n            pos = position - rect.height / 2;\r\n            this.fieldElement.style.top = `${pos}px`;\r\n        }\r\n    }\r\n    addClickListener(clickHandler) {\r\n        this.clickHandler = clickHandler;\r\n    }\r\n    onClick() {\r\n        this.clickHandler.call(this, this.key);\r\n    }\r\n}\r\nexports.default = Field;\r\n\n\n//# sourceURL=webpack:///./src/plugin/view/minmax/Field.ts?");
+
+/***/ }),
+
+/***/ "./src/plugin/view/minmax/MinMax.ts":
+/*!******************************************!*\
+  !*** ./src/plugin/view/minmax/MinMax.ts ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Field_1 = __importDefault(__webpack_require__(/*! ./Field */ \"./src/plugin/view/minmax/Field.ts\"));\r\nclass MinMax {\r\n    constructor(parent, controller) {\r\n        this.parent = parent;\r\n        this.controller = controller;\r\n        this.minMaxElement = document.createElement('div');\r\n        this.minMaxElement.classList.add('slider__min-max');\r\n        this.parent.appendChild(this.minMaxElement);\r\n        this.min = new Field_1.default(this.minMaxElement, 'min');\r\n        this.min.addClickListener(this.onClick.bind(this));\r\n        this.max = new Field_1.default(this.minMaxElement, 'max');\r\n        this.max.addClickListener(this.onClick.bind(this));\r\n    }\r\n    update(min, max, orientation, minPos, maxPos) {\r\n        this.min.update(min, minPos, orientation);\r\n        this.max.update(max, maxPos, orientation);\r\n    }\r\n    onClick(key) {\r\n        if (key === 'min') {\r\n            this.controller.setPosition(0);\r\n        }\r\n        else {\r\n            this.controller.setPosition(1);\r\n        }\r\n    }\r\n}\r\nexports.default = MinMax;\r\n\n\n//# sourceURL=webpack:///./src/plugin/view/minmax/MinMax.ts?");
+
+/***/ }),
+
+/***/ "./src/plugin/view/tips/Tip.ts":
 /*!*************************************!*\
-  !*** ./src/view/tips/TipManager.ts ***!
+  !*** ./src/plugin/view/tips/Tip.ts ***!
   \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Tip_1 = __importDefault(__webpack_require__(/*! ./Tip */ \"./src/view/tips/Tip.ts\"));\r\nclass TipManager {\r\n    constructor(parent) {\r\n        this.tips = new Map();\r\n        this.parent = parent;\r\n        this.tips.set('low', new Tip_1.default(this.parent));\r\n        this.tips.set('hight', new Tip_1.default(this.parent));\r\n        this.tips.set('united', new Tip_1.default(this.parent));\r\n    }\r\n    update(data) {\r\n        this.data = data;\r\n        if (!this.data.isVisible) {\r\n            this.hideTip('hight');\r\n            this.hideTip('united');\r\n            this.hideTip('low');\r\n            return;\r\n        }\r\n        if (this.data.isRange) {\r\n            this.updateRangeTips();\r\n        }\r\n        else {\r\n            this.updateLow();\r\n            this.hideTip('hight');\r\n            this.hideTip('united');\r\n        }\r\n    }\r\n    updateRangeTips() {\r\n        this.preRender();\r\n        const hightTip = this.tips.get('hight');\r\n        const lowTip = this.tips.get('low');\r\n        if (hightTip && lowTip) {\r\n            if (lowTip.checkCollision(hightTip)) {\r\n                lowTip.destroy();\r\n                hightTip.destroy();\r\n                this.showUnitedTip();\r\n            }\r\n            else {\r\n                this.hideTip('united');\r\n                this.updateLow();\r\n                this.updateHight();\r\n            }\r\n        }\r\n    }\r\n    preRender() {\r\n        this.updateLow();\r\n        this.updateHight();\r\n    }\r\n    showUnitedTip() {\r\n        const unitedTip = this.tips.get('united');\r\n        if (unitedTip) {\r\n            unitedTip.create();\r\n            const low = this.data.low.position;\r\n            const hight = this.data.hight.position;\r\n            const position = ((hight - low) / 2) + low;\r\n            const tipText = `${this.data.low.value} - ${this.data.hight.value}`;\r\n            unitedTip.update(tipText, position, this.data.orientation);\r\n        }\r\n    }\r\n    hideTip(key) {\r\n        const tip = this.tips.get(key);\r\n        if (tip) {\r\n            tip.destroy();\r\n        }\r\n    }\r\n    updateLow() {\r\n        const tip = this.tips.get('low');\r\n        if (tip) {\r\n            tip.create();\r\n            tip.update(this.data.low.value.toString(), this.data.low.position, this.data.orientation);\r\n        }\r\n    }\r\n    updateHight() {\r\n        let tip;\r\n        if (this.data.isRange) {\r\n            tip = this.tips.get('hight');\r\n            if (tip) {\r\n                tip.create();\r\n                tip.update(this.data.hight.value.toString(), this.data.hight.position, this.data.orientation);\r\n            }\r\n        }\r\n        else {\r\n            tip = this.tips.get('hight');\r\n            if (tip) {\r\n                tip.destroy();\r\n            }\r\n        }\r\n    }\r\n}\r\nexports.default = TipManager;\r\n\n\n//# sourceURL=webpack:///./src/view/tips/TipManager.ts?");
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Orientation_1 = __importDefault(__webpack_require__(/*! ../../types/Orientation */ \"./src/plugin/types/Orientation.ts\"));\r\nconst OrientationManager_1 = __importDefault(__webpack_require__(/*! ../OrientationManager */ \"./src/plugin/view/OrientationManager.ts\"));\r\nconst Drag_1 = __importDefault(__webpack_require__(/*! ../../drag/Drag */ \"./src/plugin/drag/Drag.ts\"));\r\nclass Tip {\r\n    constructor(parent, key) {\r\n        this.parent = parent;\r\n        this.key = key;\r\n        this.tipElement = document.createElement('div');\r\n        this.tipElement.classList.add('slider__tip');\r\n        this.drag = new Drag_1.default(this.tipElement, this.key);\r\n        this.orientationManager = new OrientationManager_1.default(this.tipElement);\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Horizontal, 'slider__tip_horizontal');\r\n        this.orientationManager.addOrientationClass(Orientation_1.default.Vertical, 'slider__tip_vertical');\r\n    }\r\n    update(value, position, orientation) {\r\n        this.orientationManager.setCurrentOrientation(orientation);\r\n        this.tipElement.innerHTML = value;\r\n        this.setPosition(position);\r\n    }\r\n    create() {\r\n        if (!this.parent.contains(this.tipElement)) {\r\n            this.parent.appendChild(this.tipElement);\r\n        }\r\n    }\r\n    destroy() {\r\n        if (this.parent.contains(this.tipElement)) {\r\n            this.parent.removeChild(this.tipElement);\r\n        }\r\n    }\r\n    setDragListener(fn) {\r\n        this.drag.setDragListener(fn);\r\n    }\r\n    checkCollision(tip) {\r\n        const rect = tip.getClientRect();\r\n        const self = this.getClientRect();\r\n        if (self.x < rect.x + rect.width\r\n            && self.x + self.width > rect.x\r\n            && self.y < rect.y + rect.height\r\n            && self.y + self.height > rect.y) {\r\n            return true;\r\n        }\r\n        return false;\r\n    }\r\n    getClientRect() {\r\n        return this.tipElement.getBoundingClientRect();\r\n    }\r\n    setPosition(position) {\r\n        const rect = this.tipElement.getBoundingClientRect();\r\n        let newPosition = 0;\r\n        if (this.orientationManager.getCurrentOrientation() === Orientation_1.default.Horizontal) {\r\n            newPosition = position - rect.width / 2;\r\n            this.tipElement.style.left = `${newPosition}px`;\r\n        }\r\n        else {\r\n            newPosition = position - rect.height / 2;\r\n            this.tipElement.style.top = `${newPosition}px`;\r\n        }\r\n    }\r\n}\r\nexports.default = Tip;\r\n\n\n//# sourceURL=webpack:///./src/plugin/view/tips/Tip.ts?");
+
+/***/ }),
+
+/***/ "./src/plugin/view/tips/TipData.ts":
+/*!*****************************************!*\
+  !*** ./src/plugin/view/tips/TipData.ts ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass TipData {\r\n    constructor(low, hight, orientation, isRange, isVisible) {\r\n        this.isRange = isRange;\r\n        this.orientation = orientation;\r\n        this.low = { value: low.value, position: low.position };\r\n        this.hight = { value: hight.value, position: hight.position };\r\n        this.isVisible = isVisible;\r\n    }\r\n}\r\nexports.default = TipData;\r\n\n\n//# sourceURL=webpack:///./src/plugin/view/tips/TipData.ts?");
+
+/***/ }),
+
+/***/ "./src/plugin/view/tips/TipManager.ts":
+/*!********************************************!*\
+  !*** ./src/plugin/view/tips/TipManager.ts ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst Tip_1 = __importDefault(__webpack_require__(/*! ./Tip */ \"./src/plugin/view/tips/Tip.ts\"));\r\nclass TipManager {\r\n    constructor(parent) {\r\n        this.tips = new Map();\r\n        this.parent = parent;\r\n        this.tips.set('low', new Tip_1.default(this.parent, 'low'));\r\n        this.tips.set('hight', new Tip_1.default(this.parent, 'hight'));\r\n        this.tips.set('united', new Tip_1.default(this.parent, 'united'));\r\n    }\r\n    update(data) {\r\n        this.data = data;\r\n        if (!this.data.isVisible) {\r\n            this.hideTip('hight');\r\n            this.hideTip('united');\r\n            this.hideTip('low');\r\n            return;\r\n        }\r\n        if (this.data.isRange) {\r\n            this.updateRangeTips();\r\n        }\r\n        else {\r\n            this.updateLow();\r\n            this.hideTip('hight');\r\n            this.hideTip('united');\r\n        }\r\n    }\r\n    setDragListener(fn) {\r\n        this.tips.forEach((tip) => {\r\n            tip.setDragListener(fn);\r\n        });\r\n    }\r\n    updateRangeTips() {\r\n        this.preRender();\r\n        const hightTip = this.tips.get('hight');\r\n        const lowTip = this.tips.get('low');\r\n        if (hightTip && lowTip) {\r\n            if (lowTip.checkCollision(hightTip)) {\r\n                lowTip.destroy();\r\n                hightTip.destroy();\r\n                this.showUnitedTip();\r\n            }\r\n            else {\r\n                this.hideTip('united');\r\n                this.updateLow();\r\n                this.updateHight();\r\n            }\r\n        }\r\n    }\r\n    preRender() {\r\n        this.updateLow();\r\n        this.updateHight();\r\n    }\r\n    showUnitedTip() {\r\n        const unitedTip = this.tips.get('united');\r\n        if (unitedTip) {\r\n            unitedTip.create();\r\n            const low = this.data.low.position;\r\n            const hight = this.data.hight.position;\r\n            const position = ((hight - low) / 2) + low;\r\n            const tipText = `${this.data.low.value} - ${this.data.hight.value}`;\r\n            unitedTip.update(tipText, position, this.data.orientation);\r\n        }\r\n    }\r\n    hideTip(key) {\r\n        const tip = this.tips.get(key);\r\n        if (tip) {\r\n            tip.destroy();\r\n        }\r\n    }\r\n    updateLow() {\r\n        const tip = this.tips.get('low');\r\n        if (tip) {\r\n            tip.create();\r\n            tip.update(this.data.low.value.toString(), this.data.low.position, this.data.orientation);\r\n        }\r\n    }\r\n    updateHight() {\r\n        let tip;\r\n        if (this.data.isRange) {\r\n            tip = this.tips.get('hight');\r\n            if (tip) {\r\n                tip.create();\r\n                tip.update(this.data.hight.value.toString(), this.data.hight.position, this.data.orientation);\r\n            }\r\n        }\r\n        else {\r\n            tip = this.tips.get('hight');\r\n            if (tip) {\r\n                tip.destroy();\r\n            }\r\n        }\r\n    }\r\n}\r\nexports.default = TipManager;\r\n\n\n//# sourceURL=webpack:///./src/plugin/view/tips/TipManager.ts?");
 
 /***/ }),
 
 /***/ 0:
-/*!************************************************!*\
-  !*** multi ./src/main.ts ./example/example.ts ***!
-  \************************************************/
+/*!*****************************************************!*\
+  !*** multi ./src/index.ts ./src/example/example.ts ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("__webpack_require__(/*! ./src/main.ts */\"./src/main.ts\");\nmodule.exports = __webpack_require__(/*! ./example/example.ts */\"./example/example.ts\");\n\n\n//# sourceURL=webpack:///multi_./src/main.ts_./example/example.ts?");
+eval("__webpack_require__(/*! ./src/index.ts */\"./src/index.ts\");\nmodule.exports = __webpack_require__(/*! ./src/example/example.ts */\"./src/example/example.ts\");\n\n\n//# sourceURL=webpack:///multi_./src/index.ts_./src/example/example.ts?");
 
 /***/ })
 
