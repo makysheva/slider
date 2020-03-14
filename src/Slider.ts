@@ -87,7 +87,9 @@ class Slider {
   }
 
   private onChangeModel() {
-    this.changeCallback.call(this);
+    if (this.changeCallback) {
+      this.changeCallback.call(this);
+    }
   }
 }
 

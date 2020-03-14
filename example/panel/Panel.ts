@@ -1,3 +1,4 @@
+import { IProps } from './../../src/types/IProps';
 import Slider from '../../src/Slider';
 import Orientation from '../../src/types/Orientation';
 
@@ -24,8 +25,7 @@ class Panel {
 
   private vertical: HTMLInputElement;
 
-
-  constructor(parent: HTMLElement) {
+  constructor(parent: HTMLElement, props?: IProps) {
     this.parent = parent;
 
     const mainElement: HTMLElement = document.createElement('div');
@@ -57,7 +57,7 @@ class Panel {
     this.tips = this.createInput('Tips', 'checkbox');
     this.tips.addEventListener('change', this.onChangeTips.bind(this));
 
-    this.slider = new Slider(sliderContainer);
+    this.slider = new Slider(sliderContainer, props);
     this.slider.addChangeListener(this.update.bind(this));
 
     this.update();
