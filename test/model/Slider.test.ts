@@ -202,4 +202,28 @@ describe('Slider class', () => {
       expect(slider.getMin()).toBe(35);
     });
   });
+
+  describe('Get/Set max value', () => {
+    test('getMax method should return current max value', () => {
+      expect(slider.getMax()).toBe(100);
+    });
+  });
+
+  describe('Get/Set orientation methods', () => {
+    test('get method should return orientation', () => {
+      expect(slider.getOrientation()).toBe(Orientation.Horizontal);
+    });
+
+    test('set method should set passed orientation', () => {
+      slider.setOrientation(Orientation.Vertical);
+      expect(slider.getOrientation()).toBe(Orientation.Vertical);
+    });
+  });
+
+  describe('SetTooltipVisibility method', () => {
+    test('should set true', () => {
+      slider.setTooltipVisibility(true);
+      expect(slider.getTooltipVisibility()).toBe(true);
+    });
+  });
 });

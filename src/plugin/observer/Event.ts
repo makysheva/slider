@@ -7,10 +7,13 @@ class Event {
     this.type = type;
   }
 
-  public add(fn: Function) {
+  public add(fn: Function): boolean {
     if (!this.subscribers.includes(fn)) {
       this.subscribers.push(fn);
+      return true;
     }
+
+    return false;
   }
 
   public remove(fn: Function) {

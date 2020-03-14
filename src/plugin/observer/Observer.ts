@@ -3,6 +3,7 @@ import Event from './Event';
 class Observer {
   private events: Event[] = [];
 
+  // tslint:disable-next-line:ban-types
   public add(type: string, fn: Function): Observer {
     let event: Event = this.getEvent(type) || null!;
 
@@ -17,6 +18,7 @@ class Observer {
     return this;
   }
 
+  // tslint:disable-next-line:ban-types
   public remove(type: string, fn: Function) {
     const event: Event = this.getEvent(type) || new Event('');
     if (event.getType() !== '') {
@@ -30,9 +32,9 @@ class Observer {
   }
 
   private getEvent(type: string): Event | null {
-    for (let i: number = 0; i < this.events.length; i++) {
-      if (this.events[i].getType() === type) {
-        return this.events[i];
+    for (const event of this.events) {
+      if (event.getType() === type) {
+        return event;
       }
     }
     return null;
