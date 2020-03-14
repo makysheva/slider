@@ -70,7 +70,7 @@ class Panel {
     this.hight.value = this.slider.getValue(1).toString();
     this.range.checked = this.slider.getRange();
     this.tips.checked = this.slider.getTipVisibility();
-    this.vertical.checked = this.slider.getOrientation() === Orientation.Vertical ? true : false;
+    this.vertical.checked = this.slider.getOrientation() === Orientation.Vertical;
     this.step.value = this.slider.getStep().toString();
     this.low.setAttribute('step', this.step.value);
     this.hight.setAttribute('step', this.step.value);
@@ -115,7 +115,7 @@ class Panel {
   }
 
   private onChangeVertical() {
-    const orientation: Orientation = this.vertical.checked ? Orientation.Vertical : Orientation.Horizontal;
+    const orientation = this.vertical.checked ? Orientation.Vertical : Orientation.Horizontal;
     this.slider.setOrientation(orientation);
   }
 
