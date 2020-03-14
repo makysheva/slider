@@ -183,4 +183,18 @@ describe('Slider class', () => {
       expect(slider.getValue(1)).toBe(45);
     });
   });
+
+  describe('Get/Set min value', () => {
+    test('if value less then min should set value to min in range slider', () => {
+      slider.setMin(50);
+      expect(slider.getValue()).toBe(50);
+    });
+
+    test('should set low value in range slider to min if min less then low', () => {
+      slider.setRange(true);
+      slider.setValue(49, 1);
+      slider.setMin(50);
+      expect(slider.getValue()).toBe(50);
+    });
+  });
 });

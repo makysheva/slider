@@ -143,10 +143,11 @@ class Slider {
   }
 
   private recalculateValue() {
-    this.setValue(this.values[0], 0);
     if (this.isRange) {
-      this.setValue(this.values[1], 1);
+      const hight = this.values[1] <= this.min ? this.min + this.step : this.values[1];
+      this.setValue(hight, 1);
     }
+    this.setValue(this.values[0], 0);
   }
 
   private getValueByPosition(position: number): number {
