@@ -1,5 +1,4 @@
 import '../scss/slider.scss';
-
 import Controller from '../controller/Controller';
 import Fill from './Fill';
 import MinMax from './minmax/MinMax';

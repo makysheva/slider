@@ -1,6 +1,6 @@
-import { IProps } from '../../src/types/IProps';
-import Slider from '../../src/Slider';
-import Orientation from '../../src/types/Orientation';
+import { IProps } from '../../plugin/types/IProps';
+import Slider from '../../plugin/Slider';
+import Orientation from '../../plugin/types/Orientation';
 
 class Panel {
   private parent: HTMLElement;

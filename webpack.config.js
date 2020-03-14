@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: ['./src/main.ts', './example/example.ts'],
+  entry: ['./src/index.ts', './src/example/example.ts'],
 
   module: {
     rules: [
@@ -35,8 +35,8 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'example/index.pug',
-      filename: 'example/index.html',
+      template: 'src/example/index.pug',
+      filename: 'index.html',
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -47,6 +47,5 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     open: true,
-    index: 'example/index.html',
   },
 };

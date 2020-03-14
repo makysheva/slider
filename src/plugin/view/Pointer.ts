@@ -27,11 +27,6 @@ class Pointer {
 
     this.drag = new Drag(this.pointerElement, key);
 
-    // this.pointerElement.addEventListener('mousedown', this.onMouseDown.bind(this));
-    // document.addEventListener('mouseup', this.onMouseUp.bind(this));
-    // document.addEventListener('mousemove', this.onMouseMove.bind(this));
-    // document.addEventListener('dragend', this.onMouseUp.bind(this));
-
     this.initOrientationManager();
   }
 
@@ -62,24 +57,6 @@ class Pointer {
     this.orientationManager.addOrientationClass(Orientation.Horizontal, 'slider__pointer_horizontal');
     this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__pointer_vertical');
   }
-
-  // private onMouseDown() {
-  //   this.isMouseDown = true;
-  // }
-
-  // private onMouseUp() {
-  //   this.isMouseDown = false;
-  // }
-
-  // private onMouseMove(e: MouseEvent) {
-  //   if (this.isMouseDown) {
-  //     if (this.orientationManager.getCurrentOrientation() === Orientation.Horizontal) {
-  //       this.onDragFn.call(this, this.key, e.clientX);
-  //     } else {
-  //       this.onDragFn.call(this, this.key, e.clientY);
-  //     }
-  //   }
-  // }
 }
 
 export default Pointer;

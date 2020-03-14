@@ -1,4 +1,4 @@
-import Slider from './Slider';
+import Slider from './plugin/Slider';
 
 $(function () {
   $.fn.slider = function (props) {

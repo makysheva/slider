@@ -1,7 +1,7 @@
 import './favicons/favicons';
 import './scss/example.scss';
 import './scss/panel.scss';
-import Orientation from '../src/types/Orientation';
+import Orientation from '../plugin/types/Orientation';
 import Panel from './panel/Panel';
 
 const container = document.querySelector('.example');
