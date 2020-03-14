@@ -1,5 +1,5 @@
-import Slider from '../../src/model/Slider';
-import Orientation from '../../src/types/Orientation';
+import Slider from '../../src/plugin/model/Slider';
+import Orientation from '../../src/plugin/types/Orientation';
 
 describe('Slider class', () => {
   let slider: Slider;
@@ -195,6 +195,11 @@ describe('Slider class', () => {
       slider.setValue(49, 1);
       slider.setMin(50);
       expect(slider.getValue()).toBe(50);
+    });
+
+    test('getMin method should return current min value', () => {
+      slider.setMin(35);
+      expect(slider.getMin()).toBe(35);
     });
   });
 });

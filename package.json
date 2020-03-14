@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r setup.js -r ts-node/register --recursive --extension ts --reporter dot ",
-    "coverage": "nyc npm run test",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "serv": "webpack-dev-server",
     "build": "webpack --mode development",
     "deploy": "gh-pages -d dist"
