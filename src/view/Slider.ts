@@ -55,6 +55,7 @@ class Slider {
     this.sliderElement.addEventListener('click', this.onClick.bind(this));
 
     this.tipManager = new TipManager(this.sliderElement);
+    this.tipManager.setDragListener(this.onDrag.bind(this));
 
     this.minMax = new MinMax(this.sliderElement, this.controller);
   }
@@ -67,7 +68,13 @@ class Slider {
     this.updateTip();
     const minPos = this.track.getAbsolutePosition(0);
     const maxPos = this.track.getAbsolutePosition(1);
-    this.minMax.update(this.data.min.toString(), this.data.max.toString(), this.data.orientation, minPos, maxPos);
+    this.minMax.update(
+      this.data.min.toString(),
+      this.data.max.toString(),
+      this.data.orientation,
+      minPos,
+      maxPos,
+    );
   }
 
   private onClick(event: MouseEvent) {
@@ -78,8 +85,8 @@ class Slider {
     }
   }
 
-  private onDrag(key: string, pos: number) {
-    const position: number = this.track.getRelativePosition(pos, pos);
+  private onDrag(key: string, x: number, y: number) {
+    const position: number = this.track.getRelativePosition(x, y);
     const id: number = (key === 'low') ? 0 : 1;
     this.controller.setPointPosition(position, id);
   }

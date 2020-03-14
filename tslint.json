@@ -7,9 +7,14 @@
   "rules": {
     "semicolon": false,
     "trailing-comma": false,
+    "ordered-imports": false,
     "quotemark": [
       true,
       "single"
+    ],
+    "no-unused-expression": [
+      true,
+      "allow-new"
     ]
   },
   "rulesDirectory": []

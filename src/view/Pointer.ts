@@ -1,5 +1,6 @@
 import Orientation from '../types/Orientation';
 import OrientationManager from './OrientationManager';
+import Drag from '../drag/Drag';
 
 class Pointer {
   private parent: HTMLElement;
@@ -14,6 +15,7 @@ class Pointer {
 
   private key: string;
 
+  private drag: Drag;
 
   constructor(parent: HTMLElement, key: string) {
     this.parent = parent;
@@ -23,9 +25,12 @@ class Pointer {
     this.pointerElement.classList.add('slider__pointer');
     this.parent.appendChild(this.pointerElement);
 
-    this.pointerElement.addEventListener('mousedown', this.onMouseDown.bind(this));
-    document.addEventListener('mouseup', this.onMouseUp.bind(this));
-    document.addEventListener('mousemove', this.onMouseMove.bind(this));
+    this.drag = new Drag(this.pointerElement, key);
+
+    // this.pointerElement.addEventListener('mousedown', this.onMouseDown.bind(this));
+    // document.addEventListener('mouseup', this.onMouseUp.bind(this));
+    // document.addEventListener('mousemove', this.onMouseMove.bind(this));
+    // document.addEventListener('dragend', this.onMouseUp.bind(this));
 
     this.initOrientationManager();
   }
@@ -40,8 +45,8 @@ class Pointer {
     }
   }
 
-  public setDragListener(fn: (key: string, position: number) => void) {
-    this.onDragFn = fn;
+  public setDragListener(fn: (key: string, x: number, y: number) => void) {
+    this.drag.setDragListener(fn);
   }
 
   public destroy() {
@@ -58,23 +63,23 @@ class Pointer {
     this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__pointer_vertical');
   }
 
-  private onMouseDown() {
-    this.isMouseDown = true;
-  }
+  // private onMouseDown() {
+  //   this.isMouseDown = true;
+  // }
 
-  private onMouseUp() {
-    this.isMouseDown = false;
-  }
+  // private onMouseUp() {
+  //   this.isMouseDown = false;
+  // }
 
-  private onMouseMove(e: MouseEvent) {
-    if (this.isMouseDown) {
-      if (this.orientationManager.getCurrentOrientation() === Orientation.Horizontal) {
-        this.onDragFn.call(this, this.key, e.clientX);
-      } else {
-        this.onDragFn.call(this, this.key, e.clientY);
-      }
-    }
-  }
+  // private onMouseMove(e: MouseEvent) {
+  //   if (this.isMouseDown) {
+  //     if (this.orientationManager.getCurrentOrientation() === Orientation.Horizontal) {
+  //       this.onDragFn.call(this, this.key, e.clientX);
+  //     } else {
+  //       this.onDragFn.call(this, this.key, e.clientY);
+  //     }
+  //   }
+  // }
 }
 
 export default Pointer;

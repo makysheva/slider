@@ -1,5 +1,6 @@
 import Orientation from '../../types/Orientation';
 import OrientationManager from '../OrientationManager';
+import Drag from '../../drag/Drag';
 
 class Tip {
   private parent: HTMLElement;
@@ -8,11 +9,18 @@ class Tip {
 
   private orientationManager: OrientationManager;
 
-  constructor(parent: HTMLElement) {
+  private drag: Drag;
+
+  private key: string;
+
+  constructor(parent: HTMLElement, key: string) {
     this.parent = parent;
+    this.key = key;
 
     this.tipElement = document.createElement('div');
     this.tipElement.classList.add('slider__tip');
+
+    this.drag = new Drag(this.tipElement, this.key);
 
     this.orientationManager = new OrientationManager(this.tipElement);
     this.orientationManager.addOrientationClass(Orientation.Horizontal, 'slider__tip_horizontal');
@@ -35,6 +43,10 @@ class Tip {
     if (this.parent.contains(this.tipElement)) {
       this.parent.removeChild(this.tipElement);
     }
+  }
+
+  public setDragListener(fn: (key: string, x: number, y: number) => void) {
+    this.drag.setDragListener(fn);
   }
 
   public checkCollision(tip: Tip): boolean {

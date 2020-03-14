@@ -1,4 +1,4 @@
-import { IProps } from './../../src/types/IProps';
+import { IProps } from '../../src/types/IProps';
 import Slider from '../../src/Slider';
 import Orientation from '../../src/types/Orientation';
 
