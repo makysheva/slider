@@ -1,5 +1,5 @@
 import '../scss/slider.scss';
-import Controller from '../controllers/Controller';
+import Controller from '../Controller/Controller';
 import Fill from './Fill';
 import MinMax from './minmax/MinMax';
 import Orientation from '../types/Orientation';
