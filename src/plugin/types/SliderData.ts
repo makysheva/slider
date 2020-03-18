@@ -1,4 +1,4 @@
-import Slider from '../models/Slider';
+import Model from '../Model/Model';
 import Orientation from './Orientation';
 
 class SliderData {
@@ -16,11 +16,11 @@ class SliderData {
 
   public max: number;
 
-  constructor(model: Slider) {
+  constructor(model: Model) {
     this.init(model);
   }
 
-  private init(model: Slider) {
+  private init(model: Model) {
     this.orientation = model.getOrientation();
     this.lowPointer = {
       position: model.getPointPosition(),

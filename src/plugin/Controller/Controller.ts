@@ -1,4 +1,4 @@
-import Model from '../models/Slider';
+import Model from '../Model/Model';
 import SliderData from '../types/SliderData';
 import View from '../view/Slider';
 

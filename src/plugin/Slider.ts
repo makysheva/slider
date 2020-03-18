@@ -1,5 +1,5 @@
 import Controller from './Controller/Controller';
-import Model from './models/Slider';
+import Model from './Model/Model';
 import { IProps } from './types/IProps';
 import Orientation from './types/Orientation';
 
