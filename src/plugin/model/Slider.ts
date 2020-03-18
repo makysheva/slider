@@ -16,7 +16,7 @@ class Slider {
 
   private isVisibleTooltips: boolean = true;
 
-  private observer: Observer = new Observer();
+  private observer = new Observer();
 
   public setMin(min: number) {
     if (min < this.max) {

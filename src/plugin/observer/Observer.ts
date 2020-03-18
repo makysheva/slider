@@ -20,14 +20,14 @@ class Observer {
 
   // tslint:disable-next-line:ban-types
   public remove(type: string, fn: Function) {
-    const event: Event = this.getEvent(type) || new Event('');
+    const event = this.getEvent(type) || new Event('');
     if (event.getType() !== '') {
       event.remove(fn);
     }
   }
 
   public emit(type: string, data: object) {
-    const event: Event = this.getEvent(type) || new Event('');
+    const event = this.getEvent(type) || new Event('');
     event.emit(data);
   }
 

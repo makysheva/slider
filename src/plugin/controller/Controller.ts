@@ -32,7 +32,7 @@ class Controller {
   }
 
   private updateView() {
-    const data: SliderData = new SliderData(this.model);
+    const data = new SliderData(this.model);
     this.view.update(data);
   }
 

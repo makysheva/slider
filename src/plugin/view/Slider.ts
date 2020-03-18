@@ -93,7 +93,7 @@ class Slider {
       return;
     }
 
-    const pointer: Pointer = new Pointer(this.track.getElement(), key);
+    const pointer = new Pointer(this.track.getElement(), key);
     this.pointers.set(key, pointer);
     pointer.update(0, this.orientation);
     pointer.setDragListener(this.onDrag.bind(this));
@@ -147,7 +147,7 @@ class Slider {
       hightPosition = this.track.getAbsolutePosition(this.data.hightPointer.position);
     }
 
-    const tipData: TipData = new TipData(
+    const tipData = new TipData(
       { value: this.data.lowPointer.value, position: lowPosition },
       { value: this.data.hightPointer.value, position: hightPosition },
       this.data.orientation,
