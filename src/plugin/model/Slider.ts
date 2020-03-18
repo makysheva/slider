@@ -46,10 +46,11 @@ class Slider {
 
   public setRange(isRange: boolean) {
     if (!this.isRange && isRange) {
-      this.values[1] = this.max;
+      this.isRange = isRange;
       if (this.values[0] === this.max) {
         this.values[0] = this.max - this.step;
       }
+      this.setNewValue(this.values[1], 1);
     }
     this.isRange = isRange;
     this.emitChangeEvent();

@@ -149,11 +149,11 @@ describe('Slider class', () => {
       expect(slider.getRange()).toBe(true);
     });
 
-    test('set range should set hight pointer to max', () => {
+    test('set range should set hight pointer greater then low', () => {
       slider.setMax(200);
-      slider.setValue(199);
+      slider.setValue(100);
       slider.setRange(true);
-      expect(slider.getValue(1)).toBe(200);
+      expect(slider.getValue(1)).toBe(101);
     });
 
     test('set range should set low pointer to (max - step), if low pointer == max', () => {
