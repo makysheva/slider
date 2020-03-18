@@ -1,15 +1,15 @@
 import '../scss/slider.scss';
 import Controller from '../Controller/Controller';
 import Fill from './Fill';
-import MinMax from './minmax/MinMax';
-import Orientation from '../types/Orientation';
+import MinMax from './minmaxs/MinMax';
+import Orientation from '../typess/Orientation';
 import Pointer from './Pointer';
-import SliderData from '../types/SliderData';
-import TipData from './tips/TipData';
-import TipManager from './tips/TipManager';
+import SliderData from '../typess/SliderData';
+import TipData from './tipss/TipData';
+import TipManager from './tipss/TipManager';
 import Track from './Track';
 
-class Slider {
+class MainView {
   private static isTrack(element: HTMLElement) {
     return element.classList.contains('slider__fill') || element.classList.contains('slider__track');
   }
@@ -76,7 +76,7 @@ class Slider {
 
   private onClick(event: MouseEvent) {
     const target: HTMLElement = (event.target as HTMLElement);
-    if (Slider.isTrack(target)) {
+    if (MainView.isTrack(target)) {
       const position: number = this.track.getRelativePosition(event.clientX, event.clientY);
       this.controller.setPosition(position);
     }
@@ -170,4 +170,4 @@ class Slider {
   }
 }
 
-export default Slider;
+export default MainView;

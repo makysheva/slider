@@ -1,6 +1,6 @@
 import Controller from '../../Controller/Controller';
 import Field from './Field';
-import Orientation from '../../types/Orientation';
+import Orientation from '../../typess/Orientation';
 
 class MinMax {
   private parent: HTMLElement;

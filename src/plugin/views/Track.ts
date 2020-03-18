@@ -1,4 +1,4 @@
-import Orientation from '../types/Orientation';
+import Orientation from '../typess/Orientation';
 import OrientationManager from './OrientationManager';
 
 class Track {

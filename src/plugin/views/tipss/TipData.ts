@@ -1,4 +1,4 @@
-import Orientation from '../../types/Orientation';
+import Orientation from '../../typess/Orientation';
 
 class TipData {
   public isRange: boolean;
