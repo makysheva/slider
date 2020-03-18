@@ -1,6 +1,6 @@
 ## **Слайдер**
 
-Demos: [смотреть](https://vovnet.github.io/slider/example/)
+Demos: [смотреть](https://vovnet.github.io/slider/)
 
 JQuery плагин слайдер.
 
@@ -78,3 +78,4 @@ slider.addEventListener('changeValue', () => {
 
 ### Тесты
 Тесты запускаются командой `npm test`
+Покрытие `npm run coverage`

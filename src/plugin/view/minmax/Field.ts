@@ -39,7 +39,6 @@ class Field {
       pos = position - rect.height / 2;
       this.fieldElement.style.top = `${pos}px`;
     }
-    
   }
 
   public addClickListener(clickHandler: (key: string) => void) {
