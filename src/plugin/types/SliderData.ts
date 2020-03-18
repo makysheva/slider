@@ -1,4 +1,4 @@
-import Slider from '../model/Slider';
+import Slider from '../models/Slider';
 import Orientation from './Orientation';
 
 class SliderData {
