@@ -1,6 +1,6 @@
 import Model from '../Model/Model';
-import SliderData from '../typess/SliderData';
-import View from '../views/MainView';
+import SliderData from '../Types/SliderData';
+import View from '../View/MainView';
 
 class Controller {
   private model: Model;

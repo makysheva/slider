@@ -1,4 +1,4 @@
-import Orientation from '../../typess/Orientation';
+import Orientation from '../../Types/Orientation';
 import OrientationManager from '../OrientationManager';
 
 class Field {

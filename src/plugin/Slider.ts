@@ -1,7 +1,7 @@
 import Controller from './Controller/Controller';
 import Model from './Model/Model';
-import { IProps } from './typess/IProps';
-import Orientation from './typess/Orientation';
+import { IProps } from './Types/IProps';
+import Orientation from './Types/Orientation';
 
 class Slider {
   private model: Model;

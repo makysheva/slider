@@ -1,12 +1,12 @@
 import '../scss/slider.scss';
 import Controller from '../Controller/Controller';
 import Fill from './Fill';
-import MinMax from './minmaxs/MinMax';
-import Orientation from '../typess/Orientation';
+import MinMax from './Labels/MinMax';
+import Orientation from '../Types/Orientation';
 import Pointer from './Pointer';
-import SliderData from '../typess/SliderData';
-import TipData from './tipss/TipData';
-import TipManager from './tipss/TipManager';
+import SliderData from '../Types/SliderData';
+import TipData from './Tip/TipData';
+import TipManager from './Tip/TipManager';
 import Track from './Track';
 
 class MainView {

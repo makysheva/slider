@@ -1,5 +1,5 @@
-import Observer from '../observers/Observer';
-import Orientation from '../typess/Orientation';
+import Observer from '../Observer/Observer';
+import Orientation from '../Types/Orientation';
 
 class Model {
   private min: number = 0;
