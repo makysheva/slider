@@ -19,7 +19,7 @@ class Panel {
 
   private low: HTMLInputElement;
 
-  private hight: HTMLInputElement;
+  private high: HTMLInputElement;
 
   private range: HTMLInputElement;
 
@@ -36,13 +36,13 @@ class Panel {
     this.min.value = this.slider.getMin().toString();
     this.max.value = this.slider.getMax().toString();
     this.low.value = this.slider.getValue().toString();
-    this.hight.value = this.slider.getValue(1).toString();
+    this.high.value = this.slider.getValue(1).toString();
     this.range.checked = this.slider.getRange();
     this.tips.checked = this.slider.getTipVisibility();
     this.vertical.checked = this.slider.getOrientation() === Orientation.Vertical;
     this.step.value = this.slider.getStep().toString();
     this.low.setAttribute('step', this.step.value);
-    this.hight.setAttribute('step', this.step.value);
+    this.high.setAttribute('step', this.step.value);
   }
 
   private init(props?: IProps) {
@@ -66,8 +66,8 @@ class Panel {
     this.step.addEventListener('change', this.onChangeStep.bind(this));
     this.low = this.createInput('Low');
     this.low.addEventListener('change', this.onChangeLow.bind(this));
-    this.hight = this.createInput('Hight');
-    this.hight.addEventListener('change', this.onChangeHight.bind(this));
+    this.high = this.createInput('High');
+    this.high.addEventListener('change', this.onChangeHigh.bind(this));
     this.range = this.createInput('Range', 'checkbox');
     this.range.addEventListener('change', this.onChangeRange.bind(this));
     this.vertical = this.createInput('Vertical', 'checkbox');
@@ -105,8 +105,8 @@ class Panel {
     this.slider.setValue(+this.low.value, 0);
   }
 
-  private onChangeHight() {
-    this.slider.setValue(+this.hight.value, 1);
+  private onChangeHigh() {
+    this.slider.setValue(+this.high.value, 1);
   }
 
   private onChangeRange() {

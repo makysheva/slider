@@ -7,13 +7,13 @@ class TipData {
 
   public low: { value: number, position: number };
 
-  public hight: { value: number, position: number };
+  public high: { value: number, position: number };
 
   public isVisible: boolean;
 
   constructor(
     low: { value: number, position: number },
-    hight: { value: number, position: number },
+    high: { value: number, position: number },
     orientation: Orientation,
     isRange: boolean,
     isVisible: boolean,
@@ -21,7 +21,7 @@ class TipData {
     this.isRange = isRange;
     this.orientation = orientation;
     this.low = { value: low.value, position: low.position };
-    this.hight = { value: hight.value, position: hight.position };
+    this.high = { value: high.value, position: high.position };
     this.isVisible = isVisible;
   }
 }

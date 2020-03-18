@@ -145,8 +145,8 @@ class Slider {
 
   private recalculateValue() {
     if (this.isRange) {
-      const hight = this.values[1] <= this.min ? this.min + this.step : this.values[1];
-      this.setValue(hight, 1);
+      const high = this.values[1] <= this.min ? this.min + this.step : this.values[1];
+      this.setValue(high, 1);
     }
     this.setValue(this.values[0], 0);
   }
@@ -191,8 +191,8 @@ class Slider {
 
   private closestPointer(value: number): number {
     const distanceToLow = value - this.values[0];
-    const distanceToHight = this.values[1] - value;
-    if (distanceToLow <= distanceToHight) {
+    const distanceToHigh = this.values[1] - value;
+    if (distanceToLow <= distanceToHigh) {
       return 0;
     }
 

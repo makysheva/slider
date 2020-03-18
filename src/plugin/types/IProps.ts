@@ -4,7 +4,7 @@ export interface IProps {
   min?: number;
   max?: number;
   low?: number;
-  hight?: number;
+  high?: number;
   step?: number;
   orientation?: Orientation;
   isRange?: boolean;

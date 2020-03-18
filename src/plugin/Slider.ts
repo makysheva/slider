@@ -97,8 +97,8 @@ class Slider {
     if (props.low) {
       this.model.setValue(props.low);
     }
-    if (props.hight) {
-      this.model.setValue(props.hight, 1);
+    if (props.high) {
+      this.model.setValue(props.high, 1);
     }
   }
 

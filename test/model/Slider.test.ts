@@ -15,7 +15,7 @@ describe('Slider class', () => {
       expect(slider.getValue(0)).toBe(0);
     });
 
-    test('should return default hight value in range slider', () => {
+    test('should return default high value in range slider', () => {
       expect(slider.getValue(1)).toBe(100);
     });
   });
@@ -43,21 +43,21 @@ describe('Slider class', () => {
       expect(slider.getValue()).toBe(24);
     });
 
-    test('should set low value less then hight value in range slider', () => {
+    test('should set low value less then high value in range slider', () => {
       slider.setRange(true);
       slider.setMax(200);
       slider.setValue(101);
       expect(slider.getValue()).toBe(99);
     });
 
-    test('should set hight value less them max or equal', () => {
+    test('should set high value less them max or equal', () => {
       slider.setRange(true);
       slider.setMax(120);
       slider.setValue(121, 1);
       expect(slider.getValue(1)).toBe(120);
     });
 
-    test('if hight value less then low, should set hight value greater', () => {
+    test('if high value less then low, should set high value greater', () => {
       slider.setRange(true);
       slider.setValue(40);
       slider.setValue(39, 1);
@@ -87,7 +87,7 @@ describe('Slider class', () => {
       expect(slider.getValue()).toBe(50);
     });
 
-    test('should set correct hight value by position in range slider', () => {
+    test('should set correct high value by position in range slider', () => {
       slider.setRange(true);
       slider.setPointPosition(0.5);
       slider.setPointPosition(0.4, 1);
@@ -110,7 +110,7 @@ describe('Slider class', () => {
       expect(slider.getValue()).toBe(20);
     });
 
-    test('if value greater then hight, then hight should be set in range slider', () => {
+    test('if value greater then high, then high should be set in range slider', () => {
       slider.setRange(true);
       slider.setPointPosition(0.5, 1);
       slider.setPosition(0.8);
@@ -123,7 +123,7 @@ describe('Slider class', () => {
       expect(slider.getValue()).toBe(40);
     });
 
-    test('should set correct hight value in range slider', () => {
+    test('should set correct high value in range slider', () => {
       slider.setRange(true);
       slider.setPosition(0.51);
       expect(slider.getValue(1)).toBe(51);
@@ -135,7 +135,7 @@ describe('Slider class', () => {
       expect(slider.getValue()).toBe(100);
     });
 
-    test('if position == 1 in range slider, should set hight value to max', () => {
+    test('if position == 1 in range slider, should set high value to max', () => {
       slider.setRange(true);
       slider.setStep(33);
       slider.setPosition(1);
@@ -149,7 +149,7 @@ describe('Slider class', () => {
       expect(slider.getRange()).toBe(true);
     });
 
-    test('set range should set hight pointer greater then low', () => {
+    test('set range should set high pointer greater then low', () => {
       slider.setMax(200);
       slider.setValue(100);
       slider.setRange(true);

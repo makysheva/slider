@@ -6,7 +6,7 @@ class SliderData {
 
   public lowPointer: { value: number, position: number };
 
-  public hightPointer: { value: number, position: number };
+  public highPointer: { value: number, position: number };
 
   public isRange: boolean;
 
@@ -26,7 +26,7 @@ class SliderData {
       position: model.getPointPosition(),
       value: model.getValue(),
     };
-    this.hightPointer = {
+    this.highPointer = {
       position: model.getPointPosition(1),
       value: model.getValue(1),
     };

@@ -15,9 +15,9 @@ class Fill {
     this.initOrientationManager();
   }
 
-  public update(low: number, hight: number, orientation: Orientation) {
+  public update(low: number, high: number, orientation: Orientation) {
     this.updateOrientation(orientation);
-    this.setPosition(low, hight);
+    this.setPosition(low, high);
   }
 
   private initOrientationManager() {
@@ -26,13 +26,13 @@ class Fill {
     this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__fill_vertical');
   }
 
-  private setPosition(low: number, hight: number) {
+  private setPosition(low: number, high: number) {
     if (this.orientationManager.getCurrentOrientation() === Orientation.Horizontal) {
       this.fillElement.style.left = `${low}%`;
-      this.fillElement.style.right = `${hight}%`;
+      this.fillElement.style.right = `${high}%`;
     } else {
       this.fillElement.style.bottom = `${low}%`;
-      this.fillElement.style.top = `${hight}%`;
+      this.fillElement.style.top = `${high}%`;
     }
   }
 

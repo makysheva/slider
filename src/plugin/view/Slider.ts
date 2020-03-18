@@ -107,49 +107,49 @@ class Slider {
     }
 
     if (this.data.isRange) {
-      this.createPointer('hight');
-      pointer = this.pointers.get('hight');
+      this.createPointer('high');
+      pointer = this.pointers.get('high');
       if (pointer) {
-        const pointerPosition = this.track.getAbsolutePosition(this.data.hightPointer.position);
+        const pointerPosition = this.track.getAbsolutePosition(this.data.highPointer.position);
         pointer.update(pointerPosition, this.data.orientation);
       }
     } else {
-      this.destroyPointer('hight');
+      this.destroyPointer('high');
     }
   }
 
   private updateFill() {
     let lowPos: number;
-    let hightPos: number;
+    let highPos: number;
 
     if (this.data.isRange) {
       lowPos = this.data.lowPointer.position * 100;
-      hightPos = (1 - this.data.hightPointer.position) * 100;
+      highPos = (1 - this.data.highPointer.position) * 100;
     } else {
       lowPos = 0;
-      hightPos = (1 - this.data.lowPointer.position) * 100;
+      highPos = (1 - this.data.lowPointer.position) * 100;
     }
 
-    this.fill.update(lowPos, hightPos, this.data.orientation);
+    this.fill.update(lowPos, highPos, this.data.orientation);
   }
 
   private updateTip() {
     let lowPosition: number = 0;
-    let hightPosition: number = 0;
+    let highPosition: number = 0;
 
     let pointer: Pointer | undefined = this.pointers.get('low');
     if (pointer) {
       lowPosition = this.track.getAbsolutePosition(this.data.lowPointer.position);
     }
 
-    pointer = this.pointers.get('hight');
+    pointer = this.pointers.get('high');
     if (pointer) {
-      hightPosition = this.track.getAbsolutePosition(this.data.hightPointer.position);
+      highPosition = this.track.getAbsolutePosition(this.data.highPointer.position);
     }
 
     const tipData = new TipData(
       { value: this.data.lowPointer.value, position: lowPosition },
-      { value: this.data.hightPointer.value, position: hightPosition },
+      { value: this.data.highPointer.value, position: highPosition },
       this.data.orientation,
       this.data.isRange,
       this.data.isVisibleTooltip,

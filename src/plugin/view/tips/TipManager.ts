@@ -18,7 +18,7 @@ class TipManager {
     this.data = data;
 
     if (!this.data.isVisible) {
-      this.hideTip('hight');
+      this.hideTip('high');
       this.hideTip('united');
       this.hideTip('low');
       return;
@@ -28,7 +28,7 @@ class TipManager {
       this.updateRangeTips();
     } else {
       this.updateLow();
-      this.hideTip('hight');
+      this.hideTip('high');
       this.hideTip('united');
     }
   }
@@ -41,30 +41,30 @@ class TipManager {
 
   private init() {
     this.tips.set('low', new Tip(this.parent, 'low'));
-    this.tips.set('hight', new Tip(this.parent, 'hight'));
+    this.tips.set('high', new Tip(this.parent, 'high'));
     this.tips.set('united', new Tip(this.parent, 'united'));
   }
 
   private updateRangeTips() {
     this.preRender();
-    const hightTip: Tip | undefined = this.tips.get('hight');
+    const highTip: Tip | undefined = this.tips.get('high');
     const lowTip: Tip | undefined = this.tips.get('low');
-    if (hightTip && lowTip) {
-      if (lowTip.checkCollision(hightTip)) {
+    if (highTip && lowTip) {
+      if (lowTip.checkCollision(highTip)) {
         lowTip.destroy();
-        hightTip.destroy();
+        highTip.destroy();
         this.showUnitedTip();
       } else {
         this.hideTip('united');
         this.updateLow();
-        this.updateHight();
+        this.updateHigh();
       }
     }
   }
 
   private preRender() {
     this.updateLow();
-    this.updateHight();
+    this.updateHigh();
   }
 
   private showUnitedTip() {
@@ -73,9 +73,9 @@ class TipManager {
     if (unitedTip) {
       unitedTip.create();
       const low: number = this.data.low.position;
-      const hight: number = this.data.hight.position;
-      const position: number = ((hight - low) / 2) + low;
-      const tipText: string = `${this.data.low.value} - ${this.data.hight.value}`;
+      const high: number = this.data.high.position;
+      const position: number = ((high - low) / 2) + low;
+      const tipText: string = `${this.data.low.value} - ${this.data.high.value}`;
       unitedTip.update(tipText, position, this.data.orientation);
     }
   }
@@ -95,20 +95,20 @@ class TipManager {
     }
   }
 
-  private updateHight() {
+  private updateHigh() {
     let tip: Tip | undefined;
     if (this.data.isRange) {
-      tip = this.tips.get('hight');
+      tip = this.tips.get('high');
       if (tip) {
         tip.create();
         tip.update(
-          this.data.hight.value.toString(),
-          this.data.hight.position,
+          this.data.high.value.toString(),
+          this.data.high.position,
           this.data.orientation,
         );
       }
     } else {
-      tip = this.tips.get('hight');
+      tip = this.tips.get('high');
       if (tip) {
         tip.destroy();
       }
