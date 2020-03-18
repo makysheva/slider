@@ -1,4 +1,4 @@
-import Controller from '../../controller/Controller';
+import Controller from '../../controllers/Controller';
 import Field from './Field';
 import Orientation from '../../types/Orientation';
 

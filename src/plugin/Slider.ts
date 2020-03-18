@@ -1,4 +1,4 @@
-import Controller from './controller/Controller';
+import Controller from './controllers/Controller';
 import Model from './model/Slider';
 import { IProps } from './types/IProps';
 import Orientation from './types/Orientation';
