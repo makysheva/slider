@@ -11,14 +11,18 @@ class Drag {
     this.element = element;
     this.key = key;
 
-    this.element.addEventListener('mousedown', this.onMouseDown.bind(this));
-    document.addEventListener('mouseup', this.onMouseUp.bind(this));
-    document.addEventListener('mousemove', this.onMouseMove.bind(this));
-    document.addEventListener('dragend', this.onMouseUp.bind(this));
+    this.init();
   }
 
   public setDragListener(onDragFn: (key: string, x: number, y: number) => void) {
     this.onDragFn = onDragFn;
+  }
+
+  private init() {
+    this.element.addEventListener('mousedown', this.onMouseDown.bind(this));
+    document.addEventListener('mouseup', this.onMouseUp.bind(this));
+    document.addEventListener('mousemove', this.onMouseMove.bind(this));
+    document.addEventListener('dragend', this.onMouseUp.bind(this));
   }
 
   private onMouseDown() {

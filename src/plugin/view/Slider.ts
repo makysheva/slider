@@ -39,24 +39,7 @@ class Slider {
     this.controller = controller;
     this.container = container;
 
-    this.sliderElement = document.createElement('div');
-    this.sliderElement.classList.add('slider');
-    this.container.appendChild(this.sliderElement);
-
-    this.track = new Track(this.sliderElement);
-    this.track.update(this.orientation);
-
-    this.fill = new Fill(this.track.getElement());
-    this.fill.update(0, 0, this.orientation);
-
-    this.createPointer('low');
-
-    this.sliderElement.addEventListener('click', this.onClick.bind(this));
-
-    this.tipManager = new TipManager(this.sliderElement);
-    this.tipManager.setDragListener(this.onDrag.bind(this));
-
-    this.minMax = new MinMax(this.sliderElement, this.controller);
+    this.init();
   }
 
   public update(data: SliderData) {
@@ -74,6 +57,21 @@ class Slider {
       minPos,
       maxPos,
     );
+  }
+
+  private init() {
+    this.sliderElement = document.createElement('div');
+    this.sliderElement.classList.add('slider');
+    this.container.appendChild(this.sliderElement);
+    this.track = new Track(this.sliderElement);
+    this.track.update(this.orientation);
+    this.fill = new Fill(this.track.getElement());
+    this.fill.update(0, 0, this.orientation);
+    this.createPointer('low');
+    this.sliderElement.addEventListener('click', this.onClick.bind(this));
+    this.tipManager = new TipManager(this.sliderElement);
+    this.tipManager.setDragListener(this.onDrag.bind(this));
+    this.minMax = new MinMax(this.sliderElement, this.controller);
   }
 
   private onClick(event: MouseEvent) {

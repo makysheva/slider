@@ -16,15 +16,7 @@ class Field {
     this.parent = parent;
     this.key = key;
 
-    this.fieldElement = document.createElement('div');
-    this.fieldElement.classList.add('slider__range');
-    this.parent.appendChild(this.fieldElement);
-
-    this.orientationManager = new OrientationManager(this.fieldElement);
-    this.orientationManager.addOrientationClass(Orientation.Horizontal, 'slider__range_horizontal');
-    this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__range_vertical');
-
-    this.fieldElement.addEventListener('click', this.onClick.bind(this));
+    this.init();
   }
 
   public update(value: string, position: number, orientation: Orientation) {
@@ -43,6 +35,16 @@ class Field {
 
   public addClickListener(clickHandler: (key: string) => void) {
     this.clickHandler = clickHandler;
+  }
+
+  private init() {
+    this.fieldElement = document.createElement('div');
+    this.fieldElement.classList.add('slider__range');
+    this.parent.appendChild(this.fieldElement);
+    this.orientationManager = new OrientationManager(this.fieldElement);
+    this.orientationManager.addOrientationClass(Orientation.Horizontal, 'slider__range_horizontal');
+    this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__range_vertical');
+    this.fieldElement.addEventListener('click', this.onClick.bind(this));
   }
 
   private onClick() {

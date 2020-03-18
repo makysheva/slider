@@ -17,14 +17,7 @@ class Tip {
     this.parent = parent;
     this.key = key;
 
-    this.tipElement = document.createElement('div');
-    this.tipElement.classList.add('slider__tip');
-
-    this.drag = new Drag(this.tipElement, this.key);
-
-    this.orientationManager = new OrientationManager(this.tipElement);
-    this.orientationManager.addOrientationClass(Orientation.Horizontal, 'slider__tip_horizontal');
-    this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__tip_vertical');
+    this.init();
   }
 
   public update(value: string, position: number, orientation: Orientation) {
@@ -60,6 +53,15 @@ class Tip {
       return true;
     }
     return false;
+  }
+
+  private init() {
+    this.tipElement = document.createElement('div');
+    this.tipElement.classList.add('slider__tip');
+    this.drag = new Drag(this.tipElement, this.key);
+    this.orientationManager = new OrientationManager(this.tipElement);
+    this.orientationManager.addOrientationClass(Orientation.Horizontal, 'slider__tip_horizontal');
+    this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__tip_vertical');
   }
 
   private getClientRect(): DOMRect {

@@ -28,9 +28,27 @@ class Panel {
   constructor(parent: HTMLElement, props?: IProps) {
     this.parent = parent;
 
+    this.init(props);
+    this.update();
+  }
+
+  public update() {
+    this.min.value = this.slider.getMin().toString();
+    this.max.value = this.slider.getMax().toString();
+    this.low.value = this.slider.getValue().toString();
+    this.hight.value = this.slider.getValue(1).toString();
+    this.range.checked = this.slider.getRange();
+    this.tips.checked = this.slider.getTipVisibility();
+    this.vertical.checked = this.slider.getOrientation() === Orientation.Vertical;
+    this.step.value = this.slider.getStep().toString();
+    this.low.setAttribute('step', this.step.value);
+    this.hight.setAttribute('step', this.step.value);
+  }
+
+  private init(props?: IProps) {
     const mainElement: HTMLElement = document.createElement('div');
     mainElement.classList.add('panel');
-    parent.appendChild(mainElement);
+    this.parent.appendChild(mainElement);
 
     this.panelElement = document.createElement('div');
     this.panelElement.classList.add('panel__inputs');
@@ -59,21 +77,6 @@ class Panel {
 
     this.slider = new Slider(sliderContainer, props);
     this.slider.addChangeListener(this.update.bind(this));
-
-    this.update();
-  }
-
-  public update() {
-    this.min.value = this.slider.getMin().toString();
-    this.max.value = this.slider.getMax().toString();
-    this.low.value = this.slider.getValue().toString();
-    this.hight.value = this.slider.getValue(1).toString();
-    this.range.checked = this.slider.getRange();
-    this.tips.checked = this.slider.getTipVisibility();
-    this.vertical.checked = this.slider.getOrientation() === Orientation.Vertical;
-    this.step.value = this.slider.getStep().toString();
-    this.low.setAttribute('step', this.step.value);
-    this.hight.setAttribute('step', this.step.value);
   }
 
   private createInput(label: string, type: string = 'number'): HTMLInputElement {

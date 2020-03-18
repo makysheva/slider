@@ -14,13 +14,7 @@ class Pointer {
   constructor(parent: HTMLElement, key: string) {
     this.parent = parent;
 
-    this.pointerElement = document.createElement('div');
-    this.pointerElement.classList.add('slider__pointer');
-    this.parent.appendChild(this.pointerElement);
-
-    this.drag = new Drag(this.pointerElement, key);
-
-    this.initOrientationManager();
+    this.init(key);
   }
 
   public update(position: number, orientation: Orientation) {
@@ -39,6 +33,14 @@ class Pointer {
 
   public destroy() {
     this.parent.removeChild(this.pointerElement);
+  }
+
+  private init(key: string) {
+    this.pointerElement = document.createElement('div');
+    this.pointerElement.classList.add('slider__pointer');
+    this.parent.appendChild(this.pointerElement);
+    this.drag = new Drag(this.pointerElement, key);
+    this.initOrientationManager();
   }
 
   private getHalf(): number {

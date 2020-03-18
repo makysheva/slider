@@ -11,9 +11,7 @@ class TipManager {
   constructor(parent: HTMLElement) {
     this.parent = parent;
 
-    this.tips.set('low', new Tip(this.parent, 'low'));
-    this.tips.set('hight', new Tip(this.parent, 'hight'));
-    this.tips.set('united', new Tip(this.parent, 'united'));
+    this.init();
   }
 
   public update(data: TipData) {
@@ -39,6 +37,12 @@ class TipManager {
     this.tips.forEach((tip: Tip) => {
       tip.setDragListener(fn);
     });
+  }
+
+  private init() {
+    this.tips.set('low', new Tip(this.parent, 'low'));
+    this.tips.set('hight', new Tip(this.parent, 'hight'));
+    this.tips.set('united', new Tip(this.parent, 'united'));
   }
 
   private updateRangeTips() {

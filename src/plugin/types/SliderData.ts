@@ -17,6 +17,10 @@ class SliderData {
   public max: number;
 
   constructor(model: Slider) {
+    this.init(model);
+  }
+
+  private init(model: Slider) {
     this.orientation = model.getOrientation();
     this.lowPointer = {
       position: model.getPointPosition(),

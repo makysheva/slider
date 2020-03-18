@@ -9,19 +9,7 @@ class Slider {
   private changeCallback: () => void;
 
   constructor(container: HTMLElement, props: IProps = {}) {
-    this.model = new Model();
-    new Controller(container, this.model);
-
-    this.model.addListener('change', this.onChangeModel.bind(this));
-
-    if (props.min) { this.model.setMin(props.min); }
-    if (props.max) { this.model.setMax(props.max); }
-    if (props.isRange) { this.model.setRange(props.isRange); }
-    if (props.isTips) { this.model.setTooltipVisibility(props.isTips); }
-    if (props.orientation) { this.model.setOrientation(props.orientation); }
-    if (props.step) { this.model.setStep(props.step); }
-    if (props.low) { this.model.setValue(props.low); }
-    if (props.hight) { this.model.setValue(props.hight, 1); }
+    this.init(container, props);
   }
 
   public setMin(min: number) {
@@ -82,6 +70,36 @@ class Slider {
 
   public addChangeListener(fn: () => void) {
     this.changeCallback = fn;
+  }
+
+  private init(container: HTMLElement, props: IProps) {
+    this.model = new Model();
+    new Controller(container, this.model);
+    this.model.addListener('change', this.onChangeModel.bind(this));
+    if (props.min) {
+      this.model.setMin(props.min);
+    }
+    if (props.max) {
+      this.model.setMax(props.max);
+    }
+    if (props.isRange) {
+      this.model.setRange(props.isRange);
+    }
+    if (props.isTips) {
+      this.model.setTooltipVisibility(props.isTips);
+    }
+    if (props.orientation) {
+      this.model.setOrientation(props.orientation);
+    }
+    if (props.step) {
+      this.model.setStep(props.step);
+    }
+    if (props.low) {
+      this.model.setValue(props.low);
+    }
+    if (props.hight) {
+      this.model.setValue(props.hight, 1);
+    }
   }
 
   private onChangeModel() {

@@ -17,14 +17,7 @@ class MinMax {
     this.parent = parent;
     this.controller = controller;
 
-    this.minMaxElement = document.createElement('div');
-    this.minMaxElement.classList.add('slider__min-max');
-    this.parent.appendChild(this.minMaxElement);
-
-    this.min = new Field(this.minMaxElement, 'min');
-    this.min.addClickListener(this.onClick.bind(this));
-    this.max = new Field(this.minMaxElement, 'max');
-    this.max.addClickListener(this.onClick.bind(this));
+    this.init();
   }
 
   public update(
@@ -36,6 +29,16 @@ class MinMax {
   ) {
     this.min.update(min, minPos, orientation);
     this.max.update(max, maxPos, orientation);
+  }
+
+  private init() {
+    this.minMaxElement = document.createElement('div');
+    this.minMaxElement.classList.add('slider__min-max');
+    this.parent.appendChild(this.minMaxElement);
+    this.min = new Field(this.minMaxElement, 'min');
+    this.min.addClickListener(this.onClick.bind(this));
+    this.max = new Field(this.minMaxElement, 'max');
+    this.max.addClickListener(this.onClick.bind(this));
   }
 
   private onClick(key: string) {
