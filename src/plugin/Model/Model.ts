@@ -169,7 +169,7 @@ class Model {
 
   private setNewValue(value: number, pointer: number) {
     const constraint = this.getConstraint(pointer);
-    let roundedValue = this.roundByStep(value);
+    let roundedValue = (value === this.max) ? value : this.roundByStep(value);
     roundedValue = roundedValue < constraint.min ? constraint.min : roundedValue;
     roundedValue = roundedValue > constraint.max ? constraint.max : roundedValue;
     this.values[pointer] = roundedValue;

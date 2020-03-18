@@ -1,4 +1,4 @@
-import Slider from '../../src/plugin/model/Slider';
+import Slider from '../../src/plugin/Model/Model';
 import Orientation from '../../src/plugin/types/Orientation';
 
 describe('Slider class', () => {
