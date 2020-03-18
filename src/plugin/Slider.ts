@@ -6,13 +6,11 @@ import Orientation from './types/Orientation';
 class Slider {
   private model: Model;
 
-  private controller: Controller;
-
   private changeCallback: () => void;
 
   constructor(container: HTMLElement, props: IProps = {}) {
     this.model = new Model();
-    this.controller = new Controller(container, this.model);
+    new Controller(container, this.model);
 
     this.model.addListener('change', this.onChangeModel.bind(this));
 

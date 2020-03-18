@@ -27,7 +27,13 @@ class MinMax {
     this.max.addClickListener(this.onClick.bind(this));
   }
 
-  public update(min: string, max: string, orientation: Orientation, minPos: number, maxPos: number) {
+  public update(
+    min: string,
+    max: string,
+    orientation: Orientation,
+    minPos: number,
+    maxPos: number,
+  ) {
     this.min.update(min, minPos, orientation);
     this.max.update(max, maxPos, orientation);
   }

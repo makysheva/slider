@@ -9,17 +9,10 @@ class Pointer {
 
   private orientationManager: OrientationManager;
 
-  private onDragFn: (key: string, position: number) => void;
-
-  private isMouseDown: boolean = false;
-
-  private key: string;
-
   private drag: Drag;
 
   constructor(parent: HTMLElement, key: string) {
     this.parent = parent;
-    this.key = key;
 
     this.pointerElement = document.createElement('div');
     this.pointerElement.classList.add('slider__pointer');

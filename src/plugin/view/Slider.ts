@@ -5,7 +5,7 @@ import MinMax from './minmax/MinMax';
 import Orientation from '../types/Orientation';
 import Pointer from './Pointer';
 import SliderData from '../types/SliderData';
-import TipData from "./tips/TipData";
+import TipData from './tips/TipData';
 import TipManager from './tips/TipManager';
 import Track from './Track';
 
