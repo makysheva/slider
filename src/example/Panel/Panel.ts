@@ -94,19 +94,19 @@ class Panel {
   }
 
   private onChangeMin() {
-    this.slider.setMin(+this.min.value);
+    this.slider.setMin(Number(this.min.value));
   }
 
   private onChangeMax() {
-    this.slider.setMax(+this.max.value);
+    this.slider.setMax(Number(this.max.value));
   }
 
   private onChangeLow() {
-    this.slider.setValue(+this.low.value, 0);
+    this.slider.setValue(Number(this.low.value), 0);
   }
 
   private onChangeHigh() {
-    this.slider.setValue(+this.high.value, 1);
+    this.slider.setValue(Number(this.high.value), 1);
   }
 
   private onChangeRange() {
@@ -114,7 +114,7 @@ class Panel {
   }
 
   private onChangeStep() {
-    this.slider.setStep(+this.step.value);
+    this.slider.setStep(Number(this.step.value));
   }
 
   private onChangeVertical() {
