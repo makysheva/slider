@@ -1,43 +1,29 @@
-import Event from './Event';
+import Model from '../Model/Model';
 
 class Observer {
-  private events: Event[] = [];
+  private events: Map<string, Array<() => void>> =
+    new Map<string, Array<() => void>>();
 
-  // tslint:disable-next-line:ban-types
-  public add(type: string, fn: Function): Observer {
-    let event: Event = this.getEvent(type) || null!;
-
-    if (event) {
-      event.add(fn);
-    } else {
-      event = new Event(type);
-      event.add(fn);
-      this.events.push(event);
+  public add(type: string, fn: () => void): Observer {
+    if (!this.events.has(type)) {
+      this.events.set(type, []);
     }
+
+    const event = this.events.get(type);
+    // eslint-disable-next-line no-unused-expressions
+    event?.push(fn);
 
     return this;
   }
 
-  // tslint:disable-next-line:ban-types
-  public remove(type: string, fn: Function) {
-    const event = this.getEvent(type) || new Event('');
-    if (event.getType() !== '') {
-      event.remove(fn);
+  public emit(type: string) {
+    if (this.events.has(type)) {
+      const event = this.events.get(type);
+      // eslint-disable-next-line no-unused-expressions
+      event?.forEach((fn) => {
+        fn();
+      });
     }
-  }
-
-  public emit(type: string, data: object) {
-    const event = this.getEvent(type) || new Event('');
-    event.emit(data);
-  }
-
-  private getEvent(type: string): Event | null {
-    for (const event of this.events) {
-      if (event.getType() === type) {
-        return event;
-      }
-    }
-    return null;
   }
 }
 

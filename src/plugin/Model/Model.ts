@@ -135,12 +135,8 @@ class Model {
     return this.isVisibleTooltips;
   }
 
-  public addListener(event: string, fn: (data: Model) => void) {
+  public addListener(event: string, fn: () => void) {
     this.observer.add(event, fn);
-  }
-
-  public removeListener(event: string, fn: (data: Model) => void) {
-    this.observer.remove(event, fn);
   }
 
   private recalculateValue() {
@@ -160,7 +156,7 @@ class Model {
   }
 
   private emitChangeEvent() {
-    this.observer.emit('change', this);
+    this.observer.emit('change');
   }
 
   private isValidStep(step: number) {
