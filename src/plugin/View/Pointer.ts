@@ -1,6 +1,6 @@
 import Orientation from '../Types/Orientation';
 import OrientationManager from './OrientationManager';
-import Drag from '../Drag/Drag';
+import Drag from './Drag/Drag';
 
 class Pointer {
   private parent: HTMLElement;
