@@ -1,26 +1,40 @@
+import IState from './IState';
 import Observer from '../Observer/Observer';
 import Orientation from '../Types/Orientation';
+import Validator from './Validator';
 
 class Model {
-  private min: number = 0;
-
-  private max: number = 100;
-
-  private isRange: boolean = false;
-
-  private orientation: Orientation = Orientation.Horizontal;
-
-  private step: number = 1;
-
-  private values: number[] = [0, 100];
-
-  private isVisibleTooltips: boolean = true;
-
   private observer = new Observer();
 
+  private state: IState = {
+    isRange: false,
+    isTips: true,
+    max: 100,
+    min: 0,
+    orientation: Orientation.Horizontal,
+    step: 1,
+    values: [0, 100],
+  };
+
+  constructor(props?: IState) {
+    if (props) {
+      this.setState(props);
+    }
+  }
+
+  public setState(state: IState) {
+    Validator.validate(state);
+    this.state = state;
+    this.emitChangeEvent();
+  }
+
+  public getState(): IState {
+    return { ...this.state };
+  }
+
   public setMin(min: number) {
-    if (min < this.max) {
-      this.min = min;
+    if (min < this.state.max) {
+      this.state.min = min;
       this.recalculateValue();
     }
 
@@ -28,12 +42,12 @@ class Model {
   }
 
   public getMin(): number {
-    return this.min;
+    return this.state.min;
   }
 
   public setMax(max: number) {
-    if (max > this.min) {
-      this.max = max;
+    if (max > this.state.min) {
+      this.state.max = max;
       this.recalculateValue();
     }
 
@@ -41,37 +55,37 @@ class Model {
   }
 
   public getMax(): number {
-    return this.max;
+    return this.state.max;
   }
 
   public setRange(isRange: boolean) {
-    if (!this.isRange && isRange) {
-      this.isRange = isRange;
-      if (this.values[0] === this.max) {
-        this.values[0] = this.max - this.step;
+    if (!this.state.isRange && isRange) {
+      this.state.isRange = isRange;
+      if (this.state.values[0] === this.state.max) {
+        this.state.values[0] = this.state.max - this.state.step;
       }
-      this.setNewValue(this.values[1], 1);
+      this.setNewValue(this.state.values[1], 1);
     }
-    this.isRange = isRange;
+    this.state.isRange = isRange;
     this.emitChangeEvent();
   }
 
   public getRange(): boolean {
-    return this.isRange;
+    return this.state.isRange;
   }
 
   public setOrientation(orientation: Orientation) {
-    this.orientation = orientation;
+    this.state.orientation = orientation;
     this.emitChangeEvent();
   }
 
   public getOrientation(): Orientation {
-    return this.orientation;
+    return this.state.orientation;
   }
 
   public setStep(step: number) {
     if (this.isValidStep(step)) {
-      this.step = step;
+      this.state.step = step;
       this.recalculateValue();
     }
 
@@ -79,7 +93,7 @@ class Model {
   }
 
   public getStep(): number {
-    return this.step;
+    return this.state.step;
   }
 
   public setValue(value: number, pointer: number = 0) {
@@ -88,32 +102,32 @@ class Model {
   }
 
   public getValue(pointer: number = 0): number {
-    return this.values[pointer];
+    return this.state.values[pointer];
   }
 
   public setPointPosition(position: number, pointer: number = 0) {
-    const value = position >= 1 ? this.max : this.getValueByPosition(position);
+    const value = position >= 1 ? this.state.max : this.getValueByPosition(position);
     this.setNewValue(value, pointer);
     this.emitChangeEvent();
   }
 
   public getPointPosition(pointer: number = 0): number {
-    return (this.values[pointer] - this.min) / (this.max - this.min);
+    return (this.state.values[pointer] - this.state.min) / (this.state.max - this.state.min);
   }
 
   public setPosition(position: number) {
     if (position >= 1) {
-      const pointer = this.isRange ? 1 : 0;
-      this.values[pointer] = this.max;
+      const pointer = this.state.isRange ? 1 : 0;
+      this.state.values[pointer] = this.state.max;
       this.emitChangeEvent();
       return;
     }
 
-    if (this.isRange) {
+    if (this.state.isRange) {
       const value = this.getValueByPosition(position);
-      if (value < this.values[0]) {
+      if (value < this.state.values[0]) {
         this.setNewValue(value, 0);
-      } else if (value > this.values[1]) {
+      } else if (value > this.state.values[1]) {
         this.setNewValue(value, 1);
       } else {
         const pointer = this.closestPointer(value);
@@ -127,12 +141,12 @@ class Model {
   }
 
   public setTooltipVisibility(isVisible: boolean) {
-    this.isVisibleTooltips = isVisible;
+    this.state.isTips = isVisible;
     this.emitChangeEvent();
   }
 
   public getTooltipVisibility(): boolean {
-    return this.isVisibleTooltips;
+    return this.state.isTips;
   }
 
   public addListener(event: string, fn: () => void) {
@@ -140,19 +154,19 @@ class Model {
   }
 
   private recalculateValue() {
-    if (this.isRange) {
-      const high = this.values[1] <= this.min ? this.min + this.step : this.values[1];
+    if (this.state.isRange) {
+      const high = this.state.values[1] <= this.state.min ? this.state.min + this.state.step : this.state.values[1];
       this.setValue(high, 1);
     }
-    this.setValue(this.values[0], 0);
+    this.setValue(this.state.values[0], 0);
   }
 
   private getValueByPosition(position: number): number {
-    return Math.round((this.max - this.min) * position + this.min);
+    return Math.round((this.state.max - this.state.min) * position + this.state.min);
   }
 
   private roundByStep(value: number): number {
-    return Math.round((value - this.min) / this.step) * this.step + this.min;
+    return Math.round((value - this.state.min) / this.state.step) * this.state.step + this.state.min;
   }
 
   private emitChangeEvent() {
@@ -160,37 +174,37 @@ class Model {
   }
 
   private isValidStep(step: number) {
-    return (this.max - this.min) >= step && step > 0;
+    return (this.state.max - this.state.min) >= step && step > 0;
   }
 
   private setNewValue(value: number, pointer: number) {
     const constraint = this.getConstraint(pointer);
-    let roundedValue = (value === this.max) ? value : this.roundByStep(value);
+    let roundedValue = (value === this.state.max) ? value : this.roundByStep(value);
     if (roundedValue < constraint.min) {
       roundedValue = constraint.min;
     } else if (roundedValue > constraint.max) {
       roundedValue = constraint.max;
     }
-    this.values[pointer] = roundedValue;
+    this.state.values[pointer] = roundedValue;
   }
 
   private getConstraint(pointer: number): { min: number, max: number } {
-    const constraint = { min: this.min, max: this.max };
+    const constraint = { min: this.state.min, max: this.state.max };
 
     if (pointer === 0) {
-      constraint.min = this.min;
-      constraint.max = this.isRange ? this.values[1] - this.step : this.max;
+      constraint.min = this.state.min;
+      constraint.max = this.state.isRange ? this.state.values[1] - this.state.step : this.state.max;
     } else {
-      constraint.max = this.max;
-      constraint.min = this.isRange ? this.values[0] + this.step : this.min;
+      constraint.max = this.state.max;
+      constraint.min = this.state.isRange ? this.state.values[0] + this.state.step : this.state.min;
     }
 
     return constraint;
   }
 
   private closestPointer(value: number): number {
-    const distanceToLow = value - this.values[0];
-    const distanceToHigh = this.values[1] - value;
+    const distanceToLow = value - this.state.values[0];
+    const distanceToHigh = this.state.values[1] - value;
     if (distanceToLow <= distanceToHigh) {
       return 0;
     }
