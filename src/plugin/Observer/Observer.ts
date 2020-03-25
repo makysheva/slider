@@ -1,5 +1,3 @@
-import Model from '../Model/Model';
-
 class Observer {
   private events: Map<string, Array<() => void>> =
     new Map<string, Array<() => void>>();
