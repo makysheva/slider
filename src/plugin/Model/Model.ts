@@ -23,8 +23,16 @@ class Model {
   }
 
   public setState(state: IState) {
-    Validator.validate(state);
-    this.state = state;
+    const { min, max } = Validator.validateMinMax(state);
+    const step = Validator.validateStep(state);
+    const values = Validator.validateValues(state);
+    this.state = {
+      ...this.state,
+      max,
+      min,
+      step,
+      values,
+    };
     this.emitChangeEvent();
   }
 
