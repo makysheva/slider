@@ -1,6 +1,7 @@
 import { IProps } from '../../plugin/Types/IProps';
 import Slider from '../../plugin/Slider';
 import Orientation from '../../plugin/Types/Orientation';
+import IState from '../../plugin/Model/IState';
 
 class Panel {
   private parent: HTMLElement;
@@ -25,7 +26,7 @@ class Panel {
 
   private vertical: HTMLInputElement;
 
-  constructor(parent: HTMLElement, props?: IProps) {
+  constructor(parent: HTMLElement, props: IState) {
     this.parent = parent;
 
     this.init(props);
@@ -45,7 +46,7 @@ class Panel {
     this.high.setAttribute('step', this.step.value);
   }
 
-  private init(props?: IProps) {
+  private init(props: IState) {
     const mainElement: HTMLElement = document.createElement('div');
     mainElement.classList.add('panel');
     this.parent.appendChild(mainElement);

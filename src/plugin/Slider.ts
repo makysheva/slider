@@ -2,13 +2,14 @@ import Controller from './Controller/Controller';
 import Model from './Model/Model';
 import { IProps } from './Types/IProps';
 import Orientation from './Types/Orientation';
+import IState from './Model/IState';
 
 class Slider {
   private model: Model;
 
   private changeCallback: () => void;
 
-  constructor(container: HTMLElement, props: IProps = {}) {
+  constructor(container: HTMLElement, props: IState) {
     this.init(container, props);
   }
 
@@ -72,34 +73,34 @@ class Slider {
     this.changeCallback = fn;
   }
 
-  private init(container: HTMLElement, props: IProps) {
-    this.model = new Model();
+  private init(container: HTMLElement, props: IState) {
+    this.model = new Model(props);
     new Controller(container, this.model);
     this.model.addListener('change', this.onChangeModel.bind(this));
-    if (props.min) {
-      this.model.setMin(props.min);
-    }
-    if (props.max) {
-      this.model.setMax(props.max);
-    }
-    if (props.isRange) {
-      this.model.setRange(props.isRange);
-    }
-    if (props.isTips) {
-      this.model.setTooltipVisibility(props.isTips);
-    }
-    if (props.orientation) {
-      this.model.setOrientation(props.orientation);
-    }
-    if (props.step) {
-      this.model.setStep(props.step);
-    }
-    if (props.low) {
-      this.model.setValue(props.low);
-    }
-    if (props.high) {
-      this.model.setValue(props.high, 1);
-    }
+    // if (props.min) {
+    //   this.model.setMin(props.min);
+    // }
+    // if (props.max) {
+    //   this.model.setMax(props.max);
+    // }
+    // if (props.isRange) {
+    //   this.model.setRange(props.isRange);
+    // }
+    // if (props.isTips) {
+    //   this.model.setTooltipVisibility(props.isTips);
+    // }
+    // if (props.orientation) {
+    //   this.model.setOrientation(props.orientation);
+    // }
+    // if (props.step) {
+    //   this.model.setStep(props.step);
+    // }
+    // if (props.low) {
+    //   this.model.setValue(props.low);
+    // }
+    // if (props.high) {
+    //   this.model.setValue(props.high, 1);
+    // }
   }
 
   private onChangeModel() {

@@ -4,7 +4,7 @@ import Orientation from '../Types/Orientation';
 
 class Validator {
   public static validateMinMax(state: IState): { min: number, max: number } {
-    const result = { min: 0, max: 0 };
+    const result = { min: state.min, max: state.max };
     if (state.min >= state.max) {
       result.min = Validator.default.min;
       result.max = Validator.default.max;
