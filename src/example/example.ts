@@ -1,6 +1,6 @@
 import './favicons/favicons';
-import './scss/example.scss';
-import './scss/panel.scss';
+import './example.scss';
+import './panel/panel.scss';
 import Orientation from '../plugin/Types/Orientation';
 import Panel from './Panel/Panel';
 import IState from '../plugin/Model/IState';

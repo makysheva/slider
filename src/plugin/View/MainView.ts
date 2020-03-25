@@ -1,4 +1,4 @@
-import '../scss/slider.scss';
+import './slider.scss';
 import Controller from '../Controller/Controller';
 import Fill from './Fill';
 import MinMax from './Labels/MinMax';
