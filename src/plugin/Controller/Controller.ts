@@ -1,5 +1,4 @@
 import Model from '../Model/Model';
-import SliderData from '../Types/SliderData';
 import View from '../View/MainView';
 
 class Controller {
@@ -32,8 +31,9 @@ class Controller {
   }
 
   private updateView() {
-    const data = new SliderData(this.model);
-    this.view.update(data);
+    const low = this.model.getPointPosition(0);
+    const high = this.model.getPointPosition(1);
+    this.view.update({ ...this.model.getState(), low, high });
   }
 
   private onResize() {
