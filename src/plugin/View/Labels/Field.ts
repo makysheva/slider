@@ -19,7 +19,8 @@ class Field {
     this.init();
   }
 
-  public update(value: string, position: number, orientation: Orientation) {
+  public update(data: { value: string, position: number, orientation: Orientation }) {
+    const { value, position, orientation } = data;
     this.orientationManager.setCurrentOrientation(orientation);
     this.fieldElement.innerHTML = value;
     const rect: DOMRect = this.fieldElement.getBoundingClientRect();

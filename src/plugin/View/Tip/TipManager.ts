@@ -76,7 +76,11 @@ class TipManager {
       const high: number = this.data.high.position;
       const position: number = ((high - low) / 2) + low;
       const tipText: string = `${this.data.low.value} - ${this.data.high.value}`;
-      unitedTip.update(tipText, position, this.data.orientation);
+      unitedTip.update({
+        orientation: this.data.orientation,
+        position,
+        value: tipText,
+      });
     }
   }
 
@@ -91,7 +95,11 @@ class TipManager {
     const tip: Tip | undefined = this.tips.get('low');
     if (tip) {
       tip.create();
-      tip.update(this.data.low.value.toString(), this.data.low.position, this.data.orientation);
+      tip.update({
+        orientation: this.data.orientation,
+        position: this.data.low.position,
+        value: this.data.low.value.toString(),
+      });
     }
   }
 
@@ -101,11 +109,11 @@ class TipManager {
       tip = this.tips.get('high');
       if (tip) {
         tip.create();
-        tip.update(
-          this.data.high.value.toString(),
-          this.data.high.position,
-          this.data.orientation,
-        );
+        tip.update({
+          orientation: this.data.orientation,
+          position: this.data.high.position,
+          value: this.data.high.value.toString(),
+        });
       }
     } else {
       tip = this.tips.get('high');

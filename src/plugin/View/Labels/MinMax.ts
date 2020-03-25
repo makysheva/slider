@@ -20,15 +20,22 @@ class MinMax {
     this.init();
   }
 
-  public update(
+  public update(data: {
     min: string,
     max: string,
     orientation: Orientation,
     minPos: number,
     maxPos: number,
-  ) {
-    this.min.update(min, minPos, orientation);
-    this.max.update(max, maxPos, orientation);
+  }) {
+    const {
+      max,
+      maxPos,
+      min,
+      minPos,
+      orientation,
+    } = data;
+    this.min.update({ value: min, position: minPos, orientation });
+    this.max.update({ value: max, position: maxPos, orientation });
   }
 
   private init() {

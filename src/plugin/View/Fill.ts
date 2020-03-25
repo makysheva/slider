@@ -15,7 +15,8 @@ class Fill {
     this.initOrientationManager();
   }
 
-  public update(low: number, high: number, orientation: Orientation) {
+  public update(data: { low: number, high: number, orientation: Orientation }) {
+    const { low, high, orientation } = data;
     this.updateOrientation(orientation);
     this.setPosition(low, high);
   }

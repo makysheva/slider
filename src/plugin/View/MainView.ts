@@ -69,13 +69,13 @@ class MainView {
     this.updateTip();
     const minPos = this.track.getAbsolutePosition(0);
     const maxPos = this.track.getAbsolutePosition(1);
-    this.minMax.update(
-      this.data.min.toString(),
-      this.data.max.toString(),
-      this.data.orientation,
-      minPos,
+    this.minMax.update({
+      max: this.data.max.toString(),
       maxPos,
-    );
+      min: this.data.min.toString(),
+      minPos,
+      orientation: this.data.orientation,
+    });
   }
 
   private init() {
@@ -85,7 +85,11 @@ class MainView {
     this.track = new Track(this.sliderElement);
     this.track.update(this.orientation);
     this.fill = new Fill(this.track.getElement());
-    this.fill.update(0, 0, this.orientation);
+    this.fill.update({
+      high: 0,
+      low: 0,
+      orientation: this.orientation,
+    });
     this.createPointer('low');
     this.sliderElement.addEventListener('click', this.onClick.bind(this));
     this.tipManager = new TipManager(this.sliderElement);
@@ -149,7 +153,11 @@ class MainView {
       highPos = (1 - this.data.low) * 100;
     }
 
-    this.fill.update(lowPos, highPos, this.data.orientation);
+    this.fill.update({
+      high: highPos,
+      low: lowPos,
+      orientation: this.data.orientation,
+    });
   }
 
   private updateTip() {
