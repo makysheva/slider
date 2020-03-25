@@ -77,30 +77,6 @@ class Slider {
     this.model = new Model(props);
     new Controller(container, this.model);
     this.model.addListener('change', this.onChangeModel.bind(this));
-    // if (props.min) {
-    //   this.model.setMin(props.min);
-    // }
-    // if (props.max) {
-    //   this.model.setMax(props.max);
-    // }
-    // if (props.isRange) {
-    //   this.model.setRange(props.isRange);
-    // }
-    // if (props.isTips) {
-    //   this.model.setTooltipVisibility(props.isTips);
-    // }
-    // if (props.orientation) {
-    //   this.model.setOrientation(props.orientation);
-    // }
-    // if (props.step) {
-    //   this.model.setStep(props.step);
-    // }
-    // if (props.low) {
-    //   this.model.setValue(props.low);
-    // }
-    // if (props.high) {
-    //   this.model.setValue(props.high, 1);
-    // }
   }
 
   private onChangeModel() {
