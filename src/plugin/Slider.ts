@@ -1,6 +1,5 @@
 import Controller from './Controller/Controller';
 import Model from './Model/Model';
-import { IProps } from './Types/IProps';
 import Orientation from './Types/Orientation';
 import IState from './Model/IState';
 

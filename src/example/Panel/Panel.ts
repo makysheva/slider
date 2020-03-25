@@ -1,4 +1,3 @@
-import { IProps } from '../../plugin/Types/IProps';
 import Slider from '../../plugin/Slider';
 import Orientation from '../../plugin/Types/Orientation';
 import IState from '../../plugin/Model/IState';

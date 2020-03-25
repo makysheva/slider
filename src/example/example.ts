@@ -16,7 +16,7 @@ if (container) {
     step: 1,
     values: [0, 100],
   };
-  new Panel(container as HTMLElement, { ...props, max: 1000 });
+  new Panel(container as HTMLElement, { ...props, max: 1000, values: [0, 1000] });
   new Panel(container as HTMLElement, { ...props, orientation: Orientation.Vertical });
   new Panel(container as HTMLElement, { ...props, isRange: true, isTips: false });
 }
