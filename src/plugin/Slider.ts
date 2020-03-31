@@ -52,6 +52,10 @@ class Slider {
     return this.model.getStep();
   }
 
+  public getState(): IState {
+    return this.model.getState();
+  }
+
   public setTipVisibility(isVisible: boolean) {
     this.model.setTooltipVisibility(isVisible);
   }
