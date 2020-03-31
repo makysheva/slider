@@ -32,7 +32,7 @@ class Panel {
     this.update();
   }
 
-  public update() {
+  public update = () => {
     this.min.value = this.slider.getMin().toString();
     this.max.value = this.slider.getMax().toString();
     this.low.value = this.slider.getValue().toString();
@@ -59,24 +59,24 @@ class Panel {
     mainElement.appendChild(sliderContainer);
 
     this.min = this.createInput('Min');
-    this.min.addEventListener('change', this.onChangeMin.bind(this));
+    this.min.addEventListener('change', this.onChangeMin);
     this.max = this.createInput('Max');
-    this.max.addEventListener('change', this.onChangeMax.bind(this));
+    this.max.addEventListener('change', this.onChangeMax);
     this.step = this.createInput('Step');
-    this.step.addEventListener('change', this.onChangeStep.bind(this));
+    this.step.addEventListener('change', this.onChangeStep);
     this.low = this.createInput('Low');
-    this.low.addEventListener('change', this.onChangeLow.bind(this));
+    this.low.addEventListener('change', this.onChangeLow);
     this.high = this.createInput('High');
-    this.high.addEventListener('change', this.onChangeHigh.bind(this));
+    this.high.addEventListener('change', this.onChangeHigh);
     this.range = this.createInput('Range', 'checkbox');
-    this.range.addEventListener('change', this.onChangeRange.bind(this));
+    this.range.addEventListener('change', this.onChangeRange);
     this.vertical = this.createInput('Vertical', 'checkbox');
-    this.vertical.addEventListener('change', this.onChangeVertical.bind(this));
+    this.vertical.addEventListener('change', this.onChangeVertical);
     this.tips = this.createInput('Tips', 'checkbox');
-    this.tips.addEventListener('change', this.onChangeTips.bind(this));
+    this.tips.addEventListener('change', this.onChangeTips);
 
     this.slider = new Slider(sliderContainer, props);
-    this.slider.addChangeListener(this.update.bind(this));
+    this.slider.addChangeListener(this.update);
   }
 
   private createInput(label: string, type: string = 'number'): HTMLInputElement {
@@ -93,36 +93,36 @@ class Panel {
     return input;
   }
 
-  private onChangeMin() {
+  private onChangeMin = () => {
     this.slider.setMin(Number(this.min.value));
   }
 
-  private onChangeMax() {
+  private onChangeMax = () => {
     this.slider.setMax(Number(this.max.value));
   }
 
-  private onChangeLow() {
+  private onChangeLow = () => {
     this.slider.setValue(Number(this.low.value), 0);
   }
 
-  private onChangeHigh() {
+  private onChangeHigh = () => {
     this.slider.setValue(Number(this.high.value), 1);
   }
 
-  private onChangeRange() {
+  private onChangeRange = () => {
     this.slider.setRange(this.range.checked);
   }
 
-  private onChangeStep() {
+  private onChangeStep = () => {
     this.slider.setStep(Number(this.step.value));
   }
 
-  private onChangeVertical() {
+  private onChangeVertical = () => {
     const orientation = this.vertical.checked ? Orientation.Vertical : Orientation.Horizontal;
     this.slider.setOrientation(orientation);
   }
 
-  private onChangeTips() {
+  private onChangeTips = () => {
     this.slider.setTipVisibility(this.tips.checked);
   }
 }
