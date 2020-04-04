@@ -45,10 +45,10 @@ class Field {
     this.orientationManager = new OrientationManager(this.fieldElement);
     this.orientationManager.addOrientationClass(Orientation.Horizontal, 'slider__range_horizontal');
     this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__range_vertical');
-    this.fieldElement.addEventListener('click', this.onClick.bind(this));
+    this.fieldElement.addEventListener('click', this.onClick);
   }
 
-  private onClick() {
+  private onClick = () => {
     this.clickHandler.call(this, this.key);
   }
 }

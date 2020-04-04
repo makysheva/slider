@@ -91,13 +91,13 @@ class MainView {
       orientation: this.orientation,
     });
     this.createPointer('low');
-    this.sliderElement.addEventListener('click', this.onClick.bind(this));
+    this.sliderElement.addEventListener('click', this.onClick);
     this.tipManager = new TipManager(this.sliderElement);
-    this.tipManager.setDragListener(this.onDrag.bind(this));
+    this.tipManager.setDragListener(this.onDrag);
     this.minMax = new MinMax(this.sliderElement, this.controller);
   }
 
-  private onClick(event: MouseEvent) {
+  private onClick = (event: MouseEvent) => {
     const target: HTMLElement = (event.target as HTMLElement);
     if (MainView.isTrack(target)) {
       const position: number = this.track.getRelativePosition(event.clientX, event.clientY);
@@ -105,7 +105,7 @@ class MainView {
     }
   }
 
-  private onDrag(key: string, x: number, y: number) {
+  private onDrag = (key: string, x: number, y: number) => {
     const position: number = this.track.getRelativePosition(x, y);
     const id: number = (key === 'low') ? 0 : 1;
     this.controller.setPointPosition(position, id);
@@ -119,7 +119,7 @@ class MainView {
     const pointer = new Pointer(this.track.getElement(), key);
     this.pointers.set(key, pointer);
     pointer.update(0, this.orientation);
-    pointer.setDragListener(this.onDrag.bind(this));
+    pointer.setDragListener(this.onDrag);
   }
 
   private updatePointers() {

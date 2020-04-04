@@ -22,11 +22,11 @@ class Controller {
   private init(container: HTMLElement) {
     this.view = new View(container, this);
     this.updateView();
-    this.model.addListener('change', this.onChangeModel.bind(this));
-    window.addEventListener('resize', this.onResize.bind(this));
+    this.model.addListener('change', this.onChangeModel);
+    window.addEventListener('resize', this.onResize);
   }
 
-  private onChangeModel() {
+  private onChangeModel = () => {
     this.updateView();
   }
 
@@ -36,7 +36,7 @@ class Controller {
     this.view.update({ ...this.model.getState(), low, high });
   }
 
-  private onResize() {
+  private onResize = () => {
     this.updateView();
   }
 }

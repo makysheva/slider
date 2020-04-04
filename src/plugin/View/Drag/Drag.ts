@@ -19,21 +19,21 @@ class Drag {
   }
 
   private init() {
-    this.element.addEventListener('mousedown', this.onMouseDown.bind(this));
-    document.addEventListener('mouseup', this.onMouseUp.bind(this));
-    document.addEventListener('mousemove', this.onMouseMove.bind(this));
-    document.addEventListener('dragend', this.onMouseUp.bind(this));
+    this.element.addEventListener('mousedown', this.onMouseDown);
+    document.addEventListener('mouseup', this.onMouseUp);
+    document.addEventListener('mousemove', this.onMouseMove);
+    document.addEventListener('dragend', this.onMouseUp);
   }
 
-  private onMouseDown() {
+  private onMouseDown = () => {
     this.isMouseDown = true;
   }
 
-  private onMouseUp() {
+  private onMouseUp = () => {
     this.isMouseDown = false;
   }
 
-  private onMouseMove(e: MouseEvent) {
+  private onMouseMove = (e: MouseEvent) => {
     if (this.isMouseDown && this.onDragFn) {
       this.onDragFn.call(this, this.key, e.clientX, e.clientY);
     }

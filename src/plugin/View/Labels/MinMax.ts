@@ -43,12 +43,12 @@ class MinMax {
     this.minMaxElement.classList.add('slider__min-max');
     this.parent.appendChild(this.minMaxElement);
     this.min = new Field(this.minMaxElement, 'min');
-    this.min.addClickListener(this.onClick.bind(this));
+    this.min.addClickListener(this.onClick);
     this.max = new Field(this.minMaxElement, 'max');
-    this.max.addClickListener(this.onClick.bind(this));
+    this.max.addClickListener(this.onClick);
   }
 
-  private onClick(key: string) {
+  private onClick = (key: string) => {
     if (key === 'min') {
       this.controller.setPosition(0);
     } else {
