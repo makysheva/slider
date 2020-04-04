@@ -79,7 +79,7 @@ class Slider {
   private init(container: HTMLElement, props: IState) {
     this.model = new Model(props);
     new Controller(container, this.model);
-    this.model.addListener('change', this.onChangeModel);
+    this.model.add('change', this.onChangeModel);
   }
 
   private onChangeModel = () => {

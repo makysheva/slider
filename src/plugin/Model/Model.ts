@@ -3,9 +3,7 @@ import Observer from '../Observer/Observer';
 import Orientation from '../Types/Orientation';
 import Validator from './Validator';
 
-class Model {
-  private observer = new Observer();
-
+class Model extends Observer {
   private state: IState = {
     isRange: false,
     isTips: true,
@@ -17,6 +15,7 @@ class Model {
   };
 
   constructor(props?: IState) {
+    super();
     if (props) {
       this.setState(props);
     }
@@ -157,10 +156,6 @@ class Model {
     return this.state.isTips;
   }
 
-  public addListener(event: string, fn: () => void) {
-    this.observer.add(event, fn);
-  }
-
   private recalculateValue() {
     if (this.state.isRange) {
       const high = this.state.values[1] <= this.state.min ? this.state.min + this.state.step : this.state.values[1];
@@ -178,7 +173,7 @@ class Model {
   }
 
   private emitChangeEvent() {
-    this.observer.emit('change');
+    this.emit('change');
   }
 
   private isValidStep(step: number) {

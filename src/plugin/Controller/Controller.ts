@@ -22,7 +22,7 @@ class Controller {
   private init(container: HTMLElement) {
     this.view = new View(container, this);
     this.updateView();
-    this.model.addListener('change', this.onChangeModel);
+    this.model.add('change', this.onChangeModel);
     window.addEventListener('resize', this.onResize);
   }
 
