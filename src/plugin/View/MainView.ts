@@ -29,17 +29,7 @@ class MainView {
 
   private tipManager: TipManager;
 
-  private data: {
-    max: number,
-    min: number,
-    low: number,
-    high: number,
-    orientation: Orientation,
-    isRange: boolean,
-    isTips: boolean,
-    step: number,
-    values: number[],
-  };
+  private data: IData;
 
   private minMax: MinMax;
 
@@ -51,17 +41,7 @@ class MainView {
     this.init();
   }
 
-  public update(data: {
-    max: number,
-    min: number,
-    low: number,
-    high: number,
-    orientation: Orientation,
-    isRange: boolean,
-    isTips: boolean,
-    step: number,
-    values: number[],
-  }) {
+  public update(data: IData) {
     this.data = data;
     this.track.update(this.data.orientation);
     this.updateFill();
@@ -195,6 +175,18 @@ class MainView {
       this.pointers.delete(key);
     }
   }
+}
+
+interface IData {
+  max: number,
+  min: number,
+  low: number,
+  high: number,
+  orientation: Orientation,
+  isRange: boolean,
+  isTips: boolean,
+  step: number,
+  values: number[],
 }
 
 export default MainView;

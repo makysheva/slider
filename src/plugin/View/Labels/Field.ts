@@ -8,7 +8,7 @@ class Field {
 
   private key: string;
 
-  private clickHandler: (key: string) => void;
+  private clickHandler: Listener;
 
   private orientationManager: OrientationManager;
 
@@ -34,7 +34,7 @@ class Field {
     }
   }
 
-  public addClickListener(clickHandler: (key: string) => void) {
+  public addClickListener(clickHandler: Listener) {
     this.clickHandler = clickHandler;
   }
 
@@ -52,5 +52,7 @@ class Field {
     this.clickHandler.call(this, this.key);
   }
 }
+
+type Listener = (key: string) => void;
 
 export default Field;

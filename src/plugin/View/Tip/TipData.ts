@@ -5,15 +5,15 @@ class TipData {
 
   public orientation: Orientation;
 
-  public low: { value: number, position: number };
+  public low: IPoint;
 
-  public high: { value: number, position: number };
+  public high: IPoint;
 
   public isVisible: boolean;
 
   constructor(
-    low: { value: number, position: number },
-    high: { value: number, position: number },
+    low: IPoint,
+    high: IPoint,
     orientation: Orientation,
     isRange: boolean,
     isVisible: boolean,
@@ -25,5 +25,7 @@ class TipData {
     this.isVisible = isVisible;
   }
 }
+
+interface IPoint { value: number, position: number }
 
 export default TipData;

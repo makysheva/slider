@@ -34,13 +34,15 @@ class Panel {
   }
 
   private init(props: IState) {
+    const { parent } = { ...this };
     const mainElement: HTMLElement = document.createElement('div');
     mainElement.classList.add('panel');
-    this.parent.appendChild(mainElement);
+    parent.appendChild(mainElement);
 
-    this.panelElement = document.createElement('div');
-    this.panelElement.classList.add('panel__inputs');
-    mainElement.appendChild(this.panelElement);
+    const panelElement = document.createElement('div');
+    this.panelElement = panelElement;
+    panelElement.classList.add('panel__inputs');
+    mainElement.appendChild(panelElement);
 
     const sliderContainer: HTMLElement = document.createElement('div');
     sliderContainer.classList.add('panel__slider');
@@ -90,7 +92,8 @@ class Panel {
     const labelElement: HTMLElement = document.createElement('label');
     labelElement.textContent = label;
     labelElement.classList.add('panel__label');
-    this.panelElement.appendChild(labelElement);
+    const { panelElement } = { ...this };
+    panelElement.appendChild(labelElement);
 
     const input: HTMLInputElement = document.createElement('input');
     input.classList.add('panel__input');

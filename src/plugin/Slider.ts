@@ -6,7 +6,7 @@ import IState from './Model/IState';
 class Slider {
   private model: Model;
 
-  private changeCallback: () => void;
+  private changeCallback: Callback;
 
   constructor(container: HTMLElement, props: IState) {
     this.init(container, props);
@@ -72,7 +72,7 @@ class Slider {
     return this.model.getOrientation();
   }
 
-  public addChangeListener(fn: () => void) {
+  public addChangeListener(fn: Callback) {
     this.changeCallback = fn;
   }
 
@@ -88,5 +88,7 @@ class Slider {
     }
   }
 }
+
+type Callback = () => void;
 
 export default Slider;

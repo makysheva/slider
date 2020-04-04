@@ -3,7 +3,7 @@ class Drag {
 
   private key: string;
 
-  private onDragFn: (key: string, x: number, y: number) => void;
+  private onDragFn: Listener;
 
   private isMouseDown: boolean = false;
 
@@ -14,7 +14,7 @@ class Drag {
     this.init();
   }
 
-  public setDragListener(onDragFn: (key: string, x: number, y: number) => void) {
+  public setDragListener(onDragFn: Listener) {
     this.onDragFn = onDragFn;
   }
 
@@ -39,5 +39,7 @@ class Drag {
     }
   }
 }
+
+type Listener = (key: string, x: number, y: number) => void;
 
 export default Drag;
