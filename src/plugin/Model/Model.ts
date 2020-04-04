@@ -27,7 +27,6 @@ class Model {
     const step = Validator.validateStep(state);
     const values = Validator.validateValues(state);
     this.state = {
-      ...this.state,
       ...state,
       max,
       min,
