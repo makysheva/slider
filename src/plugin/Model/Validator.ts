@@ -24,7 +24,7 @@ class Validator {
     let values = [state.values[0], state.values[1]];
 
     if (!state.isRange) {
-      if (values[0] < state.min || values[0] > state.max) {
+      if (Validator.isRangeValue(values[0], state.min, state.max)) {
         values[0] = state.min;
       }
     }
@@ -55,6 +55,10 @@ class Validator {
     step: 1,
     values: [0, 100],
   };
+
+  private static isRangeValue(value: number, min: number, max: number): boolean {
+    return value < min || value > max;
+  }
 }
 
 export default Validator;

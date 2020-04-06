@@ -34,9 +34,13 @@ class Drag {
   }
 
   private onMouseMove = (e: MouseEvent) => {
-    if (this.isMouseDown && this.onDragFn) {
+    if (this.isDraggable()) {
       this.onDragFn.call(this, this.key, e.clientX, e.clientY);
     }
+  }
+
+  private isDraggable(): boolean | Listener {
+    return this.isMouseDown && this.onDragFn;
   }
 }
 

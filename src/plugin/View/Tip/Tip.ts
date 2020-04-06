@@ -44,16 +44,9 @@ class Tip {
   }
 
   public checkCollision(tip: Tip): boolean {
-    const rect: DOMRect = tip.getClientRect();
-    const self: DOMRect = this.getClientRect();
+    const rect = tip.getClientRect();
 
-    if (self.x < rect.x + rect.width
-      && self.x + self.width > rect.x
-      && self.y < rect.y + rect.height
-      && self.y + self.height > rect.y) {
-      return true;
-    }
-    return false;
+    return this.isCross(rect);
   }
 
   private init() {
@@ -80,6 +73,15 @@ class Tip {
       newPosition = position - rect.height / 2;
       this.tipElement.style.top = `${newPosition}px`;
     }
+  }
+
+  private isCross(rect: DOMRect): boolean {
+    const self = this.getClientRect();
+
+    return self.x < rect.x + rect.width
+      && self.x + self.width > rect.x
+      && self.y < rect.y + rect.height
+      && self.y + self.height > rect.y;
   }
 }
 
