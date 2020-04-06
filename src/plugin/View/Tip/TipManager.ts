@@ -68,16 +68,17 @@ class TipManager {
   }
 
   private showUnitedTip() {
+    const { data } = { ...this };
     const unitedTip: Tip | undefined = this.tips.get('united');
 
     if (unitedTip) {
       unitedTip.create();
-      const low: number = this.data.low.position;
-      const high: number = this.data.high.position;
+      const low: number = data.low.position;
+      const high: number = data.high.position;
       const position: number = ((high - low) / 2) + low;
-      const tipText: string = `${this.data.low.value} - ${this.data.high.value}`;
+      const tipText: string = `${data.low.value} - ${data.high.value}`;
       unitedTip.update({
-        orientation: this.data.orientation,
+        orientation: data.orientation,
         position,
         value: tipText,
       });
@@ -92,31 +93,33 @@ class TipManager {
   }
 
   private updateLow() {
-    const tip: Tip | undefined = this.tips.get('low');
+    const { tips, data } = { ...this };
+    const tip: Tip | undefined = tips.get('low');
     if (tip) {
       tip.create();
       tip.update({
-        orientation: this.data.orientation,
-        position: this.data.low.position,
-        value: this.data.low.value.toString(),
+        orientation: data.orientation,
+        position: data.low.position,
+        value: data.low.value.toString(),
       });
     }
   }
 
   private updateHigh() {
+    const { tips, data } = { ...this };
     let tip: Tip | undefined;
-    if (this.data.isRange) {
-      tip = this.tips.get('high');
+    if (data.isRange) {
+      tip = tips.get('high');
       if (tip) {
         tip.create();
         tip.update({
-          orientation: this.data.orientation,
-          position: this.data.high.position,
-          value: this.data.high.value.toString(),
+          orientation: data.orientation,
+          position: data.high.position,
+          value: data.high.value.toString(),
         });
       }
     } else {
-      tip = this.tips.get('high');
+      tip = tips.get('high');
       if (tip) {
         tip.destroy();
       }

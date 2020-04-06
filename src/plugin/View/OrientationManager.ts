@@ -33,10 +33,11 @@ class OrientationManager {
   }
 
   private resetPosition() {
-    this.element.style.top = '';
-    this.element.style.bottom = '';
-    this.element.style.left = '';
-    this.element.style.right = '';
+    const { element } = { ...this };
+    element.style.top = '';
+    element.style.bottom = '';
+    element.style.left = '';
+    element.style.right = '';
   }
 
   private removeOrientation() {

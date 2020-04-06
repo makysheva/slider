@@ -28,12 +28,13 @@ class Fill {
   }
 
   private setPosition(low: number, high: number) {
-    if (this.orientationManager.getCurrentOrientation() === Orientation.Horizontal) {
-      this.fillElement.style.left = `${low}%`;
-      this.fillElement.style.right = `${high}%`;
+    const { fillElement, orientationManager } = { ...this };
+    if (orientationManager.getCurrentOrientation() === Orientation.Horizontal) {
+      fillElement.style.left = `${low}%`;
+      fillElement.style.right = `${high}%`;
     } else {
-      this.fillElement.style.bottom = `${low}%`;
-      this.fillElement.style.top = `${high}%`;
+      fillElement.style.bottom = `${low}%`;
+      fillElement.style.top = `${high}%`;
     }
   }
 

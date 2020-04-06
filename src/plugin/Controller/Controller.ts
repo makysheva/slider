@@ -31,9 +31,10 @@ class Controller {
   }
 
   private updateView() {
-    const low = this.model.getPointPosition(0);
-    const high = this.model.getPointPosition(1);
-    this.view.update({ ...this.model.getState(), low, high });
+    const { model, view } = { ...this };
+    const low = model.getPointPosition(0);
+    const high = model.getPointPosition(1);
+    view.update({ ...model.getState(), low, high });
   }
 
   private onResize = () => {
