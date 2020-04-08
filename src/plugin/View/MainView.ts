@@ -122,46 +122,57 @@ class MainView {
   }
 
   private updateFill() {
-    const { data, fill } = { ...this };
+    const {
+      isRange,
+      high,
+      low,
+      orientation,
+    } = this.data;
     let lowPos: number;
     let highPos: number;
 
-    if (data.isRange) {
-      lowPos = data.low * 100;
-      highPos = (1 - data.high) * 100;
+    if (isRange) {
+      lowPos = low * 100;
+      highPos = (1 - high) * 100;
     } else {
       lowPos = 0;
-      highPos = (1 - data.low) * 100;
+      highPos = (1 - low) * 100;
     }
 
-    fill.update({
+    this.fill.update({
       high: highPos,
       low: lowPos,
-      orientation: data.orientation,
+      orientation,
     });
   }
 
   private updateTip() {
-    const { data, pointers, track } = { ...this };
+    const {
+      low,
+      high,
+      values,
+      orientation,
+      isRange,
+      isTips,
+    } = this.data;
     let lowPosition: number = 0;
     let highPosition: number = 0;
 
-    let pointer: Pointer | undefined = pointers.get('low');
+    let pointer: Pointer | undefined = this.pointers.get('low');
     if (pointer) {
-      lowPosition = track.getAbsolutePosition(data.low);
+      lowPosition = this.track.getAbsolutePosition(low);
     }
 
-    pointer = pointers.get('high');
+    pointer = this.pointers.get('high');
     if (pointer) {
-      highPosition = track.getAbsolutePosition(data.high);
+      highPosition = this.track.getAbsolutePosition(high);
     }
-
     const tipData = new TipData(
-      { value: data.values[0], position: lowPosition },
-      { value: data.values[1], position: highPosition },
-      data.orientation,
-      data.isRange,
-      data.isTips,
+      { value: values[0], position: lowPosition },
+      { value: values[1], position: highPosition },
+      orientation,
+      isRange,
+      isTips,
     );
 
     this.tipManager.update(tipData);

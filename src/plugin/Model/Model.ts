@@ -66,15 +66,15 @@ class Model extends Observer {
   }
 
   public setRange(isRange: boolean) {
-    const { state } = { ...this };
-    if (this.isFalseRange(state.isRange, isRange)) {
-      state.isRange = isRange;
-      if (state.values[0] === state.max) {
-        state.values[0] = state.max - state.step;
+    const { max, step, values } = this.state;
+    if (this.isFalseRange(this.state.isRange, isRange)) {
+      this.state.isRange = isRange;
+      if (values[0] === max) {
+        values[0] = max - step;
       }
-      this.setNewValue(state.values[1], 1);
+      this.setNewValue(values[1], 1);
     }
-    state.isRange = isRange;
+    this.state.isRange = isRange;
     this.emitChangeEvent();
   }
 
@@ -120,24 +120,24 @@ class Model extends Observer {
   }
 
   public getPointPosition(pointer: number = 0): number {
-    const { state } = { ...this };
-    return (state.values[pointer] - state.min) / (state.max - state.min);
+    const { max, min, values } = this.state;
+    return (values[pointer] - min) / (max - min);
   }
 
   public setPosition(position: number) {
-    const { state } = { ...this };
+    const { max, isRange, values } = this.state;
     if (position >= 1) {
-      const pointer = state.isRange ? 1 : 0;
-      state.values[pointer] = state.max;
+      const pointer = isRange ? 1 : 0;
+      values[pointer] = max;
       this.emitChangeEvent();
       return;
     }
 
-    if (state.isRange) {
+    if (isRange) {
       const value = this.getValueByPosition(position);
-      if (value < state.values[0]) {
+      if (value < values[0]) {
         this.setNewValue(value, 0);
-      } else if (value > state.values[1]) {
+      } else if (value > values[1]) {
         this.setNewValue(value, 1);
       } else {
         const pointer = this.closestPointer(value);
@@ -160,8 +160,14 @@ class Model extends Observer {
   }
 
   private recalculateValue() {
-    const { min, step, values } = { ...this.state };
-    if (this.state.isRange) {
+    const {
+      min,
+      step,
+      values,
+      isRange,
+    } = this.state;
+
+    if (isRange) {
       const high = values[1] <= min ? min + step : values[1];
       this.setValue(high, 1);
     }
@@ -169,12 +175,12 @@ class Model extends Observer {
   }
 
   private getValueByPosition(position: number): number {
-    const { max, min } = { ...this.state };
+    const { max, min } = this.state;
     return Math.round((max - min) * position + min);
   }
 
   private roundByStep(value: number): number {
-    const { min, step } = { ...this.state };
+    const { min, step } = this.state;
     return Math.round((value - min) / step) * step + min;
   }
 
@@ -183,7 +189,8 @@ class Model extends Observer {
   }
 
   private isValidStep(step: number) {
-    return (this.state.max - this.state.min) >= step && step > 0;
+    const { max, min } = this.state;
+    return (max - min) >= step && step > 0;
   }
 
   private setNewValue(value: number, pointer: number) {
@@ -204,7 +211,7 @@ class Model extends Observer {
       step,
       values,
       isRange,
-    } = { ...this.state };
+    } = this.state;
     const constraint = { min, max };
 
     if (pointer === 0) {
