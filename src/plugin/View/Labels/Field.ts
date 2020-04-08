@@ -1,6 +1,8 @@
 import Orientation from '../../Types/Orientation';
 import OrientationManager from '../OrientationManager';
 
+type Listener = (key: string) => void;
+
 class Field {
   private parent: HTMLElement;
 
@@ -52,7 +54,5 @@ class Field {
     this.clickHandler.call(this, this.key);
   }
 }
-
-type Listener = (key: string) => void;
 
 export default Field;

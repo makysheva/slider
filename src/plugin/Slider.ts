@@ -3,6 +3,8 @@ import Model from './Model/Model';
 import Orientation from './Types/Orientation';
 import IState from './Model/IState';
 
+type Callback = () => void;
+
 class Slider {
   private model: Model;
 
@@ -88,7 +90,5 @@ class Slider {
     }
   }
 }
-
-type Callback = () => void;
 
 export default Slider;

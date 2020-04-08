@@ -1,5 +1,7 @@
 import Orientation from '../../Types/Orientation';
 
+interface IPoint { value: number, position: number }
+
 class TipData {
   public isRange: boolean;
 
@@ -25,7 +27,5 @@ class TipData {
     this.isVisible = isVisible;
   }
 }
-
-interface IPoint { value: number, position: number }
 
 export default TipData;

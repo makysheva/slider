@@ -1,3 +1,5 @@
+type Listener = (key: string, x: number, y: number) => void;
+
 class Drag {
   private element: HTMLElement;
 
@@ -43,7 +45,5 @@ class Drag {
     return this.isMouseDown && this.onDragFn;
   }
 }
-
-type Listener = (key: string, x: number, y: number) => void;
 
 export default Drag;

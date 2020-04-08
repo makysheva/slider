@@ -8,6 +8,18 @@ import TipData from './Tip/TipData';
 import TipManager from './Tip/TipManager';
 import Track from './Track';
 
+interface IData {
+  max: number,
+  min: number,
+  low: number,
+  high: number,
+  orientation: Orientation,
+  isRange: boolean,
+  isTips: boolean,
+  step: number,
+  values: number[],
+}
+
 class MainView {
   private static isTrack(element: HTMLElement) {
     return element.classList.contains('slider__fill') || element.classList.contains('slider__track');
@@ -188,18 +200,6 @@ class MainView {
       this.pointers.delete(key);
     }
   }
-}
-
-interface IData {
-  max: number,
-  min: number,
-  low: number,
-  high: number,
-  orientation: Orientation,
-  isRange: boolean,
-  isTips: boolean,
-  step: number,
-  values: number[],
 }
 
 export default MainView;
