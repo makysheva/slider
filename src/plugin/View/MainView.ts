@@ -1,3 +1,4 @@
+import { IDragData } from './Drag/Drag';
 import './slider.scss';
 import Controller from '../Controller/Controller';
 import Fill from './Fill';
@@ -85,7 +86,7 @@ class MainView {
     this.createPointer('low');
     this.sliderElement.addEventListener('click', this.onClick);
     this.tipManager = new TipManager(this.sliderElement);
-    this.tipManager.setDragListener(this.onDrag);
+    this.tipManager.add('drag', this.onDrag);
     this.minMax = new MinMax(this.sliderElement, this.controller);
   }
 
@@ -97,9 +98,9 @@ class MainView {
     }
   }
 
-  private onDrag = (key: string, x: number, y: number) => {
-    const position: number = this.track.getRelativePosition(x, y);
-    const id: number = (key === 'low') ? 0 : 1;
+  private onDrag = (data: IDragData) => {
+    const position: number = this.track.getRelativePosition(data.x, data.y);
+    const id: number = (data.key === 'low') ? 0 : 1;
     this.controller.setPointPosition(position, id);
   }
 
@@ -111,7 +112,7 @@ class MainView {
     const pointer = new Pointer(this.track.getElement(), key);
     this.pointers.set(key, pointer);
     pointer.update(0, this.orientation);
-    pointer.setDragListener(this.onDrag);
+    pointer.add('drag', this.onDrag);
   }
 
   private updatePointers() {

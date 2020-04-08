@@ -1,8 +1,10 @@
+import { IDragData } from './../Drag/Drag';
 import Orientation from '../../Types/Orientation';
 import OrientationManager from '../OrientationManager';
 import Drag from '../Drag/Drag';
+import Observer from '../../Observer/Observer';
 
-class Tip {
+class Tip extends Observer {
   private parent: HTMLElement;
 
   private tipElement: HTMLElement;
@@ -14,6 +16,7 @@ class Tip {
   private key: string;
 
   constructor(parent: HTMLElement, key: string) {
+    super();
     this.parent = parent;
     this.key = key;
 
@@ -39,10 +42,6 @@ class Tip {
     }
   }
 
-  public setDragListener(fn: (key: string, x: number, y: number) => void) {
-    this.drag.setDragListener(fn);
-  }
-
   public checkCollision(tip: Tip): boolean {
     const rect = tip.getClientRect();
 
@@ -53,9 +52,14 @@ class Tip {
     this.tipElement = document.createElement('div');
     this.tipElement.classList.add('slider__tip');
     this.drag = new Drag(this.tipElement, this.key);
+    this.drag.add('drag', this.onDrag);
     this.orientationManager = new OrientationManager(this.tipElement);
     this.orientationManager.addOrientationClass(Orientation.Horizontal, 'slider__tip_horizontal');
     this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__tip_vertical');
+  }
+
+  private onDrag = (data: IDragData) => {
+    this.emit('drag', data);
   }
 
   private getClientRect(): DOMRect {

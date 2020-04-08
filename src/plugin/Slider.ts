@@ -2,15 +2,13 @@ import Controller from './Controller/Controller';
 import Model from './Model/Model';
 import Orientation from './Types/Orientation';
 import IState from './Model/IState';
+import Observer from './Observer/Observer';
 
-type Callback = () => void;
-
-class Slider {
+class Slider extends Observer {
   private model: Model;
 
-  private changeCallback: Callback;
-
   constructor(container: HTMLElement, props: IState) {
+    super();
     this.init(container, props);
   }
 
@@ -74,10 +72,6 @@ class Slider {
     return this.model.getOrientation();
   }
 
-  public addChangeListener(fn: Callback) {
-    this.changeCallback = fn;
-  }
-
   private init(container: HTMLElement, props: IState) {
     this.model = new Model(props);
     new Controller(container, this.model);
@@ -85,9 +79,7 @@ class Slider {
   }
 
   private onChangeModel = () => {
-    if (this.changeCallback) {
-      this.changeCallback.call(this);
-    }
+    this.emit('change');
   }
 }
 

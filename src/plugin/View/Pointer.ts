@@ -1,8 +1,9 @@
 import Orientation from '../Types/Orientation';
 import OrientationManager from './OrientationManager';
-import Drag from './Drag/Drag';
+import Drag, { IDragData } from './Drag/Drag';
+import Observer from '../Observer/Observer';
 
-class Pointer {
+class Pointer extends Observer {
   private parent: HTMLElement;
 
   private pointerElement: HTMLElement;
@@ -12,6 +13,7 @@ class Pointer {
   private drag: Drag;
 
   constructor(parent: HTMLElement, key: string) {
+    super();
     this.parent = parent;
 
     this.init(key);
@@ -27,10 +29,6 @@ class Pointer {
     }
   }
 
-  public setDragListener(fn: (key: string, x: number, y: number) => void) {
-    this.drag.setDragListener(fn);
-  }
-
   public destroy() {
     this.parent.removeChild(this.pointerElement);
   }
@@ -40,7 +38,12 @@ class Pointer {
     this.pointerElement.classList.add('slider__pointer');
     this.parent.appendChild(this.pointerElement);
     this.drag = new Drag(this.pointerElement, key);
+    this.drag.add('drag', this.onDrag);
     this.initOrientationManager();
+  }
+
+  private onDrag = (data: IDragData) => {
+    this.emit('drag', data);
   }
 
   private getHalf(): number {

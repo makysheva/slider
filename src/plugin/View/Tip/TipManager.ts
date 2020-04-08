@@ -1,14 +1,19 @@
+import { IDragData } from './../Drag/Drag';
+import Observer from '../../Observer/Observer';
 import Tip from './Tip';
 import TipData from './TipData';
 
-class TipManager {
+class TipManager extends Observer {
   private parent: HTMLElement;
 
   private tips: Map<string, Tip> = new Map<string, Tip>();
 
   private data: TipData;
 
+  private dragTip: Tip;
+
   constructor(parent: HTMLElement) {
+    super();
     this.parent = parent;
 
     this.init();
@@ -33,16 +38,20 @@ class TipManager {
     }
   }
 
-  public setDragListener(fn: (key: string, x: number, y: number) => void) {
-    this.tips.forEach((tip: Tip) => {
-      tip.setDragListener(fn);
-    });
+  private init() {
+    this.tips.set('low', this.createTip('low'));
+    this.tips.set('high', this.createTip('high'));
+    this.tips.set('united', this.createTip('united'));
   }
 
-  private init() {
-    this.tips.set('low', new Tip(this.parent, 'low'));
-    this.tips.set('high', new Tip(this.parent, 'high'));
-    this.tips.set('united', new Tip(this.parent, 'united'));
+  private createTip(key: string): Tip {
+    const tip = new Tip(this.parent, key);
+    tip.add('drag', this.onDrag);
+    return tip;
+  }
+
+  private onDrag = (data: IDragData) => {
+    this.emit('drag', data);
   }
 
   private updateRangeTips() {

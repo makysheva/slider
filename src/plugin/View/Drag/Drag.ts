@@ -1,23 +1,33 @@
-type Listener = (key: string, x: number, y: number) => void;
+import Observer from '../../Observer/Observer';
 
-class Drag {
+export interface IDragData { key: string, x: number, y: number }
+export type DragListener = (data: IDragData) => void;
+
+class Drag extends Observer {
   private element: HTMLElement;
-
-  private key: string;
-
-  private onDragFn: Listener;
 
   private isMouseDown: boolean = false;
 
+  private data = { key: '', x: 0, y: 0 };
+
   constructor(element: HTMLElement, key: string) {
+    super();
     this.element = element;
-    this.key = key;
+    this.data.key = key;
 
     this.init();
   }
 
-  public setDragListener(onDragFn: Listener) {
-    this.onDragFn = onDragFn;
+  public getPosition(): { x: number, y: number } {
+    return this.getData();
+  }
+
+  public getDragData(): IDragData {
+    return this.data;
+  }
+
+  protected getData() {
+    return this.data;
   }
 
   private init() {
@@ -36,13 +46,11 @@ class Drag {
   }
 
   private onMouseMove = (e: MouseEvent) => {
-    if (this.isDraggable()) {
-      this.onDragFn.call(this, this.key, e.clientX, e.clientY);
+    if (this.isMouseDown) {
+      this.data.x = e.clientX;
+      this.data.y = e.clientY;
+      this.emit('drag', this.data);
     }
-  }
-
-  private isDraggable(): boolean | Listener {
-    return this.isMouseDown && this.onDragFn;
   }
 }
 

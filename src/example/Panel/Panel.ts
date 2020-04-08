@@ -61,7 +61,7 @@ class Panel {
     this.initInputs(inputs);
 
     this.slider = new Slider(sliderContainer, props);
-    this.slider.addChangeListener(this.update);
+    this.slider.add('change', this.update);
   }
 
   private initInputs(

@@ -1,8 +1,8 @@
 class Observer {
-  private events: Map<string, Array<() => void>> =
-    new Map<string, Array<() => void>>();
+  private events: Map<string, Array<(data?: any) => void>> =
+    new Map<string, Array<(data?: any) => void>>();
 
-  public add(type: string, fn: () => void): Observer {
+  public add(type: string, fn: (data?: any) => void): Observer {
     if (!this.events.has(type)) {
       this.events.set(type, []);
     }
@@ -14,12 +14,12 @@ class Observer {
     return this;
   }
 
-  public emit(type: string) {
+  public emit(type: string, data?: any) {
     if (this.events.has(type)) {
       const event = this.events.get(type);
       // eslint-disable-next-line no-unused-expressions
       event?.forEach((fn) => {
-        fn();
+        fn(data);
       });
     }
   }
