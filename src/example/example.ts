@@ -5,7 +5,7 @@ import Orientation from '../plugin/Types/Orientation';
 import Panel from './Panel/Panel';
 import IState from '../plugin/Model/IState';
 
-const container = document.querySelector('.example');
+const container = document.querySelector('.js-example');
 if (container) {
   const props: IState = {
     isRange: false,
