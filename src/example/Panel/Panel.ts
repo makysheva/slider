@@ -34,10 +34,9 @@ class Panel {
   }
 
   private init(props: IState) {
-    const { parent } = { ...this };
     const mainElement: HTMLElement = document.createElement('div');
     mainElement.classList.add('panel');
-    parent.appendChild(mainElement);
+    this.parent.appendChild(mainElement);
 
     const panelElement = document.createElement('div');
     this.panelElement = panelElement;
@@ -92,8 +91,7 @@ class Panel {
     const labelElement: HTMLElement = document.createElement('label');
     labelElement.textContent = label;
     labelElement.classList.add('panel__label');
-    const { panelElement } = { ...this };
-    panelElement.appendChild(labelElement);
+    this.panelElement.appendChild(labelElement);
 
     const input: HTMLInputElement = document.createElement('input');
     input.classList.add('panel__input');
