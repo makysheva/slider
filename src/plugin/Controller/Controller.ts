@@ -37,7 +37,12 @@ class Controller {
   }
 
   private handleWindowResize = () => {
-    this.updateView();
+    const isSliderExist = this.view && document.contains(this.view.getSliderElement());
+    if (isSliderExist) {
+      this.updateView();
+    } else {
+      window.removeEventListener('resize', this.handleWindowResize);
+    }
   }
 }
 

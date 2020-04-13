@@ -71,6 +71,10 @@ class MainView {
     });
   }
 
+  public getSliderElement(): HTMLElement {
+    return this.sliderElement;
+  }
+
   private init() {
     this.sliderElement = document.createElement('div');
     this.sliderElement.classList.add('slider');

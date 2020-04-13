@@ -30,16 +30,18 @@ class Drag extends Observer {
 
   private init() {
     this.element.addEventListener('mousedown', this.handleSliderMouseDown);
-    document.addEventListener('mouseup', this.handleDocumentMouseUp);
-    document.addEventListener('dragend', this.handleDocumentMouseUp);
   }
 
   private handleSliderMouseDown = () => {
     document.addEventListener('mousemove', this.handleDocumentMouseMove);
+    document.addEventListener('mouseup', this.handleDocumentMouseUp);
+    document.addEventListener('dragend', this.handleDocumentMouseUp);
   }
 
   private handleDocumentMouseUp = () => {
     document.removeEventListener('mousemove', this.handleDocumentMouseMove);
+    document.removeEventListener('mouseup', this.handleDocumentMouseUp);
+    document.removeEventListener('dragend', this.handleDocumentMouseUp);
   }
 
   private handleDocumentMouseMove = (e: MouseEvent) => {
