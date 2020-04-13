@@ -23,7 +23,7 @@ class Controller {
     this.view = new View(container, this);
     this.updateView();
     this.model.add('change', this.onChangeModel);
-    window.addEventListener('resize', this.onResize);
+    window.addEventListener('resize', this.handleWindowResize);
   }
 
   private onChangeModel = () => {
@@ -36,7 +36,7 @@ class Controller {
     this.view.update({ ...this.model.getState(), low, high });
   }
 
-  private onResize = () => {
+  private handleWindowResize = () => {
     this.updateView();
   }
 }
