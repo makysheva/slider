@@ -1,20 +1,18 @@
 import Orientation from '../../Types/Orientation';
 import OrientationManager from '../OrientationManager';
+import Observer from '../../Observer/Observer';
 
-type Listener = (key: string) => void;
-
-class Field {
+class Field extends Observer {
   private parent: HTMLElement;
 
   private fieldElement: HTMLElement;
 
   private key: string;
 
-  private clickHandler: Listener;
-
   private orientationManager: OrientationManager;
 
   constructor(parent: HTMLElement, key: string) {
+    super();
     this.parent = parent;
     this.key = key;
 
@@ -36,10 +34,6 @@ class Field {
     }
   }
 
-  public addClickListener(clickHandler: Listener) {
-    this.clickHandler = clickHandler;
-  }
-
   private init() {
     this.fieldElement = document.createElement('div');
     this.fieldElement.classList.add('slider__range');
@@ -47,11 +41,11 @@ class Field {
     this.orientationManager = new OrientationManager(this.fieldElement);
     this.orientationManager.addOrientationClass(Orientation.Horizontal, 'slider__range_horizontal');
     this.orientationManager.addOrientationClass(Orientation.Vertical, 'slider__range_vertical');
-    this.fieldElement.addEventListener('click', this.onClick);
+    this.fieldElement.addEventListener('click', this.handleElementClick);
   }
 
-  private onClick = () => {
-    this.clickHandler.call(this, this.key);
+  private handleElementClick = () => {
+    this.emit('click', this.key);
   }
 }
 
