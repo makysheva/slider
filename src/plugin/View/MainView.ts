@@ -84,13 +84,13 @@ class MainView {
       orientation: this.orientation,
     });
     this.createPointer('low');
-    this.sliderElement.addEventListener('click', this.onClick);
+    this.sliderElement.addEventListener('click', this.handleElementClick);
     this.tipManager = new TipManager(this.sliderElement);
     this.tipManager.add('drag', this.onDrag);
     this.minMax = new MinMax(this.sliderElement, this.controller);
   }
 
-  private onClick = (event: MouseEvent) => {
+  private handleElementClick = (event: MouseEvent) => {
     const target: HTMLElement = (event.target as HTMLElement);
     if (MainView.isTrack(target)) {
       const position: number = this.track.getRelativePosition(event.clientX, event.clientY);
