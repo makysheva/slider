@@ -48,14 +48,14 @@ class Panel {
     mainElement.appendChild(sliderContainer);
 
     const inputs = [
-      { key: 'min', text: 'Min', fn: this.onChangeMin, type: 'number' },
-      { key: 'max', text: 'Max', fn: this.onChangeMax, type: 'number' },
-      { key: 'step', text: 'Step', fn: this.onChangeStep, type: 'number' },
-      { key: 'value[0]', text: 'Low', fn: this.onChangeLow, type: 'number' },
-      { key: 'value[1]', text: 'High', fn: this.onChangeHigh, type: 'number' },
-      { key: 'isRange', text: 'Range', fn: this.onChangeRange, type: 'checkbox' },
-      { key: 'orientation', text: 'Vertical', fn: this.onChangeVertical, type: 'checkbox' },
-      { key: 'isTips', text: 'Tips', fn: this.onChangeTips, type: 'checkbox' },
+      { key: 'min', text: 'Min', fn: this.handleMinInputChange, type: 'number' },
+      { key: 'max', text: 'Max', fn: this.handleMaxInputChange, type: 'number' },
+      { key: 'step', text: 'Step', fn: this.handleStepInputChange, type: 'number' },
+      { key: 'value[0]', text: 'Low', fn: this.handleLowInputChange, type: 'number' },
+      { key: 'value[1]', text: 'High', fn: this.handleHighInputChange, type: 'number' },
+      { key: 'isRange', text: 'Range', fn: this.handleRangeCheckboxChange, type: 'checkbox' },
+      { key: 'orientation', text: 'Vertical', fn: this.handleVerticalCheckboxChange, type: 'checkbox' },
+      { key: 'isTips', text: 'Tips', fn: this.handleTipsCheckboxChange, type: 'checkbox' },
     ];
 
     this.initInputs(inputs);
@@ -102,43 +102,43 @@ class Panel {
     return input;
   }
 
-  private onChangeMin = () => {
+  private handleMinInputChange = () => {
     const value = this.inputs.get('min')?.value;
     this.slider.setMin(Number(value));
   }
 
-  private onChangeMax = () => {
+  private handleMaxInputChange = () => {
     const value = this.inputs.get('max')?.value;
     this.slider.setMax(Number(value));
   }
 
-  private onChangeLow = () => {
+  private handleLowInputChange = () => {
     const value = this.inputs.get('value[0]')?.value;
     this.slider.setValue(Number(value), 0);
   }
 
-  private onChangeHigh = () => {
+  private handleHighInputChange = () => {
     const value = this.inputs.get('value[1]')?.value;
     this.slider.setValue(Number(value), 1);
   }
 
-  private onChangeRange = () => {
+  private handleRangeCheckboxChange = () => {
     const value = this.inputs.get('isRange');
     this.slider.setRange(value?.checked || false);
   }
 
-  private onChangeStep = () => {
+  private handleStepInputChange = () => {
     const value = this.inputs.get('step')?.value;
     this.slider.setStep(Number(value));
   }
 
-  private onChangeVertical = () => {
+  private handleVerticalCheckboxChange = () => {
     const checked = this.inputs.get('orientation')?.checked;
     const orientation = checked ? Orientation.Vertical : Orientation.Horizontal;
     this.slider.setOrientation(orientation);
   }
 
-  private onChangeTips = () => {
+  private handleTipsCheckboxChange = () => {
     const checked = this.inputs.get('isTips')?.checked || false;
     this.slider.setTipVisibility(checked);
   }
