@@ -6,8 +6,6 @@ export type DragListener = (data: IDragData) => void;
 class Drag extends Observer {
   private element: HTMLElement;
 
-  private isMouseDown: boolean = false;
-
   private data = { key: '', x: 0, y: 0 };
 
   constructor(element: HTMLElement, key: string) {
@@ -33,24 +31,21 @@ class Drag extends Observer {
   private init() {
     this.element.addEventListener('mousedown', this.onMouseDown);
     document.addEventListener('mouseup', this.onMouseUp);
-    document.addEventListener('mousemove', this.onMouseMove);
     document.addEventListener('dragend', this.onMouseUp);
   }
 
   private onMouseDown = () => {
-    this.isMouseDown = true;
+    document.addEventListener('mousemove', this.onMouseMove);
   }
 
   private onMouseUp = () => {
-    this.isMouseDown = false;
+    document.removeEventListener('mousemove', this.onMouseMove);
   }
 
   private onMouseMove = (e: MouseEvent) => {
-    if (this.isMouseDown) {
-      this.data.x = e.clientX;
-      this.data.y = e.clientY;
-      this.emit('drag', this.data);
-    }
+    this.data.x = e.clientX;
+    this.data.y = e.clientY;
+    this.emit('drag', this.data);
   }
 }
 
