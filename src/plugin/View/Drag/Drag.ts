@@ -16,18 +16,6 @@ class Drag extends Observer {
     this.init();
   }
 
-  public getPosition(): { x: number, y: number } {
-    return this.getData();
-  }
-
-  public getDragData(): IDragData {
-    return this.data;
-  }
-
-  protected getData() {
-    return this.data;
-  }
-
   private init() {
     this.element.addEventListener('mousedown', this.handleSliderMouseDown);
   }
