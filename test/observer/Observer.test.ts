@@ -5,10 +5,13 @@ describe('Observer class', () => {
 
   beforeEach(() => { observer = new Observer(); });
 
-  describe('Add method', () => {
+  describe('Add/emit methods', () => {
     test('should set function and event name', () => {
-      expect(true).toBe(true);
+      const mock = jest.fn();
+      observer.add('test', mock);
+      observer.add('test', mock);
+      observer.emit('test');
+      expect(mock.mock.calls.length).toBe(2);
     });
   });
-  
 });
