@@ -66,5 +66,12 @@ describe('Validator class tests', () => {
       const values = Validator.validateValues(state);
       expect(values[1]).toBe(100);
     });
+
+    test('should set low value to min if this value out of range min|max', () => {
+      state.isRange = false;
+      state.values[0] = 5;
+      const values = Validator.validateValues(state);
+      expect(values[0]).toBe(5);
+    });
   });
 });

@@ -1,5 +1,6 @@
 import Slider from '../../src/plugin/Model/Model';
 import Orientation from '../../src/plugin/types/Orientation';
+import Model from '../../src/plugin/Model/Model';
 
 describe('Slider class', () => {
   let slider: Slider;
@@ -17,6 +18,23 @@ describe('Slider class', () => {
 
     test('should return default high value in range slider', () => {
       expect(slider.getValue(1)).toBe(100);
+    });
+  });
+
+  describe('getState method', () => {
+    test('should return current state', () => {
+      const state = {
+        isRange: true,
+        isTips: true,
+        max: 100,
+        min: 20,
+        orientation: Orientation.Horizontal,
+        step: 1,
+        values: [40, 50],
+      };
+      const model = new Model(state);
+
+      expect(model.getState()).toEqual(state);
     });
   });
 
@@ -93,6 +111,11 @@ describe('Slider class', () => {
       slider.setPointPosition(0.4, 1);
       expect(slider.getValue(1)).toBe(51);
     });
+
+    test('should set max if value equal or greater then 1', () => {
+      slider.setPointPosition(1.1);
+      expect(slider.getPointPosition()).toBe(1);
+    });
   });
 
   describe('SetPosition method', () => {
@@ -162,6 +185,13 @@ describe('Slider class', () => {
       slider.setRange(true);
       expect(slider.getValue()).toBe(199);
     });
+
+    test('if low value equal max, should set it to max-step', () => {
+      slider.setRange(false);
+      slider.setValue(100);
+      slider.setRange(true);
+      expect(slider.getValue(0)).toBe(99);
+    });
   });
 
   describe('Get/set step methods', () => {
@@ -182,6 +212,11 @@ describe('Slider class', () => {
       slider.setStep(5);
       expect(slider.getValue(1)).toBe(45);
     });
+
+    test('should not set step if not valid', () => {
+      slider.setStep(200);
+      expect(slider.getStep()).toBe(1);
+    });
   });
 
   describe('Get/Set min value', () => {
@@ -201,10 +236,20 @@ describe('Slider class', () => {
       slider.setMin(35);
       expect(slider.getMin()).toBe(35);
     });
+
+    test('should not set min if passed value equal or greater then state.max', () => {
+      slider.setMin(120);
+      expect(slider.getMin()).toBe(0);
+    });
   });
 
   describe('Get/Set max value', () => {
     test('getMax method should return current max value', () => {
+      expect(slider.getMax()).toBe(100);
+    });
+
+    test('should not set max value if passed max equal or less than state.min', () => {
+      slider.setMax(0);
       expect(slider.getMax()).toBe(100);
     });
   });
