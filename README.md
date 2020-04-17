@@ -9,7 +9,6 @@ JQuery плагин слайдер.
 - [Использование](#использование)
 - [Тесты](#тесты)
 - [UML диаграмма](#диаграмма)
-  (https://github.com/vovnet/slider/blob/master/src/example/img/slider.png)
 
 ### Установка
 Установка проекта:
