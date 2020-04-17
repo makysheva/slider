@@ -10,8 +10,6 @@ class TipManager extends Observer {
 
   private data: TipData;
 
-  private dragTip: Tip;
-
   constructor(parent: HTMLElement) {
     super();
     this.parent = parent;
