@@ -8,7 +8,8 @@ JQuery плагин слайдер.
 - [Установка](#установка)
 - [Использование](#использование)
 - [Тесты](#тесты)
-- [UML диаграмма](https://github.com/vovnet/slider/blob/master/src/example/img/slider.png)
+- [UML диаграмма](#диаграмма)
+  (https://github.com/vovnet/slider/blob/master/src/example/img/slider.png)
 
 ### Установка
 Установка проекта:
@@ -79,3 +80,6 @@ slider.addEventListener('changeValue', () => {
 ### Тесты
 Тесты запускаются командой `npm test`
 Покрытие `npm run coverage`
+
+### Диаграмма
+![](src/example/img/uml.jpg)
