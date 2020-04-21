@@ -1,4 +1,4 @@
-import Observer from '../../src/plugin/observer/Observer';
+import Observer from '../../src/plugin/Observer/Observer';
 
 describe('Observer class', () => {
   let observer: Observer;
