@@ -38,8 +38,10 @@ describe('Pointer class', () => {
       const callback = jest.fn();
       pointer.add('drag', callback);
       const element = parent.firstElementChild;
-      element.dispatchEvent(mouseDownEvent);
-      element.dispatchEvent(mouseDragEvent);
+      if (element) {
+        element.dispatchEvent(mouseDownEvent);
+        element.dispatchEvent(mouseDragEvent);
+      }
       expect(callback).toHaveBeenCalled();
     });
   });

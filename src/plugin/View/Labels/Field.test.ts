@@ -25,7 +25,9 @@ describe('Field class', () => {
       const handelClick = jest.fn();
       field.add('click', handelClick);
       const clickEvent = new MouseEvent('click');
-      parent.firstElementChild.dispatchEvent(clickEvent);
+      if (parent.firstElementChild) {
+        parent.firstElementChild.dispatchEvent(clickEvent);
+      }
       expect(handelClick).toHaveBeenCalled();
     });
   });
