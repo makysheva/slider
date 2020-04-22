@@ -1,4 +1,4 @@
-import Orientation from '../types/Orientation';
+import Orientation from '../Types/Orientation';
 import Model from './Model';
 
 describe('Model class', () => {
