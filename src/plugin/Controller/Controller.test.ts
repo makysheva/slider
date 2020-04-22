@@ -1,5 +1,5 @@
-import Controller from '../../src/plugin/Controller/Controller';
-import Model from '../../src/plugin/Model/Model';
+import Model from '../Model/Model';
+import Controller from './Controller';
 
 let element: HTMLElement;
 let model: Model;

@@ -1,5 +1,5 @@
-import Track from '../../src/plugin/View/Track';
-import Orientation from '../../src/plugin/Types/Orientation';
+import Track from './Track';
+import Orientation from '../Types/Orientation';
 
 let track: Track;
 let parent: HTMLElement;

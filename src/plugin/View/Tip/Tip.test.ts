@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import Tip from '../../../src/plugin/View/Tip/Tip';
+import Tip from './Tip';
 
 let parent: HTMLElement;
 let tip: Tip;

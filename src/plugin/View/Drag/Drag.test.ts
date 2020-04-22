@@ -1,4 +1,4 @@
-import Drag from '../../../src/plugin/View/Drag/Drag';
+import Drag from './Drag';
 
 describe('Drag class', () => {
   let element: HTMLElement;

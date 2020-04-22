@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
-import Fill from '../../src/plugin/View/Fill';
-import Orientation from '../../src/plugin/Types/Orientation';
+import Fill from './Fill';
+import Orientation from '../Types/Orientation';
 
 describe('Fill class', () => {
   let div: HTMLElement;

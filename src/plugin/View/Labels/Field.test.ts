@@ -1,5 +1,5 @@
-import Field from '../../../src/plugin/View/Labels/Field';
-import Orientation from '../../../src/plugin/Types/Orientation';
+import Field from './Field';
+import Orientation from '../../Types/Orientation';
 
 let parent: HTMLElement;
 let field: Field;

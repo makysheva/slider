@@ -1,6 +1,6 @@
-import TipManager from '../../../src/plugin/View/Tip/TipManager';
-import TipData from '../../../src/plugin/View/Tip/TipData';
-import Orientation from '../../../src/plugin/Types/Orientation';
+import TipManager from './TipManager';
+import TipData from './TipData';
+import Orientation from '../../Types/Orientation';
 
 let manager: TipManager;
 let parent: HTMLElement;

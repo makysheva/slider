@@ -1,5 +1,5 @@
-import Controller from '../../../src/plugin/Controller/Controller';
-import Model from '../../../src/plugin/Model/Model';
+import Controller from '../../Controller/Controller';
+import Model from '../../Model/Model';
 
 describe('MinMax class', () => {
   describe('Click event', () => {

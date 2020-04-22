@@ -1,6 +1,6 @@
-import Validator from '../../src/plugin/Model/Validator';
-import IState from '../../src/plugin/Model/IState';
-import Orientation from '../../src/plugin/Types/Orientation';
+import Validator from './Validator';
+import IState from './IState';
+import Orientation from '../Types/Orientation';
 
 describe('Validator class tests', () => {
   describe('validate method', () => {

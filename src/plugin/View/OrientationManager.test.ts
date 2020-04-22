@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
-import OrientationManager from '../../src/plugin/View/OrientationManager';
-import Orientation from '../../src/plugin/Types/Orientation';
+import OrientationManager from './OrientationManager';
+import Orientation from '../Types/Orientation';
 
 describe('OrientationManager class', () => {
   let element: HTMLElement;

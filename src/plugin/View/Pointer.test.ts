@@ -1,5 +1,5 @@
-import Pointer from '../../src/plugin/View/Pointer';
-import Orientation from '../../src/plugin/Types/Orientation';
+import Pointer from './Pointer';
+import Orientation from '../Types/Orientation';
 
 describe('Pointer class', () => {
   let pointer: Pointer;
