@@ -46,6 +46,10 @@ class Validator {
     return values;
   }
 
+  public static isFalseRange(newRange: boolean, oldRange: boolean): boolean {
+    return !newRange && oldRange;
+  }
+
   private static default: IState = {
     isRange: false,
     isTips: true,

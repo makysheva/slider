@@ -67,7 +67,7 @@ class Model extends Observer {
 
   public setRange(isRange: boolean) {
     const { max, step, values } = this.state;
-    if (this.isFalseRange(this.state.isRange, isRange)) {
+    if (Validator.isFalseRange(this.state.isRange, isRange)) {
       this.state.isRange = isRange;
       if (values[0] === max) {
         values[0] = max - step;
@@ -233,11 +233,6 @@ class Model extends Observer {
     }
 
     return 1;
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  private isFalseRange(newRange: boolean, oldRange: boolean): boolean {
-    return !newRange && oldRange;
   }
 }
 
