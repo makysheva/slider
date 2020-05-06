@@ -91,11 +91,9 @@ class MainView {
   }
 
   private handleSliderClick = (event: MouseEvent) => {
-    const isTrack = (element: HTMLElement) => element.classList.contains('slider__fill')
-        || element.classList.contains('slider__track');
-
     const target: HTMLElement = (event.target as HTMLElement);
-    if (isTrack(target)) {
+    if (target.classList.contains('slider__fill')
+      || target.classList.contains('slider__track')) {
       const position: number = this.track.getRelativePosition(event.clientX, event.clientY);
       this.controller.setPosition(position);
     }
