@@ -22,10 +22,6 @@ interface IData {
 }
 
 class MainView {
-  private static isTrack(element: HTMLElement) {
-    return element.classList.contains('slider__fill') || element.classList.contains('slider__track');
-  }
-
   private controller: Controller;
 
   private container: HTMLElement;
@@ -95,8 +91,11 @@ class MainView {
   }
 
   private handleSliderClick = (event: MouseEvent) => {
+    const isTrack = (element: HTMLElement) => element.classList.contains('slider__fill')
+        || element.classList.contains('slider__track');
+
     const target: HTMLElement = (event.target as HTMLElement);
-    if (MainView.isTrack(target)) {
+    if (isTrack(target)) {
       const position: number = this.track.getRelativePosition(event.clientX, event.clientY);
       this.controller.setPosition(position);
     }
