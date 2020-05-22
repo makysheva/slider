@@ -2,7 +2,7 @@ import { IDragData } from './Drag/Drag';
 import './slider.scss';
 import Controller from '../Controller/Controller';
 import Fill from './Fill';
-import MinMax from './Labels/MinMax';
+import Scale from './Scale/Scale';
 import Orientation from '../Types/Orientation';
 import Pointer from './Pointer';
 import TipData from './Tip/TipData';
@@ -40,7 +40,7 @@ class MainView {
 
   private data: IData;
 
-  private minMax: MinMax;
+  private scale: Scale;
 
   constructor(container: HTMLElement, controller: Controller) {
     this.orientation = Orientation.Vertical;
@@ -58,7 +58,7 @@ class MainView {
     this.updateTip();
     const minPos = this.track.getAbsolutePosition(0);
     const maxPos = this.track.getAbsolutePosition(1);
-    this.minMax.update({
+    this.scale.update({
       max: this.data.max.toString(),
       maxPos,
       min: this.data.min.toString(),
@@ -87,7 +87,7 @@ class MainView {
     this.sliderElement.addEventListener('click', this.handleSliderClick);
     this.tipManager = new TipManager(this.sliderElement);
     this.tipManager.add('drag', this.onDrag);
-    this.minMax = new MinMax(this.sliderElement, this.controller);
+    this.scale = new Scale(this.sliderElement, this.controller);
     window.addEventListener('resize', this.handleWindowResize);
   }
 

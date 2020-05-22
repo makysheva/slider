@@ -1,8 +1,8 @@
-import Orientation from '../../Types/Orientation';
-import OrientationManager from '../OrientationManager';
-import Observer from '../../Observer/Observer';
+import Orientation from '../../../Types/Orientation';
+import OrientationManager from '../../OrientationManager';
+import Observer from '../../../Observer/Observer';
 
-class Field extends Observer {
+class ScaleItem extends Observer {
   private parent: HTMLElement;
 
   private fieldElement: HTMLElement;
@@ -49,4 +49,4 @@ class Field extends Observer {
   }
 }
 
-export default Field;
+export default ScaleItem;

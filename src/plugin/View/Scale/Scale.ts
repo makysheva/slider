@@ -1,17 +1,17 @@
 import Controller from '../../Controller/Controller';
-import Field from './Field';
+import ScaleItem from './ScaleItem/ScaleItem';
 import Orientation from '../../Types/Orientation';
 
-class MinMax {
+class Scale {
   private parent: HTMLElement;
 
   private controller: Controller;
 
   private minMaxElement: HTMLElement
 
-  private min: Field;
+  private min: ScaleItem;
 
-  private max: Field;
+  private max: ScaleItem;
 
   constructor(parent: HTMLElement, controller: Controller) {
     this.parent = parent;
@@ -42,9 +42,9 @@ class MinMax {
     this.minMaxElement = document.createElement('div');
     this.minMaxElement.classList.add('slider__min-max');
     this.parent.appendChild(this.minMaxElement);
-    this.min = new Field(this.minMaxElement, 'min');
+    this.min = new ScaleItem(this.minMaxElement, 'min');
     this.min.add('click', this.onClick);
-    this.max = new Field(this.minMaxElement, 'max');
+    this.max = new ScaleItem(this.minMaxElement, 'max');
     this.max.add('click', this.onClick);
   }
 
@@ -57,4 +57,4 @@ class MinMax {
   }
 }
 
-export default MinMax;
+export default Scale;

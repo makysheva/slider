@@ -1,15 +1,15 @@
-import Field from './Field';
-import Orientation from '../../Types/Orientation';
+import ScaleItem from './ScaleItem';
+import Orientation from '../../../Types/Orientation';
 
 let parent: HTMLElement;
-let field: Field;
+let field: ScaleItem;
 
 describe('Field class', () => {
   beforeEach(() => {
     document.body.innerHTML = '';
     parent = document.createElement('div');
     document.body.appendChild(parent);
-    field = new Field(parent, 'field');
+    field = new ScaleItem(parent, 'field');
   });
 
   describe('Update method', () => {
