@@ -88,6 +88,16 @@ class MainView {
     this.tipManager = new TipManager(this.sliderElement);
     this.tipManager.add('drag', this.onDrag);
     this.minMax = new MinMax(this.sliderElement, this.controller);
+    window.addEventListener('resize', this.handleWindowResize);
+  }
+
+  private handleWindowResize = () => {
+    const isSliderExist = document.contains(this.sliderElement);
+    if (isSliderExist) {
+      this.update(this.data);
+    } else {
+      window.removeEventListener('resize', this.handleWindowResize);
+    }
   }
 
   private handleSliderClick = (event: MouseEvent) => {

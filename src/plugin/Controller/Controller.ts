@@ -23,7 +23,6 @@ class Controller {
     this.view = new View(container, this);
     this.updateView();
     this.model.add('change', this.onChangeModel);
-    window.addEventListener('resize', this.handleWindowResize);
   }
 
   private onChangeModel = () => {
@@ -34,15 +33,6 @@ class Controller {
     const low = this.model.getPointPosition(0);
     const high = this.model.getPointPosition(1);
     this.view.update({ ...this.model.getState(), low, high });
-  }
-
-  private handleWindowResize = () => {
-    const isSliderExist = this.view && document.contains(this.view.getSliderElement());
-    if (isSliderExist) {
-      this.updateView();
-    } else {
-      window.removeEventListener('resize', this.handleWindowResize);
-    }
   }
 }
 
