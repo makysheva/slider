@@ -1,11 +1,11 @@
-import Controller from '../../Controller/Controller';
+import MainView from '../MainView';
 import ScaleItem from './ScaleItem/ScaleItem';
 import Orientation from '../../Types/Orientation';
 
 class Scale {
   private parent: HTMLElement;
 
-  private controller: Controller;
+  private view: MainView;
 
   private minMaxElement: HTMLElement
 
@@ -13,9 +13,9 @@ class Scale {
 
   private max: ScaleItem;
 
-  constructor(parent: HTMLElement, controller: Controller) {
+  constructor(parent: HTMLElement, view: MainView) {
     this.parent = parent;
-    this.controller = controller;
+    this.view = view;
 
     this.init();
   }
@@ -50,9 +50,9 @@ class Scale {
 
   private onClick = (key: string) => {
     if (key === 'min') {
-      this.controller.setPosition(0);
+      this.view.emit('changePosition', 0);
     } else {
-      this.controller.setPosition(1);
+      this.view.emit('changePosition', 1);
     }
   }
 }

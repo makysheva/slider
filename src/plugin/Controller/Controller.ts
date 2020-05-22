@@ -1,6 +1,8 @@
 import Model from '../Model/Model';
 import View from '../View/MainView';
 
+interface IPointPosition { position: number, id: number }
+
 class Controller {
   private model: Model;
 
@@ -11,18 +13,20 @@ class Controller {
     this.init(container);
   }
 
-  public setPosition(pos: number) {
-    this.model.setPosition(pos);
-  }
-
-  public setPointPosition(pos: number, pointer: number) {
-    this.model.setPointPosition(pos, pointer);
-  }
-
   private init(container: HTMLElement) {
     this.view = new View(container, this);
+    this.view.add('changePosition', this.onChangeViewPosition);
+    this.view.add('changePointPosition', this.onChangeViewPointPosition);
     this.updateView();
     this.model.add('change', this.onChangeModel);
+  }
+
+  private onChangeViewPosition = (position: number) => {
+    this.model.setPosition(position);
+  }
+
+  private onChangeViewPointPosition = (point: IPointPosition) => {
+    this.model.setPointPosition(point.position, point.id);
   }
 
   private onChangeModel = () => {

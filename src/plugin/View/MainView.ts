@@ -8,6 +8,7 @@ import Pointer from './Pointer';
 import TipData from './Tip/TipData';
 import TipManager from './Tip/TipManager';
 import Track from './Track';
+import Observer from '../Observer/Observer';
 
 interface IData {
   max: number,
@@ -21,7 +22,7 @@ interface IData {
   values: number[],
 }
 
-class MainView {
+class MainView extends Observer {
   private controller: Controller;
 
   private container: HTMLElement;
@@ -43,6 +44,7 @@ class MainView {
   private scale: Scale;
 
   constructor(container: HTMLElement, controller: Controller) {
+    super();
     this.orientation = Orientation.Vertical;
     this.controller = controller;
     this.container = container;
@@ -87,7 +89,7 @@ class MainView {
     this.sliderElement.addEventListener('click', this.handleSliderClick);
     this.tipManager = new TipManager(this.sliderElement);
     this.tipManager.add('drag', this.onDrag);
-    this.scale = new Scale(this.sliderElement, this.controller);
+    this.scale = new Scale(this.sliderElement, this);
     window.addEventListener('resize', this.handleWindowResize);
   }
 
@@ -106,14 +108,14 @@ class MainView {
       || target.classList.contains('slider__track');
     if (isTrack) {
       const position: number = this.track.getRelativePosition(event.clientX, event.clientY);
-      this.controller.setPosition(position);
+      this.emit('changePosition', position);
     }
   }
 
   private onDrag = (data: IDragData) => {
     const position: number = this.track.getRelativePosition(data.x, data.y);
     const id: number = (data.key === 'low') ? 0 : 1;
-    this.controller.setPointPosition(position, id);
+    this.emit('changePointPosition', { position, id });
   }
 
   private createPointer(key: string) {

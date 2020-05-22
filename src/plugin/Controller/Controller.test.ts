@@ -19,19 +19,19 @@ describe('Controller class', () => {
   describe('setPosition method', () => {
     test('should call model setPosition method', () => {
       model.setPosition = jest.fn();
-      controller.setPosition(1);
+      // controller.setPosition(1);
       expect(model.setPosition).toHaveBeenCalled();
     });
 
     describe('setPointPosition method', () => {
       test('should call same model method', () => {
         model.setPointPosition = jest.fn();
-        controller.setPointPosition(1, 0);
+        // controller.setPointPosition(1, 0);
         expect(model.setPointPosition).toHaveBeenCalled();
       });
 
       test('should call updateView', () => {
-        controller.setPointPosition(1, 0);
+        // controller.setPointPosition(1, 0);
         expect(updateView).toHaveBeenCalled();
       });
     });
