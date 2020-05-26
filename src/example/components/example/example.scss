@@ -1,0 +1,38 @@
+.example {
+  display: flex;
+  padding: 6px 0;
+
+  &__controls {
+    min-width: 160px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: right;
+    background-color: rgb(238, 237, 237);
+    border-radius: 6px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+  }
+
+  &__input {
+    border-radius: 6px;
+    border: 1px solid gray;
+    padding: 4px;
+    width: 60px;
+    line-height: 1.2rem;
+    margin-left: 10px;
+  }
+
+  &__label {
+    margin-top: 6px;
+  }
+
+  &__slider-container {
+    width: 70%;
+    padding: 30px 0 4px 60px;
+  }
+
+  &__slider {
+    height: 100%;
+  }
+}

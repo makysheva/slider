@@ -1,0 +1,25 @@
+mixin example()
+  .example.js-example
+    .example__controls
+      label.example__label Min
+        input.example__input.js-example__min(type="number")
+      label.example__label Max
+        input.example__input.js-example__max(type="number")
+      label.example__label Step
+        input.example__input.js-example__step(type="number")
+      label.example__label Low
+        input.example__input.js-example__low(type="number")
+      label.example__label High
+        input.example__input.js-example__high(type="number")
+      label.example__label Range
+        input.example__input.js-example__range(type="checkbox")
+      label.example__label Vertical
+        input.example__input.js-example__vertical(type="checkbox")
+      label.example__label Tips
+        input.example__input.js-example__tips(type="checkbox")
+    .example__slider-container
+      .js-example__slider.example__slider(
+        data-min="20"
+        data-max="300"
+        data-orientation="horizontal"
+      )

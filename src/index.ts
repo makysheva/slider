@@ -1,8 +1,8 @@
-import Slider from './plugin/Slider';
+// eslint-disable-next-line no-var
+declare var require: any;
 
-$(function () {
-  $.fn.slider = function (props) {
-    const controller = new Slider(this.get(0), props);
-    return controller;
-  };
-});
+function requireAll(requireContext: any) {
+  return requireContext.keys().map(requireContext);
+}
+
+requireAll(require.context('./', true, /^(?!.*(?:test.ts$)).*\.ts|.scss$/));
