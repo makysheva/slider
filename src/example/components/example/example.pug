@@ -1,4 +1,4 @@
-mixin example()
+mixin example({ min=10, max=100, step=1, range="false", orientation="horizontal", tips="true", values=[0,100]})
   .example.js-example
     .example__controls
       label.example__label Min
@@ -19,7 +19,11 @@ mixin example()
         input.example__input.js-example__tips(type="checkbox")
     .example__slider-container
       .js-example__slider.example__slider(
-        data-min="20"
-        data-max="300"
-        data-orientation="horizontal"
+        data-min= min
+        data-max= max
+        data-step= step
+        data-orientation= orientation
+        data-tips= tips
+        data-values= values
+        data-range= range
       )

@@ -17,12 +17,13 @@ interface IProps {
 
 const create = (container: HTMLElement, $element: JQuery, props: IProps) => {
   const attr = {
-    isRange: $element.data('isRange'),
-    isTips: $element.data('isTips'),
+    isRange: $element.data('range'),
+    isTips: $element.data('tips'),
     max: $element.data('max'),
     min: $element.data('min'),
     orientation: $element.data('orientation'),
     step: $element.data('step'),
+    values: $element.data('values'),
   };
   const options = $.extend(attr, props);
 

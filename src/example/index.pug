@@ -16,6 +16,6 @@ html(lang="en")
     meta(name="description" content="page for describe range slider plugin")
     title Examples
   body
-    +example()
-    +example()
-    +example()
+    +example({ min: 0, max: 100, step: 1, range: "false", orientation: "horizontal", tips: "true", values: [50, 100] })
+    +example({ min: 0, max: 300, step: 1, range: "true", orientation: "vertical", tips: "false", values: [0, 300] })
+    +example({ min: 50, max: 250, step: 1, range: "true", orientation: "horizontal", tips: "true", values: [100, 200] })
