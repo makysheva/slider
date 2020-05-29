@@ -1,6 +1,9 @@
+import $ from 'jquery';
 import Orientation from '../../../plugin/Types/Orientation';
 
 class Example {
+  private parent: HTMLElement;
+
   private minInput: HTMLInputElement | null;
 
   private maxInput: HTMLInputElement | null;
@@ -20,28 +23,50 @@ class Example {
   private $slider: JQuery;
 
   constructor(parent: HTMLElement) {
-    this.minInput = parent.querySelector('.js-example__min');
-    this.maxInput = parent.querySelector('.js-example__max');
-    this.stepInput = parent.querySelector('.js-example__step');
-    this.lowInput = parent.querySelector('.js-example__low');
-    this.highInput = parent.querySelector('.js-example__high');
-    this.rangeInput = parent.querySelector('.js-example__range');
-    this.verticalInput = parent.querySelector('.js-example__vertical');
-    this.tipsInput = parent.querySelector('.js-example__tips');
-
-    this.minInput?.addEventListener('change', this.handleMinInputChange);
-    this.maxInput?.addEventListener('change', this.handleMaxInputChange);
-    this.stepInput?.addEventListener('change', this.handleStepInputChange);
-    this.lowInput?.addEventListener('change', this.handleLowInputChange);
-    this.highInput?.addEventListener('change', this.handleHighInputChange);
-    this.rangeInput?.addEventListener('change', this.handleRangeInputChange);
-    this.verticalInput?.addEventListener('change', this.handleVerticalInputChange);
-    this.tipsInput?.addEventListener('change', this.handleTipsInputChange);
-
-    this.$slider = $(parent).find('.js-example__slider');
-    this.$slider.slider('add', 'change', this.handleSliderChange);
-
+    this.parent = parent;
+    this.init();
+    this.initEventHandlers();
     this.updateInputs();
+  }
+
+  private init() {
+    this.minInput = this.parent.querySelector('.js-example__min');
+    this.maxInput = this.parent.querySelector('.js-example__max');
+    this.stepInput = this.parent.querySelector('.js-example__step');
+    this.lowInput = this.parent.querySelector('.js-example__low');
+    this.highInput = this.parent.querySelector('.js-example__high');
+    this.rangeInput = this.parent.querySelector('.js-example__range');
+    this.verticalInput = this.parent.querySelector('.js-example__vertical');
+    this.tipsInput = this.parent.querySelector('.js-example__tips');
+    this.$slider = $(this.parent).find('.js-example__slider');
+  }
+
+  private initEventHandlers() {
+    if (this.minInput) {
+      this.minInput.addEventListener('change', this.handleMinInputChange);
+    }
+    if (this.maxInput) {
+      this.maxInput.addEventListener('change', this.handleMaxInputChange);
+    }
+    if (this.stepInput) {
+      this.stepInput.addEventListener('change', this.handleStepInputChange);
+    }
+    if (this.lowInput) {
+      this.lowInput.addEventListener('change', this.handleLowInputChange);
+    }
+    if (this.highInput) {
+      this.highInput.addEventListener('change', this.handleHighInputChange);
+    }
+    if (this.rangeInput) {
+      this.rangeInput.addEventListener('change', this.handleRangeInputChange);
+    }
+    if (this.verticalInput) {
+      this.verticalInput.addEventListener('change', this.handleVerticalInputChange);
+    }
+    if (this.tipsInput) {
+      this.tipsInput.addEventListener('change', this.handleTipsInputChange);
+    }
+    this.$slider.slider('add', 'change', this.handleSliderChange);
   }
 
   private updateInputs() {
