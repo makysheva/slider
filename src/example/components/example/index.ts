@@ -1,7 +1,8 @@
+import $ from 'jquery';
 import Example from './Example';
 
 $(() => {
-  $('.js-example__slider').each((i, elem) => {
+  $('.js-example__slider').each((_, elem) => {
     $(elem).slider({ step: 1 });
   });
 

@@ -14,7 +14,7 @@ class Controller {
   }
 
   private init(container: HTMLElement) {
-    this.view = new View(container, this);
+    this.view = new View(container);
     this.view.add('changePosition', this.onChangeViewPosition);
     this.view.add('changePointPosition', this.onChangeViewPointPosition);
     this.updateView();

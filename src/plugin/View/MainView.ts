@@ -23,8 +23,6 @@ interface IData {
 }
 
 class MainView extends Observer {
-  private controller: Controller;
-
   private container: HTMLElement;
 
   private sliderElement: HTMLElement;
@@ -43,10 +41,9 @@ class MainView extends Observer {
 
   private scale: Scale;
 
-  constructor(container: HTMLElement, controller: Controller) {
+  constructor(container: HTMLElement) {
     super();
     this.orientation = Orientation.Vertical;
-    this.controller = controller;
     this.container = container;
 
     this.init();
