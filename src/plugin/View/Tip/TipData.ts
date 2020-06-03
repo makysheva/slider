@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import Orientation from '../../Types/Orientation';
 
 interface IPoint { value: number, position: number }

@@ -1,4 +1,5 @@
 import Validator from './Validator';
+// eslint-disable-next-line no-unused-vars
 import IState from './IState';
 import Orientation from '../Types/Orientation';
 

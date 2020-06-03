@@ -31,7 +31,7 @@ describe('Model class', () => {
         step: 1,
         values: [40, 50],
       };
-      const model = new Model(state);
+      model = new Model(state);
 
       expect(model.getState()).toEqual(state);
     });

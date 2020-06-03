@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import IState from './Model/IState';
+// eslint-disable-next-line no-unused-vars
 import Orientation from './Types/Orientation';
 import Slider from './Slider';
 

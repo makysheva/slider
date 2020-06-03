@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import Orientation from '../Types/Orientation';
 
 interface IState {
@@ -10,4 +11,5 @@ interface IState {
   values: number[];
 }
 
+// eslint-disable-next-line no-undef
 export default IState;

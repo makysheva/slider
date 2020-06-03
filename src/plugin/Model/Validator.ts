@@ -1,4 +1,5 @@
 /* eslint-disable no-param-reassign */
+// eslint-disable-next-line no-unused-vars
 import IState from './IState';
 import Orientation from '../Types/Orientation';
 

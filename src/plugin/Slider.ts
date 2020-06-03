@@ -1,6 +1,8 @@
 import Controller from './Controller/Controller';
 import Model from './Model/Model';
+// eslint-disable-next-line no-unused-vars
 import Orientation from './Types/Orientation';
+// eslint-disable-next-line no-unused-vars
 import IState from './Model/IState';
 import Observer from './Observer/Observer';
 

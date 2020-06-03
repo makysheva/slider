@@ -11,20 +11,18 @@ describe('Track class', () => {
     document.body.appendChild(parent);
     track = new Track(parent);
     if (parent.firstElementChild) {
-      parent.firstElementChild.getBoundingClientRect = jest.fn(() => {
-        return {
-          x: 0,
-          y: 0,
-          // tslint:disable-next-line:object-literal-sort-keys
-          width: 600,
-          height: 600,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          top: 0,
-          toJSON: jest.fn(),
-        };
-      });
+      parent.firstElementChild.getBoundingClientRect = jest.fn(() => ({
+        x: 0,
+        y: 0,
+        // tslint:disable-next-line:object-literal-sort-keys
+        width: 600,
+        height: 600,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        top: 0,
+        toJSON: jest.fn(),
+      }));
     }
   });
 

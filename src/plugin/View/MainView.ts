@@ -1,6 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import { IDragData } from './Drag/Drag';
 import './slider.scss';
-import Controller from '../Controller/Controller';
 import Fill from './Fill';
 import Scale from './Scale/Scale';
 import Orientation from '../Types/Orientation';

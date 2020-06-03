@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import IState from './IState';
 import Observer from '../Observer/Observer';
 import Orientation from '../Types/Orientation';

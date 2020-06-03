@@ -1,5 +1,6 @@
 import Orientation from '../Types/Orientation';
 import OrientationManager from './OrientationManager';
+// eslint-disable-next-line no-unused-vars
 import Drag, { IDragData } from './Drag/Drag';
 import Observer from '../Observer/Observer';
 

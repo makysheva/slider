@@ -34,7 +34,7 @@ describe('Pointer class', () => {
   describe('Drag event', () => {
     test('should emit drag event', () => {
       const mouseDownEvent = new MouseEvent('mousedown');
-      const mouseDragEvent = new MouseEvent('mousemove', { bubbles: true, clientX: 100});
+      const mouseDragEvent = new MouseEvent('mousemove', { bubbles: true, clientX: 100 });
       const callback = jest.fn();
       pointer.add('drag', callback);
       const element = parent.firstElementChild;
