@@ -46,7 +46,6 @@ $('#slider').slider();
 - отображать значения над бегунками
 - обработчик события изменения значений слайдера
 
-Эти значения можно задать либо через функцию `slider`, либо через объект возвращаемый этой функцией:
 ```javascript
 const slider = $('#slider').slider({
     min: 0,
@@ -57,13 +56,6 @@ const slider = $('#slider').slider({
     orientation: 'horizontal',
     showLabels: true
 });
-
-slider.minMax = [0, 10];
-slider.step = 2;
-slider.value = 5;
-slider.values = [1, 10]; // в случае, если range: true
-slider.orientation = 'vertical';
-slider.labels = false;
 ```
 
 #### События
